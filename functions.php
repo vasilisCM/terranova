@@ -7,7 +7,8 @@ include_once(get_template_directory() . '/api/load-more-posts.php');
 function theme_menus()
 {
   $locations = array(
-    'main' => "Main",
+    'main_menu_1' => "Main Menu 1",
+    'main_menu_2' => "Main Menu 2",
     'footer' => "Footer",
     'legal' => "Legal",
   );

@@ -6,12 +6,12 @@ import backToTop from "./global/backToTop.js";
 function global() {
   loader(".body", ".loader", ".loader__spinner");
   stickyHeader(".header", "header--sticky");
-  hamburgerMenu(
-    ".hamburger",
-    "hamburger--pressed",
-    ".main-menu",
-    "main-menu--closed"
-  );
+  // hamburgerMenu(
+  //   ".hamburger",
+  //   "hamburger--pressed",
+  //   ".main-menu",
+  //   "main-menu--closed"
+  // );
   backToTop(".back-to-top", "back-to-top--visible");
 }
 

@@ -9,43 +9,77 @@
 </head>
 
 <body <?php body_class('body'); ?>>
-  <header class="header">
+
+  <!-- Header  -->
+  <header class="header header--scroll">
     <div class="header__container boxed centered">
-
-      <div class="header__logo-container">
-        <a href="<?php echo site_url(); ?>">
-          <img src="<?php echo get_template_directory_uri() . '/./assets/img/logo.svg'; ?>" alt="">
-        </a>
-      </div>
-
-
-
-      <!-- Main Menu -->
-      <nav class="main-menu main-menu--closed">
-
+      <!-- Main Menu 1 -->
+      <nav class="main-menu main-menu-1">
         <?php
         wp_nav_menu(
           array(
-            'menu' => "main",
+            'menu' => 'main_menu_1',
             'container' => '',
-            'theme_location' => "main",
-            'items_wrap' => '<ul id="" class="main-menu__list" data-lenis-prevent>%3$s</ul>'
+            'theme_location' => 'main_menu_1',
+            'items_wrap' => '<ul id="" class="main-menu__list ">%3$s</ul>'
           )
         );
         ?>
       </nav>
 
-      <!-- Search Form -->
-      <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="search-form">
-        <button type="submit" class="search-form__button" aria-label="<?php echo esc_attr_x('Search', 'submit button', 'terranova'); ?>"></button>
-        <input type="search" class="search-form__input" placeholder="<?php echo esc_attr_x('Search', 'placeholder', 'terranova'); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php echo esc_attr_x('Search for:', 'label', 'terranova'); ?>">
-      </form>
-
-      <!-- Hamburger  -->
-      <div class="hamburger" pressed="false">
-        <div class="main-menu__mobile-button hamburger__button"></div>
+      <!-- Logo  -->
+      <div class="header__logo-container">
+        <a href="/">
+          <img
+            src="<?php echo get_template_directory_uri() . '/./assets/img/logo.jpg'; ?>"
+            alt=""
+            class="logo header__logo" />
+        </a>
       </div>
 
+      <!-- Main Menu 2 -->
+      <nav class="main-menu main-menu-2">
+        <?php
+        wp_nav_menu(
+          array(
+            'menu' => 'main_menu_2',
+            'container' => '',
+            'theme_location' => 'main_menu_2',
+            'items_wrap' => '<ul id="" class="main-menu__list ">%3$s</ul>'
+          )
+        );
+        ?>
+      </nav>
 
+      <!-- Dropdown Background  -->
+      <div class="main-menu__dropdown-background"></div>
+
+      <!-- Search Form -->
+      <div class="search">
+        <div class="search__toggle search__toggle--open"></div>
+        <div class="search__toggle search__toggle--close"></div>
+        <div class="search__background"></div>
+        <div class="search__modal-container">
+          <div class="search__modal">
+            <form
+              role="search"
+              class="search-form"
+              method="get"
+              action=""
+              data-open="false">
+              <label class="search-form__label">
+                <input
+                  type="search"
+                  class="search-form__input search-field"
+                  placeholder=""
+                  value=""
+                  name="s"
+                  title="Search for:" />
+              </label>
+              <button type="button" class="search-form__button"></button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
