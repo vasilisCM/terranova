@@ -1,0 +1,29 @@
+.body {
+  overflow-x: hidden;
+  background-color: $secondary;
+  font-family: system-ui;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+a {
+  @include clear-styles;
+  color: $accent;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  font-size: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}

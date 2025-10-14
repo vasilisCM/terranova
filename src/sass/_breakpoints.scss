@@ -1,0 +1,51 @@
+@mixin view($media) {
+  @if $media==xs {
+    @media only screen and (max-width: 640px) {
+      @content;
+    }
+  } @else if $media==sm-min {
+    @media only screen and (min-width: 641px) {
+      @content;
+    }
+  } @else if $media==sm-max {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $media==md-min {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $media==md-max {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $media==lg-min {
+    @media only screen and (min-width: 1025px) {
+      @content;
+    }
+  } @else if $media==lg-max {
+    @media only screen and (max-width: 1280px) {
+      @content;
+    }
+  } @else if $media==xl-min {
+    @media only screen and (min-width: 1281px) {
+      @content;
+    }
+  } @else if $media==xl-max {
+    @media only screen and (max-width: 1920px) {
+      @content;
+    }
+  } @else if $media==xxl {
+    @media only screen and (min-width: 1921px) {
+      @content;
+    }
+  } @else if $media==box-max {
+    @media only screen and (max-width: $box) {
+      @content;
+    }
+  } @else if $media==box-min {
+    @media only screen and (min-width: $box) {
+      @content;
+    }
+  }
+}

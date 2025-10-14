@@ -1,0 +1,93 @@
+// Headings
+.heading-l {
+  font-size: cross-media(40px, 1024px, 60px);
+
+  @include view(xxl) {
+    font-size: cross-media(60px, 3840px, calc(60px * $xxl-scale));
+  }
+}
+
+h1,
+.heading-ml {
+  font-size: cross-media(35px, 1024px, 50px);
+
+  @include view(xxl) {
+    font-size: cross-media(50px, 3840px, calc(50px * $xxl-scale));
+  }
+}
+
+h2,
+.heading {
+  font-size: cross-media(30px, 1024px, 40px);
+
+  @include view(xxl) {
+    font-size: cross-media(40px, 3840px, calc(40px * $xxl-scale));
+  }
+}
+
+h3,
+.heading-ms {
+  font-size: cross-media(20px, 1024px, 30px);
+
+  @include view(xxl) {
+    font-size: cross-media(30px, 3840px, calc(30px * $xxl-scale));
+  }
+}
+
+h4,
+.heading-s {
+  font-size: cross-media(15px, 1024px, 20px);
+
+  @include view(xxl) {
+    font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+  }
+}
+
+// Texts
+.text-l {
+  font-size: cross-media(20px, 1024px, 25px);
+
+  @include view(xxl) {
+    font-size: cross-media(25px, 3840px, calc(25px * $xxl-scale));
+  }
+}
+
+.text-ml {
+  font-size: cross-media(16px, 1024px, 20px);
+
+  @include view(xxl) {
+    font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+  }
+}
+
+.text {
+  font-size: cross-media(14px, 1024px, 16px);
+
+  @include view(xxl) {
+    font-size: cross-media(16px, 3840px, calc(16px * $xxl-scale));
+  }
+}
+
+.text-ms {
+  font-size: cross-media(12px, 1024px, 14px);
+
+  @include view(xxl) {
+    font-size: cross-media(14px, 3840px, calc(14px * $xxl-scale));
+  }
+}
+
+.text-s {
+  font-size: 12px;
+
+  @include view(xxl) {
+    font-size: cross-media(12px, 3840px, calc(12px * $xxl-scale));
+  }
+}
+
+.button {
+  font-size: cross-media(12px, 1024px, 18px);
+
+  @include view(xxl) {
+    font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+  }
+}

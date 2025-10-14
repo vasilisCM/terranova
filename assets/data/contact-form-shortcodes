@@ -1,0 +1,7 @@
+[text* your-name placeholder "Full Name"] [email* your-email
+placeholder"E-mail"] [tel* tel placeholder "Phone number"] [textarea
+your-message placeholder "Message"]
+<div class="contact__form-acceptance">
+  [acceptance acceptance-365] I agree with Terms and Conditions. [/acceptance]
+</div>
+<div class="button contact__form-button">[submit "Send"]</div>
