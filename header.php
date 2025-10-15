@@ -61,32 +61,6 @@
       <!-- Dropdown Background  -->
       <div class="main-menu__dropdown-background"></div>
 
-      <!-- Search Form -->
-      <div class="search">
-        <div class="search__toggle search__toggle--open"></div>
-        <div class="search__toggle search__toggle--close"></div>
-        <div class="search__background"></div>
-        <div class="search__modal-container">
-          <div class="search__modal">
-            <form
-              role="search"
-              class="search-form"
-              method="get"
-              action=""
-              data-open="false">
-              <label class="search-form__label">
-                <input
-                  type="search"
-                  class="search-form__input search-field"
-                  placeholder=""
-                  value=""
-                  name="s"
-                  title="Search for:" />
-              </label>
-              <button type="button" class="search-form__button"></button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <?php include 'components/search-modal.php'; ?>
     </div>
   </header>

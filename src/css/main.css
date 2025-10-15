@@ -2006,13 +2006,6 @@ h4 {
   text-decoration: none;
   list-style-type: none;
 }
-.search-form__button:before {
-  content: "\e902";
-  font-family: "icomoon";
-  font-variant: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 .cursor-track {
   display: flex;

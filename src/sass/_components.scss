@@ -428,13 +428,7 @@
 .search-form {
   &__button {
     @include clear-styles;
-    &:before {
-      @include icon("\e902");
-    }
   }
-  // &__input {
-  //   @include clear-styles;
-  // }
 }
 
 // Drag Cursor
