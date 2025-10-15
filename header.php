@@ -31,7 +31,7 @@
       <div class="header__logo-container">
         <a href="/">
           <img
-            src="<?php echo get_template_directory_uri() . '/./assets/img/logo.jpg'; ?>"
+            src="<?php echo get_template_directory_uri() . '/./assets/img/logo.svg'; ?>"
             alt=""
             class="logo header__logo" />
         </a>

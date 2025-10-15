@@ -112,6 +112,8 @@ add_action('wp_enqueue_scripts', 'load_css');
 // Javascript
 function load_js_libraries()
 {
+  wp_enqueue_script('barba', get_template_directory_uri() . '/src/js/libraries/barba.min.js', array(), false, true);
+  wp_enqueue_script('Draggable', get_template_directory_uri() . '/src/js/libraries/Draggable.min.js', array(), false, true);
   wp_enqueue_script('gsap', get_template_directory_uri() . '/src/js/libraries/gsap.min.js', array(), false, true);
   wp_enqueue_script('imagesloaded', get_template_directory_uri() . '/src/js/libraries/imagesloaded.pkgd.min.js', array(), false, true);
   wp_enqueue_script('lenis', get_template_directory_uri() . '/src/js/libraries/lenis.min.js', array(), false, true);
@@ -126,6 +128,8 @@ function load_js()
 {
   // Global JS
   wp_enqueue_script('main', get_template_directory_uri() . '/dist/global.bundle.js', array(), false, true);
+  wp_enqueue_script('globalAfterLoader', get_template_directory_uri() . '/dist/globalAfterLoader.bundle.js', array(), false, true);
+
 
   // Localize the script with the WordPress AJAX object
   wp_localize_script('main', 'wordpressObject', array('ajaxUrl' => admin_url('admin-ajax.php')));

@@ -63,7 +63,7 @@ class Carousel {
       animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
       gap: 0,
       breakpoints: {
-        991: { perView: this.visibleTablet },
+        1024: { perView: this.visibleTablet },
         767: { perView: this.visibleMobile },
       },
       //   rewind: false
