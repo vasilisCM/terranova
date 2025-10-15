@@ -1,4 +1,4 @@
-import countriesInfo from "../data/countriesInfo.js";
+import countriesInfo from "../../../assets/data/countriesInfo.js";
 
 const multiEmailForm = () => {
   const form = document.querySelector("[data-multi-email-form]");

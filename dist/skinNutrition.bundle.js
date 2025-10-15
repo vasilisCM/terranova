@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/animations/clipUp.js":
+/*!*************************************!*\
+  !*** ./src/js/animations/clipUp.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst clipUp = (arr, delay = 1, additionalAnimations = []) => {\n  const tl = gsap.timeline();\n  tl.fromTo(\n    arr,\n    {\n      clipPath: \"polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)\",\n      y: 100,\n    },\n    {\n      clipPath: \"polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)\",\n      y: 0,\n      ease: \"power4.out\",\n      stagger: 0.8,\n      duration: 3,\n      delay: delay,\n    }\n  );\n\n  additionalAnimations.forEach((animation) => {\n    tl.to(animation.target, animation.props, animation.position || \"<\");\n  });\n\n  return tl;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clipUp);\n\n\n//# sourceURL=webpack://terranova/./src/js/animations/clipUp.js?");
+
+/***/ }),
+
 /***/ "./src/js/logic/draggableCarousel.js":
 /*!*******************************************!*\
   !*** ./src/js/logic/draggableCarousel.js ***!
@@ -20,23 +30,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/js/logic/simpleCarousel.js":
-/*!****************************************!*\
-  !*** ./src/js/logic/simpleCarousel.js ***!
-  \****************************************/
+/***/ "./src/js/logic/setAsymmetricalClasses.js":
+/*!************************************************!*\
+  !*** ./src/js/logic/setAsymmetricalClasses.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Carousel\nconst simpleCarousel = function (\n  currentSection,\n  productsContainer,\n  previousButton,\n  nextButton\n) {\n  console.log(\"Hello from th simple carousel\");\n\n  // Hide arrow buttons when less than 4 slides\n  let buttons = [previousButton, nextButton];\n\n  // Desktop\n  const cards = Array.from(currentSection.querySelectorAll(\".slides__slide\"));\n\n  if (cards.length > 0) {\n    buttons.forEach((button) => {\n      if (cards.length < 4) button.classList.add(\"hidden\");\n      else button.classList.remove(\"hidden\");\n    });\n\n    let count = 0;\n    let currentPosition = 0;\n    const itemWidth = cards[0].offsetWidth;\n    gsap.set(productsContainer, {\n      x: 0,\n    });\n\n    previousButton.addEventListener(\"click\", () => {\n      if (currentPosition > 0) {\n        currentPosition--;\n        count--;\n        gsap.to(productsContainer, {\n          x: -currentPosition * itemWidth - 25 * count,\n        });\n      }\n    });\n\n    nextButton.addEventListener(\"click\", () => {\n      if (currentPosition < cards.length - 3) {\n        currentPosition++;\n        count++;\n        gsap.to(productsContainer, {\n          x: -(currentPosition * itemWidth) - 25 * count,\n        });\n      }\n    });\n  }\n  // Mobile/ Tablet\n  //   let defaultVisibleCategory = Array.from(\n  //     currentSection.querySelectorAll(\".products__product:not(.hidden)\")\n  //   );\n  //   matchMedia.add(\"(max-width: 991px)\", () => {\n  //     let count = 0;\n\n  //     defaultVisibleCategory.forEach((product) => {\n  //       // Init\n  //       gsap.set(product, {\n  //         opacity: 0,\n  //       });\n  //       gsap.set(defaultVisibleCategory[0], {\n  //         opacity: 1,\n  //       });\n  //     });\n\n  //     nextButton.addEventListener(\"click\", (e) => {\n  //       gsap.to(defaultVisibleCategory[count], {\n  //         opacity: 0,\n  //         delay: 0.3,\n  //       });\n  //       gsap.to(defaultVisibleCategory[count + 1], {\n  //         opacity: 1,\n  //         delay: 0.3,\n  //       });\n\n  //       if (count < defaultVisibleCategory.length - 1) {\n  //         count++;\n  //       } else {\n  //         count = 0;\n  //         gsap.set(defaultVisibleCategory[0], {\n  //           opacity: 1,\n  //         });\n  //       }\n  //     });\n\n  //     previousButton.addEventListener(\"click\", () => {\n  //       gsap.to(cards[count], {\n  //         opacity: 0,\n  //         delay: 0.3,\n  //       });\n\n  //       gsap.to(cards[count - 1], {\n  //         opacity: 1,\n  //         delay: 0.3,\n  //       });\n\n  //       if (count == 0) {\n  //         gsap.to(cards[count], {\n  //           opacity: 0,\n  //           delay: 0.3,\n  //         });\n\n  //         count = cards.length - 1;\n  //         gsap.set(cards[cards.length - 1], {\n  //           opacity: 1,\n  //           delay: 0.3,\n  //         });\n  //       } else {\n  //         count--;\n  //       }\n  //     });\n  //   });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (simpleCarousel);\n\n\n//# sourceURL=webpack://terranova/./src/js/logic/simpleCarousel.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   setAsymmetricalClasses: () => (/* binding */ setAsymmetricalClasses)\n/* harmony export */ });\nconst setAsymmetricalClasses = () => {\n  const skinNutritionImages = document.querySelectorAll(\n    \".asymmetrical-carousel__column\"\n  );\n\n  skinNutritionImages.forEach((img, i) => {\n    const classNumber = (i % 4) + 1;\n    img.classList.add(`asymmetrical-carousel__column--${classNumber}`);\n  });\n};\n\n\n\n\n//# sourceURL=webpack://terranova/./src/js/logic/setAsymmetricalClasses.js?");
 
 /***/ }),
 
-/***/ "./src/js/pages/singleProduct.js":
+/***/ "./src/js/pages/skinNutrition.js":
 /*!***************************************!*\
-  !*** ./src/js/pages/singleProduct.js ***!
+  !*** ./src/js/pages/skinNutrition.js ***!
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logic_simpleCarousel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../logic/simpleCarousel.js */ \"./src/js/logic/simpleCarousel.js\");\n/* harmony import */ var _logic_draggableCarousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logic/draggableCarousel.js */ \"./src/js/logic/draggableCarousel.js\");\n\r\n\r\n\r\nfunction singleProduct() {\r\n  console.log(\"Single Product\");\r\n\r\n  /*\r\n  // Tabs\r\n  const tabs = document.querySelector(\".tabs\");\r\n  const tabsButtonsContainer = document.querySelector(\r\n    \".tabs__buttons-container\"\r\n  );\r\n  const tabsButtons = document.querySelectorAll(\".tabs__button\");\r\n  const tabsContent = document.querySelectorAll(\".tabs__content\");\r\n\r\n  // Use our own TABS\r\n  // toggleTabs(tabs, tabsButtonsContainer, tabsButtons, tabsContent);\r\n  */\r\n\r\n  // Related Products\r\n  const relatedProductsCarousel = document.querySelector(\".related-products\");\r\n  const previousButton = document.querySelector(\r\n    \".simple-carousel__button--previous\"\r\n  );\r\n  const nextButton = document.querySelector(\".simple-carousel__button--next\");\r\n  const relatedProductsContainer = document.querySelector(\".slides__container\");\r\n  (0,_logic_simpleCarousel_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\r\n    relatedProductsCarousel,\r\n    relatedProductsContainer,\r\n    nextButton,\r\n    previousButton\r\n  );\r\n\r\n  // Instagram\r\n  const instagramCarouselContainer = document.querySelector(\r\n    \".instagram__slides-container\"\r\n  );\r\n  const instagramCarouselTrack = document.querySelector(\r\n    \".instagram__container\"\r\n  );\r\n  (0,_logic_draggableCarousel_js__WEBPACK_IMPORTED_MODULE_1__.draggableCarousel)(\r\n    instagramCarouselContainer,\r\n    instagramCarouselTrack,\r\n    \".instagram__image\"\r\n  );\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  document.addEventListener(\"loaderDone\", singleProduct);\r\n});\r\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/singleProduct.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _animations_clipUp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../animations/clipUp.js */ \"./src/js/animations/clipUp.js\");\n/* harmony import */ var _logic_draggableCarousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logic/draggableCarousel.js */ \"./src/js/logic/draggableCarousel.js\");\n/* harmony import */ var _logic_setAsymmetricalClasses_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logic/setAsymmetricalClasses.js */ \"./src/js/logic/setAsymmetricalClasses.js\");\n\r\n\r\n\r\n\r\nfunction skinNutrition() {\r\n  console.log(\"Skin Nutrition\");\r\n\r\n  // Hero Entrance\r\n  (0,_animations_clipUp_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\r\n    [\".banner__text-background, h1, .banner__subheading\"]\r\n    // , 1,\r\n    // [\r\n    //   {\r\n    //     target: '.banner--skin-nutrition',\r\n    //     props: {\r\n    //       backgroundPosition:'0% -5%',\r\n    //       ease: \"power4.out\",\r\n    //       duration: 3,\r\n    //     },\r\n    //     position: \"<\"\r\n    //   }\r\n    // ]\r\n  );\r\n\r\n  (0,_logic_setAsymmetricalClasses_js__WEBPACK_IMPORTED_MODULE_2__.setAsymmetricalClasses)();\r\n\r\n  const asymmetricalCarouselContainer =\r\n    document.querySelector(\".slides-container\");\r\n  const asymmetricalCarouselTrack = document.querySelector(\r\n    \".asymmetrical-carousel__container\"\r\n  );\r\n  (0,_logic_draggableCarousel_js__WEBPACK_IMPORTED_MODULE_1__.draggableCarousel)(\r\n    asymmetricalCarouselContainer,\r\n    asymmetricalCarouselTrack,\r\n    \".asymmetrical-carousel__image-container\"\r\n  );\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  document.addEventListener(\"loaderDone\", skinNutrition);\r\n});\r\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/skinNutrition.js?");
 
 /***/ })
 
@@ -100,7 +110,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _log
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/pages/singleProduct.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/pages/skinNutrition.js");
 /******/ 	
 /******/ })()
 ;
