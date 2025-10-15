@@ -68,12 +68,17 @@
     </div>
   </div>
 
+  <!-- Reel  -->
+  <div class="reel"></div>
+
   <!-- Loader  -->
-  <?php include 'components/loader.php'; ?>
-
-
+  <?php include 'components/loader.php';
+  ?>
 
 </footer>
+
+<div class="dropdown-menu-overlay"></div>
+
 <?php wp_footer(); ?>
 </body>
 

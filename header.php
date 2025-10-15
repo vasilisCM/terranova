@@ -13,6 +13,13 @@
   <!-- Header  -->
   <header class="header header--scroll">
     <div class="header__container boxed centered">
+
+      <!-- Hamburger  -->
+      <div class="hamburger header__hamburger">
+        <div class="hamburger__top"></div>
+        <div class="hamburger__bottom"></div>
+      </div>
+
       <!-- Main Menu 1 -->
       <nav class="main-menu main-menu-1">
         <?php

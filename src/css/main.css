@@ -290,7 +290,7 @@ h4,
 
 .body {
   overflow-x: hidden;
-  background-color: #5b697b;
+  background-color: #fcfcfc;
   font-family: "InterTight", system-ui;
   font-weight: 400;
 }
@@ -961,10 +961,6 @@ h4 {
     visibility: hidden;
   }
 }
-.main-menu a {
-  text-decoration: none;
-  color: #000;
-}
 @media only screen and (min-width: 1025px) {
   .main-menu a {
     z-index: 10;
@@ -1541,7 +1537,7 @@ h4 {
 
 .reel {
   will-change: background-position;
-  background: url("../../../assets/img/footer-reel.svg");
+  background: url("../../assets/img/footer-reel.svg");
   min-height: 42px;
   background-repeat: no-repeat;
   margin-top: 60px;
@@ -1649,6 +1645,7 @@ h4 {
 
 .loader {
   display: grid;
+  display: none;
   place-items: center;
   position: fixed;
   height: 100%;
@@ -1911,6 +1908,9 @@ h4 {
   }
 }
 */
+/*
+// HAMBURGER BOILERPLATE
+// Hamburger Menu
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -1918,52 +1918,60 @@ h4 {
   height: 30px;
   cursor: pointer;
   z-index: 10;
-}
-@media only screen and (min-width: 1025px) {
-  .hamburger {
-    display: none;
-  }
-}
-.hamburger--pressed .hamburger__button {
-  transform: translateX(-50px);
-  background: transparent;
-}
-.hamburger--pressed .hamburger__button:before {
-  transform: rotate(45deg) translate(35px, -35px);
-}
-.hamburger--pressed .hamburger__button:after {
-  transform: rotate(-45deg) translate(35px, 35px);
-}
-.hamburger__button {
-  display: flex;
-  position: relative;
-  z-index: 2;
-  width: 36px;
-  height: 3px;
-  background: #e8e7e0;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-@media only screen and (min-width: 1025px) {
-  .hamburger__button {
-    display: none;
-  }
-}
-.hamburger__button:before, .hamburger__button:after {
-  content: "";
-  position: absolute;
-  width: 36px;
-  height: 3px;
-  background: #e8e7e0;
-  transition: all 0.5s ease-in-out;
-}
-.hamburger__button:before {
-  transform: translateY(-10px);
-}
-.hamburger__button:after {
-  transform: translateY(10px);
-}
 
+  @include view(lg-min) {
+    display: none;
+  }
+
+  &--pressed {
+    & .hamburger__button {
+      transform: translateX(-50px);
+      background: transparent;
+
+      &:before {
+        transform: rotate(45deg) translate(35px, -35px);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translate(35px, 35px);
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    width: 36px;
+    height: 3px;
+    background: $primary;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    @include view(lg-min) {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 36px;
+      height: 3px;
+      background: $primary;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &:before {
+      transform: translateY(-10px);
+    }
+
+    &:after {
+      transform: translateY(10px);
+    }
+  }
+}
+*/
 .back-to-top {
   position: fixed;
   bottom: 0;

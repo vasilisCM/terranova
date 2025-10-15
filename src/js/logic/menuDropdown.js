@@ -75,15 +75,15 @@ const menuDropdown = (dropdownLinks) => {
     });
 
     dropdownTimeline
-      .fromTo(
-        bodyTerranova,
-        {
-          position: "static", // For Menu Overlay
-        },
-        {
-          position: "absolute", // For Menu Overlay
-        }
-      )
+      // .fromTo(
+      //   bodyTerranova,
+      //   {
+      //     position: "static", // For Menu Overlay
+      //   },
+      //   {
+      //     position: "absolute", // For Menu Overlay
+      //   }
+      // )
 
       .fromTo(
         ".main-menu__dropdown-background",

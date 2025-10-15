@@ -1,11 +1,13 @@
 import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
 import { menuDropdown } from "./logic/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
+import { moveItems } from "./logic/moveItems.js";
 
 function globalAfterLoader() {
   console.log("Global after Loader");
 
   // Header
+  const body = document.querySelector(".body");
   const header = document.querySelector(".header");
 
   if (window.matchMedia("(min-width: 1024px)").matches) {
@@ -84,7 +86,103 @@ function globalAfterLoader() {
     });
 
     // Hamburger Toggle
-    const openCloseMobileMenu = (hamburger, className, menu) => {};
+    const openCloseMobileMenu = (hamburger, className, menu) => {
+      let menuIsOpen = false;
+      const lines = hamburger.querySelectorAll("div");
+      const submenus = document.querySelectorAll(".sub-menu");
+      const white = "fcfcfc";
+
+      // Initial State
+      gsap.to(menu, {
+        left: "-100%",
+      });
+
+      gsap.to(
+        ".header",
+
+        {
+          backgroundColor: "transparent",
+        }
+      );
+
+      gsap.to(body, {
+        overflowY: "visible",
+      });
+
+      // Close open submenus to reset UI
+      submenus.forEach((submenu) => {
+        if (submenu) {
+          gsap.set(submenu, {
+            x: "100%",
+          });
+        }
+      });
+
+      // Reset Hamburger
+      lines.forEach((line) => {
+        line.classList.remove(className);
+      });
+
+      // Hamburger
+      hamburger.addEventListener("click", () => {
+        menuIsOpen = !menuIsOpen; // Toggle menuIsOpen
+
+        // Toggle the 'active' class on each line
+        lines.forEach((line) => {
+          line.classList.toggle(className, menuIsOpen);
+        });
+
+        // Show/ Hide Menu
+        if (menuIsOpen) {
+          // Show Menu Timeline
+          gsap.to(
+            menu,
+
+            {
+              left: "0%",
+            }
+          );
+
+          gsap.to(
+            ".header",
+
+            {
+              backgroundColor: white,
+            }
+          );
+
+          gsap.to(body, {
+            overflowY: "hidden",
+          });
+        } else {
+          // Hide Menu Timeline
+          gsap.to(menu, {
+            left: "-100%",
+          });
+
+          gsap.to(
+            ".header",
+
+            {
+              backgroundColor: "transparent",
+            }
+          );
+
+          gsap.to(body, {
+            overflowY: "visible",
+          });
+
+          // Close open submenus to reset UI
+          submenus.forEach((submenu) => {
+            if (submenu) {
+              gsap.set(submenu, {
+                x: "100%",
+              });
+            }
+          });
+        }
+      });
+    };
 
     const hamburger = document.querySelector(".hamburger");
     openCloseMobileMenu(hamburger, "active", mainMenu);

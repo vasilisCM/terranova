@@ -195,6 +195,6 @@ function home() {
   );
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("loaderDone", home);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   document.addEventListener("loaderDone", home);
+// });

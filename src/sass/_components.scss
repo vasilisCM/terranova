@@ -1,6 +1,7 @@
 // Loader
 .loader {
   display: grid;
+  display: none;
   place-items: center;
   position: fixed;
   // inset: 0;
@@ -335,6 +336,8 @@
 }
 */
 
+/*
+// HAMBURGER BOILERPLATE
 // Hamburger Menu
 .hamburger {
   display: flex;
@@ -396,6 +399,7 @@
     }
   }
 }
+*/
 
 // Back to Top
 .back-to-top {
