@@ -1,13 +1,19 @@
-// Colors
-$white: #fff;
+// Basic
 $black: #000;
-$primary: #002454;
-$secondary: #eef0f3;
-$accent: #d01a2f;
+$white: #fcfcfc;
+$primary: #e8e7e0;
+
+// Accent
+$secondary: #5b697b;
+$accent: #c44a37;
+
+// Variations
+$black-op-50: rgba($black, 0.5);
+$white-op-80: rgba($white, 0.8);
 
 // Boxes
-$box: 1440px;
-$box-4k: 2880px;
+$box: 1800px;
+$box-4k: 2600px;
 $box-sm: 1100px;
 $box-sm-4k: 2200px;
 
@@ -17,3 +23,6 @@ $padding-inline-mob: 20px;
 
 //XXL Scale
 $xxl-scale: 1.5;
+
+// Gaps
+$gap: 48px;

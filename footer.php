@@ -71,8 +71,7 @@
   <!-- Loader  -->
   <?php include 'components/loader.php'; ?>
 
-  <!-- Back to Top  -->
-  <?php include 'components/back-to-top.php'; ?>
+
 
 </footer>
 <?php wp_footer(); ?>

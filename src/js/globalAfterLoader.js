@@ -1,3 +1,7 @@
+import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
+import { menuDropdown } from "./logic/menuDropdown.js";
+import { searchFormAnimation } from "./logic/searchFormAnimation.js";
+
 function globalAfterLoader() {
   console.log("Global after Loader");
 

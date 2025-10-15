@@ -1,0 +1,206 @@
+.banner {
+  &--skin-nutrition {
+    background-image: url("../../assets/img/skin-nutrition-background.webp");
+    background-position: 50% 50%;
+  }
+}
+
+.holistic {
+  margin-top: cross-media(75px, 991px, 150px);
+  &__text-container {
+    display: grid;
+    gap: cross-media(4px, 991px, 8px);
+    text-align: center;
+
+    @include view(lg-min) {
+      max-width: 1000px;
+    }
+  }
+
+  &__heading {
+    padding-bottom: cross-media(8px, 991px, 16px);
+  }
+}
+
+.asymmetrical-carousel {
+  &--skin-nutrition {
+    padding: cross-media(50px, 991px, 100px) 0;
+  }
+}
+
+.skin-nutrition-steps {
+  margin-top: cross-media(20px, 991px, 40px);
+
+  &__container {
+    display: grid;
+    gap: cross-media(8px, 991px, 160px);
+  }
+
+  &__step {
+    display: grid;
+    gap: cross-media(8px, 991px, 16px);
+
+    &--extra {
+      & .skin-nutrition-steps__heading,
+      & .skin-nutrition-steps__text-container,
+      & .skin-nutrition-steps__subheading,
+      .skin-nutrition-steps__img-container {
+        @include view(md-max) {
+          order: -1; // Hack, no idea why it works
+        }
+      }
+
+      @include view(lg-min) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "step step" "description description" "recommended image" "product-info image" "icons icons";
+        align-items: center;
+        column-gap: 0;
+
+        & .skin-nutrition-steps__heading {
+          grid-area: step;
+        }
+
+        & .skin-nutrition-steps__text-container {
+          grid-area: description;
+          grid-column: 1;
+        }
+
+        & .skin-nutrition-steps__subheading {
+          grid-area: recommended;
+          height: fit-content;
+        }
+
+        & .skin-nutrition-steps__img-container {
+          grid-area: image;
+          // position: relative;
+          // min-height: 800px;
+
+          & .skin-nutrition-steps__img {
+            width: 100%;
+            // position: absolute;
+            // max-height: 800px;
+          }
+        }
+
+        & .skin-nutrition-steps__product {
+          grid-area: product-info;
+          margin-top: -360px; // FIX
+        }
+
+        & .skin-nutrition-steps__icons {
+          grid-area: icons;
+          margin-top: cross-media(50px, 991px, 100px);
+        }
+      }
+    }
+  }
+
+  &__heading,
+  &__subheading {
+    text-transform: lowercase;
+
+    &:before {
+      margin-top: cross-media(6px, 991px, 12px);
+    }
+  }
+
+  &__heading {
+    color: $accent;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &__subheading {
+    margin-top: cross-media(20px, 991px, 40px);
+  }
+
+  &__text-container {
+    display: grid;
+    gap: cross-media(8px, 991px, 16px);
+
+    @include view(lg-min) {
+      max-width: 70%;
+    }
+  }
+
+  &__product-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+
+    @include view(lg-min) {
+      max-width: 70%;
+    }
+  }
+
+  &__img {
+    @include view(md-max) {
+      width: 100%;
+      max-height: cross-media(300px, 767px, 450px);
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
+  }
+
+  &__icons {
+    gap: cross-media(30px, 991px, 60px);
+
+    @include view(md-max) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.life-drink {
+  margin-top: cross-media(100px, 991px, 200px);
+
+  &__text {
+    @include view(lg-min) {
+      max-width: 90%;
+    }
+  }
+
+  &__product {
+    display: grid;
+    align-items: center;
+    row-gap: 20px; // Only on mobile
+
+    @include view(lg-min) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__button {
+    margin-top: cross-media(60px, 991px, 120px);
+  }
+
+  &__img {
+    width: 100%;
+    max-height: 750px;
+    object-fit: cover;
+    // margin-right: calc((100vw - #{$box}) / 2);
+  }
+
+  &__recipe {
+    padding-bottom: cross-media(20px, 991px, 40px);
+  }
+
+  &__dosage-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: cross-media(8px, 991px, 16px);
+    margin-top: cross-media(10px, 991px, 20px);
+  }
+
+  &__dosage {
+    display: flex;
+    align-items: center;
+    gap: cross-media(4px, 991px, 8px);
+
+    &:before {
+      content: "🥄";
+    }
+  }
+}

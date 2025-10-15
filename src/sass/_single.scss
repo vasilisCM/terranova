@@ -1,0 +1,65 @@
+.single-post-info {
+  &__text-container {
+    gap: cross-media(4px, 991px, 8px);
+  }
+}
+
+.single-post-content {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__content {
+    font-size: 16px;
+  }
+
+  &__button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: cross-media(16px, 991px, 24px);
+    justify-content: space-between;
+    width: 100%;
+    margin-top: cross-media(30px, 991px, 60px);
+
+    @include view(md-max) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    & a {
+      @include view(md-max) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  // // For Gutenberg editors
+  // & h2 {
+  //   font-size: cross-media(30px, 991px, 40px);
+  //   font-weight: 400;
+  //   line-height: cross-media(32px, 991px, 45px);
+
+  //   // 4K
+  //   @include view(ultra) {
+  //     // font-size: calc(1.5 * 41px);
+  //     font-size: cross-media(41px, 3000px, 62px);
+  //     line-height: cross-media(45px, 3000px, 65px);
+  //   }
+  // }
+}
+
+.featured-image-single {
+  width: 100%;
+  padding: cross-media(20px, 991px, 40px) 0;
+  &__image {
+    width: 100%;
+    max-height: 640px;
+    object-fit: cover;
+
+    @include view(ultra) {
+      max-height: cross-media(640px, 300px, 1280);
+    }
+  }
+}

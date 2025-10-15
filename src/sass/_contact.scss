@@ -1,0 +1,123 @@
+.contact-info {
+  margin-top: cross-media(60px, 991px, 120px);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__text-grid {
+    @include view(lg-min) {
+      max-width: 65%;
+    }
+    // display: grid;
+    // grid-template-columns: 3fr 1fr;
+    // gap: 40px;
+  }
+
+  // &__description {
+  //   max-width: 60%;
+  // }
+}
+
+.contact {
+  &__body {
+    // margin-top: cross-media(40px, 991px, 80px);
+    form {
+      @include view(md-max) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    form {
+      select,
+      input {
+        @include clear-styles;
+        border-bottom: solid 1px $black;
+        color: $black;
+      }
+
+      input {
+        &::-webkit-input-placeholder {
+          color: $secondary;
+        }
+      }
+
+      select {
+        @include view(lg-min) {
+          max-height: 36px;
+          margin-left: 24px;
+        }
+      }
+
+      textarea {
+        max-height: 165px;
+        margin-top: 8px;
+        padding: 12px;
+        background-color: rgba($secondary, 0.1);
+        border: solid 1px transparent;
+
+        &:focus-visible {
+          border: solid 1px $secondary;
+          outline: none;
+        }
+      }
+
+      input[type="submit"] {
+        @include clear-styles;
+        // margin-left: auto;
+        width: 100px;
+        position: absolute;
+        right: 0;
+        text-transform: lowercase;
+        cursor: pointer;
+      }
+
+      // .contact-info {
+      //   grid-column: 3/5;
+      // }
+    }
+  }
+
+  // &__name,
+  // &__surname,
+  // &__email,
+  // &__tel {
+  //   grid-column: span 2;
+  // }
+
+  &__message {
+    grid-column: 1/5;
+    display: grid;
+    margin-top: cross-media(16px, 991px, 28px);
+    color: $secondary;
+  }
+
+  &__terms {
+    grid-column: 1/4;
+  }
+
+  &__submit {
+    justify-self: end;
+    position: relative;
+    width: fit-content;
+  }
+}
+
+.contact-info-box {
+  margin-top: cross-media(20px, 991px, 40px);
+  // align-self: start;
+  // min-height: 300px;
+  padding: 18px;
+  background-color: rgba($secondary, 0.1);
+  // border: solid 1px $black;
+
+  &__link {
+    &--accent {
+      color: $secondary;
+    }
+  }
+}

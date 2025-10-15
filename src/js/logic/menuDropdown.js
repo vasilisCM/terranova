@@ -1,7 +1,7 @@
 const menuDropdown = (dropdownLinks) => {
   let isOpen = false;
 
-  const bodyTerranova = document.querySelector(".body-terranova");
+  const bodyTerranova = document.querySelector(".body");
   const header = document.querySelector(".header");
 
   dropdownLinks.forEach((dropdownLink) => {

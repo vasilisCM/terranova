@@ -1,1 +1,134 @@
+.single-product {
+  margin-top: cross-media(160px, 991px, 280px);
 
+  &__container {
+    display: grid;
+    gap: 16px;
+    min-height: 100vh;
+    min-height: 100svh;
+    // align-items: center;
+
+    @include view(lg-min) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__text-container {
+    padding: 26px;
+    max-width: 670px;
+  }
+
+  &__heading-small {
+    color: $accent;
+  }
+
+  // &__featured-image-container {
+  //   // display: flex;
+  //   // flex-direction: column;
+  //   // align-items: center;
+  //   // justify-content: center;
+  // }
+
+  &__featured-image {
+    margin: auto;
+    max-width: cross-media(150px, 991px, 450px);
+
+    @include view(md-max) {
+      max-width: 100%;
+    }
+  }
+
+  &__info-button {
+    color: $black;
+  }
+
+  &__buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__button {
+    // margin-top: 16px;
+    background-color: rgba($secondary, 0.5);
+    border-color: rgba($secondary, 0.5);
+    // border: solid 2px $secondary;
+    // border: none;
+    // border-color: $secondary;
+
+    &--info {
+      background-color: $white;
+      border: solid 2px $black;
+
+      &:before,
+      &:after {
+        background-color: $black;
+      }
+    }
+  }
+
+  &__button-inner {
+    &--info {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &__dosage {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    // line-height: 1;
+  }
+
+  &__no-additives {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+  }
+
+  &__line {
+    width: 100%;
+    border-bottom: solid 1px $black;
+  }
+
+  //   &__icons {
+  //     width: 100%;
+  //   }
+}
+
+.related-products {
+  margin-top: 120px;
+
+  &__product-container {
+    margin-top: 56px;
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+    max-width: 70%;
+  }
+
+  &__heading {
+    text-align: center;
+    font-size: 32px;
+    text-transform: lowercase;
+  }
+
+  &__product-category {
+    color: $accent;
+  }
+
+  &__product-title {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  &__link {
+    font-size: 15px;
+  }
+}

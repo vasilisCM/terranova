@@ -12,7 +12,6 @@ function global() {
   //   ".main-menu",
   //   "main-menu--closed"
   // );
-  backToTop(".back-to-top", "back-to-top--visible");
 }
 
 document.addEventListener("DOMContentLoaded", global);

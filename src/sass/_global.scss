@@ -1,7 +1,8 @@
 .body {
   overflow-x: hidden;
   background-color: $secondary;
-  font-family: system-ui;
+  font-family: "InterTight", system-ui;
+  font-weight: 400;
 }
 
 main {
@@ -9,11 +10,12 @@ main {
 }
 
 a {
-  @include clear-styles;
-  color: $accent;
+  text-decoration: none;
+  color: $black;
 }
 
 button {
+  @include clear-styles;
   cursor: pointer;
 }
 
@@ -26,4 +28,26 @@ h2,
 h3,
 h4 {
   font-weight: 400;
+}
+
+// Scroll bar
+/* Track */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust the width as needed */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: $black;
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: $black; /* Color on hover */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgba($black, 0.2);
 }

@@ -1,6 +1,7 @@
 // Abstracts
 @import "./variables";
 @import "./mixins";
+@import "./keyframes";
 
 // Helpers
 @import "./reset";
@@ -20,7 +21,13 @@
 // Design
 @import "./layouts";
 @import "./components";
+@import "./carousels";
 
 // Pages
 @import "./home";
+@import "./skin-nutrition";
+@import "./archive-product";
 @import "./single-product";
+@import "./blog";
+@import "./news";
+@import "./contact";

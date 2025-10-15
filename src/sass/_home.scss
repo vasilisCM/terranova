@@ -1,0 +1,439 @@
+// Hero
+main {
+  &--home {
+    background-color: #fcfcfc;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  @include view(lg-min) {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  @include view(md-max) {
+    margin-top: cross-media(180px, 767px, 250px);
+  }
+
+  // &__container {
+  //   border: solid 10px red;
+  // }
+
+  .circular-shape {
+    min-width: cross-media(320px, 991px, 640px);
+    height: cross-media(320px, 991px, 640px);
+    overflow: hidden;
+    position: relative;
+    margin-inline: 800px;
+
+    @include view(lg-min) {
+      border-radius: cross-media(160px, 991px, 320px);
+    }
+
+    @include view(md-max) {
+      margin: cross-media(60px, 767px, 120px) auto;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+      border-radius: 100%;
+    }
+
+    @include view(ultra) {
+      min-width: calc(1.5 * 640px);
+      height: calc(1.5 * 640px);
+      border-radius: calc(1.5 * 320px);
+
+      min-width: cross-media(640px, 3000px, 960px);
+      height: cross-media(640px, 3000px, 960px);
+      border-radius: cross-media(320px, 3000px, 480px);
+    }
+
+    .circular-shape__video {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 101%; // Hack because of small artifact
+      object-fit: cover;
+    }
+  }
+
+  .circular-shape {
+    @include view(lg-min) {
+      position: absolute;
+      top: 80%;
+      left: 0;
+      right: 0;
+      bottom: -240px;
+      margin: auto;
+    }
+  }
+
+  &__text-container {
+    z-index: 2;
+    // padding: 0 8rem;
+  }
+
+  &__description {
+    margin-top: cross-media(24px, 991px, 48px);
+  }
+}
+
+// Difference
+.products {
+  margin-top: 800px;
+
+  @include view(md-max) {
+    margin-top: 0;
+  }
+
+  &__container {
+    display: grid;
+
+    @include view(lg-min) {
+      grid-template-columns: 4fr 6fr;
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    clip-path: polygon(0% 0%, 200% 0%, 200% 100%, 0% 100%);
+
+    @include view(md-max) {
+      margin-top: cross-media(40px, 767px, 50px);
+    }
+  }
+
+  &__text-container {
+    will-change: transform; /*Fixes the text flickering with smoothScroller*/
+    justify-content: center;
+    z-index: 2;
+    background-color: transparent;
+    max-width: 385px;
+    position: relative;
+
+    @include view(ultra) {
+      // max-width: calc(1.5 * 385px);
+      max-width: cross-media(385, 3000px, 578px);
+    }
+  }
+
+  &__heading-small {
+    padding-bottom: 16px;
+  }
+
+  &__heading {
+    position: relative;
+    padding-bottom: 250px;
+    // margin-bottom: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    // min-height: 400px;
+
+    @include view(md-max) {
+      width: 100%;
+      // min-height: cross-media(340px, 767px, 600px);
+      justify-content: center;
+      padding-bottom: cross-media(180px, 767px, 260px);
+    }
+
+    @include view(se) {
+      width: 100%;
+      // min-height: cross-media(340px, 767px, 600px);
+      justify-content: center;
+      padding-bottom: 230px;
+    }
+  }
+
+  &__text-effects {
+    position: absolute;
+    left: 0;
+
+    @include view(md-max) {
+      top: 0;
+    }
+
+    @include view(lg-min) {
+      min-width: 500px;
+      padding-bottom: 360px;
+    }
+
+    @include view(ultra) {
+      min-width: cross-media(500px, 3000px, 700px);
+    }
+  }
+
+  &__text-effects > div > div {
+    font-weight: 300 !important;
+  }
+
+  &__description-effects {
+    position: absolute;
+    top: 48%;
+    left: 0;
+
+    @include view(md-max) {
+      top: cross-media(90px, 767px, 180px);
+    }
+
+    @include view(se) {
+      top: 140px;
+    }
+  }
+
+  &__description {
+    margin-top: 24px;
+
+    @include view(ultra) {
+      // margin-top: calc(1.5 * 16px);
+      margin-top: cross-media(24px, 3000px, 36px);
+    }
+  }
+
+  &__button {
+    @include view(lg-min) {
+      margin-top: 80px;
+    }
+
+    @include view(ultra) {
+      // margin-top: calc(1.5 * 140px);
+      margin-top: cross-media(140px, 3000px, 210px);
+    }
+  }
+
+  // Mobile
+
+  &__text-carousel {
+    width: 100%;
+  }
+
+  &__text-carousel-track {
+    position: relative;
+    min-height: 320px;
+  }
+
+  &__text-carousel-slide {
+    position: absolute;
+    display: grid;
+    gap: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 400ms;
+
+    &--active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__text-carousel-buttons {
+    // width: 100%;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  &__text-carousel-next,
+  &__text-carousel-previous {
+    display: flex;
+    align-items: center;
+    &:after {
+      @include icon("\e900");
+      font-size: 6px;
+    }
+  }
+
+  &__text-carousel-previous {
+    &:after {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+// Choice
+.choice {
+  margin-top: 80px;
+  position: relative;
+
+  .image-on-text-hover {
+    display: grid;
+    margin-top: cross-media(8px, 991px, 48px);
+
+    @include view(lg-min) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__text {
+    padding-top: cross-media(16px, 991px, 32px);
+    position: relative;
+    color: $black-op-50;
+    cursor: pointer;
+    transition: ease 0.3s;
+
+    &:hover {
+      color: $black;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      border-bottom: solid 1px $black-op-50;
+      width: 75%;
+
+      @include view(md-max) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__image,
+  &__placeholder-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 480px;
+    transform: translateY(70%);
+
+    @include view(md-max) {
+      display: none;
+    }
+
+    @include view(lg-min) {
+      top: 50%;
+      transform: translateY(-50%);
+      object-fit: cover;
+      aspect-ratio: 14/16;
+    }
+
+    // 4K
+    @include view(ultra) {
+      max-width: calc(1.5 * 480px);
+      max-width: cross-media(480px, 3000px, 720px);
+    }
+  }
+
+  &__image {
+    opacity: 0;
+  }
+
+  &__button {
+    margin-top: cross-media(40px, 991px, 80px);
+  }
+
+  &__placeholder-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    max-width: 480px;
+  }
+
+  &__placeholder-image {
+    object-fit: cover;
+    aspect-ratio: 14/16;
+  }
+}
+
+// Blog
+.blog-home {
+  margin-top: cross-media(120px, 991px, 240px);
+
+  &__archive-container {
+    display: flex;
+    clip-path: polygon(
+      calc((100vw - #{$box}) / 2) 0%,
+      100% 0%,
+      100% 100%,
+      calc((100vw - #{$box}) / 2) 100%
+    );
+
+    //  4K
+    @include view(ultra) {
+      clip-path: polygon(
+        calc((100vw - #{$box-4k}) / 2) 0%,
+        100% 0%,
+        100% 100%,
+        calc((100vw - #{$box-4k}) / 2) 100%
+      );
+    }
+  }
+
+  &__archive {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: cross-media(24px, 991px, 48px);
+    padding-left: calc((100vw - #{$box}) / 2);
+
+    @include view(md-max) {
+      padding: 0 20px;
+    }
+
+    //  4K
+    @include view(ultra) {
+      padding-left: calc((100vw - #{cross-media($box, 3000px, 2560px)}) / 2);
+    }
+  }
+
+  &__post {
+    flex-shrink: 0;
+    max-width: cross-media(300px, 991px, 560px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    // 4K
+    @include view(ultra) {
+      max-width: cross-media(560px, 3000px, 1120px);
+    }
+  }
+
+  &__category {
+    margin-top: 5px;
+    color: $accent;
+  }
+
+  &__heading {
+    max-width: 70%;
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 315px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+
+    // 4K
+    @include view(ultra) {
+      max-height: cross-media(315px, 3000px, 630px);
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    margin-top: 0.6rem;
+  }
+
+  &__button {
+    margin-top: 70px;
+  }
+}
+
+.asymmetrical-carousel--home {
+  @include view(lg-min) {
+    margin-top: 15rem;
+  }
+}

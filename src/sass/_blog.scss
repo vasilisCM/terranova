@@ -1,0 +1,140 @@
+.banner {
+  &--blog {
+    background-image: url("../../assets/img/blog-background.webp");
+  }
+}
+
+.asymmetrical-carousel {
+  &--blog {
+    & .asymmetrical-carousel__container {
+      padding-bottom: cross-media(180px, 991px, 250px);
+    }
+  }
+}
+
+.archive-blog {
+  margin-top: 120px;
+
+  @include view(ultra) {
+    margin-top: cross-media(120px, 3000px, 180px);
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: cross-media(8px, 991px, 16px);
+
+    @include view(lg-min) {
+      max-width: 65%;
+    }
+  }
+
+  &__category {
+    color: $accent;
+  }
+
+  &__button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: cross-media(16px, 991px, 24px);
+    justify-content: space-between;
+    width: 100%;
+    margin-top: cross-media(20px, 991px, 36px);
+  }
+}
+
+// Blog
+.recipes {
+  margin-top: cross-media(40px, 991px, 80px);
+
+  &__archive-container {
+    display: flex;
+    clip-path: polygon(
+      calc((100vw - #{$box}) / 2) 0%,
+      100% 0%,
+      100% 100%,
+      calc((100vw - #{$box}) / 2) 100%
+    );
+
+    //  4K
+    @include view(ultra) {
+      clip-path: polygon(
+        calc((100vw - #{$box-4k}) / 2) 0%,
+        100% 0%,
+        100% 100%,
+        calc((100vw - #{$box-4k}) / 2) 100%
+      );
+    }
+  }
+
+  &__archive {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: cross-media(24px, 991px, 48px);
+    padding-left: calc((100vw - #{$box}) / 2);
+
+    @include view(md-max) {
+      padding: 0 20px;
+    }
+
+    //  4K
+    @include view(ultra) {
+      padding-left: calc((100vw - #{cross-media($box, 3000px, 2560px)}) / 2);
+    }
+  }
+
+  &__post {
+    flex-shrink: 0;
+    max-width: cross-media(300px, 991px, 560px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    // 4K
+    @include view(ultra) {
+      max-width: cross-media(560px, 3000px, 1120px);
+    }
+  }
+
+  &__category {
+    margin-top: 5px;
+    color: $accent;
+  }
+
+  &__heading {
+    max-width: 70%;
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 315px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+
+    // 4K
+    @include view(ultra) {
+      max-height: cross-media(315px, 3000px, 630px);
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    margin-top: 0.6rem;
+  }
+
+  &__button {
+    margin-top: 70px;
+  }
+}
+
+.recipes {
+  &__article-info {
+    padding: 8px 0;
+  }
+}

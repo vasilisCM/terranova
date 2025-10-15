@@ -115,6 +115,11 @@
   }
 }
 
+.auto-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 // Typography
 .thin {
   font-weight: 100;
@@ -153,7 +158,22 @@
 }
 
 .underline {
-  text-decoration: underline;
+  display: flex;
+  flex-wrap: wrap;
+
+  &:before {
+    content: "";
+    flex-grow: 1;
+    order: 1;
+
+    // border-bottom: solid 1px $black-op-50;
+    border-bottom: solid 1px $secondary;
+    width: 100%;
+  }
+}
+
+.normal {
+  text-transform: none;
 }
 
 .uppercase {
@@ -162,6 +182,10 @@
 
 .lowercase {
   text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .letter-spacing-wide {
