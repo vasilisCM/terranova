@@ -1,5 +1,5 @@
 import clipUp from "../animations/clipUp.js";
-import { multiEmailForm } from "../logic/multiEmailForm.js";
+import multiEmailForm from "../logic/multiEmailForm.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 
 function contact() {
@@ -18,11 +18,11 @@ function contact() {
   const instagramCarouselTrack = document.querySelector(
     ".instagram__container"
   );
-  draggableCarousel(
-    instagramCarouselContainer,
-    instagramCarouselTrack,
-    ".instagram__column"
-  );
+  // draggableCarousel(
+  //   instagramCarouselContainer,
+  //   instagramCarouselTrack,
+  //   ".instagram__column"
+  // );
 }
 
 document.addEventListener("DOMContentLoaded", () => {

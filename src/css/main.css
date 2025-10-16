@@ -211,12 +211,13 @@ h1,
 
 h2,
 .heading {
-  font-size: clamp(30px, 3.90625vw, 40px);
+  font-size: clamp(36px, 7.32421875vw, 75px);
+  font-weight: 300;
 }
 @media only screen and (min-width: 1921px) {
   h2,
   .heading {
-    font-size: clamp(40px, 1.5625vw, 60px);
+    font-size: clamp(75px, 2.9296875vw, 112.5px);
   }
 }
 
@@ -978,6 +979,17 @@ h4 {
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
+}
+.hero__text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: clamp(8px, 1.614530777vw, 16px);
+}
+@media only screen and (min-width: 1025px) {
+  .hero__text-container {
+    max-width: 65%;
+  }
 }
 
 .text-container {
@@ -2824,20 +2836,6 @@ main--home {
   margin-top: 80px;
 }
 
-.contact-info {
-  margin-top: clamp(60px, 12.1089808274vw, 120px);
-}
-.contact-info__container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-@media only screen and (min-width: 1025px) {
-  .contact-info__text-grid {
-    max-width: 65%;
-  }
-}
-
 @media only screen and (max-width: 1024px) {
   .contact__body form {
     display: flex;
@@ -2906,10 +2904,31 @@ main--home {
   width: fit-content;
 }
 
+.contact-info__container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 0.8888888889vw, 16px);
+}
+@media only screen and (min-width: 1921px) {
+  .contact-info__container {
+    gap: clamp(16px, 0.625vw, 24px);
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .contact-info__text-grid {
+    max-width: 65%;
+  }
+}
+
 .contact-info-box {
   margin-top: clamp(20px, 4.0363269425vw, 40px);
-  padding: 18px;
+  padding: clamp(10px, 1.1111111111vw, 20px);
   background-color: rgba(91, 105, 123, 0.1);
+}
+@media only screen and (min-width: 1921px) {
+  .contact-info-box {
+    padding: clamp(20px, 0.78125vw, 30px);
+  }
 }
 .contact-info-box__link--accent {
   color: #5b697b;

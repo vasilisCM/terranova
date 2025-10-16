@@ -520,6 +520,17 @@
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: cross-media(8px, 991px, 16px);
+
+    @include view(lg-min) {
+      max-width: 65%;
+    }
+  }
 }
 
 .text-container {

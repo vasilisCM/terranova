@@ -18,10 +18,11 @@ h1,
 
 h2,
 .heading {
-  font-size: cross-media(30px, 1024px, 40px);
+  font-size: cross-media(36px, 1024px, 75px);
+  font-weight: 300;
 
   @include view(xxl) {
-    font-size: cross-media(40px, 3840px, calc(40px * $xxl-scale));
+    font-size: cross-media(75px, 3840px, calc(75px * $xxl-scale));
   }
 }
 
