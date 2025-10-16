@@ -1,8 +1,17 @@
 // Lenis
 html.lenis {
-    height: auto;
-  }
-  
+  height: auto;
+}
+
 .lenis.lenis-smooth {
-    scroll-behavior: auto;
-  }
+  scroll-behavior: auto;
+}
+
+// Marquee
+.js-marquee-wrapper,
+.js-marquee {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}

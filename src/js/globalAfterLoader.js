@@ -230,15 +230,6 @@ function globalAfterLoader() {
       });
     });
   }
-
-  // Footer
-  const reelTimeline = gsap.timeline();
-  reelTimeline.to(".reel", {
-    backgroundPositionX: "1430px",
-    duration: 50,
-    repeat: -1,
-    ease: "none",
-  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

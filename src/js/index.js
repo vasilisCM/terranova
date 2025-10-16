@@ -1,3 +1,4 @@
+import marquee from "vanilla-marquee";
 import loader from "./global/loader.js";
 import stickyHeader from "./global/stickyHeader.js";
 import hamburgerMenu from "./global/hamburgerMenu.js";
@@ -6,12 +7,15 @@ import backToTop from "./global/backToTop.js";
 function global() {
   loader(".body", ".loader", ".loader__spinner");
   stickyHeader(".header", "header--sticky");
-  // hamburgerMenu(
-  //   ".hamburger",
-  //   "hamburger--pressed",
-  //   ".main-menu",
-  //   "main-menu--closed"
-  // );
+  const marqueeElement = document.querySelector(".marquee");
+  new marquee(marqueeElement, {
+    speed: 50,
+    gap: 0,
+    duplicated: false,
+    delayBeforeStart: 0,
+    direction: "left",
+    startVisible: true,
+  });
 }
 
 document.addEventListener("DOMContentLoaded", global);

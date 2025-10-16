@@ -92,6 +92,14 @@ html.lenis {
   scroll-behavior: auto;
 }
 
+.js-marquee-wrapper,
+.js-marquee {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
 /*
 // Variable Font
 @font-face {
@@ -253,11 +261,11 @@ h4,
 }
 
 .text {
-  font-size: clamp(14px, 1.5625vw, 16px);
+  font-size: clamp(16px, 1.7578125vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .text {
-    font-size: clamp(16px, 0.625vw, 24px);
+    font-size: clamp(18px, 0.703125vw, 27px);
   }
 }
 
@@ -587,53 +595,6 @@ h4 {
   background-color: #c44a37;
 }
 
-/*
-// BOILERPLATE HEADER
-.header {
-  position: fixed;
-  z-index: 100;
-  inset-inline: 0;
-  background-color: transparent;
-  border-bottom: solid 1px;
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    opacity: 0;
-    backdrop-filter: blur(10px);
-  }
-
-  &--sticky {
-    &:before {
-      opacity: 1;
-    }
-  }
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @include view(md-max) {
-      gap: 20px;
-    }
-
-    & img {
-      max-width: cross-media(80px, 1024px, 160px);
-
-      @include view(xxl) {
-        max-width: cross-media(160px, 3840px, calc(160px * $xxl-scale));
-      }
-    }
-  }
-
-  & ul {
-    @include clear-styles;
-  }
-}
-*/
 .header {
   z-index: 100;
   left: 0;
@@ -706,113 +667,6 @@ h4 {
   }
 }
 
-/*
-// BOILERPLATE MAIN MENU
-.main-menu {
-  @include view(md-max) {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    height: 100vh;
-    padding: 100px $padding-inline;
-    background-color: $white;
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0%);
-    transition: all ease 300ms;
-  }
-
-  &--closed {
-    @include view(md-max) {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateX(100%);
-    }
-  }
-
-  &__list {
-    display: flex;
-    gap: 40px;
-    position: relative;
-
-    @include view(md-max) {
-      flex-direction: column;
-      gap: revert;
-    }
-
-    & li {
-      @include view(md-max) {
-        border-bottom: solid 1px $primary;
-      }
-    }
-
-    & a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-      width: fit-content;
-      font-size: cross-media(14px, 1024px, 16px);
-
-      @include view(xxl) {
-        font-size: cross-media(16px, 3840px, calc(16px * $xxl-scale));
-      }
-
-      @include view(md-max) {
-        align-items: revert;
-        font-size: 25px;
-        padding-block: 20px;
-      }
-
-      &:after {
-        content: "";
-        width: calc(100% + 4px);
-        height: 2px;
-        background-color: $white;
-        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-        transition: clip-path ease 300ms;
-      }
-
-      &:hover {
-        &:after {
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        }
-      }
-    }
-
-    // Submenu
-    & ul {
-      position: absolute;
-      padding: 8px 16px;
-      background-color: $primary;
-      visibility: hidden;
-      opacity: 0;
-      transition: all ease 300ms;
-
-      @include view(md-max) {
-        position: revert;
-        display: none;
-        padding: revert;
-      }
-    }
-
-    & > li {
-      &:hover {
-        & ul {
-          visibility: visible;
-          opacity: 1;
-
-          @include view(md-max) {
-            display: block;
-          }
-        }
-      }
-    }
-  }
-}
-*/
 .main-menu {
   width: 100%;
 }
@@ -1535,51 +1389,6 @@ h4 {
   border: none;
 }
 
-.reel {
-  will-change: background-position;
-  background: url("../../assets/img/footer-reel.svg");
-  min-height: 42px;
-  background-repeat: no-repeat;
-  margin-top: 60px;
-}
-.reel__container {
-  display: flex;
-  gap: 20px;
-}
-.reel__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-/*
-// BOILERPLATE FOOTER
-.footer {
-  padding-block: cross-media(20px, 1024px, 40px);
-  background-color: white;
-
-  &__container {
-    display: flex;
-    justify-content: space-between;
-
-    @include view(md-max) {
-      flex-direction: column;
-      gap: 40px;
-    }
-  }
-
-  &__logo-container {
-    & img {
-      max-width: cross-media(80px, 1024px, 160px);
-    }
-  }
-
-  & ul {
-    @include clear-styles;
-  }
-}
-*/
 .footer {
   padding: clamp(80px, 16.1453077699vw, 160px) 0 40px;
   overflow-x: hidden;
@@ -1865,136 +1674,13 @@ h4 {
   transform: rotate(-45deg) translateY(0);
 }
 
-/*
-//Toggle
-.toggle {
-  //   margin: 0 auto;
-  //   width: 100%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  position: fixed;
-  max-width: 40px;
-
-  left: 0;
-  right: 0;
-  bottom: 2%;
-  margin: auto;
-
-  display: none;
-  background-color: rgba($secondary, 0.7);
-
-  border-radius: 200px;
-  z-index: 999999;
-  backdrop-filter: blur(5px);
-  cursor: pointer;
+.marquee {
+  padding-top: clamp(30px, 3.3333333333vw, 60px);
 }
-
-.hamburger {
-  width: 100%;
-  &__line {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 40;
-    stroke-miterlimit: 10;
-
-    &--top {
-      transform-origin: 0 0;
-    }
-
-    &--bottom {
-      transform-origin: 0 0;
-    }
+@media only screen and (min-width: 1921px) {
+  .marquee {
+    padding-top: clamp(60px, 3.515625vw, 90px);
   }
-}
-*/
-/*
-// HAMBURGER BOILERPLATE
-// Hamburger Menu
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 30px;
-  cursor: pointer;
-  z-index: 10;
-
-  @include view(lg-min) {
-    display: none;
-  }
-
-  &--pressed {
-    & .hamburger__button {
-      transform: translateX(-50px);
-      background: transparent;
-
-      &:before {
-        transform: rotate(45deg) translate(35px, -35px);
-      }
-
-      &:after {
-        transform: rotate(-45deg) translate(35px, 35px);
-      }
-    }
-  }
-
-  &__button {
-    display: flex;
-    position: relative;
-    z-index: 2;
-    width: 36px;
-    height: 3px;
-    background: $primary;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-
-    @include view(lg-min) {
-      display: none;
-    }
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      width: 36px;
-      height: 3px;
-      background: $primary;
-      transition: all 0.5s ease-in-out;
-    }
-
-    &:before {
-      transform: translateY(-10px);
-    }
-
-    &:after {
-      transform: translateY(10px);
-    }
-  }
-}
-*/
-.back-to-top {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: clamp(24px, 4.6875vw, 48px);
-  padding: clamp(12px, 2.34375vw, 24px);
-  background-color: #c44a37;
-  color: #fcfcfc;
-  opacity: 0;
-  transform: rotate(-90deg);
-  transition: opacity ease 0.2s;
-  cursor: pointer;
-}
-.back-to-top--visible {
-  visibility: visible;
-  opacity: 1;
-}
-.back-to-top::after {
-  content: "\e901";
-  font-family: "icomoon";
-  font-variant: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .search-form__button {
