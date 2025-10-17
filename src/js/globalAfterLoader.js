@@ -2,6 +2,7 @@ import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
 import { menuDropdown } from "./logic/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import { moveItems } from "./logic/moveItems.js";
+import customCursor from "./logic/customCursor.js";
 
 function globalAfterLoader() {
   console.log("Global after Loader");
