@@ -154,6 +154,12 @@ function load_js()
     wp_enqueue_script('about', get_template_directory_uri() . '/dist/about.bundle.js', array(), null, true);
   }
 
+  // Skin Nutrition
+  elseif (is_page_template('skin-nutrition.php')) {
+    wp_enqueue_script('skinNutrition', get_template_directory_uri() . '/dist/skinNutrition.bundle.js', array(), null, true);
+  }
+
+
   // Contact
   elseif (is_page_template('contact.php')) {
     wp_enqueue_script('contact', get_template_directory_uri() . '/dist/contact.bundle.js', array(), null, true);

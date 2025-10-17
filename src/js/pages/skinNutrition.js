@@ -37,5 +37,6 @@ function skinNutrition() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("loaderDone", skinNutrition);
+  skinNutrition();
+  // document.addEventListener("loaderDone", skinNutrition);
 });
