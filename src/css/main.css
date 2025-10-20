@@ -2650,9 +2650,10 @@ main--home {
   cursor: pointer;
 }
 
-.single-product {
+.main-single-product {
   margin-top: clamp(160px, 28.2542885974vw, 280px);
 }
+
 .single-product__container {
   display: grid;
   gap: 16px;

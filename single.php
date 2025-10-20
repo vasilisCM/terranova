@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-
-
 <main class="main">
   <!-- Info  -->
   <section class="page-info single-post-info">

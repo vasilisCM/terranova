@@ -1,6 +1,8 @@
-.single-product {
+.main-single-product {
   margin-top: cross-media(160px, 991px, 280px);
+}
 
+.single-product {
   &__container {
     display: grid;
     gap: 16px;
