@@ -82,6 +82,17 @@ function create_custom_post_types()
 }
 add_action('init', 'create_custom_post_types');
 
+// Set posts per page for product archives
+function set_products_per_page($query)
+{
+  if (!is_admin() && $query->is_main_query()) {
+    if (is_post_type_archive('product') || is_tax('product_categories')) {
+      $query->set('posts_per_page', 3);
+    }
+  }
+}
+add_action('pre_get_posts', 'set_products_per_page');
+
 // Body class for Pages
 function custom_body_classes($classes)
 {
