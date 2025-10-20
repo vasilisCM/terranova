@@ -87,7 +87,7 @@
             class="asymmetrical-carousel__image-container"
             draggable="true">
             <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-001.webp'; ?>"
+              src="./assets/img/home-asymmetrical-carousel-001.webp"
               alt=""
               class="asymmetrical-carousel__image"
               draggable-image />
@@ -116,7 +116,7 @@
             class="asymmetrical-carousel__image-container"
             draggable="true">
             <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-002.webp'; ?>"
+              src="./assets/img/home-asymmetrical-carousel-002.webp"
               alt=""
               class="asymmetrical-carousel__image"
               draggable-image />
@@ -145,7 +145,7 @@
             class="asymmetrical-carousel__image-container"
             draggable="true">
             <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-003.webp'; ?>"
+              src="./assets/img/home-asymmetrical-carousel-003.webp"
               alt=""
               class="asymmetrical-carousel__image"
               draggable-image />
@@ -174,7 +174,7 @@
             class="asymmetrical-carousel__image-container"
             draggable="true">
             <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-004.webp'; ?>"
+              src="./assets/img/home-asymmetrical-carousel-004.webp"
               alt=""
               class="asymmetrical-carousel__image"
               draggable-image />
@@ -326,7 +326,7 @@
           <div class="recipes__image-container">
             <img
               class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/assets/img/recipes-001.webp'; ?>"
+              src="/assets/img/recipes-001.webp"
               alt=""
               draggable-image />
           </div>
@@ -345,7 +345,7 @@
           <div class="recipes__image-container">
             <img
               class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/assets/img/recipes-002.webp'; ?>"
+              src="/assets/img/recipes-002.webp"
               alt=""
               draggable-image />
           </div>
@@ -365,7 +365,7 @@
           <div class="recipes__image-container">
             <img
               class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/assets/img/recipes-003.webp'; ?>"
+              src="/assets/img/recipes-003.webp"
               alt=""
               draggable-image />
           </div>
@@ -457,6 +457,17 @@
   </section>
   <!-- Cursor  -->
   <div class="cursor-track"></div>
+</main>es__heading heading-small">
+With an entire world of natural ingredients to source from
+</h3>
+<a href="" class="link link--arrow recipes__link">Read more</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Cursor  -->
+<div class="cursor-track"></div>
 </main>
 
 <?php get_footer(); ?>
