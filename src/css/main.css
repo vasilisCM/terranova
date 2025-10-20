@@ -1075,6 +1075,13 @@ h4 {
   object-fit: cover;
 }
 
+.archive {
+  margin-top: clamp(60px, 12.1089808274vw, 120px);
+}
+.archive__button {
+  margin-top: 80px;
+}
+
 .archive-grid {
   position: relative;
   display: grid;
