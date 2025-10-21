@@ -6,7 +6,9 @@
 $distributors = get_field('distributors', 'option');
 ?>
 
-<main>
+<main
+  data-barba="container"
+  data-barba-namespace="contact">
   <!-- Hero  -->
   <?php include 'components/hero.php'; ?>
 

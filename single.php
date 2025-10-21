@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<main class="main">
+<main class="main" data-barba="container"
+  data-barba-namespace="single">
   <!-- Info  -->
   <section class="page-info single-post-info">
     <div class="boxed centered">

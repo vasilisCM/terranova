@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<main class="main">
+<main class="main" data-barba="container"
+    data-barba-namespace="singleProduct">
     <!-- Products  -->
     <section class="main-single-product boxed centered">
         <div class="single-product__container">

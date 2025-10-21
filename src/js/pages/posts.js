@@ -3,68 +3,94 @@ import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import loadMorePosts from "../services/loadMorePosts.js";
 
-function posts() {
-  console.log("Posts");
+class Posts {
+  constructor() {
+    this.carousels = [];
+    this.eventListeners = [];
+    this.loaderDoneListener = null;
+  }
 
-  // Hero Entrance
-  clipUp(
-    [".banner__text-background, h1, .banner__subheading"]
-    // , 1, [
-    //   {
-    //     target: '.banner--blog',
-    //     props: {
-    //       backgroundPosition:'5% 0%',
-    //       ease: "power4.out",
-    //       duration: 3,
-    //     },
-    //   }
-    // ]
-  );
+  init() {
+    console.log("Posts");
 
-  setAsymmetricalClasses();
+    // Hero Entrance
+    clipUp([".banner__text-background, h1, .banner__subheading"]);
 
-  // Archive Carousel
-  const blogCarouselContainer = document.querySelector(".slides-container");
-  const blogCarouselTrack = document.querySelector(
-    ".asymmetrical-carousel__container"
-  );
-  draggableCarousel(
-    blogCarouselContainer,
-    blogCarouselTrack,
-    ".asymmetrical-carousel__column"
-  );
+    setAsymmetricalClasses();
 
-  // document
-  //   .querySelectorAll(".asymmetrical-carousel__column")
-  //   .forEach((col) => console.log(col.offsetWidth));
+    // Archive Carousel
+    const blogCarouselContainer = document.querySelector(".slides-container");
+    const blogCarouselTrack = document.querySelector(
+      ".asymmetrical-carousel__container"
+    );
+    const carousel1 = draggableCarousel(
+      blogCarouselContainer,
+      blogCarouselTrack,
+      ".asymmetrical-carousel__column"
+    );
+    this.carousels.push(carousel1);
 
-  // Recipes
+    // Recipes
+    const recipesContainer = document.querySelector(
+      ".recipes__archive-container"
+    );
+    const recipesCarouselTrack = document.querySelector(".recipes__archive");
+    const carousel2 = draggableCarousel(
+      recipesContainer,
+      recipesCarouselTrack,
+      ".recipes__post"
+    );
+    this.carousels.push(carousel2);
 
-  const recipesContainer = document.querySelector(
-    ".recipes__archive-container"
-  );
-  const recipesCarouselTrack = document.querySelector(".recipes__archive");
-  // const blogOffset = document
-  //   .querySelector(".recipes__archive article")
-  //   .getBoundingClientRect().x;
+    /*
+    // Load More
+    const buttonLoadMore = document.querySelector(".button--load-more");
+    const loadMoreHandler = () =>
+      loadMorePosts({
+        html: {
+          buttonSelector: ".button--load-more",
+        },
+        wordpress: {
+          postsNumber: 3,
+        },
+      });
 
-  draggableCarousel(recipesContainer, recipesCarouselTrack, ".recipes__post");
+    buttonLoadMore.addEventListener("click", loadMoreHandler);
+    this.eventListeners.push({
+      element: buttonLoadMore,
+      event: "click",
+      handler: loadMoreHandler,
+    });
+    */
+  }
 
-  // const currentCategory = window.location.pathname.split("/")[2];
+  destroy() {
+    // Remove event listeners
+    if (this.loaderDoneListener) {
+      document.removeEventListener("loaderDone", this.loaderDoneListener);
+      this.loaderDoneListener = null;
+    }
 
-  const buttonLoadMore = document.querySelector(".button--load-more");
-  buttonLoadMore.addEventListener("click", () =>
-    loadMorePosts({
-      html: {
-        buttonSelector: ".button--load-more",
-      },
-      wordpress: {
-        postsNumber: 3,
-      },
-    })
-  );
+    // Remove all event listeners
+    this.eventListeners.forEach(({ element, event, handler }) => {
+      element.removeEventListener(event, handler);
+    });
+    this.eventListeners = [];
+
+    // Clean up carousels (if they have destroy methods)
+    this.carousels.forEach((carousel) => {
+      if (carousel && typeof carousel.destroy === "function") {
+        carousel.destroy();
+      }
+    });
+    this.carousels = [];
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("loaderDone", posts);
-});
+// Create instance and set up event listener
+const posts = new Posts();
+posts.loaderDoneListener = () => posts.init();
+document.addEventListener("loaderDone", posts.loaderDoneListener);
+
+// Make cleanup available globally
+window.postsCleanup = () => posts.destroy();

@@ -143,7 +143,11 @@ function load_js()
 
 
   // Localize the script with the WordPress AJAX object
-  wp_localize_script('main', 'wordpressObject', array('ajaxUrl' => admin_url('admin-ajax.php')));
+  wp_localize_script('main', 'wordpressObject', array(
+    'siteUrl' => home_url(),
+    'themeUrl' => get_template_directory_uri(),
+    'ajaxUrl' => admin_url('admin-ajax.php')
+  ));
 
   // Home Page
   if (is_front_page()) {

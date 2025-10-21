@@ -2,7 +2,8 @@
 <?php get_header(); ?>
 
 
-<main>
+<main data-barba="container"
+    data-barba-namespace="philosophy">
     <!-- Hero  -->
     <?php include 'components/hero.php'; ?>
 

@@ -15,7 +15,7 @@
   \*******************************/
 /***/ (() => {
 
-eval("function about() {\r\n  console.log(\"About\");\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  document.addEventListener(\"loaderDone\", about);\r\n});\r\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/about.js?");
+eval("class About {\r\n  constructor() {\r\n    this.loaderDoneListener = null;\r\n  }\r\n\r\n  init() {\r\n    console.log(\"About\");\r\n  }\r\n\r\n  destroy() {\r\n    // Remove event listeners\r\n    if (this.loaderDoneListener) {\r\n      document.removeEventListener(\"loaderDone\", this.loaderDoneListener);\r\n      this.loaderDoneListener = null;\r\n    }\r\n  }\r\n}\r\n\r\n// Create instance and set up event listener\r\nconst about = new About();\r\nabout.loaderDoneListener = () => about.init();\r\ndocument.addEventListener(\"loaderDone\", about.loaderDoneListener);\r\n\r\n// Make cleanup available globally\r\nwindow.aboutCleanup = () => about.destroy();\r\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/about.js?");
 
 /***/ })
 

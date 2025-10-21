@@ -2,40 +2,54 @@ import clipUp from "../animations/clipUp.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 
-function skinNutrition() {
-  console.log("Skin Nutrition");
+class SkinNutrition {
+  constructor() {
+    this.carousels = [];
+    this.loaderDoneListener = null;
+  }
 
-  // Hero Entrance
-  clipUp(
-    [".banner__text-background, h1, .banner__subheading"]
-    // , 1,
-    // [
-    //   {
-    //     target: '.banner--skin-nutrition',
-    //     props: {
-    //       backgroundPosition:'0% -5%',
-    //       ease: "power4.out",
-    //       duration: 3,
-    //     },
-    //     position: "<"
-    //   }
-    // ]
-  );
+  init() {
+    console.log("Skin Nutrition");
 
-  setAsymmetricalClasses();
+    // Hero Entrance
+    clipUp([".banner__text-background, h1, .banner__subheading"]);
 
-  const asymmetricalCarouselContainer =
-    document.querySelector(".slides-container");
-  const asymmetricalCarouselTrack = document.querySelector(
-    ".asymmetrical-carousel__container"
-  );
-  draggableCarousel(
-    asymmetricalCarouselContainer,
-    asymmetricalCarouselTrack,
-    ".asymmetrical-carousel__image-container"
-  );
+    setAsymmetricalClasses();
+
+    const asymmetricalCarouselContainer =
+      document.querySelector(".slides-container");
+    const asymmetricalCarouselTrack = document.querySelector(
+      ".asymmetrical-carousel__container"
+    );
+    const carousel = draggableCarousel(
+      asymmetricalCarouselContainer,
+      asymmetricalCarouselTrack,
+      ".asymmetrical-carousel__image-container"
+    );
+    this.carousels.push(carousel);
+  }
+
+  destroy() {
+    // Remove event listeners
+    if (this.loaderDoneListener) {
+      document.removeEventListener("loaderDone", this.loaderDoneListener);
+      this.loaderDoneListener = null;
+    }
+
+    // Clean up carousels (if they have destroy methods)
+    this.carousels.forEach((carousel) => {
+      if (carousel && typeof carousel.destroy === "function") {
+        carousel.destroy();
+      }
+    });
+    this.carousels = [];
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("loaderDone", skinNutrition);
-});
+// Create instance and set up event listener
+const skinNutrition = new SkinNutrition();
+skinNutrition.loaderDoneListener = () => skinNutrition.init();
+document.addEventListener("loaderDone", skinNutrition.loaderDoneListener);
+
+// Make cleanup available globally
+window.skinNutritionCleanup = () => skinNutrition.destroy();

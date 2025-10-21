@@ -2,7 +2,8 @@
 <?php get_header(); ?>
 
 
-<main class="main">
+<main class="main" data-barba="container"
+    data-barba-namespace="skinNutrition">
     <!-- Banner -->
     <section class="banner banner--skin-nutrition">
         <div class="banner__wrapper boxed centered">

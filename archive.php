@@ -4,7 +4,9 @@
 </div>
 
 <!-- Main  -->
-<main class="main">
+<main class="main"
+    data-barba="container"
+    data-barba-namespace="archiveProduct">
     <!-- Info  -->
     <section class="page-info boxed centered">
         <div class="page-info__container">

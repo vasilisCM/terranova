@@ -1,50 +1,67 @@
 import simpleCarousel from "../logic/simpleCarousel.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 
-function singleProduct() {
-  console.log("Single Product");
+class SingleProduct {
+  constructor() {
+    this.carousels = [];
+    this.loaderDoneListener = null;
+  }
 
-  /*
-  // Tabs
-  const tabs = document.querySelector(".tabs");
-  const tabsButtonsContainer = document.querySelector(
-    ".tabs__buttons-container"
-  );
-  const tabsButtons = document.querySelectorAll(".tabs__button");
-  const tabsContent = document.querySelectorAll(".tabs__content");
+  init() {
+    console.log("Single Product");
 
-  // Use our own TABS
-  // toggleTabs(tabs, tabsButtonsContainer, tabsButtons, tabsContent);
-  */
+    // Related Products
+    const relatedProductsCarousel = document.querySelector(".related-products");
+    const previousButton = document.querySelector(
+      ".simple-carousel__button--previous"
+    );
+    const nextButton = document.querySelector(".simple-carousel__button--next");
+    const relatedProductsContainer =
+      document.querySelector(".slides__container");
+    const carousel1 = simpleCarousel(
+      relatedProductsCarousel,
+      relatedProductsContainer,
+      nextButton,
+      previousButton
+    );
+    this.carousels.push(carousel1);
 
-  // Related Products
-  const relatedProductsCarousel = document.querySelector(".related-products");
-  const previousButton = document.querySelector(
-    ".simple-carousel__button--previous"
-  );
-  const nextButton = document.querySelector(".simple-carousel__button--next");
-  const relatedProductsContainer = document.querySelector(".slides__container");
-  simpleCarousel(
-    relatedProductsCarousel,
-    relatedProductsContainer,
-    nextButton,
-    previousButton
-  );
+    // Instagram
+    const instagramCarouselContainer = document.querySelector(
+      ".instagram__slides-container"
+    );
+    const instagramCarouselTrack = document.querySelector(
+      ".instagram__container"
+    );
+    const carousel2 = draggableCarousel(
+      instagramCarouselContainer,
+      instagramCarouselTrack,
+      ".instagram__image"
+    );
+    this.carousels.push(carousel2);
+  }
 
-  // Instagram
-  const instagramCarouselContainer = document.querySelector(
-    ".instagram__slides-container"
-  );
-  const instagramCarouselTrack = document.querySelector(
-    ".instagram__container"
-  );
-  draggableCarousel(
-    instagramCarouselContainer,
-    instagramCarouselTrack,
-    ".instagram__image"
-  );
+  destroy() {
+    // Remove event listeners
+    if (this.loaderDoneListener) {
+      document.removeEventListener("loaderDone", this.loaderDoneListener);
+      this.loaderDoneListener = null;
+    }
+
+    // Clean up carousels (if they have destroy methods)
+    this.carousels.forEach((carousel) => {
+      if (carousel && typeof carousel.destroy === "function") {
+        carousel.destroy();
+      }
+    });
+    this.carousels = [];
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("loaderDone", singleProduct);
-});
+// Create instance and set up event listener
+const singleProduct = new SingleProduct();
+singleProduct.loaderDoneListener = () => singleProduct.init();
+document.addEventListener("loaderDone", singleProduct.loaderDoneListener);
+
+// Make cleanup available globally
+window.singleProductCleanup = () => singleProduct.destroy();

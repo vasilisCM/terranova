@@ -2,7 +2,8 @@
 get_header();
 ?>
 
-<main>
+<main data-barba="container"
+    data-barba-namespace="search">
     <section class="first-section hero last-section">
         <div class="boxed centered">
             <div>

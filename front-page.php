@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<main>
+<main data-barba="container"
+  data-barba-namespace="home">
 
   <section class="hero boxed centered">
     <div class="hero__container">
