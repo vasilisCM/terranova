@@ -86,6 +86,12 @@ $distributors = get_field('distributors', 'option');
   </section>
 
 
+  <!-- Custom Cursor  -->
+  <?php include 'components/custom-cursor.php'; ?>
+
+  <!-- Instagram  -->
+  <?php include 'components/instagram.php'; ?>
+
 </main>
 
 

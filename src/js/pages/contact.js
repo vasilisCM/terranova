@@ -18,11 +18,11 @@ function contact() {
   const instagramCarouselTrack = document.querySelector(
     ".instagram__container"
   );
-  // draggableCarousel(
-  //   instagramCarouselContainer,
-  //   instagramCarouselTrack,
-  //   ".instagram__column"
-  // );
+  draggableCarousel(
+    instagramCarouselContainer,
+    instagramCarouselTrack,
+    ".instagram__column"
+  );
 }
 
 document.addEventListener("DOMContentLoaded", () => {

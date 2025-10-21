@@ -492,7 +492,9 @@
     </div>
   </section>
 
-  <div class="cursor-track"></div>
+
+  <!-- Custom Cursor  -->
+  <?php include 'components/custom-cursor.php'; ?>
 
   <!-- Instagram  -->
   <?php include 'components/instagram.php'; ?>

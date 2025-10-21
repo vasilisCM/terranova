@@ -160,6 +160,17 @@ function load_js()
     wp_enqueue_script('single', get_template_directory_uri() . '/dist/single.bundle.js', array(), null, true);
   }
 
+  // Archive Product or Category Product
+  elseif (is_post_type_archive('product') || is_tax('product_categories')) {
+    wp_enqueue_script('archiveProduct', get_template_directory_uri() . '/dist/archiveProduct.bundle.js', array(), null, true);
+  }
+
+  // Single Product
+  elseif (is_singular('product')) {
+    wp_enqueue_script('singleProduct', get_template_directory_uri() . '/dist/singleProduct.bundle.js', array(), null, true);
+  }
+
+
   // About
   elseif (is_page_template('about.php')) {
     wp_enqueue_script('about', get_template_directory_uri() . '/dist/about.bundle.js', array(), null, true);

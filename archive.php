@@ -283,6 +283,12 @@
             </div>
         </div>
     </section>
+
+    <!-- Custom Cursor  -->
+    <?php include 'components/custom-cursor.php'; ?>
+
+    <!-- Instagram  -->
+    <?php include 'components/instagram.php'; ?>
 </main>
 
 <?php get_footer(); ?>
