@@ -139,7 +139,7 @@ function load_js()
 {
   // Global JS
   wp_enqueue_script('main', get_template_directory_uri() . '/dist/global.bundle.js', array(), false, true);
-  wp_enqueue_script('globalAfterLoader', get_template_directory_uri() . '/dist/globalAfterLoader.bundle.js', array(), false, true);
+
 
 
   // Localize the script with the WordPress AJAX object

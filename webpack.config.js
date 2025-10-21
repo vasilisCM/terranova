@@ -4,7 +4,6 @@ module.exports = {
   mode: "development",
   entry: {
     global: path.resolve(__dirname, "src/js/index.js"), // Global
-    globalAfterLoader: path.resolve(__dirname, "src/js/globalAfterLoader.js"), // Global
 
     home: path.resolve(__dirname, "src/js/pages/home.js"), // Home
     skinNutrition: path.resolve(__dirname, "src/js/pages/skinNutrition.js"), // Skin Nutrition

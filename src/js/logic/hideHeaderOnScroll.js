@@ -1,4 +1,5 @@
-const hideHeaderOnScroll = function (header, className) {
+const hideHeaderOnScroll = function (headerSelector, className) {
+  const header = document.querySelector(headerSelector);
   let lastScrollPosition = 0;
 
   const hideHeader = function (header) {
