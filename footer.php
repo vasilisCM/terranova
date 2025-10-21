@@ -109,10 +109,11 @@
   <!-- Marquee  -->
   <?php include 'components/marquee.php'; ?>
 
-  <!-- Loader  -->
-  <?php include 'components/loader.php'; ?>
+
 </footer>
 
+<!-- Loader  -->
+<?php include 'components/loader.php'; ?>
 <div class="dropdown-menu-overlay"></div>
 
 <?php wp_footer(); ?>

@@ -159,7 +159,7 @@
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    gap: cross-media(24px, 991px, 64px);
+    gap: cross-media(24px, $box, 64px);
     align-items: center;
     justify-content: center;
     padding: 0;

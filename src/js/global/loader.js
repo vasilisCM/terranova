@@ -1,35 +1,93 @@
 import lenis from "./smoothScroll.js";
 
-const loader = (bodySelector, loaderContainerSelector, loaderInnerSelector) => {
+const loader = (bodySelector, loaderContainerSelector, loaderTextSelector) => {
   const body = document.querySelector(bodySelector);
   const loaderContainer = document.querySelector(loaderContainerSelector);
-  const loaderInner = document.querySelector(loaderInnerSelector);
+  const loaderText = document.querySelector(loaderTextSelector);
+  let loadedImageCount = 0;
+  let imageCount = 0;
+
+  const percentageTimeline = gsap.timeline({
+    paused: true,
+  });
 
   const imgLoad = imagesLoaded(body);
+  imageCount = imgLoad.images.length;
 
   // Prevent scrolling while loading
   lenis.isStopped = true;
 
   // Loader Timeline - Waiting for Assets to load
+  const updateProgress = (currentFileIndex, allFilesNumber) => {
+    const loadingProgress = currentFileIndex / allFilesNumber;
+    const percentage = Math.round(loadingProgress * 100);
+
+    gsap.to(percentageTimeline, {
+      duration: 4,
+      // ease: SteppedEase.config(100),
+      ease: Power4.easeOut,
+      progress: loadingProgress,
+    });
+
+    percentageTimeline.to(loaderText, {
+      innerHTML: `${percentage}%`,
+
+      snap: {
+        innerHTML: 1,
+      },
+    });
+  };
+
+  // triggered after each item is loaded
+  imgLoad.on("progress", () => {
+    // Update loadedImageCount based on the number of loaded images
+    loadedImageCount = imgLoad.progressedCount;
+
+    // Update the progress based on loadedImageCount and imageCount using GSAP
+    updateProgress(loadedImageCount, imageCount);
+  });
 
   // Page Reveal Timeline
   const pageRevealTl = gsap.timeline({
     paused: true,
   });
   pageRevealTl
-    .to(loaderContainer, {
-      opacity: 0,
-    })
-    .to(loaderContainer, { display: "none" }, "<1");
+    .fromTo(
+      loaderText,
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        ease: "circ.out",
+        delay: 0.4,
+      }
+    )
+    .fromTo(
+      loaderContainer,
+      {
+        autoAlpha: 1,
+      },
+      {
+        autoAlpha: 0,
+        duration: 1.5,
+        ease: "circ.out",
+        delay: 0.4,
+      },
+      "<"
+    );
 
   // ImagesLoaded
   imgLoad.on("done", () => {
-    // Enable scrolling after loading has finished
-    lenis.isStopped = false;
-    pageRevealTl.play();
+    // Force timeline to complete and show 100%
+    percentageTimeline.progress(1);
 
-    // Broadcast an event to trigger other functions (if needed)
-    document.dispatchEvent(new CustomEvent("loaderDone"));
+    // Small delay to let user see 100% before fade-out
+    gsap.delayedCall(1.5, () => {
+      pageRevealTl.play();
+      lenis.isStopped = false;
+      document.dispatchEvent(new CustomEvent("loaderDone"));
+    });
   });
 };
 

@@ -692,7 +692,7 @@ h4 {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  gap: clamp(24px, 6.458123108vw, 64px);
+  gap: clamp(24px, 3.5555555556vw, 64px);
   align-items: center;
   justify-content: center;
   padding: 0;
@@ -1470,7 +1470,6 @@ h4 {
 
 .loader {
   display: grid;
-  display: none;
   place-items: center;
   position: fixed;
   height: 100%;

@@ -1,21 +1,11 @@
-import marquee from "vanilla-marquee";
 import loader from "./global/loader.js";
 import stickyHeader from "./global/stickyHeader.js";
-import hamburgerMenu from "./global/hamburgerMenu.js";
-import backToTop from "./global/backToTop.js";
+import marqueeInfinite from "./animations/marqueeInfinite.js";
 
 function global() {
-  loader(".body", ".loader", ".loader__spinner");
+  loader(".body", ".loader", ".loader__text");
   stickyHeader(".header", "header--sticky");
-  const marqueeElement = document.querySelector(".marquee");
-  new marquee(marqueeElement, {
-    speed: 50,
-    gap: 0,
-    duplicated: false,
-    delayBeforeStart: 0,
-    direction: "left",
-    startVisible: true,
-  });
+  marqueeInfinite();
 }
 
 document.addEventListener("DOMContentLoaded", global);
