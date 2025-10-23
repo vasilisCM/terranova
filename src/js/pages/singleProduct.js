@@ -1,5 +1,6 @@
 import simpleCarousel from "../logic/simpleCarousel.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
+import Carousel from "../logic/carousel.js";
 
 class SingleProduct {
   constructor() {
@@ -10,6 +11,7 @@ class SingleProduct {
   init() {
     console.log("Single Product");
 
+    /*
     // Related Products
     const relatedProductsCarousel = document.querySelector(".related-products");
     const previousButton = document.querySelector(
@@ -25,6 +27,12 @@ class SingleProduct {
       previousButton
     );
     this.carousels.push(carousel1);
+*/
+
+    // Related Products
+    const relatedProductsCarousel = new Carousel(".carousel");
+    relatedProductsCarousel.init();
+    this.carousels.push(relatedProductsCarousel);
 
     // Instagram
     const instagramCarouselContainer = document.querySelector(

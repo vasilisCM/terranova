@@ -2,7 +2,7 @@
 
 <!-- Main  -->
 <main class="main" data-barba="container"
-  data-barba-namespace="blog">
+  data-barba-namespace="posts">
   <!-- Banner -->
   <section class="banner banner--blog">
     <div class="banner__wrapper boxed centered">

@@ -1739,66 +1739,58 @@ h4 {
   color: red;
 }
 
-/*
-// BOILERPLATE CAROUSEL
-.carousel {
-    &__track {
-      overflow-x: hidden;
-    }
-
-    &__container {
-      display: flex;
-
-      @include view(lg-min) {
-        gap: 16px;
-      }
-    }
-
-    &__slide {
-      color: $black;
-      cursor: grab;
-    }
-
-    &__button {
-      cursor: pointer;
-      transform: rotate(0deg);
-
-      &--previous {
-        transform: rotate(180deg);
-      }
-
-      &::after {
-        @include icon("\e901");
-        padding: 8px;
-      }
-    }
-
-    &__controls {
-      display: flex;
-      align-items: center;
-      gap: cross-media(20px, 1024px, 40px);
-      margin-top: cross-media(40px, 1024px, 80px);
-      margin-inline: auto;
-    }
-
-    &__dots {
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-
-    &__dot {
-      height: 2px;
-      width: 100%;
-      background-color: rgba($black, 0.3);
-      cursor: pointer;
-    }
-
-    & .glide__bullet--active {
-      background-color: $black;
-    }
+.carousel__track {
+  overflow-x: hidden;
+}
+.carousel__container {
+  display: flex;
+}
+@media only screen and (min-width: 1025px) {
+  .carousel__container {
+    gap: 16px;
   }
-  */
+}
+.carousel__slide {
+  color: #000;
+  cursor: grab;
+}
+.carousel__button {
+  cursor: pointer;
+  transform: scale(1);
+}
+.carousel__button--previous {
+  transform: scaleX(-1);
+}
+.carousel__button::after {
+  content: "\e906";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 8px;
+}
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3.90625vw, 40px);
+  margin-top: clamp(40px, 7.8125vw, 80px);
+  margin-inline: auto;
+}
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.carousel__dot {
+  height: 2px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.carousel .glide__bullet--active {
+  background-color: #000;
+}
+
 .parallax-carousel {
   display: flex;
   gap: clamp(8px, 3.229061554vw, 32px);
@@ -2720,7 +2712,7 @@ main--home {
 .related-products {
   margin-top: 120px;
 }
-.related-products__product-container {
+.related-products__carousel {
   margin-top: 56px;
 }
 .related-products__text-container {

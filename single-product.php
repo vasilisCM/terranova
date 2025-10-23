@@ -125,15 +125,13 @@
     <!-- Related Products  -->
     <section class="related-products boxed centered">
         <h2 class="related-products__heading">Related Products</h2>
-        <div class="simple-carousel boxed centered">
-            <div
-                class="simple-carousel__button simple-carousel__button--previous">
-                <img src="<?php echo get_template_directory_uri() . '/./assets/img/ic-button-previous.svg'; ?>" alt="" />
-            </div>
-            <div class="slides">
+        <div class="carousel related-products__carousel boxed-sm centered">
+
+            <div class="carousel__track" data-glide-el="track">
                 <div
-                    class="slides__container related-products__product-container centered">
-                    <div class="slides__slide">
+                    class="carousel__container">
+
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -154,7 +152,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -175,7 +173,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -196,7 +194,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -217,7 +215,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -238,7 +236,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -259,7 +257,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -280,7 +278,7 @@
                             <a href="" class="link link--arrow related-products__link">View more</a>
                         </div>
                     </div>
-                    <div class="slides__slide">
+                    <div class="carousel__slide">
                         <a href="single-product.html">
                             <img
                                 src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
@@ -304,8 +302,12 @@
                 </div>
             </div>
 
-            <div class="simple-carousel__button simple-carousel__button--next">
-                <img src="<?php echo get_template_directory_uri() . '/./assets/img/ic-button-next.svg'; ?>" alt="" />
+            <div class="carousel__bottom">
+                <div class="carousel__controls">
+                    <div class="carousel__button carousel__button--previous"></div>
+                    <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+                    <div class="carousel__button carousel__button--next"></div>
+                </div>
             </div>
         </div>
     </section>

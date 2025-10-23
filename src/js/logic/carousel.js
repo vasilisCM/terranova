@@ -2,7 +2,7 @@ class Carousel {
   constructor(
     carouselSelector = ".carousel",
     slideSelector = `${carouselSelector} .carousel__slide`,
-    visibleDesktop = 4,
+    visibleDesktop = 3,
     visibleTablet = 2,
     visibleMobile = 1,
     previousButtonSelector = ".carousel__button--previous",
