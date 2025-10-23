@@ -16,7 +16,7 @@
           The everyday meaningful gestures, rituals, acts of
           <b>self-care</b>. <br />
           The <b>#momoments</b> that add value to the wellbeing of my
-          body, mind and
+          body, mind and soul.
         </p>
       </div>
       <div class="circular-shape">
