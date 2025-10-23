@@ -1,6 +1,6 @@
 <?php if (have_rows('tabs')): ?>
     <div class="tabs">
-        <div class="tabs__buttons">
+        <div class="tabs__buttons text-s uppercase semibold">
             <?php while (have_rows('tabs')): the_row();
                 $button = get_sub_field('button');
             ?>
@@ -10,7 +10,7 @@
             <?php endwhile; ?>
         </div>
 
-        <div class="tabs__contents">
+        <div class="tabs__contents text-ms">
             <?php while (have_rows('tabs')): the_row();
                 $content = get_sub_field('content');
             ?>

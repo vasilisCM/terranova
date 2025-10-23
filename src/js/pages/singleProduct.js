@@ -1,6 +1,7 @@
 import simpleCarousel from "../logic/simpleCarousel.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import Carousel from "../logic/carousel.js";
+import Tabs from "../logic/tabs.js";
 
 class SingleProduct {
   constructor() {
@@ -11,23 +12,10 @@ class SingleProduct {
   init() {
     console.log("Single Product");
 
-    /*
-    // Related Products
-    const relatedProductsCarousel = document.querySelector(".related-products");
-    const previousButton = document.querySelector(
-      ".simple-carousel__button--previous"
-    );
-    const nextButton = document.querySelector(".simple-carousel__button--next");
-    const relatedProductsContainer =
-      document.querySelector(".slides__container");
-    const carousel1 = simpleCarousel(
-      relatedProductsCarousel,
-      relatedProductsContainer,
-      nextButton,
-      previousButton
-    );
-    this.carousels.push(carousel1);
-*/
+    // Tabs
+    const tabs = new Tabs(".tabs");
+    tabs.init();
+    this.carousels.push(tabs);
 
     // Related Products
     const relatedProductsCarousel = new Carousel(".carousel");

@@ -55,60 +55,9 @@
                     - NO COLOURS - NO FLAVOURS - NO PRESERVATIVES
                 </p>
 
-                <div class="single-product__tabs tabs">
-                    <div class="tabs__buttons-container">
-                        <button
-                            class="tabs__button tabs__button--active"
-                            data-tab="1">
-                            Ingredients
-                        </button>
-                        <button class="tabs__button" data-tab="2">How to Use</button>
-                    </div>
-                    <div class="tabs__content-container">
-                        <div class="tabs__content" data-tab="1">
-                            ONE VEGETARIAN CAPSULE TYPICALLY PROVIDES: <br />
-                            Vollagen® Amino Acid Complex* 500mg Hyaluronic Acid (as
-                            Sodium Hyaluronate)** 50mg
 
-                            <br />
-                            <br />
-                            MAGNIFOOD COMPLEX 200mg PROVIDING: <br />
-                            Rose Hips (Rosa canina) - ORGANIC 75mg Matcha Green Tea
-                            Ceremonial grade AAA (Camellia sinensis) - ORGANIC 50mg
-                            Horsetail Spring Shoot (Equisetum arvense) - fresh freeze
-                            dried 25mg Parsley Leaf (Petroselinum crispum) - fresh
-                            freeze dried - ORGANIC 25mg Nettle Leaf (Urtica dioica) -
-                            fresh freeze dried 25mg Vegetarian Capsule Shell
-                            (hydroxypropyl methylcellulose)
-                            <br />
-                            <br />
-                            * Vollagen® is a registered trademark of Chrysalis Health &
-                            Beauty Ltd **ExceptionHYAL®STAR (Full spectrum molecular
-                            weight Hyaluronic Acid)
-                        </div>
-                        <div class="hidden tabs__content" data-tab="2">
-                            HOW TO USE: <br />
-                            Vollagen® Amino Acid Complex* 500mg Hyaluronic Acid (as
-                            Sodium Hyaluronate)** 50mg
 
-                            <br />
-                            <br />
-                            MAGNIFOOD COMPLEX 200mg PROVIDING: <br />
-                            Rose Hips (Rosa canina) - ORGANIC 75mg Matcha Green Tea
-                            Ceremonial grade AAA (Camellia sinensis) - ORGANIC 50mg
-                            Horsetail Spring Shoot (Equisetum arvense) - fresh freeze
-                            dried 25mg Parsley Leaf (Petroselinum crispum) - fresh
-                            freeze dried - ORGANIC 25mg Nettle Leaf (Urtica dioica) -
-                            fresh freeze dried 25mg Vegetarian Capsule Shell
-                            (hydroxypropyl methylcellulose)
-                            <br />
-                            <br />
-                            * Vollagen® is a registered trademark of Chrysalis Health &
-                            Beauty Ltd **ExceptionHYAL®STAR (Full spectrum molecular
-                            weight Hyaluronic Acid)
-                        </div>
-                    </div>
-                </div>
+                <?php include 'components/tabs.php'; ?>
 
                 <p class="single-product__no-additives">
                     NO FILLERS, BINDERS OR OTHER EXCIPIENTS SUITABLE FOR VEGETARIANS
