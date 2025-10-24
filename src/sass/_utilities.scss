@@ -155,6 +155,7 @@
 
 .italic {
   font-style: italic;
+  font-family: "InterTight Italic";
 }
 
 .underline {
@@ -189,7 +190,11 @@
 }
 
 .letter-spacing-wide {
-  letter-spacing: 0.4em;
+  letter-spacing: 0.25em;
+}
+
+.letter-spacing-medium {
+  letter-spacing: 0.2em;
 }
 
 .text-center {

@@ -65,7 +65,7 @@
                 <div
                     class="archive-product__filter archive-product__filter--open">
                     <h4
-                        class="heading-small archive-product__filter-heading underline">
+                        class="heading-s archive-product__filter-heading underline">
                         Filters
                     </h4>
 
@@ -156,7 +156,7 @@
                 </div>
                 <div class="archive-product__filter">
                     <h4
-                        class="heading-small archive-product__filter-heading underline">
+                        class="heading-s archive-product__filter-heading underline">
                         Category
                     </h4>
                     <div class="archive-product__filter-options-container">
@@ -190,7 +190,7 @@
                 </div>
                 <div class="archive-product__filter">
                     <h4
-                        class="heading-small archive-product__filter-heading underline">
+                        class="heading-s archive-product__filter-heading underline">
                         Ingredients
                     </h4>
                     <div class="archive-product__filter-options-container">

@@ -1,7 +1,7 @@
 <a href="<?php the_permalink(); ?>" class="archive-grid__post">
     <article class="archive-news__article">
         <div class="archive-news__text-container">
-            <span class="heading-capital-small archive-news__date"><?php echo get_the_date('d M Y'); ?></span>
+            <span class="text-ms uppercase letter-spacing-medium archive-news__date"><?php echo get_the_date('d M Y'); ?></span>
 
             <h2 class="archive-grid__title archive-news__heading heading-medium">
                 <?php the_title(); ?>

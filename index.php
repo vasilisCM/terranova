@@ -28,10 +28,10 @@
         <article class="archive-blog__article">
           <div class="archive-blog__text-container">
             <div class="archive-blog__article-info">
-              <span class="heading-capital-small archive-blog__date">March 23, 2023</span>
+              <span class="text-ms uppercase letter-spacing-medium archive-blog__date">March 23, 2023</span>
               <a
                 href=""
-                class="heading-capital-small archive-blog__category">Health & Beauty</a>
+                class="text-ms uppercase letter-spacing-medium archive-blog__category">Health & Beauty</a>
             </div>
             <a href="">
               <h2 class="archive-blog__heading heading-single-product">
@@ -60,9 +60,9 @@
               </a>
 
               <div class="hashtag-container">
-                <p class="heading-capital-small">#Nutrition</p>
-                <p class="heading-capital-small">#Health</p>
-                <p class="heading-capital-small">#Beauty</p>
+                <p class="text-ms uppercase letter-spacing-medium">#Nutrition</p>
+                <p class="text-ms uppercase letter-spacing-medium">#Health</p>
+                <p class="text-ms uppercase letter-spacing-medium">#Beauty</p>
               </div>
             </div>
           </div>
@@ -95,13 +95,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -124,13 +124,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -153,13 +153,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -182,13 +182,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -211,13 +211,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -240,13 +240,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -269,13 +269,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -298,13 +298,13 @@
           </div>
           <div class="asymmetrical-carousel__text-container">
             <div
-              class="asymmetrical-carousel__article-info heading-capital-small">
+              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
               <p class="asymmetrical-carousel__date">March 23, 2023</p>
               <p class="asymmetrical-carousel__category">
                 Vitamins & Multivitamins
               </p>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-small">
+            <h3 class="asymmetrical-carousel__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a
@@ -332,10 +332,10 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <div class="recipes__article-info heading-capital-small">
+            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
               <p class="recipes__date">March 23, 2023</p>
             </div>
-            <h3 class="recipes__heading heading-small">
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -351,11 +351,11 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <div class="recipes__article-info heading-capital-small">
+            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
               <p class="recipes__date">March 23, 2023</p>
               <p class="recipes__category">Vitamins & Multivitamins</p>
             </div>
-            <h3 class="recipes__heading heading-small">
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -371,11 +371,11 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <div class="recipes__article-info heading-capital-small">
+            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
               <p class="recipes__date">March 23, 2023</p>
               <p class="recipes__category">Vitamins & Multivitamins</p>
             </div>
-            <h3 class="recipes__heading heading-small">
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -391,9 +391,9 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <span class="recipes__date heading-capital-small">March 23, 2023</span>
-            <span class="recipes__category heading-capital-small">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-small">
+            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
+            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -409,9 +409,9 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <span class="recipes__date heading-capital-small">March 23, 2023</span>
-            <span class="recipes__category heading-capital-small">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-small">
+            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
+            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -427,9 +427,9 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <span class="recipes__date heading-capital-small">March 23, 2023</span>
-            <span class="recipes__category heading-capital-small">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-small">
+            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
+            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>
@@ -445,9 +445,9 @@
               draggable-image />
           </div>
           <div class="recipes__text-container">
-            <span class="recipes__date heading-capital-small">March 23, 2023</span>
-            <span class="recipes__category heading-capital-small">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-small">
+            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
+            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
+            <h3 class="recipes__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow recipes__link">Read more</a>

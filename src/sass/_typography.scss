@@ -1,4 +1,23 @@
 // Headings
+.heading-xxl {
+  font-size: cross-media(70px, 1024px, 200px);
+  font-weight: 300;
+  line-height: 1;
+
+  @include view(xxl) {
+    font-size: cross-media(200px, 3840px, calc(200px * $xxl-scale));
+  }
+}
+
+.heading-xl {
+  font-size: cross-media(50px, 1024px, 100px);
+  font-weight: 300;
+  line-height: 1.2;
+
+  @include view(xxl) {
+    font-size: cross-media(100px, 3840px, calc(100px * $xxl-scale));
+  }
+}
 .heading-l {
   font-size: cross-media(40px, 1024px, 60px);
 
@@ -19,6 +38,7 @@ h1,
 h2,
 .heading {
   font-size: cross-media(36px, 1024px, 75px);
+  line-height: 1.2;
   font-weight: 300;
 
   @include view(xxl) {
@@ -37,10 +57,20 @@ h3,
 
 h4,
 .heading-s {
-  font-size: cross-media(15px, 1024px, 20px);
+  font-size: cross-media(18px, 1024px, 25px);
+  font-weight: 300;
 
   @include view(xxl) {
-    font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+    font-size: cross-media(25px, 3840px, calc(25px * $xxl-scale));
+  }
+}
+
+h5,
+.heading-xs {
+  font-size: cross-media(15px, 1024px, 16px);
+
+  @include view(xxl) {
+    font-size: cross-media(16px, 3840px, calc(16px * $xxl-scale));
   }
 }
 
@@ -86,7 +116,15 @@ h4,
 }
 
 .button {
-  font-size: cross-media(12px, 1024px, 18px);
+  font-size: cross-media(14px, 1024px, 18px);
+
+  @include view(xxl) {
+    font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+  }
+}
+
+.link {
+  font-size: cross-media(14px, 1024px, 18px);
 
   @include view(xxl) {
     font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));

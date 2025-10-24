@@ -16,7 +16,7 @@
             <div class="single-product__text-container text-container">
                 <a href="">
                     <div
-                        class="single-product__heading-small heading-capital-small mask-text">
+                        class="single-product__heading-small text-ms uppercase letter-spacing-medium mask-text">
                         Skin Nutrition
                     </div>
                 </a>
@@ -37,7 +37,7 @@
                     <button
                         class="button single-product__button single-product__button--info text-button mask-text">
                         <span
-                            class="uppercase heading-capital-small button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
+                            class="uppercase text-ms uppercase letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
                     </button>
                     <button
                         class="button single-product__button text-button mask-text">
@@ -90,7 +90,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -111,7 +111,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -132,7 +132,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -153,7 +153,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -174,7 +174,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -195,7 +195,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -216,7 +216,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -237,7 +237,7 @@
                         <div class="related-products__text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small related-products__product-category">
+                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
                                     Terranova
                                 </h4>
                             </a>

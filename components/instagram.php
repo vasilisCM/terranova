@@ -2,7 +2,7 @@
     <!-- Texts  -->
     <div class="instagram__text-container boxed centered">
         <h2 class="instagram__heading heading">My Terranova</h2>
-        <span class="instagram__hashtag hashtag">#terranovanutrition</span>
+        <span class="instagram__hashtag heading-ms">#terranovanutrition</span>
     </div>
     <div
         class="instagram__slides-container"

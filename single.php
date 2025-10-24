@@ -13,13 +13,13 @@
             <?php the_title(); ?>
           </h1>
           <div class="archive-blog__article-info">
-            <span class="heading-capital-small archive-blog__date"><?php echo get_the_date('d M Y'); ?></span>
+            <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('d M Y'); ?></span>
             <?php
             // Get the first category
             $categories = get_the_category();
             if (!empty($categories)) ?>
             <?php $first_category = $categories[0]; ?>
-            <a href="<?php echo get_category_link($first_category->term_id); ?>" class="heading-capital-small archive-blog__category"><?php echo $first_category->name; ?></a>
+            <a href="<?php echo get_category_link($first_category->term_id); ?>" class="text-ms uppercase letter-spacing-medium archive-blog__category"><?php echo $first_category->name; ?></a>
 
           </div>
 
@@ -63,7 +63,7 @@
           $tags = get_the_tags();
           if ($tags) {
             foreach ($tags as $tag) {
-              echo '<p class="heading-capital-small">#' . $tag->name . '</p>';
+              echo '<p class="text-ms uppercase letter-spacing-medium">#' . $tag->name . '</p>';
             }
           }
           ?>

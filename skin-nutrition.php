@@ -27,7 +27,7 @@
         <div class="boxed centered holistic__container">
             <div class="holistic__text-container centered">
                 <h2 class="heading holistic__heading">holistic skin nutrition</h2>
-                <p class="heading-small">
+                <p class="heading-s">
                     There is no doubt that good nutrition is closely correlated to
                     healthy and radiant skin.
                 </p>
@@ -179,12 +179,12 @@
         <div class="skin-nutrition-steps__container boxed centered">
             <div class="skin-nutrition-steps__step">
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__heading">
+                    class="heading-ms underline skin-nutrition-steps__heading">
                     Step1 <br />
                     Foundational Nutrition
                 </div>
                 <div class="skin-nutrition-steps__text-container">
-                    <h3 class="heading-small">
+                    <h3 class="heading-s">
                         Create a daily foundation built upon nutrient-dense foods.
                     </h3>
                     <p class="text skin-nutrition-steps__description">
@@ -199,7 +199,7 @@
                     </p>
                 </div>
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__subheading">
+                    class="heading-ms underline skin-nutrition-steps__subheading">
                     Recommended Products
                 </div>
                 <!-- Grid  -->
@@ -215,7 +215,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -237,7 +237,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -259,7 +259,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -274,12 +274,12 @@
             </div>
             <div class="skin-nutrition-steps__step">
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__heading">
+                    class="heading-ms underline skin-nutrition-steps__heading">
                     Step2 <br />
                     Targeted Nutritional Supplements
                 </div>
                 <div class="skin-nutrition-steps__text-container">
-                    <h3 class="heading-small">
+                    <h3 class="heading-s">
                         Specific nutritional supplements can be selected to support
                         the skin depending on skin type, age and any existing skin
                         conditions.
@@ -291,7 +291,7 @@
                     </p>
                 </div>
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__subheading">
+                    class="heading-ms underline skin-nutrition-steps__subheading">
                     Recommended Products
                 </div>
                 <!-- Grid  -->
@@ -307,7 +307,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -329,7 +329,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -351,7 +351,7 @@
                         <div class="skin-nutrition-steps__product-text-container">
                             <a href="">
                                 <h4
-                                    class="heading-capital-small archive-product__product-category">
+                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                     Terranova
                                 </h4>
                             </a>
@@ -367,18 +367,18 @@
             <div
                 class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__heading">
+                    class="heading-ms underline skin-nutrition-steps__heading">
                     Step3 <br />
                     Topical Application
                 </div>
                 <div class="skin-nutrition-steps__text-container">
-                    <h3 class="heading-small">
+                    <h3 class="heading-s">
                         Daily application of a serum oil is a great way to compliment
                         the skin-enhancing benefits of steps 1 and 2.
                     </h3>
                 </div>
                 <div
-                    class="heading-medium-small underline skin-nutrition-steps__subheading">
+                    class="heading-ms underline skin-nutrition-steps__subheading">
                     Recommended Products
                 </div>
                 <!-- Product  -->
@@ -387,14 +387,14 @@
                     <div class="skin-nutrition-steps__product-text-container">
                         <a href="">
                             <h4
-                                class="heading-capital-small archive-product__product-category">
+                                class="text-ms uppercase letter-spacing-medium archive-product__product-category">
                                 Terranova
                             </h4>
                         </a>
                         <h3 class="archive-product__product-title">
                             Vollagen® & Hyaluronic Acid Complex
                         </h3>
-                        <h4 class="heading-small">
+                        <h4 class="heading-s">
                             This product is a unique blend featuring 14 carefully
                             selected organic oils, combined with organic extracts of
                             calendula and arnica.
@@ -410,7 +410,7 @@
                             ingredients that the skin can’t make itself.
                         </p>
 
-                        <div class="heading-capital-small">
+                        <div class="text-ms uppercase letter-spacing-medium">
                             100% Natural - 99,49% Organic - 100% Vegan
                         </div>
                     </div>
@@ -512,7 +512,7 @@
                     <div class="single-product__line"></div>
 
                     <div class="life-drink__recipe life-drink__text">
-                        <h5 class="heading-small">
+                        <h5 class="heading-s">
                             Add a Life Drink face mask in your weekly beauty routine!
                         </h5>
                         <p class="text">The recipe is so simple:</p>

@@ -7,10 +7,10 @@
     <div class="hero__container">
       <!-- Text  -->
       <div class="hero__text-container text-container">
-        <h1 class="heading-large hero__heading">
-          <span class="heading-large hero__heading-span">My time</span>
+        <h1 class="heading-xl lowercase hero__heading">
+          <span class="hero__heading-span">My time</span>
           <br />
-          <span class="heading-large hero__heading-span italic">My Terranova</span>
+          <span class="hero__heading-span italic">My Terranova</span>
         </h1>
         <p class="text mask-text hero__description">
           The everyday meaningful gestures, rituals, acts of
@@ -40,7 +40,7 @@
     <div class="products__container">
       <!-- Text  -->
       <div class="products__text-container text-container">
-        <div class="products__heading-small heading-capital mask-text">
+        <div class="products__heading-small heading-xs uppercase letter-spacing-wide mask-text">
           The Terranova Difference
         </div>
         <h2 class="products__heading mask-text">
@@ -248,13 +248,13 @@
         </div>
       </div>
       <!-- Heading  -->
-      <div class="asymmetrical-carousel__text">
+      <div class="asymmetrical-carousel__text heading-xxl lowercase">
         <span
-          class="asymmetrical-carousel__text--dark heading-huge fx-text-huge fx-text-huge--1">
+          class="asymmetrical-carousel__text--dark fx-text-huge fx-text-huge--1">
           My skin
         </span>
         <span
-          class="asymmetrical-carousel__text--light italic heading-huge fx-text-huge fx-text-huge--2">
+          class="asymmetrical-carousel__text--light italic fx-text-huge fx-text-huge--2">
           nutrition</span>
       </div>
     </div>
@@ -282,7 +282,7 @@
               class="choice__placeholder-image" />
           </div>
         </div>
-        <h3 class="choice__text heading-medium-small italic">
+        <h3 class="choice__text heading-ms italic">
           Vitamins & Multivitamins
         </h3>
         <div class="choice__image-container">
@@ -292,7 +292,7 @@
             alt="Image" />
         </div>
 
-        <h3 class="choice__text heading-medium-small italic">
+        <h3 class="choice__text heading-ms italic">
           Life Drink
         </h3>
         <div class="choice__image-container">
@@ -302,7 +302,7 @@
             alt="Image" />
         </div>
 
-        <h3 class="choice__text heading-medium-small italic">
+        <h3 class="choice__text heading-ms italic">
           Sports & Fitness
         </h3>
         <div class="choice__image-container">
@@ -312,7 +312,7 @@
             alt="Image" />
         </div>
 
-        <h3 class="choice__text heading-medium-small italic">Serum</h3>
+        <h3 class="choice__text heading-ms italic">Serum</h3>
         <div class="choice__image-container">
           <img
             class="choice__image"
@@ -320,7 +320,7 @@
             alt="Image" />
         </div>
 
-        <h3 class="choice__text heading-medium-small italic">
+        <h3 class="choice__text heading-ms italic">
           Green Child
         </h3>
         <div class="choice__image-container">
@@ -354,8 +354,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -371,8 +371,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -388,8 +388,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -405,8 +405,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -422,8 +422,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -439,8 +439,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -456,8 +456,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>
@@ -473,8 +473,8 @@
               draggable-image />
           </div>
           <div class="blog-home__text-container">
-            <a href="" class="blog-home__category heading-capital-small">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-small">
+            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
+            <h3 class="blog-home__heading heading-s">
               With an entire world of natural ingredients to source from
             </h3>
             <a href="" class="link link--arrow blog-home__link">Read more</a>

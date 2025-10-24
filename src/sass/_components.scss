@@ -45,6 +45,7 @@
   background: $white;
   border: solid 2px $black;
   border-radius: 5rem;
+  text-transform: lowercase;
   color: $white;
   pointer-events: auto;
   cursor: pointer;
@@ -136,6 +137,7 @@
 
 // Button Small
 .link {
+  text-transform: lowercase;
   // Arrow
   &--arrow {
     position: relative;

@@ -189,6 +189,28 @@ html.lenis {
   font-style: normal;
   font-display: block;
 }
+.heading-xxl {
+  font-size: clamp(70px, 19.53125vw, 200px);
+  font-weight: 300;
+  line-height: 1;
+}
+@media only screen and (min-width: 1921px) {
+  .heading-xxl {
+    font-size: clamp(200px, 7.8125vw, 300px);
+  }
+}
+
+.heading-xl {
+  font-size: clamp(50px, 9.765625vw, 100px);
+  font-weight: 300;
+  line-height: 1.2;
+}
+@media only screen and (min-width: 1921px) {
+  .heading-xl {
+    font-size: clamp(100px, 3.90625vw, 150px);
+  }
+}
+
 .heading-l {
   font-size: clamp(40px, 5.859375vw, 60px);
 }
@@ -212,6 +234,7 @@ h1,
 h2,
 .heading {
   font-size: clamp(36px, 7.32421875vw, 75px);
+  line-height: 1.2;
   font-weight: 300;
 }
 @media only screen and (min-width: 1921px) {
@@ -234,12 +257,24 @@ h3,
 
 h4,
 .heading-s {
-  font-size: clamp(15px, 1.953125vw, 20px);
+  font-size: clamp(18px, 2.44140625vw, 25px);
+  font-weight: 300;
 }
 @media only screen and (min-width: 1921px) {
   h4,
   .heading-s {
-    font-size: clamp(20px, 0.78125vw, 30px);
+    font-size: clamp(25px, 0.9765625vw, 37.5px);
+  }
+}
+
+h5,
+.heading-xs {
+  font-size: clamp(15px, 1.5625vw, 16px);
+}
+@media only screen and (min-width: 1921px) {
+  h5,
+  .heading-xs {
+    font-size: clamp(16px, 0.625vw, 24px);
   }
 }
 
@@ -289,10 +324,19 @@ h4,
 }
 
 .button {
-  font-size: clamp(12px, 1.7578125vw, 18px);
+  font-size: clamp(14px, 1.7578125vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .button {
+    font-size: clamp(18px, 0.703125vw, 27px);
+  }
+}
+
+.link {
+  font-size: clamp(14px, 1.7578125vw, 18px);
+}
+@media only screen and (min-width: 1921px) {
+  .link {
     font-size: clamp(18px, 0.703125vw, 27px);
   }
 }
@@ -522,6 +566,7 @@ h4 {
 
 .italic {
   font-style: italic;
+  font-family: "InterTight Italic";
 }
 
 .underline {
@@ -553,7 +598,11 @@ h4 {
 }
 
 .letter-spacing-wide {
-  letter-spacing: 0.4em;
+  letter-spacing: 0.25em;
+}
+
+.letter-spacing-medium {
+  letter-spacing: 0.2em;
 }
 
 .text-center {
@@ -1502,6 +1551,7 @@ h4 {
   background: #fcfcfc;
   border: solid 2px #000;
   border-radius: 5rem;
+  text-transform: lowercase;
   color: #fcfcfc;
   pointer-events: auto;
   cursor: pointer;
@@ -1568,6 +1618,9 @@ h4 {
   transform: scaleX(-1);
 }
 
+.link {
+  text-transform: lowercase;
+}
 .link--arrow {
   position: relative;
   display: flex;
