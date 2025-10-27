@@ -3,7 +3,7 @@
         <div class="archive-news__text-container">
             <span class="text-ms uppercase letter-spacing-medium archive-news__date"><?php echo get_the_date('d M Y'); ?></span>
 
-            <h2 class="archive-grid__title archive-news__heading heading-medium">
+            <h2 class="archive-grid__title archive-news__heading heading-m">
                 <?php the_title(); ?>
             </h2>
 

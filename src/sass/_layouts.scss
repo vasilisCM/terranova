@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 3fr max-content 2.5fr 0.5fr;
     place-items: center;
-    margin-top: cross-media(0px, 991px, 50px);
+    margin-top: cross-media(0px, $box, 50px);
 
     @include view(md-max) {
       position: relative;
@@ -30,7 +30,7 @@
   }
 
   &__logo-container {
-    max-width: cross-media(72px, 991px, 112px);
+    max-width: cross-media(72px, $box, 112px);
     z-index: 100;
     position: relative;
 
@@ -166,7 +166,11 @@
     margin: 0;
     list-style-type: none;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: cross-media(16px, $box, 18px);
+
+    @include view(xxl) {
+      font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+    }
 
     &:first-child {
       @include view(md-max) {
@@ -243,7 +247,7 @@
           margin-left: 4px;
           margin-top: -4px;
           border: solid 1px $black;
-          border-radius: 5rem;
+          border-radius: 80px;
           font-size: 12px;
         }
       }
@@ -363,7 +367,7 @@
 .dropdown-menu-overlay {
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   inset: 0;
   // top: 0;
   width: 100vw;
@@ -382,10 +386,10 @@
   &__background,
   &__toggle {
     border-radius: 50%;
-    top: 5em;
-    right: 5rem;
-    height: 3.5rem;
-    width: 3.5rem;
+    top: 80px;
+    right: 80px;
+    height: 56px;
+    width: 56px;
     background-color: $white;
 
     @include view(md-max) {
@@ -427,11 +431,11 @@
       &:after {
         content: "✕";
         color: $black;
-        font-size: 1.5rem;
+        font-size: 24px;
 
         @include view(ultra) {
-          font-size: calc(1.5 * 1.5rem);
-          font-size: cross-media(1.5rem, 3000px, 2.25rem);
+          font-size: calc(1.5 * 24px);
+          font-size: cross-media(24px, 3000px, 36px);
         }
       }
     }
@@ -525,7 +529,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: cross-media(8px, 991px, 16px);
+    gap: cross-media(8px, $box, 16px);
 
     @include view(lg-min) {
       max-width: 65%;
@@ -543,7 +547,7 @@
 .card-icon {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: cross-media(20px, 991px, 40px);
+  gap: cross-media(20px, $box, 40px);
 
   @include view(md-max) {
     grid-template-rows: revert;
@@ -554,7 +558,7 @@
 
 // Move it from here
 .page-info {
-  margin-top: cross-media(160px, 991px, 280px);
+  margin-top: cross-media(160px, $box, 280px);
 
   &__container {
     display: flex;
@@ -570,7 +574,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: cross-media(8px, 991px, 16px);
+    gap: cross-media(8px, $box, 16px);
 
     @include view(lg-min) {
       max-width: 65%;
@@ -583,8 +587,8 @@
   &__article {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: cross-media(20px, 991px, 40px);
-    padding: cross-media(32px, 991px, 56px) 0;
+    gap: cross-media(20px, $box, 40px);
+    padding: cross-media(32px, $box, 56px) 0;
     border-top: solid 1px $black;
 
     @include view(md-max) {
@@ -592,7 +596,7 @@
     }
 
     &:first-child {
-      padding: 0 0 cross-media(32px, 991px, 56px);
+      padding: 0 0 cross-media(32px, $box, 56px);
       border: none;
     }
   }
@@ -600,7 +604,7 @@
   &__text-container {
     display: flex;
     flex-direction: column;
-    gap: cross-media(8px, 991px, 16px);
+    gap: cross-media(8px, $box, 16px);
 
     @include view(lg-min) {
       max-width: 60%;
@@ -608,8 +612,8 @@
   }
 
   &__date {
-    font-size: cross-media(14px, 991px, 16px);
-    padding-bottom: cross-media(8px, 991px, 12px);
+    font-size: cross-media(14px, $box, 16px);
+    padding-bottom: cross-media(8px, $box, 12px);
   }
 
   &__heading {
@@ -638,7 +642,7 @@
 }
 
 .archive {
-  // margin-top: cross-media(60px, 991px, 120px);
+  // margin-top: cross-media(60px, $box, 120px);
 
   &__button {
     margin-top: 80px;
@@ -880,7 +884,7 @@
 
 // Instagram
 .instagram {
-  margin-top: cross-media(120px, 991px, 240px);
+  margin-top: cross-media(120px, $box, 240px);
   &__text-container {
     display: flex;
     justify-content: space-between;
@@ -899,9 +903,9 @@
 
   &__container {
     display: flex;
-    gap: cross-media(2px, 991px, 8px);
+    gap: cross-media(2px, $box, 8px);
     align-items: center;
-    margin-top: cross-media(24px, 991px, 48px);
+    margin-top: cross-media(24px, $box, 48px);
 
     // @include view(md-max) {
     //   padding: 0 20px;
@@ -917,13 +921,13 @@
   }
 
   &__image {
-    max-width: cross-media(150px, 991px, 352px);
-    max-height: cross-media(150px, 991px, 352px);
+    max-width: cross-media(150px, $box, 352px);
+    max-height: cross-media(150px, $box, 352px);
     aspect-ratio: 1;
     object-fit: cover;
 
     @include view(ultra) {
-      // max-width: calc(1.5 * 22rem);
+   
       max-width: cross-media(352px, 3000px, 704px);
       max-height: cross-media(352px, 3000px, 704px);
     }
@@ -932,14 +936,14 @@
 
 // Banner
 .banner {
-  margin-top: cross-media(100px, 991px, 200px);
+  margin-top: cross-media(100px, $box, 200px);
   background-size: cover;
   background-repeat: no-repeat;
   color: $white;
 
   &__wrapper {
     position: relative;
-    min-height: cross-media(350px, 991px, 660px);
+    min-height: cross-media(350px, $box, 660px);
   }
 
   &__container {
@@ -957,7 +961,7 @@
     position: absolute;
     z-index: 1;
     width: 550px;
-    height: cross-media(300px, 991px, 500px);
+    height: cross-media(300px, $box, 500px);
     background-color: rgba($secondary, 0.7);
     mix-blend-mode: multiply;
 
@@ -978,8 +982,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: cross-media(20px, 991px, 40px);
-    width: cross-media(270px, 991px, 550px);
+    gap: cross-media(20px, $box, 40px);
+    width: cross-media(270px, $box, 550px);
     height: 500px;
     padding: 40px 65px 160px;
     z-index: 2;
@@ -1008,8 +1012,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 24px;
+    margin-top: 24px;
 
     @include view(md-max) {
       flex-direction: column;
@@ -1038,7 +1042,7 @@
 
 // Footer
 .footer {
-  padding: cross-media(80px, 991px, 160px) 0 40px;
+  padding: cross-media(80px, $box, 160px) 0 40px;
   overflow-x: hidden;
 
   &__container {
@@ -1048,8 +1052,9 @@
       grid-template-areas: "newsletter menu info" "social menu info";
       justify-items: center;
     }
-    grid-row-gap: cross-media(40px, 991px, 80px);
-    // padding: 5rem 0 2rem;
+    grid-row-gap: cross-media(40px, $box, 80px);
+    grid-column-gap: cross-media(40px, $box, 80px);
+
   }
 
   &__newsletter {
@@ -1070,7 +1075,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: $gap;
-    margin-top: 1.5rem;
+    margin-top: 24px;
   }
 
   &__menu {
@@ -1086,7 +1091,7 @@
   }
 
   &__contact-info-list {
-    margin: 1.5rem 0;
+    margin: 24px 0;
     padding: 0;
   }
 
@@ -1100,19 +1105,21 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: cross-media(12px, 991px, 24px);
+    gap: cross-media(12px, $box, 24px);
     margin: 0;
     padding: 0;
 
     & li {
       list-style-type: none;
-      font-size: 20px;
       text-transform: uppercase;
 
-      // 4K
-      @include view(ultra) {
-        font-size: cross-media(20px, 3000px, 30px);
+      font-size: cross-media(16px, 1024px, 20px);
+
+      @include view(xxl) {
+        font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
       }
+
+   
     }
   }
 }

@@ -46,6 +46,13 @@ h2,
   }
 }
 
+.heading-m {
+  font-size: cross-media(30px, 1024px, 40px);
+  @include view(xxl) {
+    font-size: cross-media(40px, 3840px, calc(40px * $xxl-scale));
+  }
+}
+
 h3,
 .heading-ms {
   font-size: cross-media(20px, 1024px, 30px);

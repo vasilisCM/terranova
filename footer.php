@@ -13,8 +13,8 @@
   <div class="footer__container boxed centered">
     <!-- Newsletter  -->
     <div class="newsletter footer__newsletter">
-      <h3 class="lowercase newsletter__heading medium"><?php echo $newsletter['heading']; ?></h3>
-      <p class="newsletter__description text">
+      <h3 class="heading-m lowercase medium"><?php echo $newsletter['heading']; ?></h3>
+      <p class="text newsletter__description">
         <?php echo $newsletter['text']; ?>
       </p>
       <!-- Not the typical structure. Make sure it works  -->
@@ -26,7 +26,7 @@
             name="mail"
             required
             class="input newsletter__email" />
-          <label class="newsletter__terms text-small custom-checkbox">
+          <label class="newsletter__terms text-s custom-checkbox">
             <input
               type="checkbox"
               name="subscribe"
@@ -44,10 +44,10 @@
     </div>
     <!-- Social  -->
     <div class="footer__social">
-      <h3 class="lowercase footer__social-heading medium"><?php echo $social['heading']; ?></h3>
-      <div class="footer__social-links uppercase">
-        <a href="<?php echo $social['facebook']; ?>" target="_blank" class="link-large">Facebook</a>
-        <a href="<?php echo $social['instagram']; ?>" target="_blank" class="link-large">Instagram</a>
+      <h3 class="heading-m lowercase medium"><?php echo $social['heading']; ?></h3>
+      <div class="footer__social-links text-ml uppercase">
+        <a href="<?php echo $social['facebook']; ?>" target="_blank">Facebook</a>
+        <a href="<?php echo $social['instagram']; ?>" target="_blank">Instagram</a>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
 
     <!-- Contact Info -->
     <div class="footer__contact-info">
-      <h3 class="link-large footer__heading uppercase"><?php echo __('Contact', 'terranova'); ?></h3>
+      <h3 class="text-ml uppercase"><?php echo __('Contact', 'terranova'); ?></h3>
       <ul class="footer__contact-info-list text">
         <li class="footer__contact-info-item"><?php echo $company; ?></li>
         <li class="footer__contact-info-item">
@@ -95,7 +95,7 @@
 
   <!-- Copyrights -->
   <div class="boxed centered text-s footer__bottom-bar">
-    <span class="text-small footer__copyrights">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>.
+    <span class="text-s footer__copyrights">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>.
     </span>
     <span class="footer__created-by">
       Website by
