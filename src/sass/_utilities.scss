@@ -4,7 +4,7 @@
   padding-inline: $padding-inline;
 
   @include view(xxl) {
-    max-width: cross-media($box, 3840px, $box-4k);
+    max-width: cross-media($box, 3000px, $box-4k);
   }
 
   @include view(md-max) {
