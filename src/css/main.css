@@ -694,9 +694,6 @@ h4 {
     order: 1;
   }
 }
-.header__logo {
-  transition: all ease 1s;
-}
 @media only screen and (min-width: 1025px) {
   .header--sticky {
     mix-blend-mode: difference;
@@ -708,11 +705,6 @@ h4 {
     font-weight: 200;
     letter-spacing: -0.02em;
   }
-}
-.header--sticky .header__logo {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-1500px);
 }
 @media only screen and (min-width: 1025px) {
   .header--sticky .search__background,

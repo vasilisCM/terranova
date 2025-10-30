@@ -45,7 +45,7 @@
   }
 
   &__logo {
-    transition: all ease 1s;
+    // transition: all ease 300ms;
 
     // &--sticky {
     //   position: absolute;
@@ -100,11 +100,11 @@
     //   width: 100%;
     // }
 
-    .header__logo {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-1500px);
-    }
+    // .header__logo {
+    //   visibility: hidden;
+    //   opacity: 0;
+    //   transform: translateY(-200%);
+    // }
 
     // .header__logo--sticky {
     //   visibility: visible;
