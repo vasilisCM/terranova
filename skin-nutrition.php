@@ -162,13 +162,13 @@
                 </div>
             </div>
             <!-- Heading  -->
-            <div class="asymmetrical-carousel__text">
+            <div class="asymmetrical-carousel__text heading-xl">
                 <span
-                    class="asymmetrical-carousel__text--dark heading-extra-large fx-text-huge fx-text-huge--1">
+                    class="asymmetrical-carousel__text--dark fx-text-huge fx-text-huge--1">
                     3-Step plan
                 </span>
                 <span
-                    class="asymmetrical-carousel__text--light italic heading-extra-large fx-text-huge fx-text-huge--2 normal">
+                    class="asymmetrical-carousel__text--light italic fx-text-huge fx-text-huge--2 normal">
                     by Terranova</span>
             </div>
         </div>
