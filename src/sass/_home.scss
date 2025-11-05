@@ -262,11 +262,11 @@ main {
   position: relative;
 
   .image-on-text-hover {
-    display: grid;
     margin-top: cross-media(8px, 991px, 48px);
 
     @include view(lg-min) {
-      grid-template-columns: 2fr 1fr;
+      width: 50%;
+      // grid-template-columns: 2fr 1fr;
     }
   }
 
@@ -287,7 +287,7 @@ main {
       left: 0;
       bottom: 0;
       border-bottom: solid 1px $black-op-50;
-      width: 75%;
+      width: 100%;
 
       @include view(md-max) {
         width: 100%;
@@ -302,6 +302,7 @@ main {
     right: 0;
     max-width: 480px;
     transform: translateY(70%);
+    opacity: 0;
 
     @include view(md-max) {
       display: none;

@@ -8,14 +8,20 @@ const imageOnTexthover = () => {
   const transition = 0.6;
 
   // Fade in placeholder on scroll
-  gsap.from(placeHolderImage, {
-    opacity: 0,
-    duration: transition,
-    scrollTrigger: {
-      trigger: images[0],
-      toggleActions: "restart reverse restart reverse",
+  gsap.fromTo(
+    placeHolderImage,
+    {
+      opacity: 0,
     },
-  });
+    {
+      opacity: 1,
+      duration: transition,
+      scrollTrigger: {
+        trigger: images[0],
+        toggleActions: "restart reverse restart reverse",
+      },
+    }
+  );
 
   // Hide/show placeholder during the effect
   container.addEventListener("mouseover", () => {
@@ -26,6 +32,8 @@ const imageOnTexthover = () => {
   });
 
   container.addEventListener("mouseout", () => {
+    console.log("out of CONTAINER HOVER");
+
     gsap.to(placeHolderImage, {
       opacity: 1,
       duration: transition,
