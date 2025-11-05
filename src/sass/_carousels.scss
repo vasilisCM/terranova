@@ -76,7 +76,7 @@
     }
 
     // 4K
-    @include view(ultra) {
+    @include view(xxl) {
       width: cross-media(400px, 3000px, 600px);
       height: cross-media(380px, 3000px, 840px);
     }
@@ -127,7 +127,7 @@
         width: cross-media(264px, 991px, 550px);
 
         // 4K
-        @include view(ultra) {
+        @include view(xxl) {
           // width: calc(1.5 * 550px);
           width: cross-media(550px, 3000px, 1100px);
         }
@@ -146,7 +146,7 @@
         width: cross-media(180px, 991px, 400px);
 
         // 4K
-        @include view(ultra) {
+        @include view(xxl) {
           // width: calc(1.5 * 400px);
           width: cross-media(400px, 3000px, 800px);
         }
@@ -159,7 +159,7 @@
         width: cross-media(180px, 991px, 400px);
 
         // 4K
-        @include view(ultra) {
+        @include view(xxl) {
           // width: calc(1.5 * 400px);
           width: cross-media(400px, 3000px, 800px);
         }
@@ -178,7 +178,7 @@
         width: cross-media(264px, 991px, 550px);
 
         // 4K
-        @include view(ultra) {
+        @include view(xxl) {
           // width: calc(1.5 * 550px);
           width: cross-media(550px, 3000px, 1100px);
         }
@@ -253,7 +253,7 @@
     max-width: 550px;
 
     // 4K
-    @include view(ultra) {
+    @include view(xxl) {
       // max-width: calc(1.5 * 550px);
       max-width: cross-media(550px, 3000px, 1100px);
     }

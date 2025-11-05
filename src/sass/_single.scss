@@ -42,7 +42,7 @@
   //   line-height: cross-media(32px, 991px, 45px);
 
   //   // 4K
-  //   @include view(ultra) {
+  //   @include view(xxl) {
   //     // font-size: calc(1.5 * 41px);
   //     font-size: cross-media(41px, 3000px, 62px);
   //     line-height: cross-media(45px, 3000px, 65px);
@@ -58,8 +58,8 @@
     max-height: 640px;
     object-fit: cover;
 
-    @include view(ultra) {
-      max-height: cross-media(640px, 300px, 1280);
+    @include view(xxl) {
+      max-height: cross-media(640px, 3000px, 1280px);
     }
   }
 }

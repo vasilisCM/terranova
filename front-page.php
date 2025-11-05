@@ -272,7 +272,7 @@
   <!-- Choice  -->
   <section class="choice boxed centered">
     <div class="choice__container">
-      <h2 class="choice__heading heading">My choice is</h2>
+      <h2 class="choice__heading heading lowercase">My choice is</h2>
       <div class="image-on-text-hover">
         <div class="choice__placeholder-container">
           <div class="choice__placeholder">
@@ -340,7 +340,7 @@
 
   <!-- Blog  -->
   <section class="blog-home">
-    <h2 class="heading boxed centered">My blog</h2>
+    <h2 class="heading boxed centered lowercase">My blog</h2>
     <!-- Archive  -->
     <div class="blog-home__archive-container">
       <div class="blog-home__archive">

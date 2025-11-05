@@ -4,7 +4,7 @@
   &__button {
     margin-top: 80px;
 
-    @include view(ultra) {
+    @include view(xxl) {
       margin-top: cross-media(140px, 3000px, 210px);
     }
   }

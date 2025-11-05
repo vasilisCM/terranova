@@ -93,7 +93,7 @@
     gap: cross-media(10px, $box, 16px);
 
     @include view(xxl) {
-      gap: cross-media(16px, 3840px, calc(16px * $xxl-scale));
+      gap: cross-media(16px, 3000px, calc(16px * $xxl-scale));
     }
   }
 
@@ -117,7 +117,7 @@
   background-color: rgba($secondary, 0.1);
 
   @include view(xxl) {
-    padding: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+    padding: cross-media(20px, 3000px, calc(20px * $xxl-scale));
   }
 
   &__link {

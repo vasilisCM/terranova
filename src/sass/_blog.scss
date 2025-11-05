@@ -15,7 +15,7 @@
 .archive-blog {
   margin-top: 120px;
 
-  @include view(ultra) {
+  @include view(xxl) {
     margin-top: cross-media(120px, 3000px, 180px);
   }
 
@@ -58,7 +58,7 @@
     );
 
     //  4K
-    @include view(ultra) {
+    @include view(xxl) {
       clip-path: polygon(
         calc((100vw - #{$box-4k}) / 2) 0%,
         100% 0%,
@@ -79,7 +79,7 @@
     }
 
     //  4K
-    @include view(ultra) {
+    @include view(xxl) {
       padding-left: calc((100vw - #{cross-media($box, 3000px, 2560px)}) / 2);
     }
   }
@@ -92,7 +92,7 @@
     gap: 0.5rem;
 
     // 4K
-    @include view(ultra) {
+    @include view(xxl) {
       max-width: cross-media(560px, 3000px, 1120px);
     }
   }
@@ -113,7 +113,7 @@
     aspect-ratio: 16/9;
 
     // 4K
-    @include view(ultra) {
+    @include view(xxl) {
       max-height: cross-media(315px, 3000px, 630px);
     }
   }

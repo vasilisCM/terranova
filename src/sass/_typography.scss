@@ -5,24 +5,24 @@
   line-height: 1;
 
   @include view(xxl) {
-    font-size: cross-media(200px, 3840px, calc(200px * $xxl-scale));
+    font-size: cross-media(200px, 3000px, calc(200px * $xxl-scale));
   }
 }
 
 .heading-xl {
   font-size: cross-media(50px, 1024px, 100px);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1;
 
   @include view(xxl) {
-    font-size: cross-media(100px, 3840px, calc(100px * $xxl-scale));
+    font-size: cross-media(100px, 3000px, calc(100px * $xxl-scale));
   }
 }
 .heading-l {
   font-size: cross-media(40px, 1024px, 60px);
 
   @include view(xxl) {
-    font-size: cross-media(60px, 3840px, calc(60px * $xxl-scale));
+    font-size: cross-media(60px, 3000px, calc(60px * $xxl-scale));
   }
 }
 
@@ -31,7 +31,7 @@ h1,
   font-size: cross-media(35px, 1024px, 50px);
 
   @include view(xxl) {
-    font-size: cross-media(50px, 3840px, calc(50px * $xxl-scale));
+    font-size: cross-media(50px, 3000px, calc(50px * $xxl-scale));
   }
 }
 
@@ -42,14 +42,14 @@ h2,
   font-weight: 300;
 
   @include view(xxl) {
-    font-size: cross-media(75px, 3840px, calc(75px * $xxl-scale));
+    font-size: cross-media(75px, 3000px, calc(75px * $xxl-scale));
   }
 }
 
 .heading-m {
   font-size: cross-media(30px, 1024px, 40px);
   @include view(xxl) {
-    font-size: cross-media(40px, 3840px, calc(40px * $xxl-scale));
+    font-size: cross-media(40px, 3000px, calc(40px * $xxl-scale));
   }
 }
 
@@ -58,7 +58,7 @@ h3,
   font-size: cross-media(20px, 1024px, 30px);
 
   @include view(xxl) {
-    font-size: cross-media(30px, 3840px, calc(30px * $xxl-scale));
+    font-size: cross-media(30px, 3000px, calc(30px * $xxl-scale));
   }
 }
 
@@ -68,7 +68,7 @@ h4,
   font-weight: 300;
 
   @include view(xxl) {
-    font-size: cross-media(25px, 3840px, calc(25px * $xxl-scale));
+    font-size: cross-media(25px, 3000px, calc(25px * $xxl-scale));
   }
 }
 
@@ -77,7 +77,7 @@ h5,
   font-size: cross-media(15px, 1024px, 16px);
 
   @include view(xxl) {
-    font-size: cross-media(16px, 3840px, calc(16px * $xxl-scale));
+    font-size: cross-media(16px, 3000px, calc(16px * $xxl-scale));
   }
 }
 
@@ -86,7 +86,7 @@ h5,
   font-size: cross-media(20px, 1024px, 25px);
 
   @include view(xxl) {
-    font-size: cross-media(25px, 3840px, calc(25px * $xxl-scale));
+    font-size: cross-media(25px, 3000px, calc(25px * $xxl-scale));
   }
 }
 
@@ -94,7 +94,7 @@ h5,
   font-size: cross-media(16px, 1024px, 20px);
 
   @include view(xxl) {
-    font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+    font-size: cross-media(20px, 3000px, calc(20px * $xxl-scale));
   }
 }
 
@@ -102,7 +102,7 @@ h5,
   font-size: cross-media(15px, 1024px, 18px);
 
   @include view(xxl) {
-    font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+    font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
   }
 }
 
@@ -110,7 +110,7 @@ h5,
   font-size: cross-media(12px, 1024px, 14px);
 
   @include view(xxl) {
-    font-size: cross-media(14px, 3840px, calc(14px * $xxl-scale));
+    font-size: cross-media(14px, 3000px, calc(14px * $xxl-scale));
   }
 }
 
@@ -118,7 +118,7 @@ h5,
   font-size: 12px;
 
   @include view(xxl) {
-    font-size: cross-media(12px, 3840px, calc(12px * $xxl-scale));
+    font-size: cross-media(12px, 3000px, calc(12px * $xxl-scale));
   }
 }
 
@@ -126,7 +126,7 @@ h5,
   font-size: cross-media(14px, 1024px, 18px);
 
   @include view(xxl) {
-    font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+    font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
   }
 }
 
@@ -134,6 +134,6 @@ h5,
   font-size: cross-media(14px, 1024px, 18px);
 
   @include view(xxl) {
-    font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+    font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
   }
 }

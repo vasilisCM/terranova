@@ -24,13 +24,13 @@
   padding-inline: $padding-inline;
 
   @include view(xxl) {
-    max-width: cross-media($box-sm, 3840px, $box-sm-4k);
+    max-width: cross-media($box-sm, 3000px, $box-sm-4k);
   }
 }
 
 .boxed-4k {
   @include view(xxl) {
-    max-width: cross-media($box, 3840px, $box-4k);
+    max-width: cross-media($box, 3000px, $box-4k);
     padding-inline: $padding-inline;
   }
 }
@@ -63,7 +63,7 @@
   }
 
   @include view(xxl) {
-    margin-left: calc((100vw - cross-media($box, 3840px, $box-4k)) / 2);
+    margin-left: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
   }
 }
 
@@ -73,7 +73,7 @@
   }
 
   @include view(xxl) {
-    margin-right: calc((100vw - cross-media($box, 3840px, $box-4k)) / 2);
+    margin-right: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
   }
 }
 
@@ -88,7 +88,7 @@
 .bottom-padding {
   padding-bottom: cross-media(40px, 1024px, 80px);
   @include view(xxl) {
-    padding-bottom: cross-media(80px, 3840px, calc(80px * $xxl-scale));
+    padding-bottom: cross-media(80px, 3000px, calc(80px * $xxl-scale));
   }
 }
 
@@ -96,22 +96,22 @@
   padding-block: cross-media(150px, 1024px, 200px)
     cross-media(75px, 1024px, 100px);
   @include view(xxl) {
-    padding-block: cross-media(200px, 3840px, calc(200px * $xxl-scale))
-      cross-media(100px, 3840px, calc(100px * $xxl-scale));
+    padding-block: cross-media(200px, 3000px, calc(200px * $xxl-scale))
+      cross-media(100px, 3000px, calc(100px * $xxl-scale));
   }
 }
 
 .basic {
   padding-block: cross-media(20px, 1024px, 40px);
   @include view(xxl) {
-    padding-block: cross-media(40px, 3840px, calc(40px * $xxl-scale));
+    padding-block: cross-media(40px, 3000px, calc(40px * $xxl-scale));
   }
 }
 
 .last-section {
   padding-bottom: cross-media(150px, 1024px, 200px);
   @include view(xxl) {
-    padding-bottom: cross-media(200px, 3840px, calc(200px * $xxl-scale));
+    padding-bottom: cross-media(200px, 3000px, calc(200px * $xxl-scale));
   }
 }
 

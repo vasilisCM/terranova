@@ -51,10 +51,9 @@
   cursor: pointer;
 
   // 4K
-  @include view(ultra) {
+  @include view(xxl) {
     // padding: calc(1.5 * 1.6rem) calc(1.5 * 3rem);
-    padding: cross-media(1.6rem, 3000px, 2.4rem)
-      cross-media(1.5rem, 3000px, 2.25rem);
+    padding: cross-media(25px, 3000px, 38px) cross-media(24px, 3000px, 36px);
   }
 
   &:hover {
@@ -150,7 +149,7 @@
       font-size: 6px;
 
       // 4K
-      @include view(ultra) {
+      @include view(xxl) {
         // font-size: calc(1.5 * 6px);
         margin-top: 4px;
         font-size: cross-media(6px, 3000px, 9px);
@@ -335,7 +334,7 @@
     height: 80px;
     backdrop-filter: blur(15px);
 
-    @include view(ultra) {
+    @include view(xxl) {
       width: cross-media(80px, 3000px, 120px);
       height: cross-media(80px, 3000px, 120px);
     }
@@ -344,7 +343,7 @@
       content: "drag";
       font-size: cross-media(14px, 3000px, 16px);
 
-      @include view(ultra) {
+      @include view(xxl) {
         font-size: cross-media(16px, 3000px, 24px);
       }
     }

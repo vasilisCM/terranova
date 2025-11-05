@@ -1,7 +1,7 @@
 <section class="instagram centered">
     <!-- Texts  -->
     <div class="instagram__text-container boxed centered">
-        <h2 class="instagram__heading heading">My Terranova</h2>
+        <h2 class="instagram__heading heading lowercase">My Terranova</h2>
         <span class="instagram__hashtag heading-ms">#terranovanutrition</span>
     </div>
     <div

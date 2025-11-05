@@ -38,99 +38,14 @@
       order: 1;
     }
 
-    @include view(ultra) {
+    @include view(xxl) {
       // max-width: calc(1.5 * 113px);
       max-width: cross-media(113px, 3000px, 170px);
     }
   }
 
-  &__logo {
-    // transition: all ease 300ms;
-
-    // &--sticky {
-    //   position: absolute;
-    //   // inset: 0;
-    //   margin: auto;
-    //   visibility: hidden;
-    //   opacity: 0;
-    //   transition: all ease 0.5s;
-    //   color: $white;
-    //   min-width: 500px;
-    //   text-align: center;
-    //   top: 50%;
-    //   transform: translateY(-50%);
-    //   font-weight: 200;
-    // }
-  }
-
-  // &--sticky {
-  //   background-color: $white;
-  // }
-
   &--sticky {
-    @include view(lg-min) {
-      mix-blend-mode: difference;
-    }
-
-    // .main-menu {
-    //   width: revert;
-    // }
-
-    a {
-      @include view(lg-min) {
-        color: $white;
-        font-weight: 200;
-        letter-spacing: -0.02em;
-      }
-
-      // &-2 {
-      //   ul {
-      //     justify-content: start;
-      //   }
-      // }
-    }
-
-    // .header__container {
-    //   grid-template-columns: 3fr 500px 2.5fr 0.5fr;
-    //   // align-items: start;
-    // }
-
-    // .header__logo-container {
-    //   justify-self: start;
-    //   width: 100%;
-    // }
-
-    // .header__logo {
-    //   visibility: hidden;
-    //   opacity: 0;
-    //   transform: translateY(-200%);
-    // }
-
-    // .header__logo--sticky {
-    //   visibility: visible;
-    //   opacity: 1;
-    // }
-
-    // .search {
-    //   display: none;
-    // }
-
-    .search__background,
-    .search__toggle {
-      @include view(lg-min) {
-        background-color: $black;
-      }
-    }
-
-    .search__toggle {
-      &--open {
-        &:after {
-          @include view(lg-min) {
-            color: $white;
-          }
-        }
-      }
-    }
+    background-color: $white;
   }
 }
 
@@ -169,7 +84,7 @@
     font-size: cross-media(16px, $box, 18px);
 
     @include view(xxl) {
-      font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
+      font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
     }
 
     &:first-child {
@@ -186,7 +101,7 @@
       // padding-top: 40px;
     }
 
-    @include view(ultra) {
+    @include view(xxl) {
       // font-size: calc(1.5 * 18px);
       font-size: cross-media(18px, 3000px, 27px);
     }
@@ -286,7 +201,7 @@
         left: 100%;
       }
 
-      @include view(ultra) {
+      @include view(xxl) {
         max-height: cross-media(420px, 3000px, 630px);
         padding: cross-media(160px, 3000px, 240px) 0
           cross-media(80px, 3000px, 120px)
@@ -308,7 +223,7 @@
 
       & li:first-child {
         min-width: 270px;
-        @include view(ultra) {
+        @include view(xxl) {
           min-width: cross-media(270px, 3000px, 405px);
         }
       }
@@ -358,7 +273,7 @@
       display: none;
     }
 
-    @include view(ultra) {
+    @include view(xxl) {
       min-height: cross-media(430px, 3000px, 645px);
     }
   }
@@ -417,7 +332,7 @@
         color: $black;
         font-size: 20px;
 
-        @include view(ultra) {
+        @include view(xxl) {
           font-size: calc(1.5 * 20px);
           font-size: cross-media(20px, 3000px, 30px);
         }
@@ -433,7 +348,7 @@
         color: $black;
         font-size: 24px;
 
-        @include view(ultra) {
+        @include view(xxl) {
           font-size: calc(1.5 * 24px);
           font-size: cross-media(24px, 3000px, 36px);
         }
@@ -487,7 +402,7 @@
     background: $white;
     font-size: 48px;
 
-    @include view(ultra) {
+    @include view(xxl) {
       font-size: calc(1.5 * 48px);
       font-size: cross-media(48px, 3000px, 72px);
     }
@@ -513,7 +428,7 @@
       color: $black;
       font-size: 48px;
 
-      @include view(ultra) {
+      @include view(xxl) {
         font-size: calc(1.5 * 48px);
         font-size: cross-media(48px, 3000px, 72px);
       }
@@ -624,7 +539,7 @@
   // &__image-container {
   //   max-width: 680px;
 
-  //   @include view(ultra) {
+  //   @include view(xxl) {
   //     max-width: cross-media(680px, 300px, 1020px);
   //   }
   // }
@@ -635,7 +550,7 @@
     max-height: 550px;
     object-fit: cover;
 
-    @include view(ultra) {
+    @include view(xxl) {
       max-height: cross-media(550px, 3000px, 825px);
     }
   }
@@ -647,7 +562,7 @@
   &__button {
     margin-top: 80px;
 
-    @include view(ultra) {
+    @include view(xxl) {
       margin-top: cross-media(140px, 3000px, 210px);
     }
   }
@@ -926,8 +841,7 @@
     aspect-ratio: 1;
     object-fit: cover;
 
-    @include view(ultra) {
-   
+    @include view(xxl) {
       max-width: cross-media(352px, 3000px, 704px);
       max-height: cross-media(352px, 3000px, 704px);
     }
@@ -972,7 +886,7 @@
       width: cross-media(330px, 767px, 700px);
     }
 
-    @include view(ultra) {
+    @include view(xxl) {
       width: cross-media(550px, 3000px, 825px);
       height: cross-media(500px, 3000px, 600px);
     }
@@ -994,7 +908,7 @@
       gap: cross-media(8px, 767px, 40px);
     }
 
-    @include view(ultra) {
+    @include view(xxl) {
       width: cross-media(550px, 3000px, 825px);
       height: cross-media(500px, 3000px, 600px);
     }
@@ -1054,7 +968,6 @@
     }
     grid-row-gap: cross-media(40px, $box, 80px);
     grid-column-gap: cross-media(40px, $box, 80px);
-
   }
 
   &__newsletter {
@@ -1116,10 +1029,8 @@
       font-size: cross-media(16px, 1024px, 20px);
 
       @include view(xxl) {
-        font-size: cross-media(20px, 3840px, calc(20px * $xxl-scale));
+        font-size: cross-media(20px, 3000px, calc(20px * $xxl-scale));
       }
-
-   
     }
   }
 }
