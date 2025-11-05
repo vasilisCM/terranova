@@ -292,12 +292,39 @@
   }
 }
 
-// Marquee
 .marquee {
+  --gap: 1rem;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  transition: all ease 200ms 200ms;
   padding-top: cross-media(30px, $box, 60px);
 
   @include view(xxl) {
     padding-top: cross-media(60px, 2560px, 60px * $xxl-scale);
+  }
+
+  &__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    // min-width: 100%;
+    gap: var(--gap);
+    animation: scroll 60s linear infinite;
+  }
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
   }
 }
 

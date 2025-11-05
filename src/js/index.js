@@ -302,7 +302,7 @@ function global() {
     });
   }
 
-  marqueeInfinite();
+  // marqueeInfinite();
 }
 
 document.addEventListener("DOMContentLoaded", global);

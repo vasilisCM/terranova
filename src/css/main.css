@@ -1823,11 +1823,35 @@ h4 {
 }
 
 .marquee {
+  --gap: 1rem;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  transition: all ease 200ms 200ms;
   padding-top: clamp(30px, 3.3333333333vw, 60px);
 }
 @media only screen and (min-width: 1921px) {
   .marquee {
     padding-top: clamp(60px, 3.515625vw, 90px);
+  }
+}
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  animation: scroll 60s linear infinite;
+}
+.marquee--active {
+  visibility: visible;
+  opacity: 1;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
   }
 }
 
