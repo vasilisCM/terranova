@@ -44,9 +44,7 @@
                         <span class="text-button button__text">where to buy </span>
                     </button>
                 </div>
-                <span class="single-product__dosage">
-                    <span>×</span> <span>2 capsules daily with food</span>
-                </span>
+
 
                 <div class="single-product__line"></div>
                 <p class="single-product__no-additives">
