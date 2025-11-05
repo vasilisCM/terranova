@@ -1,4 +1,4 @@
-<div class="heading-ml marquee basic approach__marquee">
+<div class="marquee">
 
     <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" class="marquee__content">
 
