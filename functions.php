@@ -59,26 +59,6 @@ function create_custom_post_types()
     ),
     'hierarchical'      => true,
   ));
-
-  // Taxonomy - Tags
-  register_taxonomy('product_tags', 'product', array(
-    'labels' => array(
-      'name'          => __('Product Tags'),
-      'singular_name' => __('Product Tag'),
-      'search_items'  => __('Search Product Tags'),
-      'all_items'     => __('All Product Tags'),
-      'edit_item'     => __('Edit Product Tag'),
-      'update_item'   => __('Update Product Tag'),
-      'add_new_item'  => __('Add New Product Tag'),
-      'new_item_name' => __('New Product Tag Name'),
-      'menu_name'     => __('Tags'),
-    ),
-    'show_ui'           => true,
-    'show_admin_column' => true,
-    'query_var'         => true,
-    'rewrite'           => array('slug' => 'product-tags'),
-    'hierarchical'      => false,
-  ));
 }
 add_action('init', 'create_custom_post_types');
 
