@@ -36,7 +36,7 @@
 
   <!-- Content -->
   <section class="single-post-content">
-    <div class="boxed centered single-post-content__container">
+    <div class="boxed centered single-post-content__container text">
       <?php the_content(); ?>
 
       <div class="single-post-content__button-container">
