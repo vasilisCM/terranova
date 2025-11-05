@@ -306,7 +306,7 @@ h5,
 }
 
 .text {
-  font-size: clamp(16px, 1.7578125vw, 18px);
+  font-size: clamp(15px, 1.7578125vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .text {
@@ -538,6 +538,7 @@ h4 {
 
 .auto-fit-grid {
   display: grid;
+  gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
@@ -1963,9 +1964,9 @@ h4 {
 }
 @media only screen and (max-width: 1024px) {
   .asymmetrical-carousel__text {
-    width: 50%;
+    width: 80%;
     top: 0;
-    transform: translateX(50%);
+    transform: translateX(20%);
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -2136,8 +2137,13 @@ main--home {
   justify-content: center;
   z-index: 2;
   background-color: transparent;
-  max-width: 385px;
+  max-width: 410px;
   position: relative;
+}
+@media only screen and (min-width: 1921px) {
+  .products__text-container {
+    max-width: clamp(410px, 16.015625vw, 615px);
+  }
 }
 .products__heading-small {
   padding-bottom: 16px;
@@ -2181,7 +2187,7 @@ main--home {
 }
 @media only screen and (max-width: 1024px) {
   .products__description-effects {
-    top: clamp(90px, 23.4680573664vw, 180px);
+    top: clamp(120px, 23.4680573664vw, 180px);
   }
 }
 .products__description {

@@ -113,12 +113,12 @@ main {
     justify-content: center;
     z-index: 2;
     background-color: transparent;
-    max-width: 385px;
+    max-width: 410px;
     position: relative;
 
-    @include view(ultra) {
-      // max-width: calc(1.5 * 385px);
-      max-width: cross-media(385, 3000px, 578px);
+    @include view(xxl) {
+      // max-width: calc(1.5 * 410px);
+      max-width: cross-media(410px, 3840px, calc(410px * $xxl-scale));
     }
   }
 
@@ -179,7 +179,7 @@ main {
     left: 0;
 
     @include view(md-max) {
-      top: cross-media(90px, 767px, 180px);
+      top: cross-media(120px, 767px, 180px);
     }
 
     @include view(se) {

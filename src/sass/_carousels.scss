@@ -211,9 +211,9 @@
     user-select: none;
 
     @include view(md-max) {
-      width: 50%;
+      width: 80%;
       top: 0;
-      transform: translateX(50%);
+      transform: translateX(20%);
       // right: 50%;
     }
 

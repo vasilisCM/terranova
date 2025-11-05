@@ -99,7 +99,7 @@ h5,
 }
 
 .text {
-  font-size: cross-media(16px, 1024px, 18px);
+  font-size: cross-media(15px, 1024px, 18px);
 
   @include view(xxl) {
     font-size: cross-media(18px, 3840px, calc(18px * $xxl-scale));
