@@ -23,8 +23,13 @@ const imageOnTexthover = () => {
     }
   );
 
-  // Hide/show placeholder during the effect
-  container.addEventListener("mouseover", () => {
+  // Hide/show placeholder during the effect, but ignore if event targets placeholder image
+  container.addEventListener("mouseover", (e) => {
+    // If the event target is any of the .choice__image elements, do NOT run the gsap
+    if ([...images].some((img) => img === e.target)) {
+      return;
+    }
+
     gsap.to(placeHolderImage, {
       opacity: 0,
       duration: transition,
@@ -55,6 +60,7 @@ const imageOnTexthover = () => {
     text.addEventListener("mouseout", (event) => {
       // Hide the corresponding image when the mouse moves out of the text
       // images[i].style.opacity = 0;
+      console.log("out of TEXT HOVER");
 
       gsap.to(images[i], {
         opacity: 0,

@@ -4,4 +4,8 @@
 
     <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" class="marquee__content" aria-hidden="true">
 
+        <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" class="marquee__content">
+
+    <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" class="marquee__content" aria-hidden="true">
+
 </div>
