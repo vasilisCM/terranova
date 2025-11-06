@@ -350,21 +350,21 @@ main {
 
   &__archive-container {
     display: flex;
-    clip-path: polygon(
-      calc((100vw - #{$box}) / 2) 0%,
-      100% 0%,
-      100% 100%,
-      calc((100vw - #{$box}) / 2) 100%
-    );
+    // clip-path: polygon(
+    //   calc((100vw - #{$box}) / 2) 0%,
+    //   100% 0%,
+    //   100% 100%,
+    //   calc((100vw - #{$box}) / 2) 100%
+    // );
 
     //  4K
     @include view(xxl) {
-      clip-path: polygon(
-        calc((100vw - #{$box-4k}) / 2) 0%,
-        100% 0%,
-        100% 100%,
-        calc((100vw - #{$box-4k}) / 2) 100%
-      );
+      // clip-path: polygon(
+      //   calc((100vw - #{$box-4k}) / 2) 0%,
+      //   100% 0%,
+      //   100% 100%,
+      //   calc((100vw - #{$box-4k}) / 2) 100%
+      // );
     }
   }
 
@@ -372,16 +372,16 @@ main {
     display: flex;
     gap: 0.5rem;
     margin-top: cross-media(24px, 991px, 48px);
-    padding-left: calc((100vw - #{$box}) / 2);
+    // padding-left: calc((100vw - #{$box}) / 2);
 
     @include view(md-max) {
       padding: 0 20px;
     }
 
     //  4K
-    @include view(xxl) {
-      padding-left: calc((100vw - #{cross-media($box, 3000px, 2560px)}) / 2);
-    }
+    // @include view(xxl) {
+    //   padding-left: calc((100vw - #{cross-media($box, 3000px, 2560px)}) / 2);
+    // }
   }
 
   &__post {

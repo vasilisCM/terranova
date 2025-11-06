@@ -342,7 +342,7 @@
   <section class="blog-home">
     <h2 class="heading boxed centered lowercase">My blog</h2>
     <!-- Archive  -->
-    <div class="blog-home__archive-container">
+    <div class="push-left blog-home__archive-container">
       <div class="blog-home__archive">
         <!-- Posts  -->
         <article class="blog-home__post">

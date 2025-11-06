@@ -2484,27 +2484,15 @@ main--home {
 }
 .blog-home__archive-container {
   display: flex;
-  clip-path: polygon(calc((100vw - 1800px) / 2) 0%, 100% 0%, 100% 100%, calc((100vw - 1800px) / 2) 100%);
-}
-@media only screen and (min-width: 1921px) {
-  .blog-home__archive-container {
-    clip-path: polygon(calc((100vw - 2600px) / 2) 0%, 100% 0%, 100% 100%, calc((100vw - 2600px) / 2) 100%);
-  }
 }
 .blog-home__archive {
   display: flex;
   gap: 0.5rem;
   margin-top: clamp(24px, 4.843592331vw, 48px);
-  padding-left: calc((100vw - 1800px) / 2);
 }
 @media only screen and (max-width: 1024px) {
   .blog-home__archive {
     padding: 0 20px;
-  }
-}
-@media only screen and (min-width: 1921px) {
-  .blog-home__archive {
-    padding-left: calc((100vw - clamp(1800px, 85.3333333333vw, 2560px)) / 2);
   }
 }
 .blog-home__post {
