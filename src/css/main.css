@@ -825,14 +825,25 @@ h4 {
   flex-direction: column;
   flex-wrap: wrap;
   position: absolute;
-  padding: 160px 0 80px calc((100vw - 1800px) / 2 + 20px);
   z-index: 1;
   text-transform: lowercase;
   font-size: 16px;
 }
+@media only screen and (min-width: 1800px) {
+  .main-menu li ul {
+    margin-left: calc((100vw - 1800px) / 2 - 20px);
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .main-menu li ul {
+    margin-left: calc((100vw - clamp(1800px, 86.6666666667vw, 2600px)) / 2);
+  }
+}
 @media only screen and (min-width: 1025px) {
   .main-menu li ul {
-    max-height: 420px;
+    max-height: 180px;
+    top: 160px;
+    padding-inline: 40px;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -850,8 +861,8 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .main-menu li ul {
-    max-height: clamp(420px, 21vw, 630px);
-    padding: clamp(160px, 8vw, 240px) 0 clamp(80px, 4vw, 120px) calc((100vw - clamp(1800px, 85.3333333333vw, 2560px)) / 2 + 20px);
+    max-height: clamp(180px, 9vw, 270px);
+    top: clamp(160px, 8vw, 240px);
     font-size: clamp(16px, 0.8vw, 24px);
   }
 }

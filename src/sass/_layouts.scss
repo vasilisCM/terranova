@@ -168,6 +168,7 @@
       }
     }
 
+    // submenu
     & ul {
       opacity: 1;
       top: 0;
@@ -176,18 +177,27 @@
       flex-direction: column;
       flex-wrap: wrap;
       position: absolute;
-      padding: 160px 0 80px calc(((100vw - #{$box}) / 2) + 20px); // 5px is temporary fix
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
 
-      @include view(lg-min) {
-        max-height: 420px;
+      @include view(box-min) {
+        margin-left: calc((100vw - #{$box}) / 2 - 20px); // 20px is klepsimo
       }
 
-      @include view(desktop-box) {
-        padding: 160px 0 80px 20px;
+      @include view(xxl) {
+        margin-left: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
       }
+
+      @include view(lg-min) {
+        max-height: 180px;
+        top: 160px;
+        padding-inline: $padding-inline;
+      }
+
+      // @include view(desktop-box) {
+      //   padding: 160px 0 80px 20px;
+      // }
 
       @include view(md-max) {
         display: block;
@@ -202,10 +212,9 @@
       }
 
       @include view(xxl) {
-        max-height: cross-media(420px, 3000px, 630px);
-        padding: cross-media(160px, 3000px, 240px) 0
-          cross-media(80px, 3000px, 120px)
-          calc(((100vw - #{cross-media($box, 3000px, 2560px)}) / 2) + 20px); // 5px is temporary fix
+        max-height: cross-media(180px, 3000px, 180px * $xxl-scale);
+        top: cross-media(160px, 3000px, 160px * $xxl-scale);
+        // padding-inline: cross-media(40px, 3000px, 40px * $xxl-scale);
         font-size: cross-media(16px, 3000px, 24px);
       }
 
