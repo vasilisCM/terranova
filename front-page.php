@@ -225,141 +225,48 @@
     <div class="push-left blog-home__archive-container">
       <div class="blog-home__archive">
         <!-- Posts  -->
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
+        <?php
+        $blog_query = new WP_Query(array(
+          'post_type' => 'post',
+          'posts_per_page' => 8,
+          'orderby' => 'date',
+          'order' => 'DESC'
+        ));
 
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="blog-home__post">
-          <div class="blog-home__image-container">
-            <img
-              class="blog-home__image"
-              src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="blog-home__text-container">
-            <a href="" class="blog-home__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</a>
-            <h3 class="blog-home__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow blog-home__link">Read more</a>
-          </div>
-        </article>
+        if ($blog_query->have_posts()):
+          while ($blog_query->have_posts()): $blog_query->the_post();
+            $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+            $categories = get_the_category();
+            $category_name = !empty($categories) ? $categories[0]->name : '';
+            $category_link = !empty($categories) ? get_category_link($categories[0]->term_id) : '';
+            $post_title = get_the_title();
+            $post_permalink = get_permalink();
+        ?>
+            <article class="blog-home__post">
+              <div class="blog-home__image-container">
+                <?php if ($thumbnail_url): ?>
+                  <img
+                    class="blog-home__image"
+                    src="<?php echo esc_url($thumbnail_url); ?>"
+                    alt="<?php echo esc_attr($post_title); ?>"
+                    draggable-image />
+                <?php endif; ?>
+              </div>
+              <div class="blog-home__text-container">
+                <?php if ($category_name): ?>
+                  <a href="<?php echo esc_url($category_link); ?>" class="blog-home__category text-ms uppercase letter-spacing-medium"><?php echo esc_html($category_name); ?></a>
+                <?php endif; ?>
+                <h3 class="blog-home__heading heading-s">
+                  <?php echo esc_html($post_title); ?>
+                </h3>
+                <a href="<?php echo esc_url($post_permalink); ?>" class="link link--arrow blog-home__link">Read more</a>
+              </div>
+            </article>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
       </div>
     </div>
 
