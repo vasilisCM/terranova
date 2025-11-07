@@ -900,6 +900,29 @@ h4 {
     visibility: hidden;
   }
 }
+.main-menu a {
+  position: relative;
+  white-space: nowrap;
+}
+.main-menu a::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+.main-menu a::before {
+  content: "";
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+.main-menu a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
 @media only screen and (min-width: 1025px) {
   .main-menu a {
     z-index: 10;
@@ -1747,6 +1770,30 @@ h4 {
 .link--arrow:hover:after {
   animation: link-arrow 1.2s ease-in-out 0s infinite reverse;
 }
+.link--line {
+  position: relative;
+  white-space: nowrap;
+}
+.link--line::before {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+.link--line::before {
+  content: "";
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+.link--line:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+
 .link--line {
   position: relative;
   white-space: nowrap;
