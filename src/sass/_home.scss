@@ -357,6 +357,10 @@ main {
     //   calc((100vw - #{$box}) / 2) 100%
     // );
 
+    @include view(box-max) {
+      padding-left: $padding-inline-mob;
+    }
+
     //  4K
     @include view(xxl) {
       // clip-path: polygon(

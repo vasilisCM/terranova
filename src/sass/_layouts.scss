@@ -1035,7 +1035,7 @@
       list-style-type: none;
       text-transform: uppercase;
 
-      font-size: cross-media(16px, 1024px, 20px);
+      font-size: cross-media(16px, $box, 20px);
 
       @include view(xxl) {
         font-size: cross-media(20px, 3000px, calc(20px * $xxl-scale));

@@ -26,12 +26,12 @@
                 if (!empty($product_category_display)):
                 ?>
                     <div
-                        class="single-product__heading-small text-ms uppercase letter-spacing-medium mask-text">
+                        class="text-ms uppercase letter-spacing-medium mask-text accent">
                         <?php echo esc_html($product_category_display); ?>
                     </div>
                 <?php endif; ?>
                 
-                <h1 class="single-product__heading heading-single-product">
+                <h1 class="single-product__heading heading-m">
                     <?php the_title(); ?>
                 </h1>
 
@@ -42,16 +42,16 @@
                     <?php endif; ?>
                 </div>
 
-                <p class="single-product__description text-single-product">
+                <div class="single-product__description text-m">
                     <?php the_excerpt(); ?>
-                </p>
+                    </div>
 
                
                 <div class="single-product__buttons-container">
                     <button
                         class="button single-product__button single-product__button--info text-button mask-text">
                         <span
-                            class="uppercase text-ms uppercase letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
+                            class="uppercase text-s uppercase letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
                     </button>
                     <button
                         class="button single-product__button text-button mask-text">

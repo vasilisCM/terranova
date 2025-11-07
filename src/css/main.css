@@ -190,7 +190,7 @@ html.lenis {
   font-display: block;
 }
 .heading-xxl {
-  font-size: clamp(70px, 19.53125vw, 200px);
+  font-size: clamp(70px, 11.1111111111vw, 200px);
   font-weight: 300;
   line-height: 1;
 }
@@ -201,7 +201,7 @@ html.lenis {
 }
 
 .heading-xl {
-  font-size: clamp(50px, 9.765625vw, 100px);
+  font-size: clamp(50px, 5.5555555556vw, 100px);
   font-weight: 300;
   line-height: 1;
 }
@@ -211,8 +211,21 @@ html.lenis {
   }
 }
 
+h1,
+.heading {
+  font-size: clamp(36px, 4.1666666667vw, 75px);
+  line-height: 1.2;
+  font-weight: 300;
+}
+@media only screen and (min-width: 1921px) {
+  h1,
+  .heading {
+    font-size: clamp(75px, 3.75vw, 112.5px);
+  }
+}
+
 .heading-l {
-  font-size: clamp(40px, 5.859375vw, 60px);
+  font-size: clamp(40px, 3.3333333333vw, 60px);
 }
 @media only screen and (min-width: 1921px) {
   .heading-l {
@@ -220,32 +233,19 @@ html.lenis {
   }
 }
 
-h1,
+h2,
 .heading-ml {
-  font-size: clamp(35px, 4.8828125vw, 50px);
+  font-size: clamp(35px, 2.7777777778vw, 50px);
 }
 @media only screen and (min-width: 1921px) {
-  h1,
+  h2,
   .heading-ml {
     font-size: clamp(50px, 2.5vw, 75px);
   }
 }
 
-h2,
-.heading {
-  font-size: clamp(36px, 7.32421875vw, 75px);
-  line-height: 1.2;
-  font-weight: 300;
-}
-@media only screen and (min-width: 1921px) {
-  h2,
-  .heading {
-    font-size: clamp(75px, 3.75vw, 112.5px);
-  }
-}
-
 .heading-m {
-  font-size: clamp(30px, 3.90625vw, 40px);
+  font-size: clamp(30px, 2.2222222222vw, 40px);
 }
 @media only screen and (min-width: 1921px) {
   .heading-m {
@@ -255,7 +255,7 @@ h2,
 
 h3,
 .heading-ms {
-  font-size: clamp(20px, 2.9296875vw, 30px);
+  font-size: clamp(20px, 1.6666666667vw, 30px);
 }
 @media only screen and (min-width: 1921px) {
   h3,
@@ -266,7 +266,7 @@ h3,
 
 h4,
 .heading-s {
-  font-size: clamp(18px, 2.44140625vw, 25px);
+  font-size: clamp(18px, 1.3888888889vw, 25px);
   font-weight: 300;
 }
 @media only screen and (min-width: 1921px) {
@@ -278,7 +278,7 @@ h4,
 
 h5,
 .heading-xs {
-  font-size: clamp(15px, 1.5625vw, 16px);
+  font-size: clamp(15px, 0.8888888889vw, 16px);
 }
 @media only screen and (min-width: 1921px) {
   h5,
@@ -287,8 +287,17 @@ h5,
   }
 }
 
+.text-xl {
+  font-size: clamp(30px, 2.5vw, 45px);
+}
+@media only screen and (min-width: 1921px) {
+  .text-xl {
+    font-size: clamp(45px, 2.25vw, 67.5px);
+  }
+}
+
 .text-l {
-  font-size: clamp(20px, 2.44140625vw, 25px);
+  font-size: clamp(20px, 1.3888888889vw, 25px);
 }
 @media only screen and (min-width: 1921px) {
   .text-l {
@@ -297,7 +306,7 @@ h5,
 }
 
 .text-ml {
-  font-size: clamp(16px, 1.953125vw, 20px);
+  font-size: clamp(16px, 1.1111111111vw, 20px);
 }
 @media only screen and (min-width: 1921px) {
   .text-ml {
@@ -306,7 +315,7 @@ h5,
 }
 
 .text {
-  font-size: clamp(15px, 1.7578125vw, 18px);
+  font-size: clamp(15px, 1vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .text {
@@ -314,8 +323,12 @@ h5,
   }
 }
 
+.text-m {
+  font-size: clamp(14px, 0.8888888889vw, 16px);
+}
+
 .text-ms {
-  font-size: clamp(12px, 1.3671875vw, 14px);
+  font-size: clamp(12px, 0.7777777778vw, 14px);
 }
 @media only screen and (min-width: 1921px) {
   .text-ms {
@@ -333,7 +346,7 @@ h5,
 }
 
 .button {
-  font-size: clamp(14px, 1.7578125vw, 18px);
+  font-size: clamp(14px, 1vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .button {
@@ -342,7 +355,7 @@ h5,
 }
 
 .link {
-  font-size: clamp(14px, 1.7578125vw, 18px);
+  font-size: clamp(14px, 1vw, 18px);
 }
 @media only screen and (min-width: 1921px) {
   .link {
@@ -411,16 +424,11 @@ h4 {
 
 .boxed {
   max-width: 1840px;
-  padding-inline: 40px;
+  padding-inline: clamp(20px, 2.2222222222vw, 40px);
 }
 @media only screen and (min-width: 1921px) {
   .boxed {
     max-width: clamp(1800px, 86.6666666667vw, 2600px);
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .boxed {
-    padding-inline: 20px;
   }
 }
 
@@ -1589,7 +1597,7 @@ h4 {
 .footer-menu__list li {
   list-style-type: none;
   text-transform: uppercase;
-  font-size: clamp(16px, 1.953125vw, 20px);
+  font-size: clamp(16px, 1.1111111111vw, 20px);
 }
 @media only screen and (min-width: 1921px) {
   .footer-menu__list li {
@@ -1629,7 +1637,7 @@ h4 {
   position: relative;
   z-index: 2;
   overflow: hidden;
-  padding: 0.8rem 1.5rem;
+  padding: clamp(8px, 0.6666666667vw, 12px) clamp(18px, 1.3333333333vw, 24px);
   border: none;
   background: #fcfcfc;
   border: solid 2px #000;
@@ -1641,7 +1649,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .button {
-    padding: clamp(25px, 1.2666666667vw, 38px) clamp(24px, 1.2vw, 36px);
+    padding: clamp(12px, 0.6vw, 18px) clamp(24px, 1.2vw, 36px);
   }
 }
 .button:hover span {
@@ -2495,6 +2503,11 @@ main--home {
 }
 .blog-home__archive-container {
   display: flex;
+}
+@media only screen and (max-width: 1800px) {
+  .blog-home__archive-container {
+    padding-left: 20px;
+  }
 }
 .blog-home__archive {
   display: flex;
