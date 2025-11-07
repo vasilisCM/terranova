@@ -2992,6 +2992,27 @@ main--home {
   font-size: 15px;
 }
 
+.single-product-ingredients table {
+  border-block: solid 1px #000;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.single-product-ingredients table th {
+  background-color: #e8e7e0;
+  border-block: solid 1px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+}
+.single-product-ingredients table td {
+  background-color: #fcfcfc;
+  border-block: solid 1px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+}
+.single-product-ingredients table td:last-child {
+  border-left: solid 1px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
 .banner--blog {
   background-image: url("../../assets/img/blog-background.webp");
 }

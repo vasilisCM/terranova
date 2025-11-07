@@ -15,18 +15,21 @@
             <!-- Text  -->
             <div class="single-product__text-container text-container">
                 <?php
-                $product_categories = get_the_terms(get_the_ID(), 'product_category');
-                $product_category = (!is_wp_error($product_categories) && !empty($product_categories)) ? $product_categories[0] : null;
-                $product_category_link = $product_category ? get_term_link($product_category) : '';
-                if (is_wp_error($product_category_link)) {
-                    $product_category_link = '';
+                $product_categories = get_the_terms(get_the_ID(), 'product_categories');
+                $product_category_names = array();
+                if (!is_wp_error($product_categories) && !empty($product_categories)) {
+                    foreach ($product_categories as $category) {
+                        $product_category_names[] = $category->name;
+                    }
                 }
+                $product_category_display = !empty($product_category_names) ? implode(', ', $product_category_names) : '';
+                if (!empty($product_category_display)):
                 ?>
-               
                     <div
                         class="single-product__heading-small text-ms uppercase letter-spacing-medium mask-text">
-                        <?php echo $product_category ? esc_html($product_category->name) : ''; ?>
+                        <?php echo esc_html($product_category_display); ?>
                     </div>
+                <?php endif; ?>
                 
                 <h1 class="single-product__heading heading-single-product">
                     <?php the_title(); ?>
@@ -80,10 +83,10 @@
                         </div>
 
                         <div class="tabs__contents text-ms">
-                            <div class="tabs__content tabs__content--hidden">
+                            <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients">
                                 <?php echo $single_product_ingredients ? wp_kses_post($single_product_ingredients) : ''; ?>
                             </div>
-                            <div class="tabs__content tabs__content--hidden">
+                            <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use">
                                 <?php echo $single_product_how_to_use ? wp_kses_post($single_product_how_to_use) : ''; ?>
                             </div>
                         </div>
