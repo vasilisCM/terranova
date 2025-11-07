@@ -210,11 +210,7 @@
         endif;
         ?>
       </div>
-      <a href="">
-        <button class="button choice__button text-button mask-text">
-          <span class="text-button button__text">View all </span>
-        </button>
-      </a>
+    
     </div>
   </section>
 
