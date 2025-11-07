@@ -35,6 +35,14 @@
     display: grid;
     gap: cross-media(8px, 991px, 160px);
   }
+  
+  &__heading-bg {
+    padding-block: cross-media(40px, $box, 80px);
+
+    @include view(xxl) {
+      padding-block: cross-media(80px, $xxl-breakpoint, 80px * $xxl-scale);
+    }
+  }
 
   &__step {
     display: grid;
@@ -104,11 +112,7 @@
     }
   }
 
-  &__heading {
-    color: $accent;
-    font-weight: 600;
-    line-height: 1.2;
-  }
+
 
   &__subheading {
     margin-top: cross-media(20px, 991px, 40px);

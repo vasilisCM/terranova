@@ -55,6 +55,10 @@
   }
 }
 
+.width-full {
+  width: 100%;
+}
+
 .push-left {
   @include view(box-min) {
     margin-left: calc((100vw - #{$box}) / 2);
@@ -169,6 +173,12 @@
     // border-bottom: solid 1px $black-op-50;
     border-bottom: solid 1px $secondary;
     width: 100%;
+  }
+
+  &--white {
+    &:before {
+      border-color: $white;
+    }
   }
 }
 
