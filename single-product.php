@@ -14,25 +14,36 @@
 
             <!-- Text  -->
             <div class="single-product__text-container text-container">
-                <a href="">
+                <?php
+                $product_categories = get_the_terms(get_the_ID(), 'product_category');
+                $product_category = (!is_wp_error($product_categories) && !empty($product_categories)) ? $product_categories[0] : null;
+                $product_category_link = $product_category ? get_term_link($product_category) : '';
+                if (is_wp_error($product_category_link)) {
+                    $product_category_link = '';
+                }
+                ?>
+               
                     <div
                         class="single-product__heading-small text-ms uppercase letter-spacing-medium mask-text">
-                        Skin Nutrition
+                        <?php echo $product_category ? esc_html($product_category->name) : ''; ?>
                     </div>
-                </a>
+                
                 <h1 class="single-product__heading heading-single-product">
                     <?php the_title(); ?>
                 </h1>
+
                 <div
                     class="single-product__featured-image-container hidden-desktop">
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
                     <?php endif; ?>
                 </div>
+
                 <p class="single-product__description text-single-product">
                     <?php the_excerpt(); ?>
                 </p>
 
+               
                 <div class="single-product__buttons-container">
                     <button
                         class="button single-product__button single-product__button--info text-button mask-text">
@@ -53,9 +64,31 @@
                     - NO COLOURS - NO FLAVOURS - NO PRESERVATIVES
                 </p>
 
+                <div>
 
+                
+                <!-- Tabs  -->
+                <?php
+                $single_product_ingredients = get_field('single_product_ingredients');
+                $single_product_how_to_use = get_field('single_product_how_to_use');
+                if ($single_product_ingredients || $single_product_how_to_use):
+                ?>
+                    <div class="tabs">
+                        <div class="tabs__buttons text-s uppercase semibold">
+                            <div class="tabs__button">Ingredients</div>
+                            <div class="tabs__button">How to Use</div>
+                        </div>
 
-                <?php include 'components/tabs.php'; ?>
+                        <div class="tabs__contents text-ms">
+                            <div class="tabs__content tabs__content--hidden">
+                                <?php echo $single_product_ingredients ? wp_kses_post($single_product_ingredients) : ''; ?>
+                            </div>
+                            <div class="tabs__content tabs__content--hidden">
+                                <?php echo $single_product_how_to_use ? wp_kses_post($single_product_how_to_use) : ''; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
 
                 <p class="single-product__no-additives">
                     NO FILLERS, BINDERS OR OTHER EXCIPIENTS SUITABLE FOR VEGETARIANS
@@ -64,6 +97,7 @@
                 <div class="single-product__line"></div>
                 <div class="single-product__icons">
                     <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" />
+                </div>
                 </div>
             </div>
         </div>
