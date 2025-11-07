@@ -6,17 +6,22 @@
     data-barba-namespace="skinNutrition">
     <!-- Banner -->
     <section class="banner banner--skin-nutrition">
+        <?php $hero = get_field('skin_nutrition__hero');
+        $text_1 = $hero['text_1'];
+        $text_2 = $hero['text_2'];
+        ?>
         <div class="banner__wrapper boxed centered">
             <div class="banner__container">
                 <div class="banner__text-background"></div>
                 <div class="banner__text-container">
+                <div class="banner__subheading text-ms uppercase letter-spacing-medium">
+                        <?php echo $text_1; ?>
+</div>
                     <h1 class="banner__heading heading">
-                        completing your holistic
-                        <span class="heading italic">skin nutrition</span>
+                        <?php echo $text_2; ?>
+                        
                     </h1>
-                    <p class="banner__subheading heading-single-product">
-                        in 3 steps
-                    </p>
+                    
                 </div>
             </div>
         </div>
@@ -24,18 +29,39 @@
 
     <!-- Holistic Presentation -->
     <section class="holistic">
-        <div class="boxed centered holistic__container">
+        <?php $intro = get_field('skin_nutrition__intro');
+        $text_1 = $intro['text_1'];
+        $text_2 = $intro['text_2'];
+        $text_3 = $intro['text_3'];
+        $text_4 = $intro['text_4'];
+        ?>
+        <div class="boxed-sm centered">
             <div class="holistic__text-container centered">
-                <h2 class="heading holistic__heading">holistic skin nutrition</h2>
-                <p class="heading-s">
-                    There is no doubt that good nutrition is closely correlated to
-                    healthy and radiant skin.
-                </p>
-                <p class="text">
-                    The Terranova Holistic Skin Nutrition in 3 steps programme is a
-                    simple, yet comprehensive system, designed to provide all the
-                    ingredients and methods needed for glowing, radiant skin.
-                </p>
+                <h2 class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></h2>
+           </div>
+        </div>
+
+        <div class="line-text">
+
+            <div class="line"></div>
+            <div class="line-text__numbers heading-s medium">
+                <span class="line-text__number">1</span>
+                <span class="line-text__number">2</span>
+                <span class="line-text__number">3</span>
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="boxed-sm centered">
+            <div class="holistic__text-container centered">
+            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_2; ?></div>              
+           
+                <div class="text-xl">
+                   <?php echo $text_3; ?>
+</div>
+                <div class="text">
+                    <?php echo $text_4; ?>
+                </div>
             </div>
         </div>
     </section>
@@ -162,14 +188,14 @@
                 </div>
             </div>
             <!-- Heading  -->
-            <div class="asymmetrical-carousel__text heading-xl">
+            <div class="asymmetrical-carousel__text heading-xxl">
                 <span
-                    class="asymmetrical-carousel__text--dark fx-text-huge fx-text-huge--1">
-                    3-Step plan
+                    class="asymmetrical-carousel__text--light fx-text-huge fx-text-huge--1">
+                    my skin
                 </span>
                 <span
                     class="asymmetrical-carousel__text--light italic fx-text-huge fx-text-huge--2 normal">
-                    by Terranova</span>
+                    nutrition</span>
             </div>
         </div>
     </section>

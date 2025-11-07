@@ -908,7 +908,7 @@
     gap: cross-media(20px, $box, 40px);
     width: cross-media(270px, $box, 550px);
     height: 500px;
-    padding: 40px 65px 160px;
+    padding: 40px 40px 160px;
     z-index: 2;
 
     @include view(md-max) {
