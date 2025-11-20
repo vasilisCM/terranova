@@ -181,17 +181,15 @@
           <span class="italic"><?php echo $text_2; ?></span>
           <span class="lowercase"><?php echo $text_3; ?></span>
         </h2>
-        <a href="<?php echo $link; ?>">
-          <button class="button button--white home-presentation__button text-button mask-text">
-            <span class="text-button button__text">Learn more </span>
-          </button>
+        <a href="<?php echo $link; ?>" class="button button--white home-presentation__button text-button mask-text">
+          <span class="text-button button__text">Learn more </span>
         </a>
       </div>
       <div class="home-presentation__images">
-        <div>
+        <div class="relative home-presentation__img-container home-presentation__img-container--1">
           <img src="<?php echo $image_1; ?>">
         </div>
-        <div>
+        <div class="home-presentation__img-container home-presentation__img-container--2">
           <img src="<?php echo $image_2; ?>">
         </div>
         <div class="absolute home-presentation__img-container home-presentation__img-container--3">
@@ -207,72 +205,112 @@
   <!-- Carousel  -->
   <section class="basic home-presentation-products">
     <?php $presentation = get_field('home__presentation');
-    $products = $presentation['products'];
+    $products = $presentation['products'] ?? array();
+    $text_4 = $presentation['text_4'] ?? '';
 
+    $home_presentation_products = array();
+
+    if (!empty($products) && is_array($products)) {
+      foreach ($products as $product_item) {
+        if (empty($product_item)) {
+          continue;
+        }
+
+        if (is_numeric($product_item)) {
+          $product_id = absint($product_item);
+        } elseif (is_object($product_item) && isset($product_item->ID)) {
+          $product_id = $product_item->ID;
+        } elseif (is_array($product_item) && isset($product_item['ID'])) {
+          $product_id = $product_item['ID'];
+        } else {
+          $product_id = url_to_postid($product_item);
+        }
+
+        if (!$product_id) {
+          continue;
+        }
+
+        $product_post = get_post($product_id);
+
+        if (!$product_post) {
+          continue;
+        }
+
+        $product_title = get_the_title($product_id);
+        $product_permalink = get_permalink($product_id);
+        $product_thumbnail = get_the_post_thumbnail_url($product_id, 'medium_large');
+
+        $product_terms = get_the_terms($product_id, 'product_categories');
+        $primary_term = (!empty($product_terms) && !is_wp_error($product_terms)) ? $product_terms[0] : null;
+
+        $product_category_name = $primary_term ? $primary_term->name : '';
+        $product_category_link = '';
+
+        if ($primary_term) {
+          $term_link = get_term_link($primary_term);
+          $product_category_link = !is_wp_error($term_link) ? $term_link : '';
+        }
+
+        $home_presentation_products[] = array(
+          'title' => $product_title,
+          'permalink' => $product_permalink,
+          'thumbnail' => $product_thumbnail,
+          'category_name' => $product_category_name,
+          'category_link' => $product_category_link,
+        );
+      }
+    }
+
+    $placeholder_image = get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp';
     ?>
     <div class="boxed-sm centered">
-
       <div>
         <h3 class="home-presentation__text-4 heading-ms lowercase black text-center">
           <?php echo $text_4; ?>
         </h3>
-        <?php if (!empty($products) && is_array($products)): ?>
-          <div>
-            <?php
-            foreach ($products as $product_item):
-              if (empty($product_item)) {
-                continue;
-              }
-
-              if (is_numeric($product_item)) {
-                $product_id = absint($product_item);
-              } elseif (is_object($product_item) && isset($product_item->ID)) {
-                $product_id = $product_item->ID;
-              } elseif (is_array($product_item) && isset($product_item['ID'])) {
-                $product_id = $product_item['ID'];
-              } else {
-                $product_id = url_to_postid($product_item);
-              }
-
-              if (!$product_id) {
-                continue;
-              }
-
-              $product_post = get_post($product_id);
-
-              if (!$product_post) {
-                continue;
-              }
-
-              $product_title = get_the_title($product_id);
-              $product_permalink = get_permalink($product_id);
-              $product_thumbnail = get_the_post_thumbnail_url($product_id, 'medium_large');
-              $product_terms = get_the_terms($product_id, 'product_categories');
-              $product_category = (!empty($product_terms) && !is_wp_error($product_terms))
-                ? $product_terms[0]->name
-                : '';
-            ?>
-              <div>
-                <a href="<?php echo esc_url($product_permalink); ?>">
-                  <?php if (!empty($product_title)): ?>
-                    <div><?php echo esc_html($product_title); ?></div>
-                  <?php endif; ?>
-
-                  <?php if (!empty($product_thumbnail)): ?>
-                    <div>
-                      <img src="<?php echo esc_url($product_thumbnail); ?>" alt="<?php echo esc_attr($product_title); ?>">
-                    </div>
-                  <?php endif; ?>
-
-                  <?php if (!empty($product_category)): ?>
-                    <div><?php echo esc_html($product_category); ?></div>
-                  <?php endif; ?>
-                </a>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        <?php endif; ?>
       </div>
+
+      <?php if (!empty($home_presentation_products)): ?>
+        <div class="basic carousel home-presentation__carousel">
+          <div class="carousel__track" data-glide-el="track">
+            <div class="carousel__container">
+              <?php foreach ($home_presentation_products as $product): ?>
+                <div class="carousel__slide">
+                  <a href="<?php echo esc_url($product['permalink']); ?>">
+                    <img
+                      src="<?php echo esc_url($product['thumbnail'] ?: $placeholder_image); ?>"
+                      alt="<?php echo esc_attr($product['title']); ?>"
+                      class="related-products__featured-image" />
+                  </a>
+                  <div class="related-products__text-container">
+                    <?php if (!empty($product['category_name'])): ?>
+                      <a href="<?php echo esc_url($product['category_link'] ?: $product['permalink']); ?>">
+                        <h4 class="text-ms uppercase letter-spacing-medium related-products__product-category">
+                          <?php echo esc_html($product['category_name']); ?>
+                        </h4>
+                      </a>
+                    <?php endif; ?>
+                    <?php if (!empty($product['title'])): ?>
+                      <h3 class="related-products__product-title">
+                        <?php echo esc_html($product['title']); ?>
+                      </h3>
+                    <?php endif; ?>
+                    <a href="<?php echo esc_url($product['permalink']); ?>" class="link link--arrow related-products__link">View more</a>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+
+          <div class="carousel__bottom">
+            <div class="carousel__controls">
+              <div class="carousel__button carousel__button--previous"></div>
+              <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+              <div class="carousel__button carousel__button--next"></div>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
 

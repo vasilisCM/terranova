@@ -40,6 +40,7 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
+  width: fit-content;
   padding: cross-media(8px, $box, 12px) cross-media(18px, $box, 24px);
   border: none;
   background: $white;

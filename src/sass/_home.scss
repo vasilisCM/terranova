@@ -258,15 +258,22 @@ main {
 
 // NextGen Presentation
 .home-presentation {
-  background: linear-gradient(
-    to bottom,
-    $white 0%,
-    $white 15%,
-    $dark-blue 15%,
-    $dark-blue 85%,
-    rgba($light-blue, 0.2) 85%,
-    rgba($light-blue, 0.2) 100%
-  );
+  @include view(lg-min) {
+    background: linear-gradient(
+      to bottom,
+      $white 0%,
+      $white 15%,
+      $dark-blue 15%,
+      $dark-blue 85%,
+      rgba($light-blue, 0.2) 85%,
+      rgba($light-blue, 0.2) 100%
+    );
+  }
+
+  @include view(md-max) {
+    padding-block: cross-media(40px, 767px, 80px);
+    background-color: $dark-blue;
+  }
 
   &__container {
     display: grid;
@@ -280,6 +287,10 @@ main {
 
   &__button {
     margin-top: cross-media(20px, $box, 40px);
+
+    @include view(md-max) {
+      margin-inline: auto;
+    }
   }
 
   &__images {
@@ -287,13 +298,61 @@ main {
     align-items: center;
     gap: cross-media(20px, $box, 40px);
     flex-wrap: wrap;
+
+    @include view(md-max) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__img-container {
+    position: relative;
+    display: inline-flex;
+
+    &--1 {
+      & img {
+        position: relative;
+        z-index: 2;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 180%;
+        aspect-ratio: 1/1;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+          circle,
+          rgba($white, 0.8) 0%,
+          rgba($white, 0.4) 35%,
+          rgba($white, 0.15) 60%,
+          transparent 100%
+        );
+        border-radius: 50%;
+        filter: blur(35px);
+        opacity: 0.9;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+    &--2 {
+      @include view(md-max) {
+        padding-inline: 80px;
+      }
+    }
     &--3 {
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
+      max-width: cross-media(140px, $box, 260px);
+      top: 15%;
+      left: 0;
+
+      @include view(lg-min) {
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
 
       @include view(xxl) {
         top: cross-media(80px, 3000px, 80px * 1.2);
@@ -490,5 +549,9 @@ main {
 .asymmetrical-carousel--home {
   @include view(lg-min) {
     margin-top: 15rem;
+  }
+
+  @include view(md-max) {
+    padding-bottom: cross-media(40px, 767px, 80px);
   }
 }

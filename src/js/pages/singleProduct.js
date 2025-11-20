@@ -1,4 +1,3 @@
-import simpleCarousel from "../logic/simpleCarousel.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import Carousel from "../logic/carousel.js";
 import Tabs from "../logic/tabs.js";

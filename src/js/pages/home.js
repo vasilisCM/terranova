@@ -1,4 +1,5 @@
 import clipUp from "../animations/clipUp.js";
+import Carousel from "../logic/carousel.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { parallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
 import { imageOnTexthover } from "../logic/imageOnTextHover.js";
@@ -83,6 +84,14 @@ class Home {
         }
       );
       this.scrollTriggers.push(trigger);
+
+      const presentationButton = document.querySelector(
+        ".home-presentation__button"
+      );
+      const presentantionImg3 = document.querySelector(
+        ".home-presentation__img-container--3"
+      );
+      presentantionImg3.insertAdjacentElement("afterend", presentationButton);
     });
 
     // Difference
@@ -162,6 +171,13 @@ class Home {
       ".asymmetrical-carousel__image-container"
     );
     this.carousels.push(carousel1);
+
+    // Product Presentaiton Carousel
+    const productPresentationCarousel = new Carousel(
+      ".home-presentation__carousel"
+    );
+    productPresentationCarousel.init();
+    this.carousels.push(productPresentationCarousel);
 
     // Choice
     imageOnTexthover();
