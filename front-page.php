@@ -163,6 +163,119 @@
     </div>
   </section>
 
+  <!-- NextGen Presentation  -->
+  <section class="basic relative home-presentation white">
+    <?php $presentation = get_field('home__presentation');
+    $text_1 = $presentation['text_1'];
+    $text_2 = $presentation['text_2'];
+    $text_3 = $presentation['text_3'];
+    $link = $presentation['link'];
+    $image_1 = $presentation['image_1'];
+    $image_2 = $presentation['image_2'];
+    $text_4 = $presentation['text_4'];
+    ?>
+    <div class="home-presentation__container boxed centered">
+      <div>
+        <h2 class="home-presentation__heading heading">
+          <span><?php echo $text_1; ?></span>
+          <span class="italic"><?php echo $text_2; ?></span>
+          <span class="lowercase"><?php echo $text_3; ?></span>
+        </h2>
+        <a href="<?php echo $link; ?>">
+          <button class="button button--white home-presentation__button text-button mask-text">
+            <span class="text-button button__text">Learn more </span>
+          </button>
+        </a>
+      </div>
+      <div class="home-presentation__images">
+        <div>
+          <img src="<?php echo $image_1; ?>">
+        </div>
+        <div>
+          <img src="<?php echo $image_2; ?>">
+        </div>
+        <div class="absolute home-presentation__img-container home-presentation__img-container--3">
+          <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>">
+        </div>
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Carousel  -->
+  <section class="basic home-presentation-products">
+    <?php $presentation = get_field('home__presentation');
+    $products = $presentation['products'];
+
+    ?>
+    <div class="boxed-sm centered">
+
+      <div>
+        <h3 class="home-presentation__text-4 heading-ms lowercase black text-center">
+          <?php echo $text_4; ?>
+        </h3>
+        <?php if (!empty($products) && is_array($products)): ?>
+          <div>
+            <?php
+            foreach ($products as $product_item):
+              if (empty($product_item)) {
+                continue;
+              }
+
+              if (is_numeric($product_item)) {
+                $product_id = absint($product_item);
+              } elseif (is_object($product_item) && isset($product_item->ID)) {
+                $product_id = $product_item->ID;
+              } elseif (is_array($product_item) && isset($product_item['ID'])) {
+                $product_id = $product_item['ID'];
+              } else {
+                $product_id = url_to_postid($product_item);
+              }
+
+              if (!$product_id) {
+                continue;
+              }
+
+              $product_post = get_post($product_id);
+
+              if (!$product_post) {
+                continue;
+              }
+
+              $product_title = get_the_title($product_id);
+              $product_permalink = get_permalink($product_id);
+              $product_thumbnail = get_the_post_thumbnail_url($product_id, 'medium_large');
+              $product_terms = get_the_terms($product_id, 'product_categories');
+              $product_category = (!empty($product_terms) && !is_wp_error($product_terms))
+                ? $product_terms[0]->name
+                : '';
+            ?>
+              <div>
+                <a href="<?php echo esc_url($product_permalink); ?>">
+                  <?php if (!empty($product_title)): ?>
+                    <div><?php echo esc_html($product_title); ?></div>
+                  <?php endif; ?>
+
+                  <?php if (!empty($product_thumbnail)): ?>
+                    <div>
+                      <img src="<?php echo esc_url($product_thumbnail); ?>" alt="<?php echo esc_attr($product_title); ?>">
+                    </div>
+                  <?php endif; ?>
+
+                  <?php if (!empty($product_category)): ?>
+                    <div><?php echo esc_html($product_category); ?></div>
+                  <?php endif; ?>
+                </a>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
   <!-- Choice  -->
   <section class="choice boxed centered">
     <div class="choice__container">
@@ -210,7 +323,7 @@
         endif;
         ?>
       </div>
-    
+
     </div>
   </section>
 

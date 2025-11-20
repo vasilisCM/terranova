@@ -53,7 +53,8 @@
   // 4K
   @include view(xxl) {
     // padding: calc(1.5 * 1.6rem) calc(1.5 * 3rem);
-    padding: cross-media(12px, 3000px, 12px * $xxl-scale) cross-media( 24px, 3000px, 24px * $xxl-scale);
+    padding: cross-media(12px, 3000px, 12px * $xxl-scale)
+      cross-media(24px, 3000px, 24px * $xxl-scale);
   }
 
   &:hover {
@@ -132,6 +133,19 @@
       }
     }
   }
+
+  &--white {
+    background-color: transparent;
+    border: solid 2px $white;
+    color: $white;
+
+    & .button__text {
+      color: $white;
+      &::after {
+        color: $white;
+      }
+    }
+  }
 }
 
 // Button Small
@@ -190,10 +204,9 @@
   }
 }
 
-
 .link--line {
   position: relative;
-  white-space: nowrap; 
+  white-space: nowrap;
   &::before {
     position: absolute;
     width: 100%;
@@ -201,18 +214,19 @@
     background-color: currentColor;
     top: 100%;
     left: 0;
-    pointer-events: none; }
+    pointer-events: none;
+  }
   &::before {
     content: "";
     transform-origin: 100% 50%;
     transform: scale3d(0, 1, 1);
-    transition: transform 0.3s; }
+    transition: transform 0.3s;
+  }
   &:hover::before {
     transform-origin: 0% 50%;
-    transform: scale3d(1, 1, 1); 
+    transform: scale3d(1, 1, 1);
   }
 }
-
 
 // Custom Checkbox - Always add this class to the label element that contains the input
 .custom-checkbox {
@@ -413,7 +427,6 @@
   gap: 16px;
   padding-block: cross-media(10px, $box, 20px);
 
-
   @include view(xxl) {
     padding-block: cross-media(20px, 3000px, 20px * $xxl-scale);
   }
@@ -426,38 +439,38 @@
   }
 
   &__number {
-   position: relative;
-   width:cross-media( 20px, $box, 40px);
-   height: cross-media( 20px, $box, 40px);
-   padding: cross-media(20px, $box, 30px);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: $white;
-   margin-left: cross-media(8px, $box, 16px, -1);
-   z-index: 1;
+    position: relative;
+    width: cross-media(20px, $box, 40px);
+    height: cross-media(20px, $box, 40px);
+    padding: cross-media(20px, $box, 30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    margin-left: cross-media(8px, $box, 16px, -1);
+    z-index: 1;
 
-   &:first-child {
-     margin-left: 0;
-     &::before {
-  opacity: 0.6;
-     }
-   }
-
-   &:nth-child(2) {
-    &::before {
-      opacity: 0.8;
+    &:first-child {
+      margin-left: 0;
+      &::before {
+        opacity: 0.6;
+      }
     }
-   }
 
-   &::before {
-     content: "";
-     position: absolute;
-     inset: 0;
-     background-color: $accent;
-     border-radius: 50%;
-     z-index: -1;
-   }
+    &:nth-child(2) {
+      &::before {
+        opacity: 0.8;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: $accent;
+      border-radius: 50%;
+      z-index: -1;
+    }
 
     @include view(xxl) {
       width: cross-media(40px, 3000px, 40px * $xxl-scale);

@@ -256,6 +256,56 @@ main {
   }
 }
 
+// NextGen Presentation
+.home-presentation {
+  background: linear-gradient(
+    to bottom,
+    $white 0%,
+    $white 15%,
+    $dark-blue 15%,
+    $dark-blue 85%,
+    rgba($light-blue, 0.2) 85%,
+    rgba($light-blue, 0.2) 100%
+  );
+
+  &__container {
+    display: grid;
+    gap: cross-media(40px, $box, 80px);
+    align-items: center;
+
+    @include view(lg-min) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__button {
+    margin-top: cross-media(20px, $box, 40px);
+  }
+
+  &__images {
+    display: flex;
+    align-items: center;
+    gap: cross-media(20px, $box, 40px);
+    flex-wrap: wrap;
+  }
+
+  &__img-container {
+    &--3 {
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include view(xxl) {
+        top: cross-media(80px, 3000px, 80px * 1.2);
+      }
+    }
+  }
+}
+
+.home-presentation-products {
+  background-color: rgba($light-blue, 0.2);
+}
+
 // Choice
 .choice {
   margin-top: 80px;
@@ -433,7 +483,7 @@ main {
   }
 
   &__button {
-    margin-top: 70px;
+    margin-top: cross-media(30px, $box, 60px);
   }
 }
 

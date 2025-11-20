@@ -6,8 +6,6 @@
   @include view(xxl) {
     max-width: cross-media($box, $xxl-breakpoint, $box-4k);
   }
-
-
 }
 
 .boxed-desktop {
@@ -65,7 +63,9 @@
   }
 
   @include view(xxl) {
-    margin-left: calc((100vw - cross-media($box, $xxl-breakpoint, $box-4k)) / 2);
+    margin-left: calc(
+      (100vw - cross-media($box, $xxl-breakpoint, $box-4k)) / 2
+    );
   }
 }
 
@@ -75,8 +75,18 @@
   }
 
   @include view(xxl) {
-    margin-right: calc((100vw - cross-media($box, $xxl-breakpoint, $box-4k)) / 2);
+    margin-right: calc(
+      (100vw - cross-media($box, $xxl-breakpoint, $box-4k)) / 2
+    );
   }
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .no-padding {
@@ -113,7 +123,11 @@
 .last-section {
   padding-bottom: cross-media(150px, 1024px, 200px);
   @include view(xxl) {
-    padding-bottom: cross-media(200px, $xxl-breakpoint, calc(200px * $xxl-scale));
+    padding-bottom: cross-media(
+      200px,
+      $xxl-breakpoint,
+      calc(200px * $xxl-scale)
+    );
   }
 }
 
@@ -152,7 +166,7 @@
   font-weight: 700;
 }
 
-.black {
+.black-weight {
   font-weight: 900;
 }
 
