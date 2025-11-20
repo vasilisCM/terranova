@@ -307,10 +307,9 @@ main {
   }
 
   &__img-container {
-    position: relative;
-    display: inline-flex;
-
     &--1 {
+      position: relative;
+
       & img {
         position: relative;
         z-index: 2;
@@ -338,12 +337,15 @@ main {
         z-index: 1;
       }
     }
+
     &--2 {
       @include view(md-max) {
         padding-inline: 80px;
       }
     }
+
     &--3 {
+      z-index: 3;
       max-width: cross-media(140px, $box, 260px);
       top: 15%;
       left: 0;

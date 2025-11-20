@@ -2595,9 +2595,8 @@ main--home {
     align-items: center;
   }
 }
-.home-presentation__img-container {
+.home-presentation__img-container--1 {
   position: relative;
-  display: inline-flex;
 }
 .home-presentation__img-container--1 img {
   position: relative;
@@ -2624,6 +2623,7 @@ main--home {
   }
 }
 .home-presentation__img-container--3 {
+  z-index: 3;
   max-width: clamp(140px, 14.4444444444vw, 260px);
   top: 15%;
   left: 0;

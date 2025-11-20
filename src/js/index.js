@@ -1,14 +1,27 @@
 import loader from "./global/loader.js";
 import stickyHeader from "./global/stickyHeader.js";
 import mobileMenu from "./global/mobileMenu.js";
-import marqueeInfinite from "./animations/marqueeInfinite.js";
 import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
 import { menuDropdown } from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import customCursor from "./logic/customCursor.js";
+import lenis from "./global/smoothScroll.js";
 
 function global() {
   console.log("JavaScript");
+
+  function scrollToTopWithLenis(options = {}) {
+    if (!lenis || typeof lenis.scrollTo !== "function") return;
+
+    const { immediate = true, force = true } = options;
+    lenis.scrollTo(0, { immediate, force });
+  }
+
+  // Prevent browser scroll restoration and force the viewport to start at the top
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+  scrollToTopWithLenis({ immediate: true });
 
   stickyHeader(".header", "header--sticky");
 
@@ -192,9 +205,8 @@ function global() {
       trigger.kill();
     });
 
-    // Scroll to top when navigating to a page
-    // window.scrollTo(0, 0);
-    // MAKE IT WITH LENIS
+    // Scroll to top when navigating to a page with Lenis
+    scrollToTopWithLenis({ immediate: true });
   });
 
   barba.hooks.after(async (data) => {
