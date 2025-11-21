@@ -286,7 +286,9 @@ main {
   }
 
   &__button {
-    margin-top: cross-media(20px, $box, 40px);
+    @include view(lg-min) {
+      transform: translateY(-50%);
+    }
 
     @include view(md-max) {
       margin-inline: auto;
@@ -297,7 +299,6 @@ main {
     display: flex;
     align-items: center;
     gap: cross-media(20px, $box, 40px);
-    flex-wrap: wrap;
 
     @include view(md-max) {
       flex-direction: column;
@@ -365,6 +366,19 @@ main {
 
 .home-presentation-products {
   background-color: rgba($light-blue, 0.2);
+
+  &__container {
+    padding-block: cross-media(60px, 1024px, 120px)
+      cross-media(20px, 1024px, 40px);
+    @include view(xxl) {
+      padding-block: cross-media(
+          120px,
+          $xxl-breakpoint,
+          calc(120px * $xxl-scale)
+        )
+        cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+    }
+  }
 }
 
 // Choice

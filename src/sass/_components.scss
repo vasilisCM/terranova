@@ -135,18 +135,18 @@
     }
   }
 
-  &--white {
-    background-color: transparent;
-    border: solid 2px $white;
-    color: $white;
+  // &--white {
+  //   background-color: transparent;
+  //   border: solid 2px $white;
+  //   color: $white;
 
-    & .button__text {
-      color: $white;
-      &::after {
-        color: $white;
-      }
-    }
-  }
+  //   & .button__text {
+  //     color: $white;
+  //     &::after {
+  //       color: $white;
+  //     }
+  //   }
+  // }
 }
 
 // Button Small

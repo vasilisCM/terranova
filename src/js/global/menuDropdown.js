@@ -28,21 +28,24 @@ const menuDropdown = (dropdownLinksNodeList) => {
         "<"
       )
       .to(
-        ".sub-menu",
+        ".sub-menu, .mega-menu-images",
         {
           display: "none",
         },
         "<"
       )
       .to(
-        currentSubmenu,
+        [currentSubmenu, ".mega-menu-images"],
         {
           display: "flex",
         },
         "<"
       )
       .fromTo(
-        currentSubmenu.querySelectorAll("a"),
+        [
+          currentSubmenu.querySelectorAll("a"),
+          ".mega-menu-images .mega-menu-images__item",
+        ],
         {
           visibility: "hidden",
           clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
@@ -53,7 +56,6 @@ const menuDropdown = (dropdownLinksNodeList) => {
           clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
           opacity: 1,
           ease: "ease.in",
-          // delay: 0.4,
         }
       );
 

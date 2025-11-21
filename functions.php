@@ -16,6 +16,36 @@ function theme_menus()
 }
 add_action('init', 'theme_menus');
 
+// Custom Walker for injecting mega menu images
+class Mega_Menu_Walker extends Walker_Nav_Menu
+{
+
+  protected $mega_menu_parent_id = 51;
+
+  protected function get_mega_menu_markup()
+  {
+    $component_path = get_template_directory() . '/components/mega-menu-images.php';
+
+    if (!file_exists($component_path)) {
+      return '';
+    }
+
+    ob_start();
+    include $component_path;
+
+    return ob_get_clean();
+  }
+
+  public function end_el(&$output, $item, $depth = 0, $args = array())
+  {
+    if ((int) $item->ID === (int) $this->mega_menu_parent_id && $depth === 0) {
+      $output .= $this->get_mega_menu_markup();
+    }
+
+    parent::end_el($output, $item, $depth, $args);
+  }
+}
+
 
 // Custom Post Types
 function create_custom_post_types()

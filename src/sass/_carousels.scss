@@ -19,6 +19,12 @@
   &__button {
     cursor: pointer;
     transform: scale(1);
+    font-size: cross-media(20px, $box, 30px);
+    font-weight: 900;
+
+    @include view(xxl) {
+      font-size: cross-media(30px, 3000px, calc(30px * $xxl-scale));
+    }
 
     &--previous {
       transform: scaleX(-1);

@@ -164,7 +164,7 @@
   </section>
 
   <!-- NextGen Presentation  -->
-  <section class="basic relative home-presentation white">
+  <section class="relative home-presentation white">
     <?php $presentation = get_field('home__presentation');
     $text_1 = $presentation['text_1'];
     $text_2 = $presentation['text_2'];
@@ -181,9 +181,7 @@
           <span class="italic"><?php echo $text_2; ?></span>
           <span class="lowercase"><?php echo $text_3; ?></span>
         </h2>
-        <a href="<?php echo $link; ?>" class="button button--white home-presentation__button text-button mask-text">
-          <span class="text-button button__text">Learn more </span>
-        </a>
+
       </div>
       <div class="home-presentation__images">
         <div class="relative home-presentation__img-container home-presentation__img-container--1">
@@ -203,7 +201,12 @@
   </section>
 
   <!-- Carousel  -->
-  <section class="basic home-presentation-products">
+  <section class="home-presentation-products">
+    <div class="boxed centered">
+      <a href="<?php echo $link; ?>" class="button button--white home-presentation__button text-button mask-text">
+        <span class="text-button button__text">Learn more </span>
+      </a>
+    </div>
     <?php $presentation = get_field('home__presentation');
     $products = $presentation['products'] ?? array();
     $text_4 = $presentation['text_4'] ?? '';
@@ -263,7 +266,8 @@
 
     $placeholder_image = get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp';
     ?>
-    <div class="boxed-sm centered">
+    <div class="home-presentation-products__container boxed-sm centered">
+
       <div>
         <h3 class="home-presentation__text-4 heading-ms lowercase black text-center">
           <?php echo $text_4; ?>

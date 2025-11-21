@@ -28,7 +28,8 @@
             'menu' => 'main_menu_1',
             'container' => '',
             'theme_location' => 'main_menu_1',
-            'items_wrap' => '<ul id="" class="main-menu__list ">%3$s</ul>'
+            'items_wrap' => '<ul id="" class="main-menu__list ">%3$s</ul>',
+            'walker' => new Mega_Menu_Walker(),
           )
         );
         ?>

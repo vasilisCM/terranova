@@ -1,12 +1,13 @@
 // Header
 .header {
+  position: fixed;
   z-index: 100;
   left: 0;
   right: 0;
   margin: auto;
   padding-bottom: 50px;
+  background-color: $white;
   transition: all ease;
-  position: fixed;
 
   &__container {
     z-index: 999;
@@ -248,7 +249,7 @@
 
   & a {
     position: relative;
-    white-space: nowrap; 
+    white-space: nowrap;
     &::before {
       position: absolute;
       width: 100%;
@@ -256,17 +257,19 @@
       background-color: currentColor;
       top: 100%;
       left: 0;
-      pointer-events: none; }
+      pointer-events: none;
+    }
     &::before {
       content: "";
       transform-origin: 100% 50%;
       transform: scale3d(0, 1, 1);
-      transition: transform 0.3s; }
+      transition: transform 0.3s;
+    }
     &:hover::before {
       transform-origin: 0% 50%;
-      transform: scale3d(1, 1, 1); 
+      transform: scale3d(1, 1, 1);
     }
-    
+
     @include view(lg-min) {
       z-index: 10;
     }
@@ -305,6 +308,48 @@
     @include view(xxl) {
       min-height: cross-media(430px, 3000px, 645px);
     }
+  }
+}
+
+// Mega Menu Images
+.mega-menu-images {
+  display: none;
+  justify-content: end;
+  gap: 10px;
+  position: absolute;
+  top: 160px;
+  width: 50%;
+  // height: 100%;
+
+  @include view(box-min) {
+    right: calc((100vw - #{$box}) / 2);
+  }
+
+  @include view(xxl) {
+    top: cross-media(160px, 3000px, 160px * $xxl-scale);
+    right: calc((100vw - cross-media($box, $xxl-breakpoint, $box-4k)) / 2);
+  }
+
+  &__item {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      & .mega-menu-images__overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: grid;
+    place-content: center;
+    background-color: rgba($black, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 }
 
