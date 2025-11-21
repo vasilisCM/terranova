@@ -11,6 +11,29 @@ class SingleProduct {
   init() {
     console.log("Single Product");
 
+    // Sticky featured Image
+    const singleProductContainer = document.querySelector(
+      ".single-product__container"
+    );
+    const featuredImageContainer = document.querySelector(
+      ".single-product__featured-image-container"
+    );
+
+    const pinnedFeaturedImageOffset = 3;
+
+    ScrollTrigger.create({
+      trigger: featuredImageContainer,
+      start: "top top",
+      end: () =>
+        "+=" +
+        (singleProductContainer.offsetHeight / pinnedFeaturedImageOffset ||
+          600),
+      pin: true,
+      pinSpacing: true,
+      anticipatePin: 1,
+      // markers: true,
+    });
+
     // Tabs
     const tabs = new Tabs(".tabs");
     tabs.init();

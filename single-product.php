@@ -30,7 +30,7 @@
                         <?php echo esc_html($product_category_display); ?>
                     </div>
                 <?php endif; ?>
-                
+
                 <h1 class="single-product__heading heading-m">
                     <?php the_title(); ?>
                 </h1>
@@ -44,9 +44,9 @@
 
                 <div class="single-product__description text-m">
                     <?php the_excerpt(); ?>
-                    </div>
+                </div>
 
-               
+
                 <div class="single-product__buttons-container">
                     <button
                         class="button single-product__button single-product__button--info text-button mask-text">
@@ -69,38 +69,38 @@
 
                 <div>
 
-                
-                <!-- Tabs  -->
-                <?php
-                $single_product_ingredients = get_field('single_product_ingredients');
-                $single_product_how_to_use = get_field('single_product_how_to_use');
-                if ($single_product_ingredients || $single_product_how_to_use):
-                ?>
-                    <div class="tabs">
-                        <div class="tabs__buttons text-s uppercase semibold">
-                            <div class="tabs__button">Ingredients</div>
-                            <div class="tabs__button">How to Use</div>
-                        </div>
 
-                        <div class="tabs__contents text-ms">
-                            <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients">
-                                <?php echo $single_product_ingredients ? wp_kses_post($single_product_ingredients) : ''; ?>
+                    <!-- Tabs  -->
+                    <?php
+                    $single_product_ingredients = get_field('single_product_ingredients');
+                    $single_product_how_to_use = get_field('single_product_how_to_use');
+                    if ($single_product_ingredients || $single_product_how_to_use):
+                    ?>
+                        <div class="tabs">
+                            <div class="tabs__buttons text-s uppercase semibold">
+                                <div class="tabs__button">Ingredients</div>
+                                <div class="tabs__button">How to Use</div>
                             </div>
-                            <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use">
-                                <?php echo $single_product_how_to_use ? wp_kses_post($single_product_how_to_use) : ''; ?>
+
+                            <div class="tabs__contents text-ms">
+                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients">
+                                    <?php echo $single_product_ingredients ? wp_kses_post($single_product_ingredients) : ''; ?>
+                                </div>
+                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use">
+                                    <?php echo $single_product_how_to_use ? wp_kses_post($single_product_how_to_use) : ''; ?>
+                                </div>
                             </div>
                         </div>
+                    <?php endif; ?>
+
+                    <p class="single-product__no-additives">
+                        NO FILLERS, BINDERS OR OTHER EXCIPIENTS SUITABLE FOR VEGETARIANS
+                        & VEGANS
+                    </p>
+                    <div class="single-product__line"></div>
+                    <div class="single-product__icons">
+                        <img src="<?php echo get_template_directory_uri() . '/./assets/img/icons-list-product.svg'; ?>" alt="" />
                     </div>
-                <?php endif; ?>
-
-                <p class="single-product__no-additives">
-                    NO FILLERS, BINDERS OR OTHER EXCIPIENTS SUITABLE FOR VEGETARIANS
-                    & VEGANS
-                </p>
-                <div class="single-product__line"></div>
-                <div class="single-product__icons">
-                    <img src="<?php echo get_template_directory_uri() . '/./assets/img/footer-reel.svg'; ?>" alt="" />
-                </div>
                 </div>
             </div>
         </div>

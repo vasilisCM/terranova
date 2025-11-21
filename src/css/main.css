@@ -3202,11 +3202,23 @@ main--home {
   }
 }
 .single-product__text-container {
-  padding: 26px;
-  max-width: 670px;
+  max-width: clamp(470px, 37.2222222222vw, 670px);
+  padding: clamp(12px, 1.3333333333vw, 24px);
+}
+@media only screen and (min-width: 1025px) {
+  .single-product__text-container {
+    max-width: clamp(670px, 33.5vw, 1005px);
+    padding: clamp(24px, 1.2vw, 36px);
+  }
 }
 .single-product__heading-small {
   color: #c44a37;
+}
+.single-product__featured-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .single-product__featured-image {
   margin: auto;

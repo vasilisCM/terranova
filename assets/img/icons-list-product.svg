@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="667.566" height="39.342" viewBox="0 0 667.566 39.342">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_71" data-name="Rectangle 71" width="31.527" height="37.877" fill="#040404"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_72" data-name="Rectangle 72" width="27.666" height="39.342" fill="#5b697b"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_73" data-name="Rectangle 73" width="60.552" height="29.582" fill="#5b697b"/>
+    </clipPath>
+  </defs>
+  <g id="Group_13349" data-name="Group 13349" transform="translate(-988 -1146.578)">
+    <text id="PRODUCTS_FOR_VEGETARIANS_AND_VEGANS" data-name="PRODUCTS FOR VEGETARIANS AND VEGANS" transform="translate(1030.566 1154.578)" fill="#040404" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="11">PRODUCTS FOR </tspan><tspan x="0" y="23">VEGETARIANS AND VEGANS</tspan></text>
+    <text id="MAGNIFOOD_ENHANCED_NUTRITION" data-name="MAGNIFOOD ENHANCED NUTRITION" transform="translate(1522.566 1154.578)" fill="#040404" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="11">MAGNIFOOD ENHANCED </tspan><tspan x="0" y="23">NUTRITION</tspan></text>
+    <text id="THE_FRESH_FREEZE_DRIED_ADVANTAGE" data-name="THE FRESH FREEZE
+DRIED ADVANTAGE" transform="translate(1373.297 1154.578)" fill="#040404" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="11">THE FRESH FREEZE</tspan><tspan x="0" y="23">DRIED ADVANTAGE</tspan></text>
+    <text id="ADDITIVE_FREE" data-name="ADDITIVE FREE" transform="translate(1212.313 1170.578)" fill="#040404" font-size="10" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">ADDITIVE FREE</tspan></text>
+    <path id="Path_219" data-name="Path 219" d="M426.223,347.741a9.527,9.527,0,0,0-13.453,0l-1.525,1.525-1.525-1.525a9.433,9.433,0,0,0-6.727-2.78,9.69,9.69,0,0,0-9.238,6.906,8.787,8.787,0,0,0,2.153,8.879l14.259,14.17a1.569,1.569,0,0,0,2.242,0L426.222,361.1a9.472,9.472,0,0,0,0-13.363Z" transform="translate(1086.305 805.773)" fill="#c44a37"/>
+    <g id="Group_11305" data-name="Group 11305" transform="translate(988 1147.58)">
+      <g id="Group_11304" data-name="Group 11304" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_239" data-name="Path 239" d="M12.712,38.819a31.288,31.288,0,0,1-1.349-24.707l0-.009A24.728,24.728,0,0,0,2.541,7.536a24.575,24.575,0,0,0,10.91,32.79Z" transform="translate(0 -3.042)" fill="#5b697b"/>
+        <path id="Path_240" data-name="Path 240" d="M37.947,21.882A27.861,27.861,0,0,1,22.964,37.876,27.893,27.893,0,0,1,36.749,0a27.857,27.857,0,0,1,1.2,21.882" transform="translate(-8.106 0)" fill="#c44a37"/>
+      </g>
+    </g>
+    <g id="Group_11308" data-name="Group 11308" transform="translate(1174.607 1146.578)">
+      <g id="Group_11307" data-name="Group 11307" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+        <path id="Path_241" data-name="Path 241" d="M6.37,22.07l5.189-5.189a6.4,6.4,0,0,0-.714-.845L6.372,11.563,1.887,16.048A6.365,6.365,0,0,0,3.5,26.254,13.5,13.5,0,0,1,6.37,22.07" transform="translate(0 -4.274)" fill="#c44a37"/>
+        <path id="Path_242" data-name="Path 242" d="M35.3,3.067,32.232,0,29.158,3.073a4.371,4.371,0,1,0,6.14-.006" transform="translate(-10.299 0)" fill="#c44a37"/>
+        <path id="Path_243" data-name="Path 243" d="M26.557,25.541l-8.292-8.292L9.972,25.541a11.794,11.794,0,1,0,16.586,0" transform="translate(-2.392 -6.376)" fill="#5b697b"/>
+      </g>
+    </g>
+    <g id="Group_11310" data-name="Group 11310" transform="translate(1302.703 1151.578)">
+      <g id="Group_11309" data-name="Group 11309" transform="translate(0 0)" clip-path="url(#clip-path-3)">
+        <path id="Path_244" data-name="Path 244" d="M64.113,2.446l1.036,1.038L61.607,7.027V9.476h2.45L67.6,5.934l1.038,1.038L66.069,9.54h4.989A10.229,10.229,0,0,0,62.567,0L61.543,0V5.014Z" transform="translate(-30.565 0)" fill="#5b697b"/>
+        <path id="Path_245" data-name="Path 245" d="M66.132,21.868,68.7,24.437l-1.038,1.036-3.605-3.605H61.67v2.386l3.607,3.606L64.24,28.9,61.67,26.33V40.443c2.124-3.217,8.607-13.381,9.393-18.575Z" transform="translate(-30.628 -10.861)" fill="#5b697b"/>
+        <path id="Path_246" data-name="Path 246" d="M2.447,46.8l1.038-1.037L7.028,49.3H9.477v-2.45L5.933,43.312l1.038-1.038L9.54,44.842V39.853A10.233,10.233,0,0,0,0,48.345v1.023H5.014Z" transform="translate(0 -19.793)" fill="#5b697b"/>
+        <path id="Path_247" data-name="Path 247" d="M21.871,44.9l2.567-2.569,1.036,1.038-3.6,3.608v2.384h2.385l3.607-3.605L28.9,46.794l-2.57,2.567H40.446c-3.217-2.123-13.381-8.605-18.575-9.393Z" transform="translate(-10.862 -19.851)" fill="#5b697b"/>
+        <path id="Path_248" data-name="Path 248" d="M46.84,28.835,45.8,27.8l3.545-3.545V21.805H46.9l-3.542,3.542-1.038-1.036,2.567-2.57H39.937c.7,5.04,7.184,15.06,9.473,18.47V26.267Z" transform="translate(-19.835 -10.798)" fill="#c44a37"/>
+        <path id="Path_249" data-name="Path 249" d="M42.276,6.91l1.036-1.038L46.92,9.477h2.385V7.093L45.7,3.486l1.038-1.038,2.568,2.569V0h-.959a10.231,10.231,0,0,0-8.491,9.473h4.987Z" transform="translate(-19.794 -0.002)" fill="#c44a37"/>
+        <path id="Path_250" data-name="Path 250" d="M73.242,46.837,74.28,45.8l3.545,3.544h2.448v-2.45L76.73,43.351l1.038-1.038,2.57,2.568V39.934c-5.04.7-15.061,7.185-18.469,9.473H75.812Z" transform="translate(-30.727 -19.833)" fill="#c44a37"/>
+        <path id="Path_251" data-name="Path 251" d="M104.043,42.274l1.039,1.038-3.607,3.607V49.3h2.386l3.606-3.608,1.037,1.038-2.567,2.57h5.013l0-.96a10.227,10.227,0,0,0-9.473-8.491v4.988Z" transform="translate(-50.398 -19.793)" fill="#c44a37"/>
+      </g>
+    </g>
+  </g>
+</svg>
