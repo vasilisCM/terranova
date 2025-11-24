@@ -37,7 +37,48 @@
   <!-- Content -->
   <section class="single-post-content">
     <div class="boxed centered single-post-content__container text">
-      <?php the_content(); ?>
+      <?php
+      the_content();
+      ?>
+      <?php
+      if (have_rows('single_post_content')) :
+        while (have_rows('single_post_content')) :
+          the_row();
+
+          if (get_row_layout() == 'wysiwig') :
+            $content = get_sub_field('content');
+            if (!empty($content)) :
+      ?>
+              <div class="single-post-content__wysiwig">
+                <?php echo wp_kses_post($content); ?>
+              </div>
+            <?php
+            endif;
+
+          elseif (get_row_layout() == 'text_and_image') :
+            $text = get_sub_field('text');
+            $image = get_sub_field('image');
+            ?>
+            <div class="single-post-content__text-and-image">
+              <?php if (!empty($text)) : ?>
+                <div class="text-and-image__text">
+                  <?php echo wp_kses_post($text); ?>
+                </div>
+              <?php endif; ?>
+
+              <?php if (!empty($image)) : ?>
+                <div class="text-and-image__image">
+                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+                </div>
+              <?php endif; ?>
+            </div>
+      <?php
+          endif;
+        endwhile;
+      else :
+        the_content();
+      endif;
+      ?>
 
       <div class="single-post-content__button-container">
         <?php
