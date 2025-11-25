@@ -25,48 +25,62 @@
     <div class="boxed centered">
       <!-- Grid  -->
       <div class="archive-blog">
-        <article class="archive-blog__article">
-          <div class="archive-blog__text-container">
-            <div class="archive-blog__article-info">
-              <span class="text-ms uppercase letter-spacing-medium archive-blog__date">March 23, 2023</span>
-              <a
-                href=""
-                class="text-ms uppercase letter-spacing-medium archive-blog__category">Health & Beauty</a>
-            </div>
-            <a href="">
-              <h2 class="archive-blog__heading heading-single-product">
-                Vollagen® & Hyaluronic <br />
-                Acid Complex
-              </h2>
-            </a>
-            <p class="archive-blog__exceprt text">
-              We are sharing this world with some other magical creatures.
-              It feels good to have this kind, 100% vegan choice, it feels
-              nice this “safe haven”. We are sharing this world with some
-              other magical creatures. It feels good to have this kind,
-              100% vegan choice, it feels nice this “safe haven”. We are
-              sharing this world with some other magical creatures. It
-              feels good to have this kind, 100% vegan choice, it feels
-              nice this “safe haven”. We are sharing this world with some
-              other magical creatures. It feels good to have this kind,
-              100% vegan choice, it feels nice this “safe haven”.
-            </p>
-            <div class="archive-blog__button-container">
-              <a href="">
-                <button
-                  class="button archive-blog__button text-button mask-text">
-                  <span class="text-button button__text">Read article</span>
-                </button>
-              </a>
-
-              <div class="hashtag-container">
-                <p class="text-ms uppercase letter-spacing-medium">#Nutrition</p>
-                <p class="text-ms uppercase letter-spacing-medium">#Health</p>
-                <p class="text-ms uppercase letter-spacing-medium">#Beauty</p>
+        <?php
+        // Get the latest post that is not in 'recipes' category
+        $featured_args = array(
+          'posts_per_page' => 1,
+          'post_type' => 'post',
+          'category__not_in' => array(get_cat_ID('recipes')),
+        );
+        $featured_query = new WP_Query($featured_args);
+        if ($featured_query->have_posts()) :
+          while ($featured_query->have_posts()) : $featured_query->the_post();
+            $categories = get_the_category();
+        ?>
+            <article class="archive-blog__article">
+              <div class="archive-blog__text-container">
+                <div class="archive-blog__article-info">
+                  <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('F j, Y'); ?></span>
+                  <?php if ($categories): ?>
+                    <a
+                      href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"
+                      class="text-ms uppercase letter-spacing-medium archive-blog__category">
+                      <?php echo esc_html($categories[0]->name); ?>
+                    </a>
+                  <?php endif; ?>
+                </div>
+                <a href="<?php the_permalink(); ?>">
+                  <h2 class="archive-blog__heading heading-single-product">
+                    <?php the_title(); ?>
+                  </h2>
+                </a>
+                <p class="archive-blog__exceprt text">
+                  <?php echo get_the_excerpt(); ?>
+                </p>
+                <div class="archive-blog__button-container">
+                  <a href="<?php the_permalink(); ?>">
+                    <button class="button archive-blog__button text-button mask-text">
+                      <span class="text-button button__text">Read article</span>
+                    </button>
+                  </a>
+                  <?php
+                  $post_tags = get_the_tags();
+                  if ($post_tags) :
+                  ?>
+                    <div class="hashtag-container">
+                      <?php foreach ($post_tags as $tag): ?>
+                        <p class="text-ms uppercase letter-spacing-medium">#<?php echo esc_html($tag->name); ?></p>
+                      <?php endforeach; ?>
+                    </div>
+                  <?php endif; ?>
+                </div>
               </div>
-            </div>
-          </div>
-        </article>
+            </article>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
       </div>
     </div>
   </section>
@@ -80,238 +94,38 @@
         data-asymmetrical-carousel
         data-mouse-down-at="0"
         data-previous-percentage="0">
+
         <!-- Posts Loop -->
-        <div
-          class="asymmetrical-carousel__column asymmetrical-carousel__column--with-text"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-001.webp'; ?>"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
+        <?php
+        $args = array(
+          'posts_per_page' => -1,
+          'post_type' => 'post',
+          'category__not_in' => array(get_cat_ID('recipes')),
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) :
+          while ($query->have_posts()) : $query->the_post();
+        ?>
+            <div class="asymmetrical-carousel__column" data-asymmetrical-carousel-slide>
+              <div class="asymmetrical-carousel__image-container" draggable="true">
+                <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="asymmetrical-carousel__image" draggable-image />
+              </div>
+              <div class="asymmetrical-carousel__text-container">
+                <div class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
+                  <p class="asymmetrical-carousel__date"><?php the_time('F j, Y'); ?></p>
+                  <p class="asymmetrical-carousel__category"><?php the_category(' '); ?></p>
+                </div>
+                <h3 class="asymmetrical-carousel__heading heading-s">
+                  <?php the_title(); ?>
+                </h3>
+                <a href="<?php the_permalink(); ?>" class="link link--arrow asymmetrical-carousel__link">Read more</a>
+              </div>
             </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
+        <?php
+          endwhile;
+        endif;
+        ?>
 
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-002.webp'; ?>"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-003.webp'; ?>"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-asymmetrical-carousel-004.webp'; ?>"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
-
-        <div
-          class="asymmetrical-carousel__column"
-          data-asymmetrical-carousel-slide>
-          <div
-            class="asymmetrical-carousel__image-container"
-            draggable="true">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-              alt=""
-              class="asymmetrical-carousel__image"
-              draggable-image />
-          </div>
-          <div class="asymmetrical-carousel__text-container">
-            <div
-              class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-              <p class="asymmetrical-carousel__date">March 23, 2023</p>
-              <p class="asymmetrical-carousel__category">
-                Vitamins & Multivitamins
-              </p>
-            </div>
-            <h3 class="asymmetrical-carousel__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a
-              href=""
-              class="link link--arrow asymmetrical-carousel__link">Read more</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -323,136 +137,43 @@
     <div class="recipes__archive-container">
       <div class="recipes__archive">
         <!-- Posts  -->
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/./assets/img/recipes-001.webp'; ?>"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
-              <p class="recipes__date">March 23, 2023</p>
-            </div>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
 
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/./assets/img/recipes-002.webp'; ?>"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
-              <p class="recipes__date">March 23, 2023</p>
-              <p class="recipes__category">Vitamins & Multivitamins</p>
-            </div>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
+        <?php
+        $args = array(
+          'posts_per_page' => 3,
+          'post_type' => 'post',
+          'category_name' => 'recipes',
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) :
+          while ($query->have_posts()) : $query->the_post();
+        ?>
+            <article class="recipes__post">
+              <div class="recipes__image-container">
+                <img
+                  class="recipes__image"
+                  src="<?php the_post_thumbnail_url(); ?>"
+                  alt=""
+                  draggable-image />
+              </div>
+              <div class="recipes__text-container">
+                <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
+                  <p class="recipes__date"><?php the_time('F j, Y'); ?></p>
+                </div>
+                <h3 class="recipes__heading heading-s">
+                  <?php the_title(); ?>
+                </h3>
+                <a href="<?php the_permalink(); ?>" class="link link--arrow recipes__link">Read more</a>
+              </div>
+            </article>
 
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="<?php echo get_template_directory_uri() . '/./assets/img/recipes-003.webp'; ?>"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
-              <p class="recipes__date">March 23, 2023</p>
-              <p class="recipes__category">Vitamins & Multivitamins</p>
-            </div>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
+        <?php
+          endwhile;
+        endif;
+        wp_reset_postdata();
+        ?>
 
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
-            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
 
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
-            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
-            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
-
-        <article class="recipes__post">
-          <div class="recipes__image-container">
-            <img
-              class="recipes__image"
-              src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
-              alt=""
-              draggable-image />
-          </div>
-          <div class="recipes__text-container">
-            <span class="recipes__date text-ms uppercase letter-spacing-medium">March 23, 2023</span>
-            <span class="recipes__category text-ms uppercase letter-spacing-medium">Vitamins & Multivitamins</span>
-            <h3 class="recipes__heading heading-s">
-              With an entire world of natural ingredients to source from
-            </h3>
-            <a href="" class="link link--arrow recipes__link">Read more</a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
