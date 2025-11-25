@@ -526,11 +526,129 @@
   }
 }
 
+// Banner
+.banner {
+  margin-top: cross-media(100px, $box, 200px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $white;
+
+  &__wrapper {
+    position: relative;
+    min-height: cross-media(350px, $box, 660px);
+  }
+
+  &__container {
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+
+    @include view(md-max) {
+      bottom: revert;
+      top: 80px;
+    }
+  }
+
+  &__text-background {
+    position: absolute;
+    z-index: 1;
+    width: 550px;
+    height: cross-media(300px, $box, 500px);
+    background-color: rgba($secondary, 0.7);
+    mix-blend-mode: multiply;
+
+    @include view(md-max) {
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: cross-media(330px, 767px, 700px);
+    }
+
+    @include view(xxl) {
+      width: cross-media(550px, $xxl-breakpoint, 825px);
+      height: cross-media(500px, $xxl-breakpoint, 600px);
+    }
+  }
+
+  &__text-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: cross-media(20px, $box, 40px);
+    width: cross-media(270px, $box, 550px);
+    height: 500px;
+    padding: 40px 40px 160px;
+    z-index: 2;
+
+    @include view(md-max) {
+      width: 100%;
+      height: 600px;
+      gap: cross-media(8px, 767px, 40px);
+    }
+
+    @include view(xxl) {
+      width: cross-media(550px, $xxl-breakpoint, 825px);
+      height: cross-media(500px, $xxl-breakpoint, 600px);
+    }
+  }
+
+  // &__heading {
+  //   max-width: 400px;
+  // }
+
+  &__subheading {
+    font-weight: 300;
+  }
+}
+
+.intro {
+  padding-block: cross-media(60px, $box, 120px);
+
+  @include view(xxl) {
+    padding-block: cross-media(120px, $xxl-breakpoint, 120px * $xxl-scale);
+  }
+
+  &__container {
+    display: grid;
+    gap: cross-media(10px, $box, 20px);
+
+    @include view(xxl) {
+      gap: cross-media(20px, $xxl-breakpoint, 20px * $xxl-scale);
+    }
+  }
+
+  // For WYSIWYG
+  & h3 {
+    font-size: cross-media(30px, $box, 40px);
+    @include view(xxl) {
+      font-size: cross-media(40px, 3000px, calc(40px * $xxl-scale));
+    }
+  }
+}
+
 .text-container {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 16px;
+}
+
+.icon-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: cross-media(20px, $box, 40px);
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: cross-media(8px, $box, 16px);
+    text-align: left;
+  }
+
+  &__img-container {
+    margin-inline: auto;
+  }
 }
 
 .card-icon {
@@ -927,77 +1045,6 @@
       max-width: cross-media(352px, 3000px, 704px);
       max-height: cross-media(352px, 3000px, 704px);
     }
-  }
-}
-
-// Banner
-.banner {
-  margin-top: cross-media(100px, $box, 200px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: $white;
-
-  &__wrapper {
-    position: relative;
-    min-height: cross-media(350px, $box, 660px);
-  }
-
-  &__container {
-    position: absolute;
-    left: 0;
-    bottom: -50px;
-
-    @include view(md-max) {
-      bottom: revert;
-      top: 80px;
-    }
-  }
-
-  &__text-background {
-    position: absolute;
-    z-index: 1;
-    width: 550px;
-    height: cross-media(300px, $box, 500px);
-    background-color: rgba($secondary, 0.7);
-    mix-blend-mode: multiply;
-
-    @include view(md-max) {
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: cross-media(330px, 767px, 700px);
-    }
-
-    @include view(xxl) {
-      width: cross-media(550px, 3000px, 825px);
-      height: cross-media(500px, 3000px, 600px);
-    }
-  }
-
-  &__text-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: cross-media(20px, $box, 40px);
-    width: cross-media(270px, $box, 550px);
-    height: 500px;
-    padding: 40px 40px 160px;
-    z-index: 2;
-
-    @include view(md-max) {
-      width: 100%;
-      height: 600px;
-      gap: cross-media(8px, 767px, 40px);
-    }
-
-    @include view(xxl) {
-      width: cross-media(550px, 3000px, 825px);
-      height: cross-media(500px, 3000px, 600px);
-    }
-  }
-
-  &__subheading {
-    font-weight: 300;
   }
 }
 

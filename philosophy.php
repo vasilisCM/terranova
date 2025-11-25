@@ -16,27 +16,29 @@
         $text_5 = $intro['text_5'];
         $text_6 = $intro['text_6'];
         ?>
-        <div class="boxed centered">
-            <div><?php echo $text_1; ?></div>
-            <div><?php echo $text_2; ?></div>
-            <div><?php echo $text_3; ?></div>
-            <div><?php echo $text_4; ?></div>
-            <div><?php echo $text_5; ?></div>
+        <div class="boxed-sm centered intro__container">
+            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
+            <div class="heading-m"><?php echo $text_2; ?></div>
+            <div class="text"><?php echo $text_3; ?></div>
+            <div class="heading-m"><?php echo $text_4; ?></div>
+            <div class="text"><?php echo $text_5; ?></div>
 
-            <div> <?php if (have_rows('icon_list')): ?>
+            <div class="basic icon-list"> <?php if (have_rows('icon_list')): ?>
                     <?php while (have_rows('icon_list')): the_row();
-                            $heading = get_sub_field('heading');
-                            $image = get_sub_field('image');
-                            $text = get_sub_field('text');
+                                                    $heading = get_sub_field('heading');
+                                                    $image = get_sub_field('image');
+                                                    $text = get_sub_field('text');
                     ?>
-                        <div><img src="<?php echo $image; ?>" alt=""></div>
-                        <div><?php echo $heading; ?></div>
-                        <div><?php echo $text; ?></div>
+                        <div class="icon-list__item">
+                            <div class="icon-list__img-container"><img src="<?php echo $image; ?>" alt=""></div>
+                            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $heading; ?></div>
+                            <div class="text"><?php echo $text; ?></div>
+                        </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
 
-            <div><?php echo $text_6; ?></div>
+            <div class="text"><?php echo $text_6; ?></div>
         </div>
     </section>
 
@@ -62,8 +64,8 @@
                                 $text = get_sub_field('text');
                             ?>
                                 <div><img src="<?php echo $image; ?>" alt=""></div>
-                                <div><?php echo $heading; ?></div>
-                                <div><?php echo $text; ?></div>
+                                <div class="heading-xs uppercase letter-spacing-medium"><?php echo $heading; ?></div>
+                                <div class="text"><?php echo $text; ?></div>
                 <?php endwhile;
                         endif;
                     endwhile;

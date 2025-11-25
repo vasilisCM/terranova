@@ -9,7 +9,7 @@
     <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
-        <div class="boxed centered">
+        <div class="boxed-sm centered intro__container">
             <?php the_content(); ?>
         </div>
     </section>

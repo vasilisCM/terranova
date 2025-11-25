@@ -16,12 +16,12 @@
         $text_4 = $intro['text_4'];
         $text_5 = $intro['text_5'];
         ?>
-        <div class="boxed centered">
-            <div><?php echo $text_1; ?></div>
-            <div><?php echo $text_2; ?></div>
-            <div><?php echo $text_3; ?></div>
-            <div><?php echo $text_4; ?></div>
-            <div><?php echo $text_5; ?></div>
+        <div class="boxed-sm centered intro__container">
+            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
+            <div class="heading-ms"><?php echo $text_2; ?></div>
+            <div class="text"><?php echo $text_3; ?></div>
+            <div class="heading-m"><?php echo $text_4; ?></div>
+            <div class="text-"><?php echo $text_5; ?></div>
         </div>
     </section>
 
