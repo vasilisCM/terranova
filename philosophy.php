@@ -5,7 +5,7 @@
 <main data-barba="container"
     data-barba-namespace="philosophy">
     <!-- Hero  -->
-    <?php include 'components/hero.php'; ?>
+    <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
         <?php $intro = get_field('philosophy__intro');
@@ -25,15 +25,16 @@
 
             <div> <?php if (have_rows('icon_list')): ?>
                     <?php while (have_rows('icon_list')): the_row();
-                        $heading = get_sub_field('heading');
-                        $image = get_sub_field('image');
-                        $text = get_sub_field('text');
+                            $heading = get_sub_field('heading');
+                            $image = get_sub_field('image');
+                            $text = get_sub_field('text');
                     ?>
-                    <div><img src="<?php echo $image; ?>" alt=""></div>
-                    <div><?php echo $heading; ?></div>
-                    <div><?php echo $text; ?></div>
-                <?php endwhile; ?>
-                <?php endif; ?></div>
+                        <div><img src="<?php echo $image; ?>" alt=""></div>
+                        <div><?php echo $heading; ?></div>
+                        <div><?php echo $text; ?></div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
 
             <div><?php echo $text_6; ?></div>
         </div>
@@ -52,21 +53,21 @@
             <div><?php echo $text_3; ?></div>
 
             <div>
-            <?php if (have_rows('philosophy__matters')): ?>
-                <?php while (have_rows('philosophy__matters')): the_row();
-                if (have_rows('list')): ?>
-                    <?php while (have_rows('list')): the_row();
-                        $image = get_sub_field('image');
-                        $heading = get_sub_field('heading');
-                        $text = get_sub_field('text');
-                    ?>
-                    <div><img src="<?php echo $image; ?>" alt=""></div>
-                    <div><?php echo $heading; ?></div>
-                    <div><?php echo $text; ?></div>
-                <?php endwhile; 
-                 endif; 
-                 endwhile; 
-                 endif; ?>
+                <?php if (have_rows('philosophy__matters')): ?>
+                    <?php while (have_rows('philosophy__matters')): the_row();
+                        if (have_rows('list')): ?>
+                            <?php while (have_rows('list')): the_row();
+                                $image = get_sub_field('image');
+                                $heading = get_sub_field('heading');
+                                $text = get_sub_field('text');
+                            ?>
+                                <div><img src="<?php echo $image; ?>" alt=""></div>
+                                <div><?php echo $heading; ?></div>
+                                <div><?php echo $text; ?></div>
+                <?php endwhile;
+                        endif;
+                    endwhile;
+                endif; ?>
 
 
             </div>

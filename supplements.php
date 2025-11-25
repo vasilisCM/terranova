@@ -6,7 +6,7 @@
     data-barba="container"
     data-barba-namespace="supplements">
     <!-- Hero  -->
-    <?php include 'components/hero.php'; ?>
+    <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
         <div class="boxed centered">

@@ -6,11 +6,11 @@
     data-barba="container"
     data-barba-namespace="founder">
     <!-- Hero  -->
-    <?php include 'components/hero.php'; ?>
+    <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
         <div class="boxed centered">
-          <?php the_content(); ?>
+            <?php the_content(); ?>
         </div>
     </section>
 

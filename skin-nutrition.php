@@ -14,14 +14,14 @@
             <div class="banner__container">
                 <div class="banner__text-background"></div>
                 <div class="banner__text-container">
-                <div class="banner__subheading text-ms uppercase letter-spacing-medium">
+                    <div class="banner__subheading text-ms uppercase letter-spacing-medium">
                         <?php echo $text_1; ?>
-</div>
+                    </div>
                     <h1 class="banner__heading heading">
                         <?php echo $text_2; ?>
-                        
+
                     </h1>
-                    
+
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="boxed centered">
             <div class="holistic__text-container centered">
                 <h2 class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></h2>
-           </div>
+            </div>
         </div>
 
         <div class="line-text">
@@ -54,18 +54,18 @@
 
         <div class="boxed centered">
             <div class="holistic__text-container centered">
-            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_2; ?></div>              
-           
+                <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_2; ?></div>
+
                 <div class="text-xl">
-                   <?php echo $text_3; ?>
+                    <?php echo $text_3; ?>
 
                 </div>
 
                 <div class="text">
                     <?php echo $text_4; ?>
                 </div>
-                    </div>
-                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Asymmetrical Carousel  -->
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="boxed centered width-full">       
+                <div class="boxed centered width-full">
                     <div
                         class="heading-ms underline skin-nutrition-steps__subheading">
                         Recommended Products
@@ -244,7 +244,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -255,7 +255,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -266,7 +266,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -277,7 +277,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -299,7 +299,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -308,7 +308,7 @@
             </div>
             <div class="skin-nutrition-steps__step">
                 <div class="skin-nutrition-steps__heading-bg accent-bg white">
-                    <div class="boxed centered">          
+                    <div class="boxed centered">
                         <div
                             class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
                             Step2 <br />
@@ -328,7 +328,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="boxed centered width-full">      
+                <div class="boxed centered width-full">
                     <div
                         class="heading-ms underline skin-nutrition-steps__subheading">
                         Recommended Products
@@ -342,7 +342,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -353,7 +353,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -364,7 +364,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -375,7 +375,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -386,7 +386,7 @@
                                     alt=""
                                     class="archive-product__featured-image" />
                             </div>
-    
+
                             <div class="skin-nutrition-steps__product-text-container">
                                 <a href="">
                                     <h4
@@ -397,7 +397,7 @@
                                 <h3 class="archive-product__product-title">
                                     Vollagen® & Hyaluronic Acid Complex
                                 </h3>
-    
+
                                 <a href="" class="link link--arrow archive-product__link">View more</a>
                             </div>
                         </div>
@@ -451,7 +451,7 @@
                                 needs for moisture, while providing the nourishment via
                                 ingredients that the skin can’t make itself.
                             </p>
-    
+
                             <div class="text-ms uppercase letter-spacing-medium">
                                 100% Natural - 99,49% Organic - 100% Vegan
                             </div>
@@ -463,7 +463,7 @@
                             alt=""
                             class="archive-product__featured-image skin-nutrition-steps__img" />
                     </div>
-    
+
                     <div class="skin-nutrition-steps__icons auto-fit-grid">
                         <div class="card-icon">
                             <div class="card-icon__img-container">
@@ -518,7 +518,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <a href="">
                     <button class="button centered text-button mask-text">
                         <span class="text-button button__text">Learn more about the Terranova Serum 768</span>

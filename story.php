@@ -6,7 +6,7 @@
     data-barba="container"
     data-barba-namespace="story">
     <!-- Hero  -->
-    <?php include 'components/hero.php'; ?>
+    <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
         <?php $intro = get_field('story__intro');
