@@ -8,15 +8,15 @@
     <!-- Hero  -->
     <?php include 'components/hero.php'; ?>
 
-    <section class="basic">
+    <section class="basic intro text-center">
         <div class="boxed centered">
-            <h2>Basic Section</h2>
+            <?php the_content(); ?>
         </div>
     </section>
 
     <section class="basic last-section">
         <div class="boxed centered">
-            <h2>Last Section</h2>
+            <?php include 'components/accordion.php'; ?>
         </div>
     </section>
 </main>

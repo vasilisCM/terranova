@@ -6,6 +6,7 @@ import { menuDropdown } from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import customCursor from "./logic/customCursor.js";
 import lenis from "./global/smoothScroll.js";
+import Accordion from "./logic/accordion.js";
 
 function global() {
   console.log("JavaScript");
@@ -25,6 +26,13 @@ function global() {
 
   stickyHeader(".header", "header--sticky");
 
+  // Accordion
+  const accordion = new Accordion();
+  const accordionElement = document.querySelector(".accordion");
+  if (accordionElement) {
+    accordion.init(accordionElement);
+  }
+
   // Page Transition
   function getCurrentScript() {
     // Try to get script by data-barba-namespace first
@@ -38,16 +46,16 @@ function global() {
       }
     }
 
-    // Fallback: get the last dynamically loaded script
-    const scripts = document.querySelectorAll("script[src]");
-    const dynamicScripts = Array.from(scripts).filter(
-      (script) =>
-        script.src.includes("bundle.js") && script.parentNode === document.body
-    );
+    // // Fallback: get the last dynamically loaded script
+    // const scripts = document.querySelectorAll("script[src]");
+    // const dynamicScripts = Array.from(scripts).filter(
+    //   (script) =>
+    //     script.src.includes("bundle.js") && script.parentNode === document.body
+    // );
 
-    return dynamicScripts.length > 0
-      ? dynamicScripts[dynamicScripts.length - 1]
-      : null;
+    // return dynamicScripts.length > 0
+    //   ? dynamicScripts[dynamicScripts.length - 1]
+    //   : null;
   }
 
   function loadScript(src) {
