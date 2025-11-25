@@ -131,6 +131,25 @@
   }
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.two-col-grid {
+  display: grid;
+  gap: cross-media(24px, $box, 48px);
+
+  @include view(lg-min) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  @include view(xxl) {
+    gap: cross-media(96px, $xxl-breakpoint, calc(96px * $xxl-scale));
+  }
+}
+
 .auto-fit-grid {
   display: grid;
   gap: 16px;
@@ -260,4 +279,8 @@
 
 .accent-bg {
   background-color: $accent;
+}
+
+.light-blue-bg {
+  background-color: rgba($light-blue, 0.2);
 }

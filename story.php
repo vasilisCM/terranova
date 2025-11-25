@@ -25,19 +25,25 @@
         </div>
     </section>
 
-    <section class="basic story-inspiration">
+    <section class="basic story-inspiration two-col-grid">
         <?php $inspiration = get_field('story__inspiration');
         $heading = $inspiration['heading'];
         $text = $inspiration['text'];
         $image_1 = $inspiration['image_1'];
         $image_2 = $inspiration['image_2'];
         ?>
-        <div class="boxed centered">
-            <h2><?php echo $heading; ?></h2>
-            <div><?php echo $text; ?></div>
+
+        <div class="accent-bg white">
+            <div class="push-left">
+                <h2><?php echo $heading; ?></h2>
+                <div><?php echo $text; ?></div>
+            </div>
+        </div>
+        <div class="flex">
             <div><img src="<?php echo $image_1; ?>" alt=""></div>
             <div><img src="<?php echo $image_2; ?>" alt=""></div>
         </div>
+
     </section>
 
     <section class="basic story-challenges">
@@ -47,11 +53,13 @@
         $text_1 = $challenges['text_1'];
         $text_2 = $challenges['text_2'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed centered two-col-grid">
             <div><img src="<?php echo $image; ?>" alt=""></div>
-            <h2><?php echo $heading; ?></h2>
-            <div><?php echo $text_1; ?></div>
-            <div><?php echo $text_2; ?></div>
+            <div>
+                <h2><?php echo $heading; ?></h2>
+                <div><?php echo $text_1; ?></div>
+                <div><?php echo $text_2; ?></div>
+            </div>
         </div>
     </section>
 
@@ -61,10 +69,12 @@
         $heading = $global_presence['heading'];
         $text = $global_presence['text'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed centered two-col-grid">
             <div><img src="<?php echo $image; ?>" alt=""></div>
-            <h2><?php echo $heading; ?></h2>
-            <div><?php echo $text; ?></div>
+            <div>
+                <h2><?php echo $heading; ?></h2>
+                <div><?php echo $text; ?></div>
+            </div>
         </div>
     </section>
 </main>

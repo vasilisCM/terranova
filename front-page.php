@@ -201,7 +201,7 @@
   </section>
 
   <!-- Carousel  -->
-  <section class="home-presentation-products">
+  <section class="home-presentation-products light-blue-bg">
     <div class="boxed centered">
       <a href="<?php echo $link; ?>" class="button button--white home-presentation__button text-button mask-text">
         <span class="text-button button__text">Learn more </span>

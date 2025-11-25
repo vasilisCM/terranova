@@ -40,7 +40,7 @@
         </div>
     </section>
 
-    <section class="basic last-section">
+    <section class="basic last-section light-blue-bg">
         <?php $matters = get_field('philosophy__matters');
         $text_1 = $matters['text_1'];
         $text_2 = $matters['text_2'];

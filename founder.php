@@ -14,7 +14,7 @@
         </div>
     </section>
 
-    <section class="basic last-section">
+    <section class="basic last-section light-blue-bg">
         <?php $text_banner = get_field('founder_text_banner');
         $heading = $text_banner['heading'];
         $text_1 = $text_banner['text_1'];
