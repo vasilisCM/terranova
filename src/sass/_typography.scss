@@ -30,7 +30,6 @@ h1,
   }
 }
 
-
 .heading-l {
   font-size: cross-media(40px, $box, 60px);
 
@@ -38,7 +37,6 @@ h1,
     font-size: cross-media(60px, 3000px, calc(60px * $xxl-scale));
   }
 }
-
 
 h2,
 .heading-ml {
@@ -48,8 +46,6 @@ h2,
     font-size: cross-media(50px, 3000px, calc(50px * $xxl-scale));
   }
 }
-
-
 
 .heading-m {
   font-size: cross-media(30px, $box, 40px);
@@ -88,7 +84,7 @@ h5,
 
 // Texts
 
-.text-xl { 
+.text-xl {
   font-size: cross-media(30px, $box, 45px);
   @include view(xxl) {
     font-size: cross-media(45px, 3000px, calc(45px * $xxl-scale));
