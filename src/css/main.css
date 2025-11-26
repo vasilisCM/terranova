@@ -530,11 +530,11 @@ h4 {
 }
 
 .first-section {
-  padding-block: clamp(150px, 19.53125vw, 200px) clamp(75px, 9.765625vw, 100px);
+  padding-block: clamp(150px, 20.5078125vw, 210px) clamp(75px, 9.765625vw, 100px);
 }
 @media only screen and (min-width: 1921px) {
   .first-section {
-    padding-block: clamp(200px, 10vw, 300px) clamp(100px, 5vw, 150px);
+    padding-block: clamp(210px, 10.5vw, 315px) clamp(100px, 5vw, 150px);
   }
 }
 
@@ -2904,181 +2904,6 @@ main--home {
   }
 }
 
-.banner--skin-nutrition {
-  background-image: url("../../assets/img/skin-nutrition-background.webp");
-  background-position: 50% 50%;
-}
-
-.holistic {
-  margin-top: clamp(75px, 15.1362260343vw, 150px);
-}
-.holistic__text-container {
-  display: grid;
-  gap: clamp(4px, 0.8072653885vw, 8px);
-  text-align: center;
-}
-@media only screen and (min-width: 1025px) {
-  .holistic__text-container {
-    max-width: 1000px;
-  }
-}
-.holistic__heading {
-  padding-bottom: clamp(8px, 1.614530777vw, 16px);
-}
-
-.asymmetrical-carousel--skin-nutrition {
-  padding: clamp(50px, 10.0908173562vw, 100px) 0;
-}
-
-.skin-nutrition-steps {
-  margin-top: clamp(20px, 4.0363269425vw, 40px);
-}
-.skin-nutrition-steps__container {
-  display: grid;
-  gap: clamp(8px, 16.1453077699vw, 160px);
-}
-.skin-nutrition-steps__heading-bg {
-  padding-block: clamp(40px, 4.4444444444vw, 80px);
-}
-@media only screen and (min-width: 1921px) {
-  .skin-nutrition-steps__heading-bg {
-    padding-block: clamp(80px, 4vw, 120px);
-  }
-}
-.skin-nutrition-steps__step {
-  display: grid;
-  gap: clamp(8px, 1.614530777vw, 16px);
-}
-@media only screen and (max-width: 1024px) {
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__heading, .skin-nutrition-steps__step--extra .skin-nutrition-steps__text-container, .skin-nutrition-steps__step--extra .skin-nutrition-steps__subheading,
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container {
-    order: -1;
-  }
-}
-@media only screen and (min-width: 1025px) {
-  .skin-nutrition-steps__step--extra {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "step step" "description description" "recommended image" "product-info image" "icons icons";
-    align-items: center;
-    column-gap: 0;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__heading {
-    grid-area: step;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__text-container {
-    grid-area: description;
-    grid-column: 1;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__subheading {
-    grid-area: recommended;
-    height: fit-content;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container {
-    grid-area: image;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container .skin-nutrition-steps__img {
-    width: 100%;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__product {
-    grid-area: product-info;
-    margin-top: -360px;
-  }
-  .skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
-    grid-area: icons;
-    margin-top: clamp(50px, 10.0908173562vw, 100px);
-  }
-}
-.skin-nutrition-steps__heading, .skin-nutrition-steps__subheading {
-  text-transform: lowercase;
-}
-.skin-nutrition-steps__heading:before, .skin-nutrition-steps__subheading:before {
-  margin-top: clamp(6px, 1.2108980827vw, 12px);
-}
-.skin-nutrition-steps__subheading {
-  margin-top: clamp(20px, 4.0363269425vw, 40px);
-}
-.skin-nutrition-steps__text-container {
-  display: grid;
-  gap: clamp(8px, 1.614530777vw, 16px);
-}
-@media only screen and (min-width: 1025px) {
-  .skin-nutrition-steps__text-container {
-    max-width: 70%;
-  }
-}
-.skin-nutrition-steps__product-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-top: 40px;
-}
-@media only screen and (min-width: 1025px) {
-  .skin-nutrition-steps__product-text-container {
-    max-width: 70%;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .skin-nutrition-steps__img {
-    width: 100%;
-    max-height: clamp(300px, 58.6701434159vw, 450px);
-    object-fit: cover;
-    aspect-ratio: 1;
-  }
-}
-.skin-nutrition-steps__icons {
-  gap: clamp(30px, 6.0544904137vw, 60px);
-}
-@media only screen and (max-width: 1024px) {
-  .skin-nutrition-steps__icons {
-    margin-top: 40px;
-  }
-}
-
-.life-drink {
-  margin-top: clamp(100px, 20.1816347124vw, 200px);
-}
-@media only screen and (min-width: 1025px) {
-  .life-drink__text {
-    max-width: 90%;
-  }
-}
-.life-drink__product {
-  display: grid;
-  align-items: center;
-  row-gap: 20px;
-}
-@media only screen and (min-width: 1025px) {
-  .life-drink__product {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.life-drink__button {
-  margin-top: clamp(60px, 12.1089808274vw, 120px);
-}
-.life-drink__img {
-  width: 100%;
-  max-height: 750px;
-  object-fit: cover;
-}
-.life-drink__recipe {
-  padding-bottom: clamp(20px, 4.0363269425vw, 40px);
-}
-.life-drink__dosage-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: clamp(8px, 1.614530777vw, 16px);
-  margin-top: clamp(10px, 2.0181634712vw, 20px);
-}
-.life-drink__dosage {
-  display: flex;
-  align-items: center;
-  gap: clamp(4px, 0.8072653885vw, 8px);
-}
-.life-drink__dosage:before {
-  content: "🥄";
-}
-
 .archive-product {
   margin-top: clamp(60px, 12.1089808274vw, 120px);
 }
@@ -3546,6 +3371,222 @@ main--home {
   .featured-image-single__image {
     max-height: clamp(640px, 42.6666666667vw, 1280px);
   }
+}
+
+.banner--skin-nutrition {
+  background-image: url("../../assets/img/skin-nutrition-background.webp");
+  background-position: 50% 50%;
+}
+
+.holistic {
+  margin-top: clamp(75px, 15.1362260343vw, 150px);
+}
+.holistic__text-container {
+  display: grid;
+  gap: clamp(4px, 0.8072653885vw, 8px);
+  text-align: center;
+}
+@media only screen and (min-width: 1025px) {
+  .holistic__text-container {
+    max-width: 1000px;
+  }
+}
+.holistic__heading {
+  padding-bottom: clamp(8px, 1.614530777vw, 16px);
+}
+
+.asymmetrical-carousel--skin-nutrition {
+  padding: clamp(50px, 10.0908173562vw, 100px) 0;
+}
+
+.skin-nutrition-steps {
+  margin-top: clamp(20px, 4.0363269425vw, 40px);
+}
+.skin-nutrition-steps__container {
+  display: grid;
+  gap: clamp(8px, 16.1453077699vw, 160px);
+}
+.skin-nutrition-steps__heading-bg {
+  padding-block: clamp(40px, 4.4444444444vw, 80px);
+}
+@media only screen and (min-width: 1921px) {
+  .skin-nutrition-steps__heading-bg {
+    padding-block: clamp(80px, 4vw, 120px);
+  }
+}
+.skin-nutrition-steps__step {
+  display: grid;
+  gap: clamp(8px, 1.614530777vw, 16px);
+}
+@media only screen and (max-width: 1024px) {
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__heading, .skin-nutrition-steps__step--extra .skin-nutrition-steps__text-container, .skin-nutrition-steps__step--extra .skin-nutrition-steps__subheading,
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container {
+    order: -1;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .skin-nutrition-steps__step--extra {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "step step" "description description" "recommended image" "product-info image" "icons icons";
+    align-items: center;
+    column-gap: 0;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__heading {
+    grid-area: step;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__text-container {
+    grid-area: description;
+    grid-column: 1;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__subheading {
+    grid-area: recommended;
+    height: fit-content;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container {
+    grid-area: image;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__img-container .skin-nutrition-steps__img {
+    width: 100%;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__product {
+    grid-area: product-info;
+    margin-top: -360px;
+  }
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
+    grid-area: icons;
+    margin-top: clamp(50px, 10.0908173562vw, 100px);
+  }
+}
+.skin-nutrition-steps__heading, .skin-nutrition-steps__subheading {
+  text-transform: lowercase;
+}
+.skin-nutrition-steps__heading:before, .skin-nutrition-steps__subheading:before {
+  margin-top: clamp(6px, 1.2108980827vw, 12px);
+}
+.skin-nutrition-steps__subheading {
+  margin-top: clamp(20px, 4.0363269425vw, 40px);
+}
+.skin-nutrition-steps__text-container {
+  display: grid;
+  gap: clamp(8px, 1.614530777vw, 16px);
+}
+@media only screen and (min-width: 1025px) {
+  .skin-nutrition-steps__text-container {
+    max-width: 70%;
+  }
+}
+.skin-nutrition-steps__product-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+@media only screen and (min-width: 1025px) {
+  .skin-nutrition-steps__product-text-container {
+    max-width: 70%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .skin-nutrition-steps__img {
+    width: 100%;
+    max-height: clamp(300px, 58.6701434159vw, 450px);
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+}
+.skin-nutrition-steps__icons {
+  gap: clamp(30px, 6.0544904137vw, 60px);
+}
+@media only screen and (max-width: 1024px) {
+  .skin-nutrition-steps__icons {
+    margin-top: 40px;
+  }
+}
+
+.life-drink {
+  margin-top: clamp(100px, 20.1816347124vw, 200px);
+}
+@media only screen and (min-width: 1025px) {
+  .life-drink__text {
+    max-width: 90%;
+  }
+}
+.life-drink__product {
+  display: grid;
+  align-items: center;
+  row-gap: 20px;
+}
+@media only screen and (min-width: 1025px) {
+  .life-drink__product {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.life-drink__button {
+  margin-top: clamp(60px, 12.1089808274vw, 120px);
+}
+.life-drink__img {
+  width: 100%;
+  max-height: 750px;
+  object-fit: cover;
+}
+.life-drink__recipe {
+  padding-bottom: clamp(20px, 4.0363269425vw, 40px);
+}
+.life-drink__dosage-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(8px, 1.614530777vw, 16px);
+  margin-top: clamp(10px, 2.0181634712vw, 20px);
+}
+.life-drink__dosage {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 0.8072653885vw, 8px);
+}
+.life-drink__dosage:before {
+  content: "🥄";
+}
+
+.awards-accordion__button {
+  background-color: revert;
+  border-top: solid 1px rgba(0, 0, 0, 0.5);
+  padding-block: clamp(20px, 3.90625vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .awards-accordion__button {
+    padding-block: clamp(40px, 2vw, 60px);
+  }
+}
+.awards-accordion__item:last-child {
+  border-bottom: solid 1px rgba(0, 0, 0, 0.5);
+}
+.awards-accordion__content-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media only screen and (min-width: 768px) {
+  .awards-accordion__content-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .awards-accordion__content-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.awards-accordion__content-item {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.34375vw, 24px);
+}
+@media only screen and (min-width: 1921px) {
+  .awards-accordion__content-item {
+    gap: clamp(24px, 1.2vw, 36px);
+  }
+}
+.awards-accordion__product-link {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 1024px) {

@@ -1,0 +1,48 @@
+.awards-accordion {
+  &__button {
+    background-color: revert;
+    border-top: solid 1px $black-op-50;
+
+    padding-block: cross-media(20px, 1024px, 40px);
+    @include view(xxl) {
+      padding-block: cross-media(
+        40px,
+        $xxl-breakpoint,
+        calc(40px * $xxl-scale)
+      );
+    }
+  }
+
+  &__item {
+    &:last-child {
+      border-bottom: solid 1px $black-op-50;
+    }
+  }
+
+  &__content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include view(md-min) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include view(lg-min) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__content-item {
+    display: flex;
+    flex-direction: column;
+    gap: cross-media(12px, 1024px, 24px);
+
+    @include view(xxl) {
+      gap: cross-media(24px, $xxl-breakpoint, 24px * $xxl-scale);
+    }
+  }
+
+  &__product-link {
+    text-decoration: underline;
+  }
+}

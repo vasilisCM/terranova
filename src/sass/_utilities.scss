@@ -105,10 +105,10 @@
 }
 
 .first-section {
-  padding-block: cross-media(150px, 1024px, 200px)
+  padding-block: cross-media(150px, 1024px, 210px)
     cross-media(75px, 1024px, 100px);
   @include view(xxl) {
-    padding-block: cross-media(200px, $xxl-breakpoint, calc(200px * $xxl-scale))
+    padding-block: cross-media(210px, $xxl-breakpoint, calc(210px * $xxl-scale))
       cross-media(100px, 3000px, calc(100px * $xxl-scale));
   }
 }
