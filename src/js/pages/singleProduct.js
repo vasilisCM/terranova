@@ -41,8 +41,11 @@ class SingleProduct {
 
     // Related Products
     const relatedProductsCarousel = new Carousel(".carousel");
-    relatedProductsCarousel.init();
-    this.carousels.push(relatedProductsCarousel);
+    const relatedProductsElement = document.querySelector(".related-products");
+    if (relatedProductsElement) {
+      relatedProductsCarousel.init();
+      this.carousels.push(relatedProductsCarousel);
+    }
 
     // Instagram
     const instagramCarouselContainer = document.querySelector(

@@ -106,195 +106,73 @@
         </div>
     </section>
 
-    <!-- Related Products  -->
-    <section class="related-products boxed centered">
-        <h2 class="related-products__heading">Related Products</h2>
-        <div class="carousel related-products__carousel boxed-sm centered">
+    <?php
+    $related_products = get_field('single_product_related_products');
+    if (!empty($related_products)):
+    ?>
+        <!-- Related Products  -->
+        <section class="related-products boxed centered">
+            <h2 class="related-products__heading">Related Products</h2>
+            <div class="carousel related-products__carousel boxed-sm centered">
 
-            <div class="carousel__track" data-glide-el="track">
-                <div
-                    class="carousel__container">
+                <div class="carousel__track" data-glide-el="track">
+                    <div class="carousel__container">
+                        <?php
+                        foreach ($related_products as $related_product_link):
+                            if (empty($related_product_link)) {
+                                continue;
+                            }
 
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
+                            $related_product_id = url_to_postid($related_product_link);
+                            if (!$related_product_id) {
+                                continue;
+                            }
 
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
+                            $related_product_url = get_permalink($related_product_id);
+                            $related_product_title = get_the_title($related_product_id);
+                            $related_product_featured_image = get_the_post_thumbnail_url($related_product_id, 'full');
+                            $related_product_terms = get_the_terms($related_product_id, 'product_categories');
+                            $related_product_category = '';
+                            if (!is_wp_error($related_product_terms) && !empty($related_product_terms)) {
+                                $related_product_category = $related_product_terms[0]->name;
+                            }
+                        ?>
+                            <div class="carousel__slide">
+
+                                <img
+                                    src="<?php echo esc_url($related_product_featured_image); ?>"
+                                    alt="<?php echo esc_attr($related_product_title); ?>"
+                                    class="related-products__featured-image" />
+
+                                <div class="related-products__text-container">
+
+                                    <h4
+                                        class="text-ms uppercase letter-spacing-medium related-products__product-category">
+                                        <?php echo esc_html($related_product_category); ?>
+                                    </h4>
+
+                                </div>
+                                <h3 class="related-products__product-title">
+                                    <?php echo esc_html($related_product_title); ?>
+                                </h3>
+                                <a href="<?php echo esc_url($related_product_url); ?>" class="link link--arrow related-products__link">View more</a>
+                            </div>
+                        <?php
+                        endforeach;
+                        ?>
                     </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
+                </div>
 
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <a href="single-product.html">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                alt=""
-                                class="related-products__featured-image" />
-                        </a>
-                        <div class="related-products__text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium related-products__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="related-products__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
-                            </h3>
-
-                            <a href="" class="link link--arrow related-products__link">View more</a>
-                        </div>
+                <div class="carousel__bottom">
+                    <div class="carousel__controls">
+                        <div class="carousel__button carousel__button--previous"></div>
+                        <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+                        <div class="carousel__button carousel__button--next"></div>
                     </div>
                 </div>
             </div>
-
-            <div class="carousel__bottom">
-                <div class="carousel__controls">
-                    <div class="carousel__button carousel__button--previous"></div>
-                    <div class="carousel__dots" data-glide-el="controls[nav]"></div>
-                    <div class="carousel__button carousel__button--next"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    <?php endif; ?>
 
     <!-- Custom Cursor  -->
     <?php include 'components/custom-cursor.php'; ?>
