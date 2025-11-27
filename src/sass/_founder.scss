@@ -1,0 +1,44 @@
+.founder-banner {
+  padding-block: cross-media(50px, 1024px, 100px)
+    cross-media(60px, 1024px, 120px);
+  @include view(xxl) {
+    padding-block: cross-media(100px, $xxl-breakpoint, 100px * $xxl-scale)
+      cross-media(120px, 3000px, 120px * $xxl-scale);
+  }
+
+  &__heading {
+    max-width: 600px;
+
+    @include view(xxl) {
+      max-width: cross-media(600px, $xxl-breakpoint, 600px * $xxl-scale);
+    }
+  }
+
+  &__signature {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: cross-media(5px, 1024px, 10px);
+    margin-top: cross-media(20px, 1024px, 40px);
+    margin-left: auto;
+
+    @include view(xxl) {
+      margin-top: cross-media(40px, $xxl-breakpoint, 80px);
+    }
+
+    &::before {
+      content: "";
+      width: cross-media(200px, 1024px, 400px);
+      height: 1px;
+      background-color: $black;
+
+      @include view(xs) {
+        display: none;
+      }
+
+      @include view(xxl) {
+        width: cross-media(400px, $xxl-breakpoint, 400px * $xxl-scale);
+      }
+    }
+  }
+}

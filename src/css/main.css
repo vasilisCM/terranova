@@ -3704,6 +3704,52 @@ main--home {
   margin-bottom: clamp(16px, 1.7777777778vw, 32px);
 }
 
+.founder-banner {
+  padding-block: clamp(50px, 9.765625vw, 100px) clamp(60px, 11.71875vw, 120px);
+}
+@media only screen and (min-width: 1921px) {
+  .founder-banner {
+    padding-block: clamp(100px, 5vw, 150px) clamp(120px, 6vw, 180px);
+  }
+}
+.founder-banner__heading {
+  max-width: 600px;
+}
+@media only screen and (min-width: 1921px) {
+  .founder-banner__heading {
+    max-width: clamp(600px, 30vw, 900px);
+  }
+}
+.founder-banner__signature {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: clamp(5px, 0.9765625vw, 10px);
+  margin-top: clamp(20px, 3.90625vw, 40px);
+  margin-left: auto;
+}
+@media only screen and (min-width: 1921px) {
+  .founder-banner__signature {
+    margin-top: clamp(40px, 2.6666666667vw, 80px);
+  }
+}
+.founder-banner__signature::before {
+  content: "";
+  width: clamp(200px, 39.0625vw, 400px);
+  height: 1px;
+  background-color: #000;
+}
+@media only screen and (max-width: 640px) {
+  .founder-banner__signature::before {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .founder-banner__signature::before {
+    width: clamp(400px, 20vw, 600px);
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .contact__body form {
     display: flex;
