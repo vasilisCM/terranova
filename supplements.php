@@ -14,10 +14,8 @@
         </div>
     </section>
 
-    <section class="basic last-section">
-        <div class="boxed centered">
-            <?php include 'components/accordion.php'; ?>
-        </div>
+    <section class="last-section">
+        <?php include 'components/accordion.php'; ?>
     </section>
 </main>
 

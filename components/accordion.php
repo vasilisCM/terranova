@@ -6,12 +6,16 @@
         ?>
             <div class="accordion__item">
                 <h3 class="accordion__button">
-                    <span><?php echo $button; ?></span>
-                    <span class="accordion__icon">+</span>
+                    <div class="boxed centered accordion__button-container">
+                        <span><?php echo $button; ?></span>
+                        <span class="accordion__icon">+</span>
+                    </div>
                 </h3>
                 <div class="accordion__content">
                     <div class="accordion__text">
-                        <?php echo $content; ?>
+                        <div class="boxed centered">
+                            <?php echo $content; ?>
+                        </div>
                     </div>
                 </div>
             </div>

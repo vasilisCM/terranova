@@ -1534,10 +1534,33 @@ h4 {
   cursor: pointer;
   transition: all ease 300ms;
 }
+.accordion__button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .accordion__content {
   max-height: 0;
   overflow: hidden;
   transition: max-height ease 300ms;
+  background: linear-gradient(to bottom, rgba(91, 105, 123, 0.3), white);
+}
+.accordion__content ul {
+  margin: 0;
+  padding-inline: 0;
+  padding-block: clamp(10px, 1.953125vw, 20px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.5625vw, 16px);
+}
+.accordion__content ul li {
+  list-style-type: none;
+  background-color: #fcfcfc;
+  padding: clamp(8px, 1.171875vw, 12px) clamp(30px, 3.90625vw, 40px);
+  border-radius: clamp(30px, 3.90625vw, 40px);
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .gallery {
@@ -3576,6 +3599,9 @@ main--home {
 }
 .awards-accordion__item:last-child {
   border-bottom: solid 1px rgba(0, 0, 0, 0.5);
+}
+.awards-accordion__content {
+  background-color: #fcfcfc;
 }
 .awards-accordion__content-container {
   display: grid;

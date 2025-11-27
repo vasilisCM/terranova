@@ -902,10 +902,36 @@
     // }
   }
 
+  &__button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__content {
     max-height: 0;
     overflow: hidden;
     transition: max-height ease 300ms;
+    background: linear-gradient(to bottom, rgba($secondary, 0.3), white);
+
+    & ul {
+      margin: 0;
+      padding-inline: 0;
+      padding-block: cross-media(10px, 1024px, 20px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: cross-media(8px, 1024px, 16px);
+
+      & li {
+        list-style-type: none;
+        background-color: $white;
+        padding: cross-media(8px, 1024px, 12px) cross-media(30px, 1024px, 40px);
+        border-radius: cross-media(30px, 1024px, 40px);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
   }
 }
 

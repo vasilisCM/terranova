@@ -37,7 +37,7 @@
                                 <span class="black"><?php echo $year; ?></span>
                                 <span class="accordion__icon black">+</span>
                             </h3>
-                            <div class="accordion__content">
+                            <div class="accordion__content awards-accordion__content">
                                 <div class="accordion__text awards-accordion__content-container">
                                     <?php if (have_rows('item')): ?>
                                         <?php while (have_rows('item')): the_row();
