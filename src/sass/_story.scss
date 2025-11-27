@@ -1,0 +1,56 @@
+.story-inspiration,
+.story-inspiration__images {
+  gap: 4px;
+}
+
+.story-inspiration {
+  align-items: end;
+
+  &__text-container {
+    padding: cross-media(40px, 1024px, 100px) cross-media(30px, 1024px, 60px)
+      cross-media(40px, 1024px, 100px) 0;
+
+    @include view(box-max) {
+      padding: cross-media(40px, 1024px, 100px) cross-media(30px, 1024px, 60px);
+    }
+
+    @include view(xxl) {
+      padding: cross-media(100px, $xxl-breakpoint, calc(100px * $xxl-scale))
+        cross-media(60px, 3000px, calc(60px * $xxl-scale))
+        cross-media(100px, 3000px, calc(80px * $xxl-scale)) 0;
+    }
+  }
+}
+
+.story-challenges,
+.story-global-presence {
+  & .text-container {
+    @include view(md-max) {
+      order: -1;
+    }
+  }
+}
+
+.story-challenges {
+  &__img-container {
+    & img {
+      max-height: cross-media(400px, $box, 790px);
+
+      @include view(xxl) {
+        max-height: cross-media(
+          790px,
+          $xxl-breakpoint,
+          calc(790px * $xxl-scale)
+        );
+      }
+    }
+  }
+}
+
+.story-global-presence {
+  margin-top: cross-media(60px, $box, 120px);
+
+  @include view(xxl) {
+    margin-top: cross-media(120px, $xxl-breakpoint, calc(120px * $xxl-scale));
+  }
+}

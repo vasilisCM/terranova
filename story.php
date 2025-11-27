@@ -33,13 +33,13 @@
         $image_2 = $inspiration['image_2'];
         ?>
 
-        <div class="accent-bg white">
-            <div class="push-left">
-                <h2><?php echo $heading; ?></h2>
-                <div><?php echo $text; ?></div>
+        <div class="accent-bg white ">
+            <div class="push-left story-inspiration__text-container">
+                <h2 class="heading light"><?php echo $heading; ?></h2>
+                <div class="text"><?php echo $text; ?></div>
             </div>
         </div>
-        <div class="flex">
+        <div class="flex story-inspiration__images">
             <div><img src="<?php echo $image_1; ?>" alt=""></div>
             <div><img src="<?php echo $image_2; ?>" alt=""></div>
         </div>
@@ -54,11 +54,11 @@
         $text_2 = $challenges['text_2'];
         ?>
         <div class="boxed centered two-col-grid">
-            <div><img src="<?php echo $image; ?>" alt=""></div>
-            <div>
-                <h2><?php echo $heading; ?></h2>
-                <div><?php echo $text_1; ?></div>
-                <div><?php echo $text_2; ?></div>
+            <div class="story-challenges__img-container"><img src="<?php echo $image; ?>" alt=""></div>
+            <div class="text-container">
+                <h2 class="heading light"><?php echo $heading; ?></h2>
+                <div class="text"><?php echo $text_1; ?></div>
+                <div class="heading-ms"><?php echo $text_2; ?></div>
             </div>
         </div>
     </section>
@@ -71,9 +71,9 @@
         ?>
         <div class="boxed centered two-col-grid">
             <div><img src="<?php echo $image; ?>" alt=""></div>
-            <div>
-                <h2><?php echo $heading; ?></h2>
-                <div><?php echo $text; ?></div>
+            <div class="text-container">
+                <h2 class="heading light"><?php echo $heading; ?></h2>
+                <div class="text"><?php echo $text; ?></div>
             </div>
         </div>
     </section>

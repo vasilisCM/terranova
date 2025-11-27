@@ -638,12 +638,25 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: cross-media(20px, $box, 40px);
+  overflow-x: auto;
+
+  @include view(lg-max) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include view(sm-max) {
+    display: flex;
+  }
 
   &__item {
     display: flex;
     flex-direction: column;
     gap: cross-media(8px, $box, 16px);
     text-align: left;
+
+    @include view(md-max) {
+      flex: 1 0 35%;
+    }
   }
 
   &__img-container {

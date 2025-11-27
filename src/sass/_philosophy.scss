@@ -1,0 +1,57 @@
+.philosophy-matters {
+  &__container {
+    align-items: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: cross-media(40px, $box, 80px);
+    margin-bottom: cross-media(20px, $box, 40px);
+
+    @include view(sm-max) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: cross-media(6px, $box, 12px);
+    text-align: left;
+    padding-inline: cross-media(20px, $box, 40px);
+    position: relative;
+
+    @include view(md-max) {
+      padding: cross-media(20px, $box, 40px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border: solid 1px $secondary;
+      transform: translateY(25%) scaleY(80%);
+
+      @include view(md-max) {
+        transform: translateY(15%);
+      }
+
+      @include view(sm-max) {
+        transform: translateY(15%) scaleY(90%);
+      }
+    }
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  //   &__item-text-container {
+  //   }
+
+  &__img-container {
+    margin-bottom: cross-media(16px, $box, 32px);
+  }
+}

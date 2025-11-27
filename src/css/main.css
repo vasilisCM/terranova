@@ -1307,12 +1307,28 @@ h4 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: clamp(20px, 2.2222222222vw, 40px);
+  overflow-x: auto;
+}
+@media only screen and (max-width: 1280px) {
+  .icon-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .icon-list {
+    display: flex;
+  }
 }
 .icon-list__item {
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 0.8888888889vw, 16px);
   text-align: left;
+}
+@media only screen and (max-width: 1024px) {
+  .icon-list__item {
+    flex: 1 0 35%;
+  }
 }
 .icon-list__img-container {
   margin-inline: auto;
@@ -3587,6 +3603,105 @@ main--home {
 }
 .awards-accordion__product-link {
   text-decoration: underline;
+}
+
+.story-inspiration,
+.story-inspiration__images {
+  gap: 4px;
+}
+
+.story-inspiration {
+  align-items: end;
+}
+.story-inspiration__text-container {
+  padding: clamp(40px, 9.765625vw, 100px) clamp(30px, 5.859375vw, 60px) clamp(40px, 9.765625vw, 100px) 0;
+}
+@media only screen and (max-width: 1800px) {
+  .story-inspiration__text-container {
+    padding: clamp(40px, 9.765625vw, 100px) clamp(30px, 5.859375vw, 60px);
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .story-inspiration__text-container {
+    padding: clamp(100px, 5vw, 150px) clamp(60px, 3vw, 90px) clamp(100px, 4vw, 120px) 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .story-challenges .text-container,
+  .story-global-presence .text-container {
+    order: -1;
+  }
+}
+
+.story-challenges__img-container img {
+  max-height: clamp(400px, 43.8888888889vw, 790px);
+}
+@media only screen and (min-width: 1921px) {
+  .story-challenges__img-container img {
+    max-height: clamp(790px, 39.5vw, 1185px);
+  }
+}
+
+.story-global-presence {
+  margin-top: clamp(60px, 6.6666666667vw, 120px);
+}
+@media only screen and (min-width: 1921px) {
+  .story-global-presence {
+    margin-top: clamp(120px, 6vw, 180px);
+  }
+}
+
+.philosophy-matters__container {
+  align-items: center;
+}
+.philosophy-matters__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(40px, 4.4444444444vw, 80px);
+  margin-bottom: clamp(20px, 2.2222222222vw, 40px);
+}
+@media only screen and (max-width: 767px) {
+  .philosophy-matters__list {
+    grid-template-columns: 1fr;
+  }
+}
+.philosophy-matters__item {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.6666666667vw, 12px);
+  text-align: left;
+  padding-inline: clamp(20px, 2.2222222222vw, 40px);
+  position: relative;
+}
+@media only screen and (max-width: 1024px) {
+  .philosophy-matters__item {
+    padding: clamp(20px, 2.2222222222vw, 40px);
+  }
+}
+.philosophy-matters__item::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: solid 1px #5b697b;
+  transform: translateY(25%) scaleY(80%);
+}
+@media only screen and (max-width: 1024px) {
+  .philosophy-matters__item::before {
+    transform: translateY(15%);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .philosophy-matters__item::before {
+    transform: translateY(15%) scaleY(90%);
+  }
+}
+.philosophy-matters__item img {
+  width: 100%;
+}
+.philosophy-matters__img-container {
+  margin-bottom: clamp(16px, 1.7777777778vw, 32px);
 }
 
 @media only screen and (max-width: 1024px) {
