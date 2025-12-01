@@ -192,10 +192,6 @@
     }
   }
 
-  // &__image {
-  //   max-height: 800px;
-  // }
-
   &__text-container {
     position: absolute;
     top: calc(100% + 12px);
@@ -220,7 +216,6 @@
       width: 80%;
       top: 0;
       transform: translateX(20%);
-      // right: 50%;
     }
 
     @include view(lg-min) {
