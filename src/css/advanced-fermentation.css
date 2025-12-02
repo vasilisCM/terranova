@@ -1,0 +1,22 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 10 | /     @include view(xxl) {
+ * 11 | |       padding-block: cross-media(
+ * 12 | |         70px,
+ * 13 | |         $xxl-breakpoint,
+ * 14 | |         calc(70px * $xxl-scale)
+ * 15 | |       );
+ * 16 | \     }
+ *    '
+ *   src\sass\advanced-fermentation.scss 10:5  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 10 \2502  \250c      @include view(xxl) {\a 11 \2502  \2502        padding-block: cross-media(\a 12 \2502  \2502          70px,\a 13 \2502  \2502          $xxl-breakpoint,\a 14 \2502  \2502          calc(70px * $xxl-scale)\a 15 \2502  \2502        );\a 16 \2502  \2514      }\a    \2575 \a   src\\sass\\advanced-fermentation.scss 10:5  root stylesheet";
+}

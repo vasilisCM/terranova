@@ -129,6 +129,17 @@
   }
 }
 
+.basic-section {
+  padding-block: cross-media(50px, 1024px, 100px);
+  @include view(xxl) {
+    padding-block: cross-media(
+      100px,
+      $xxl-breakpoint,
+      calc(100px * $xxl-scale)
+    );
+  }
+}
+
 .last-section {
   padding-bottom: cross-media(150px, 1024px, 200px);
   @include view(xxl) {

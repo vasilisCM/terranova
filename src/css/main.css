@@ -557,6 +557,15 @@ h4 {
   }
 }
 
+.basic-section {
+  padding-block: clamp(50px, 9.765625vw, 100px);
+}
+@media only screen and (min-width: 1921px) {
+  .basic-section {
+    padding-block: clamp(100px, 5vw, 150px);
+  }
+}
+
 .last-section {
   padding-bottom: clamp(150px, 19.53125vw, 200px);
 }
@@ -3882,6 +3891,59 @@ main--home {
 }
 .contact-info-box__link--accent {
   color: #5b697b;
+}
+
+.advanced-fermentation__column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.advanced-fermentation__icons-section {
+  background-color: #f1f1f1;
+  padding-block: clamp(40px, 6.8359375vw, 70px);
+}
+@media only screen and (min-width: 1921px) {
+  .advanced-fermentation__icons-section {
+    padding-block: clamp(70px, 3.5vw, 105px);
+  }
+}
+.advanced-fermentation__icons-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3.90625vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .advanced-fermentation__icons-list {
+    gap: clamp(40px, 2vw, 60px);
+  }
+}
+.advanced-fermentation__icon-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fermendics {
+  background-image: linear-gradient(to right, rgba(76, 104, 124, 0.2) 50%, rgba(76, 104, 124, 0.4) 50%);
+}
+@media only screen and (max-width: 1024px) {
+  .fermendics {
+    background-image: linear-gradient(to bottom, rgba(76, 104, 124, 0.2) 50%, rgba(76, 104, 124, 0.4) 50%);
+  }
+}
+.fermendics__container {
+  align-items: start;
+  gap: clamp(80px, 9.765625vw, 100px);
+}
+@media only screen and (min-width: 1921px) {
+  .fermendics__container {
+    gap: clamp(100px, 5vw, 150px);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .fermendics__container {
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

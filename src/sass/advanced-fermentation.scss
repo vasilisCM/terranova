@@ -1,0 +1,59 @@
+.advanced-fermentation {
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__icons-section {
+    background-color: #f1f1f1;
+    padding-block: cross-media(40px, 1024px, 70px);
+    @include view(xxl) {
+      padding-block: cross-media(
+        70px,
+        $xxl-breakpoint,
+        calc(70px * $xxl-scale)
+      );
+    }
+  }
+  &__icons-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: cross-media(20px, 1024px, 40px);
+    @include view(xxl) {
+      gap: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+    }
+  }
+
+  &__icon-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.fermendics {
+  background-image: linear-gradient(
+    to right,
+    rgba($light-blue, 0.2) 50%,
+    rgba($light-blue, 0.4) 50%
+  );
+
+  @include view(md-max) {
+    background-image: linear-gradient(
+      to bottom,
+      rgba($light-blue, 0.2) 50%,
+      rgba($light-blue, 0.4) 50%
+    );
+  }
+
+  &__container {
+    align-items: start;
+    gap: cross-media(80px, 1024px, 100px);
+    @include view(xxl) {
+      gap: cross-media(100px, $xxl-breakpoint, calc(100px * $xxl-scale));
+    }
+    @include view(md-max) {
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+}
