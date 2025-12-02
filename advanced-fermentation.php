@@ -1,9 +1,9 @@
-<?php /* Template Name: Ingredients */ ?>
+<?php /* Template Name: Advanced Fermentation */ ?>
 <?php get_header(); ?>
 
 
 <main data-barba="container"
-    data-barba-namespace="ingredients">
+    data-barba-namespace="advancedFermentation">
     <!-- Hero  -->
     <?php include 'components/hero-with-bg.php'; ?>
 
@@ -21,7 +21,6 @@
         </div>
     </section>
 
-    <?php include 'components/accordion.php'; ?>
 </main>
 
 <?php get_footer(); ?>

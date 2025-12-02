@@ -428,7 +428,17 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .boxed {
-    max-width: clamp(1800px, 86.6666666667vw, 2600px);
+    max-width: clamp(1800px, 90vw, 2700px);
+  }
+}
+
+.boxed-md {
+  max-width: 1420px;
+  padding-inline: clamp(20px, 2.8985507246vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .boxed-md {
+    max-width: clamp(1380px, 69vw, 2070px);
   }
 }
 
@@ -445,13 +455,13 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .boxed-sm {
-    max-width: clamp(1100px, 73.3333333333vw, 2200px);
+    max-width: clamp(1100px, 55vw, 1650px);
   }
 }
 
 @media only screen and (min-width: 1921px) {
   .boxed-4k {
-    max-width: clamp(1800px, 86.6666666667vw, 2600px);
+    max-width: clamp(1800px, 90vw, 2700px);
     padding-inline: 40px;
   }
 }
@@ -489,7 +499,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .push-left {
-    margin-left: calc((100vw - clamp(1800px, 86.6666666667vw, 2600px)) / 2);
+    margin-left: calc((100vw - clamp(1800px, 90vw, 2700px)) / 2);
   }
 }
 
@@ -500,7 +510,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .push-right {
-    margin-right: calc((100vw - clamp(1800px, 86.6666666667vw, 2600px)) / 2);
+    margin-right: calc((100vw - clamp(1800px, 90vw, 2700px)) / 2);
   }
 }
 
@@ -885,7 +895,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .main-menu li ul {
-    margin-left: calc((100vw - clamp(1800px, 86.6666666667vw, 2600px)) / 2);
+    margin-left: calc((100vw - clamp(1800px, 90vw, 2700px)) / 2);
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -1010,7 +1020,7 @@ h4 {
 @media only screen and (min-width: 1921px) {
   .mega-menu-images {
     top: clamp(160px, 8vw, 240px);
-    right: calc((100vw - clamp(1800px, 86.6666666667vw, 2600px)) / 2);
+    right: calc((100vw - clamp(1800px, 90vw, 2700px)) / 2);
   }
 }
 .mega-menu-images__item {
@@ -3291,7 +3301,7 @@ main--home {
 }
 @media only screen and (min-width: 1921px) {
   .recipes__archive-container {
-    clip-path: polygon(calc((100vw - 2600px) / 2) 0%, 100% 0%, 100% 100%, calc((100vw - 2600px) / 2) 100%);
+    clip-path: polygon(calc((100vw - 2700px) / 2) 0%, 100% 0%, 100% 100%, calc((100vw - 2700px) / 2) 100%);
   }
 }
 .recipes__archive {

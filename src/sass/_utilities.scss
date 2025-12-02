@@ -8,6 +8,15 @@
   }
 }
 
+.boxed-md {
+  max-width: $box-md + $padding-inline;
+  padding-inline: cross-media($padding-inline-mob, $box-md, $padding-inline);
+
+  @include view(xxl) {
+    max-width: cross-media($box-md, $xxl-breakpoint, $box-md-4k);
+  }
+}
+
 .boxed-desktop {
   @include view(lg-min) {
     max-width: $box + $padding-inline;
