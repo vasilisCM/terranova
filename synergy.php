@@ -14,6 +14,47 @@
         </div>
     </section>
 
+    <?php include 'components/asymmetrical-carousel.php'; ?>
+
+    <section class="synergy-banner">
+        <?php $banner = get_field('synergy__banner');
+        $image = $banner['image'];
+        $heading = $banner['heading'];
+        $text_1 = $banner['text_1'];
+        $text_2 = $banner['text_2'];
+        ?>
+        <div class="boxed centered text-center text-container">
+            <div>
+                <img src="<?php echo $image; ?>" alt="" class="centered">
+            </div>
+            <div class="heading-m text-center"><?php echo $heading; ?></div>
+            <div class="text"><?php echo $text_1; ?></div>
+        </div>
+
+        <!-- Icons -->
+        <div class="basic boxed centered">
+            <div class="basic icon-list"> <?php if (have_rows('icon_list')): ?>
+                    <?php while (have_rows('icon_list')): the_row();
+                                                    $heading = get_sub_field('heading');
+                                                    $image = get_sub_field('image');
+                                                    $text = get_sub_field('text');
+                    ?>
+                        <div class="icon-list__item">
+                            <div class="icon-list__img-container"><img src="<?php echo $image; ?>" alt=""></div>
+                            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $heading; ?></div>
+                            <div class="text"><?php echo $text; ?></div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="boxed centered text text-center">
+            <div><?php echo $text_2; ?></div>
+        </div>
+    </section>
+
+
 
 </main>
 
