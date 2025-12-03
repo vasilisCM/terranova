@@ -193,15 +193,13 @@
             <div class="heading-xs uppercase letter-spacing-medium secondary"><?php echo $text_1; ?></div>
             <div class="heading-m secondary"><?php echo $text_2; ?></div>
             <div class="text"><?php echo $text_3; ?></div>
-            <div class="button-container">
 
+            <a href="<?php echo $button['link']; ?>">
+                <button class="button text-button">
+                    <span class="text-button button__text"><?php echo $button['text_1']; ?> <?php echo $button['text_2']; ?></span>
+                </button>
+            </a>
 
-                <a href="<?php echo $button['link']; ?>">
-                    <button class="button text-button">
-                        <span class="text-button button__text"><?php echo $button['text_1']; ?> <?php echo $button['text_2']; ?></span>
-                    </button>
-                </a>
-            </div>
         </div>
     </section>
 
