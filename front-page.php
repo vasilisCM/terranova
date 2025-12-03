@@ -376,7 +376,7 @@
 
     <!-- Button  -->
     <div class="boxed centered">
-      <a href="">
+      <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">
         <button class="button text-button blog-home__button">
           <span class="text-button button__text">All Articles </span>
         </button>
