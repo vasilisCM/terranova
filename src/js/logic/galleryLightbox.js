@@ -30,9 +30,11 @@ class GalleryLightbox {
     this.handleOpenLightbox = null;
     this.handleCloseLightbox = null;
     this.handleCloseLightboxButton = null;
+    this.handleEscKey = null;
   }
 
   init() {
+    console.log("Gallery Lightbox");
     this.galleryElement = document.querySelector(this.gallerySelector);
     this.lightboxElement = document.querySelector(this.lightboxSelector);
 
@@ -113,6 +115,17 @@ class GalleryLightbox {
       this.lightboxElement.classList.add(this.lightboxHiddenClass);
     };
     this.closeButton.addEventListener("click", this.handleCloseLightboxButton);
+
+    // Close lightbox on Esc key
+    this.handleEscKey = (event) => {
+      if (
+        event.key === "Escape" &&
+        !this.lightboxElement.classList.contains(this.lightboxHiddenClass)
+      ) {
+        this.lightboxElement.classList.add(this.lightboxHiddenClass);
+      }
+    };
+    document.addEventListener("keydown", this.handleEscKey);
   }
 
   destroy() {
@@ -122,6 +135,7 @@ class GalleryLightbox {
       "click",
       this.handleCloseLightboxButton
     );
+    document.removeEventListener("keydown", this.handleEscKey);
 
     this.galleryElement = null;
     this.lightboxElement = null;

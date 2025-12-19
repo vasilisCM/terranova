@@ -1,6 +1,7 @@
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import Carousel from "../logic/carousel.js";
 import Tabs from "../logic/tabs.js";
+import GalleryLightbox from "../logic/galleryLightbox.js";
 
 class SingleProduct {
   constructor() {
@@ -33,6 +34,10 @@ class SingleProduct {
       anticipatePin: 1,
       // markers: true,
     });
+
+    // Image Gallery
+    const gallery = new GalleryLightbox();
+    gallery.init();
 
     // Tabs
     const tabs = new Tabs(".tabs");

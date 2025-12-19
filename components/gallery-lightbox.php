@@ -2,17 +2,6 @@
 $gallery = get_field('image_gallery');
 
 if ($gallery): ?>
-    <!-- Gallery Grid  -->
-    <div class="gallery">
-        <?php foreach ($gallery as $image): ?>
-            <div class="gallery__item">
-                <div>
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-
     <!-- Lightbox  -->
     <div class="lightbox lightbox--hidden">
         <div class="boxed centered lightbox__container">

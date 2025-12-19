@@ -10,6 +10,11 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
                 <?php endif; ?>
+
+
+                <?php include 'components/gallery-grid.php'; ?>
+
+
             </div>
 
             <!-- Text  -->
@@ -180,5 +185,10 @@
     <!-- Instagram  -->
     <?php include 'components/instagram.php'; ?>
 </main>
+
+<!-- Gallery Lightbox  -->
+<?php include 'components/gallery-lightbox.php'; ?>
+
+
 
 <?php get_footer(); ?>

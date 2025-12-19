@@ -16,6 +16,15 @@
     }
   }
 
+  &__image-gallery-button {
+    margin-top: cross-media(16px, 1024px, 32px);
+    cursor: pointer;
+
+    @include view(xxl) {
+      margin-top: cross-media(32px, $xxl-breakpoint, calc(32px * $xxl-scale));
+    }
+  }
+
   &__text-container {
     max-width: cross-media(470px, $box, 670px);
     padding: cross-media(12px, $box, 24px);
@@ -41,6 +50,10 @@
     // align-items: center;
 
     // border: solid 4px red;
+  }
+
+  & .gallery {
+    display: revert;
   }
 
   &__featured-image {
