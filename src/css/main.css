@@ -3572,23 +3572,23 @@ main--home {
     margin-top: 40px;
   }
 }
+.skin-nutrition-steps__button {
+  display: block;
+  margin-top: clamp(60px, 12.1089808274vw, 120px);
+}
 
 .life-drink {
   margin-top: clamp(100px, 20.1816347124vw, 200px);
 }
-@media only screen and (min-width: 1025px) {
-  .life-drink__text {
-    max-width: 90%;
-  }
-}
-.life-drink__product {
-  display: grid;
+.life-drink__text-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  row-gap: 20px;
+  gap: clamp(8px, 1.614530777vw, 16px);
 }
 @media only screen and (min-width: 1025px) {
-  .life-drink__product {
-    grid-template-columns: 1fr 1fr;
+  .life-drink__text-container {
+    max-width: 90%;
   }
 }
 .life-drink__button {
@@ -3600,14 +3600,15 @@ main--home {
   object-fit: cover;
 }
 .life-drink__recipe {
-  padding-bottom: clamp(20px, 4.0363269425vw, 40px);
+  padding-block: clamp(20px, 4.0363269425vw, 40px);
 }
 .life-drink__dosage-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: clamp(8px, 1.614530777vw, 16px);
-  margin-top: clamp(10px, 2.0181634712vw, 20px);
+  gap: clamp(16px, 3.229061554vw, 32px);
+  margin-top: clamp(30px, 6.0544904137vw, 60px);
 }
 .life-drink__dosage {
   display: flex;

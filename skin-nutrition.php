@@ -75,6 +75,8 @@
     <!-- Steps  -->
     <section class="skin-nutrition-steps">
         <div class="skin-nutrition-steps__container">
+
+            <!-- Step 1 -->
             <div class="skin-nutrition-steps__step">
                 <div class="skin-nutrition-steps__heading-bg accent-bg white">
                     <div class="boxed centered">
@@ -176,6 +178,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Step 2  -->
             <div class="skin-nutrition-steps__step">
                 <div class="skin-nutrition-steps__heading-bg accent-bg white">
                     <div class="boxed centered">
@@ -275,139 +279,153 @@
                 </div>
             </div>
 
-            <div class="boxed centered">
-                <div
-                    class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
-                    <div
-                        class="heading-ms underline skin-nutrition-steps__heading">
-                        Step3 <br />
-                        Topical Application
-                    </div>
-                    <div class="skin-nutrition-steps__text-container">
-                        <h3 class="heading-s">
-                            Daily application of a serum oil is a great way to compliment
-                            the skin-enhancing benefits of steps 1 and 2.
-                        </h3>
-                    </div>
-                    <div
-                        class="heading-ms underline skin-nutrition-steps__subheading">
-                        Recommended Products
-                    </div>
-                    <!-- Product  -->
-                    <div
-                        class="archive-product__product skin-nutrition-steps__product">
-                        <div class="skin-nutrition-steps__product-text-container">
-                            <a href="">
-                                <h4
-                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                    Terranova
-                                </h4>
-                            </a>
-                            <h3 class="archive-product__product-title">
-                                Vollagen® & Hyaluronic Acid Complex
+            <!-- Step 3  -->
+            <div class="skin-nutrition-steps__step">
+                <div class="skin-nutrition-steps__heading-bg accent-bg white">
+                    <div class="boxed centered">
+                        <div
+                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
+                            Step3 <br />
+                            Topical Application
+                        </div>
+                        <div class="skin-nutrition-steps__text-container">
+                            <h3 class="heading-s">
+                                Daily application of a serum oil is a great way to compliment
+                                the skin-enhancing benefits of steps 1 and 2.
                             </h3>
-                            <h4 class="heading-s">
-                                This product is a unique blend featuring 14 carefully
-                                selected organic oils, combined with organic extracts of
-                                calendula and arnica.
-                            </h4>
-                            <p class="text-single-product">
-                                All ingredients have been specifically selected for their
-                                skin rejuvenating properties and work synergistically to
-                                provide a formula that is deeply nourishing and intensely
-                                restorative to skin that is affected by dryness, ageing,
-                                blemishes or other common challenges to skin health. Serum
-                                768 – Organic Skin Oil delivers the lipids that healthy skin
-                                needs for moisture, while providing the nourishment via
-                                ingredients that the skin can’t make itself.
-                            </p>
 
-                            <div class="text-ms uppercase letter-spacing-medium">
-                                100% Natural - 99,49% Organic - 100% Vegan
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skin-nutrition-steps__img-container">
-                        <img
-                            src="<?php echo get_template_directory_uri() . '/./assets/img/skin-nutrition-steps-001.webp'; ?>"
-                            alt=""
-                            class="archive-product__featured-image skin-nutrition-steps__img" />
-                    </div>
-
-                    <div class="skin-nutrition-steps__icons auto-fit-grid">
-                        <div class="card-icon">
-                            <div class="card-icon__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-001.svg'; ?>"
-                                    alt=""
-                                    class="card-icon__img" />
-                            </div>
-                            <p class="text card-icon__text">
-                                helps the skin to retain its natural moisture barrier. The
-                                fatty acid content of the oils penetrates deeply and offers
-                                a long-lasting moisturizing effect
-                            </p>
-                        </div>
-                        <div class="card-icon">
-                            <div class="card-icon__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-002.svg'; ?>"
-                                    alt=""
-                                    class="card-icon__img" />
-                            </div>
-                            <p class="text card-icon__text">
-                                provides additional nourishment that the skin can’t make
-                                itself
-                            </p>
-                        </div>
-                        <div class="card-icon">
-                            <div class="card-icon__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-003.svg'; ?>"
-                                    alt=""
-                                    class="card-icon__img" />
-                            </div>
-                            <p class="text card-icon__text">
-                                protects the skin barrier which can be easily damaged from
-                                neglect, abrasive ingredients, environmental toxins (removed
-                                comma) and sun damage
-                            </p>
-                        </div>
-                        <div class="card-icon">
-                            <div class="card-icon__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-004.svg'; ?>"
-                                    alt=""
-                                    class="card-icon__img" />
-                            </div>
-                            <p class="text card-icon__text">
-                                offers a calming effect by working with good bacteria on the
-                                skin to modulate inflammation (such as that seen in
-                                conditions like acne or eczema)
-                            </p>
                         </div>
                     </div>
                 </div>
 
-                <a href="">
-                    <button class="button centered text-button mask-text">
-                        <span class="text-button button__text">Learn more about the Terranova Serum 768</span>
-                    </button>
-                </a>
+                <div class="boxed centered">
+                    <div
+                        class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
+
+                        <div
+                            class="heading-ms underline skin-nutrition-steps__subheading">
+                            Recommended Products
+                        </div>
+                        <!-- Product  -->
+                        <div
+                            class="archive-product__product skin-nutrition-steps__product">
+                            <div class="skin-nutrition-steps__product-text-container">
+                                <a href="">
+                                    <h4
+                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                        Terranova
+                                    </h4>
+                                </a>
+                                <h3 class="archive-product__product-title">
+                                    Vollagen® & Hyaluronic Acid Complex
+                                </h3>
+                                <h4 class="heading-s">
+                                    This product is a unique blend featuring 14 carefully
+                                    selected organic oils, combined with organic extracts of
+                                    calendula and arnica.
+                                </h4>
+                                <p class="text-single-product">
+                                    All ingredients have been specifically selected for their
+                                    skin rejuvenating properties and work synergistically to
+                                    provide a formula that is deeply nourishing and intensely
+                                    restorative to skin that is affected by dryness, ageing,
+                                    blemishes or other common challenges to skin health. Serum
+                                    768 – Organic Skin Oil delivers the lipids that healthy skin
+                                    needs for moisture, while providing the nourishment via
+                                    ingredients that the skin can’t make itself.
+                                </p>
+
+                                <div class="text-ms uppercase letter-spacing-medium">
+                                    100% Natural - 99,49% Organic - 100% Vegan
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skin-nutrition-steps__img-container">
+                            <img
+                                src="<?php echo get_template_directory_uri() . '/./assets/img/skin-nutrition-steps-001.webp'; ?>"
+                                alt=""
+                                class="archive-product__featured-image skin-nutrition-steps__img" />
+                        </div>
+
+                        <div class="skin-nutrition-steps__icons auto-fit-grid">
+                            <div class="card-icon">
+                                <div class="card-icon__img-container">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-001.svg'; ?>"
+                                        alt=""
+                                        class="card-icon__img" />
+                                </div>
+                                <p class="text card-icon__text">
+                                    helps the skin to retain its natural moisture barrier. The
+                                    fatty acid content of the oils penetrates deeply and offers
+                                    a long-lasting moisturizing effect
+                                </p>
+                            </div>
+                            <div class="card-icon">
+                                <div class="card-icon__img-container">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-002.svg'; ?>"
+                                        alt=""
+                                        class="card-icon__img" />
+                                </div>
+                                <p class="text card-icon__text">
+                                    provides additional nourishment that the skin can’t make
+                                    itself
+                                </p>
+                            </div>
+                            <div class="card-icon">
+                                <div class="card-icon__img-container">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-003.svg'; ?>"
+                                        alt=""
+                                        class="card-icon__img" />
+                                </div>
+                                <p class="text card-icon__text">
+                                    protects the skin barrier which can be easily damaged from
+                                    neglect, abrasive ingredients, environmental toxins (removed
+                                    comma) and sun damage
+                                </p>
+                            </div>
+                            <div class="card-icon">
+                                <div class="card-icon__img-container">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-004.svg'; ?>"
+                                        alt=""
+                                        class="card-icon__img" />
+                                </div>
+                                <p class="text card-icon__text">
+                                    offers a calming effect by working with good bacteria on the
+                                    skin to modulate inflammation (such as that seen in
+                                    conditions like acne or eczema)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="" class="skin-nutrition-steps__button">
+                        <button class="button centered text-button mask-text">
+                            <span class="text-button button__text">Learn more about the Terranova Serum 768</span>
+                        </button>
+                    </a>
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- Life Drink  -->
-    <section class="life-drink">
-        <div class="life-drink__container boxed centered">
+    <section class="life-drink text-center">
+        <div class="life-drink__container boxed-md centered">
             <div class="life-drink__product">
                 <!-- Text  -->
                 <div class="text-container life-drink__text-container">
+                    <div class="text-ms uppercase letter-spacing-medium">
+                        Recipe
+                    </div>
                     <h2
-                        class="single-product__heading heading normal life-drink__text">
-                        Life Drink <br />
-                        face mask recipe
+                        class="single-product__heading heading-m normal life-drink__text">
+                        Life Drink face mask
                     </h2>
                     <!-- Featured Image Mobile -->
                     <div class="hidden-desktop">
@@ -422,39 +440,47 @@
                         enzymes, probiotics and omega fatty acids, to not only nourish
                         your body, but also enhance your beauty.
                     </p>
-                    <div class="single-product__line"></div>
+
+                    <!-- Featured Image  -->
+                    <div class="hidden-mobile">
+                        <img
+                            class="life-drink__img"
+                            src="/wp-content/uploads/2025/12/skin-nutrition-life-drink-recipe.png"
+                            alt="" />
+                    </div>
 
                     <div class="life-drink__recipe life-drink__text">
-                        <h5 class="heading-s">
+                        <div class="heading-s">
                             Add a Life Drink face mask in your weekly beauty routine!
-                        </h5>
-                        <p class="text">The recipe is so simple:</p>
+                        </div>
+                        <div class="text-ms uppercase letter-spacing-medium">
+                            The recipe is so simple:
+                        </div>
+
                         <div class="life-drink__dosage-container">
                             <div class="text life-drink__dosage">
                                 1 tablespoon Life drink
                             </div>
+                            <div class="heading-l light">
+
+                                +
+                            </div>
                             <div class="text life-drink__dosage">
-                                ½ spoon Terranova Omega oil 3-6-7-9 or rose tonic or water
+                                ½ spoon Terranova Omega oil <br> 3-6-7-9 or rose tonic or water
                             </div>
                         </div>
                     </div>
 
                     <p class="text life-drink__text">
-                        Mix together. The mixture should be thick. Apply onto clean
+                        Mix together. The mixture should be thick. <br /> Apply onto clean
                         skin over the face and neck, avoiding the eye area and making
                         small circular motions with your fingers. Put on some mellow
-                        music, close your eyes and relax for 10 minutes. Rinse well
+                        music, close your eyes and relax for 10 minutes. <br /> Rinse well
                         and apply your moisturizing serum/ cream.
                     </p>
                 </div>
 
-                <!-- Featured Image  -->
-                <div class="hidden-mobile">
-                    <img
-                        class="life-drink__img"
-                        src="<?php echo get_template_directory_uri() . '/./assets/img/skin-nutrition-004.webp'; ?>"
-                        alt="" />
-                </div>
+
             </div>
 
             <a href="">
