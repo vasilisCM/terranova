@@ -6,41 +6,47 @@
     data-barba="container"
     data-barba-namespace="nextGen"
     class="main-next-gen white">
-    <?php
-    $hero = get_field('next_gen__hero');
-    $heading = $hero['heading'];
-    $image_1 = $hero['image_1'];
-    $image_2 = $hero['image_2'];
-    $image_3 = $hero['image_3'];
-    ?>
+
 
     <!-- Hero  -->
-    <section
-        class="first-section hero hero-next-gen">
-        <div class="boxed centered hero__container">
+    <section class="banner hero-next-gen">
+        <?php
+        $hero = get_field('next_gen__hero');
+        $heading = $hero['heading'];
+        $image_1 = $hero['image_1'];
+        $image_2 = $hero['image_2'];
+        $image_3 = $hero['image_3'];
+        ?>
+        <div class="banner__wrapper hero-next-gen__container boxed centered">
+            <div>
+                <div class="banner__container">
+                    <div class="banner__text-background"></div>
+                    <div class="banner__text-container">
 
-            <div class="hero__text-container">
+                        <div class="banner__img-container">
+                            <img src="<?php echo $image_1; ?>" alt="" class="banner__image">
+                        </div>
 
-                <div>
-                    <img src="<?php echo $image_1; ?>" alt="">
+                        <h1 class="banner__heading heading">
+                            <?php echo $heading; ?>
+
+                        </h1>
+
+                    </div>
                 </div>
-
-                <h1 class="heading">
-                    <?php echo $heading; ?>
-                </h1>
-
             </div>
-
-            <div>
-                <img src="<?php echo $image_2; ?>" alt="">
-            </div>
-            <div>
-                <img src="<?php echo $image_3; ?>" alt="">
+            <div class="hero-next-gen__images">
+                <div class="hero-next-gen__img-container hero-next-gen__img-container--1">
+                    <img src="<?php echo $image_2; ?>" alt="">
+                </div>
+                <div class="hero-next-gen__img-container hero-next-gen__img-container--2">
+                    <img src="<?php echo $image_3; ?>" alt="">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="basic text-center intro-next-gen">
+    <section class="basic-section text-center intro-next-gen">
         <?php
         $intro = get_field('next_gen__intro');
         $heading = $intro['heading'];
@@ -50,21 +56,25 @@
         $text_2 = $intro['text_2'];
         $text_3 = $intro['text_3'];
         ?>
-        <div class="boxed centered">
-            <div>
-                <h2><?php echo $heading; ?></h2>
-                <div><?php echo $text_1; ?></div>
+        <div class="basic boxed centered intro-next-gen__container">
+            <div class="basic boxed-sm centered intro-next-gen__text-container">
+                <h2 class="heading light"><?php echo $heading; ?></h2>
+                <div class="text"><?php echo $text_1; ?></div>
             </div>
 
-            <div>
-                <h3><?php echo $subheading_1; ?></h3>
-                <div><?php echo $text_2; ?></div>
+            <div class="basic boxed-sm centered intro-next-gen__text-container">
+                <h3 class="heading-m"><?php echo $subheading_1; ?></h3>
+                <div class="text"><?php echo $text_2; ?></div>
             </div>
 
-            <div class="accent-bg">
-                <h3><?php echo $subheading_2; ?></h3>
-                <div><?php echo $text_3; ?></div>
+        </div>
+        <div class="basic-section boxed centered accent-bg intro-next-gen__accent-box">
+
+            <div class="boxed-sm centered intro-next-gen__text-container">
+                <h3 class="heading-m"><?php echo $subheading_2; ?></h3>
+                <div class="text"><?php echo $text_3; ?></div>
             </div>
+        </div>
         </div>
     </section>
 

@@ -10,7 +10,7 @@
                <div class="banner__text-background"></div>
                <div class="banner__text-container">
                    <?php if ($image): ?>
-                       <div>
+                       <div class="banner__img-container">
                            <img src="<?php echo $image; ?>" alt="<?php the_title(); ?>" class="banner__image">
                        </div>
 
