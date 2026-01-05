@@ -135,6 +135,19 @@
     }
   }
 
+  &--accent {
+    background-color: $accent;
+    border: solid 2px $accent;
+    color: $white;
+
+    & .button__text {
+      color: $white;
+      &::after {
+        color: $white;
+      }
+    }
+  }
+
   // &--white {
   //   background-color: transparent;
   //   border: solid 2px $white;
@@ -485,6 +498,20 @@
   width: 100%;
   height: 1px;
   background-color: $black;
+
+  &--white {
+    background-color: $white;
+  }
+}
+
+.line-vertical {
+  width: 1px;
+  height: cross-media(40px, $box, 80px);
+  background-color: $white;
+
+  @include view(xxl) {
+    height: cross-media(80px, 3000px, 80px * $xxl-scale);
+  }
 }
 
 // Errors

@@ -80,7 +80,8 @@
 
     <section class="basic text-center highlights-next-gen">
 
-        <div class="boxed centered">
+        <div class="boxed centered highlights-next-gen__container">
+
             <?php if (have_rows('next_gen__highlights')): while (have_rows('next_gen__highlights')): the_row();
                     $heading = get_sub_field('heading');
                     $subheading = get_sub_field('subheading');
@@ -88,13 +89,13 @@
                     $subheading_2 = get_sub_field('subheading_2');
                     $text_2 = get_sub_field('text_2');
             ?>
-                    <div>
-                        <h3 class="accent"><?php echo $heading; ?></h3>
-                        <div class="uppercase"><?php echo $subheading; ?></div>
-                        <div><?php echo $text_1; ?></div>
+                    <div class="highlights-next-gen__item">
+                        <h3 class="heading-m accent"><?php echo $heading; ?></h3>
+                        <div class="heading-xs uppercase letter-spacing-medium"><?php echo $subheading; ?></div>
+                        <div class="text"><?php echo $text_1; ?></div>
                         <div class="line-vertical"></div>
-                        <div><?php echo $subheading_2; ?></div>
-                        <div><?php echo $text_2; ?></div>
+                        <div class="heading-s italic"><?php echo $subheading_2; ?></div>
+                        <div class="text italic"><?php echo $text_2; ?></div>
                     </div>
             <?php endwhile;
             endif; ?>
@@ -103,41 +104,68 @@
         </div>
     </section>
 
-    <section class="basic text-center stats-next-gen">
+    <section class="basic stats-next-gen">
 
-        <div class="boxed centered">
-            <?php if (have_rows('next_gen__stats')): while (have_rows('next_gen__stats')): the_row();
-                    $image = get_sub_field('image');
-                    $number = get_sub_field('number');
-                    $text = get_sub_field('text');
-            ?>
-                    <div>
-                        <img src="<?php echo $image; ?>" alt="">
-                        <div class="bold"><?php echo $number; ?></div>
-                        <div><?php echo $text; ?></div>
-                    </div>
-            <?php endwhile;
-            endif; ?>
+        <div class="basic stats-next-gen__logos">
+            <div class="line line--white stats-next-gen__line-1"></div>
+            <div><img src="<?php echo get_template_directory_uri() . '/./assets/img/logo-next-gen.svg'; ?>" alt=""></div>
+            <div class="line line--white stats-next-gen__line-2"></div>
+            <div><img src="<?php echo get_template_directory_uri() . '/./assets/img/logo-next-gen.svg'; ?>" alt=""></div>
 
+            <div class="line line--white stats-next-gen__line-3"></div>
+
+        </div>
+
+        <div class="boxed-sm centered stats-next-gen__container">
+
+            <div class="basic-section stats-next-gen__list">
+                <?php if (have_rows('next_gen__stats')): while (have_rows('next_gen__stats')): the_row();
+                        $image = get_sub_field('image');
+                        $number = get_sub_field('number');
+                        $text = get_sub_field('text');
+                ?>
+                        <div>
+                            <img src="<?php echo $image; ?>" alt="">
+
+                            <div class="stats-next-gen__item-text-container">
+                                <div>
+                                    <div class="heading-ms bold"><?php echo $number; ?></div>
+                                    <div class="text"><?php echo $text; ?></div>
+                                </div>
+                            </div>
+                        </div>
+                <?php endwhile;
+                endif; ?>
+            </div>
+
+            <div class="basic text-center">
+                <div class="boxed-sm centered">
+                    <h2 class="heading-m accent">
+                        <?php echo get_field('next_gen__how_it_works_heading'); ?>
+                    </h2>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <section class="basic how-it-works-next-gen">
+    <section class="how-it-works-next-gen">
         <div class="boxed centered">
             <?php if (have_rows('next_gen__how_it_works')): while (have_rows('next_gen__how_it_works')): the_row();
                     $heading = get_sub_field('heading');
             ?>
-                    <h2><?php echo $heading; ?></h2>
-                    <div>
+
+                    <div class="how-it-works-next-gen__list">
                         <?php if (have_rows('list')): while (have_rows('list')): the_row();
                                 $item = get_sub_field('item');
                         ?>
-                                <div>
-                                    <div class="accent-bg">
+                                <div class="how-it-works-next-gen__item">
+                                    <div class="heading-ms semibold accent-bg how-it-works-next-gen__number">
                                         <?php echo get_row_index(); ?>
                                     </div>
-                                    <?php echo $item; ?>
+                                    <div class="text">
+                                        <?php echo $item; ?>
+                                    </div>
                                 </div>
                         <?php
                             endwhile;
@@ -148,13 +176,11 @@
                 endwhile;
             endif;
             ?>
-            <div>
-                <img src="<?php echo $image; ?>" alt="">
-            </div>
+
         </div>
     </section>
 
-    <section class="basic card-next-gen">
+    <section class="basic-section card-next-gen">
         <?php $card_1 = get_field('next_gen__card_1');
         $heading = $card_1['heading'];
         $subheading_1 = $card_1['subheading_1'];
@@ -164,19 +190,19 @@
         $image = $card_1['image'];
         ?>
 
-        <div class="boxed centered accent-bg">
-            <h2><?php echo $heading; ?></h2>
-            <div>
-                <div>
-                    <div><?php echo $subheading_1; ?></div>
-                    <div><?php echo $text_1; ?></div>
+        <div class="boxed centered basic card-next-gen__container card-next-gen__container--1">
+            <h2 class="heading-m"><?php echo $heading; ?></h2>
+            <div class="basic card-next-gen__text-container">
+                <div class="italic">
+                    <div class="heading-s"><?php echo $subheading_1; ?></div>
+                    <div class="text"><?php echo $text_1; ?></div>
                 </div>
-                <div>
-                    <div><?php echo $subheading_2; ?></div>
-                    <div><?php echo $text_2; ?></div>
+                <div class="italic">
+                    <div class="heading-s"><?php echo $subheading_2; ?></div>
+                    <div class="text"><?php echo $text_2; ?></div>
                 </div>
             </div>
-            <div><img src="<?php echo $image; ?>" alt=""></div>
+            <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
         </div>
     </section>
 
@@ -192,20 +218,32 @@
         ?>
 
         <div class="boxed centered">
-            <div><img src="<?php echo $image; ?>" alt=""></div>
-            <div class="text-center">
-                <h2><?php echo $heading; ?></h2>
-                <div><?php echo $subheading; ?></div>
-                <div><?php echo $text_1; ?></div>
+            <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
+            <div class="text-center basic">
+                <h2 class="heading light"><?php echo $heading; ?></h2>
+                <div class="text"><?php echo $subheading; ?></div>
+                <div class="line line--white banner-next-gen__line"></div>
+
+                <div class="heading-s"><?php echo $text_1; ?></div>
             </div>
-            <div>
-                <div><?php echo $text_2; ?></div>
-                <div><?php echo $text_3; ?></div>
+            <div class="text-ml italic banner-next-gen__capsules">
+                <div class="banner-next-gen__capsule">
+                    <div>
+                        <img src="<?php echo get_template_directory_uri() . '/./assets/img/check.svg'; ?>" alt="">
+                    </div>
+                    <div class="text"><?php echo $text_2; ?></div>
+                </div>
+                <div class="banner-next-gen__capsule">
+                    <div>
+                        <img src="<?php echo get_template_directory_uri() . '/./assets/img/check.svg'; ?>" alt="">
+                    </div>
+                    <div class="text"><?php echo $text_3; ?></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="basic card-next-gen">
+    <section class="basic-section card-next-gen">
         <?php
         $card_2 = get_field('next_gen__card_2');
         $heading = $card_2['heading'];
@@ -216,35 +254,51 @@
         $gallery = $card_2['gallery'];
         ?>
 
-        <div class="boxed centered accent-bg">
-            <h2><?php echo $heading; ?></h2>
-            <div>
-                <div>
-                    <div><?php echo $subheading_1; ?></div>
-                    <div><?php echo $text_1; ?></div>
+        <div class="boxed centered basic accent-bg">
+            <h2 class="heading-m"><?php echo $heading; ?></h2>
+            <div class="basic card-next-gen__text-container">
+                <div class="italic">
+                    <div class="heading-s"><?php echo $subheading_1; ?></div>
+                    <div class="text"><?php echo $text_1; ?></div>
                 </div>
-                <div>
-                    <div><?php echo $subheading_2; ?></div>
-                    <div><?php echo $text_2; ?></div>
+                <div class="italic">
+                    <div class="heading-s"><?php echo $subheading_2; ?></div>
+                    <div class="text"><?php echo $text_2; ?></div>
                 </div>
             </div>
 
-            <div class="gallery">
-                <?php if (!empty($gallery) && is_array($gallery)): ?>
-                    <?php foreach ($gallery as $image): ?>
-                        <div class="gallery__item">
-                            <div>
-                                <img src="<?php echo $image; ?>" alt="">
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+            <div class="basic carousel">
+                <div class="carousel__track" data-glide-el="track">
+                    <div class="carousel__container">
+
+
+                        <?php if (!empty($gallery) && is_array($gallery)): ?>
+                            <?php foreach ($gallery as $image): ?>
+                                <div class="carousel__slide">
+                                    <div>
+                                        <img src="<?php echo $image; ?>" alt="">
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="carousel__bottom">
+                    <div class="carousel__controls">
+                        <div class="carousel__button carousel__button--previous"></div>
+                        <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+                        <div class="carousel__button carousel__button--next"></div>
+                    </div>
+                </div>
             </div>
+
+
         </div>
 
     </section>
 
-    <section class="basic card-next-gen">
+    <section class="basic-section card-next-gen">
         <?php
         $card_3 = get_field('next_gen__card_3');
         $heading = $card_3['heading'];
@@ -253,11 +307,13 @@
         $image = $card_3['image'];
         ?>
 
-        <div class="boxed centered accent-bg">
-            <h2><?php echo $heading; ?></h2>
-            <div><?php echo $subheading_1; ?></div>
-            <div><img src="<?php echo $image; ?>" alt=""></div>
-            <div><?php echo $text; ?></div>
+        <div class="boxed centered basic accent-bg">
+            <h2 class="heading-m"><?php echo $heading; ?></h2>
+            <div class="text italic basic"><?php echo $subheading_1; ?></div>
+            <div class="white-bg text-center">
+                <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
+                <div class="text italic basic black"><?php echo $text; ?></div>
+            </div>
         </div>
 
     </section>
@@ -271,18 +327,25 @@
         $image = $why['image'];
         ?>
 
-        <div class="boxed centered">
-            <h2><?php echo $heading; ?></h2>
-            <div>
-                <?php echo $list; ?>
-            </div>
-            <div><img src="<?php echo $image; ?>"></div>
+        <div class="basic-section boxed centered why-next-gen__container">
+            <h2 class="heading-m"><?php echo $heading; ?></h2>
 
-            <a href="<?php echo $button['link']; ?>">
-                <button class="button text-button">
-                    <span class="text-button button__text"><?php echo $button['text']; ?></span>
-                </button>
-            </a>
+            <div class="why-next-gen__content">
+                <div>
+                    <div class="text-ml italic basic why-next-gen__list">
+                        <?php echo $list; ?>
+                    </div>
+
+                    <a href="<?php echo $button['link']; ?>">
+                        <button class="button text-button button--accent">
+                            <span class="text-button button__text"><?php echo $button['text']; ?></span>
+                        </button>
+                    </a>
+                </div>
+                <div><img src="<?php echo $image; ?>"></div>
+            </div>
+
+
         </div>
     </section>
 </main>
