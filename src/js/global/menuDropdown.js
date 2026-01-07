@@ -11,6 +11,10 @@ const menuDropdown = (dropdownLinksNodeList) => {
 
     let currentSubmenu = dropdownLink.closest("li").querySelector(".sub-menu");
 
+    // Check if this is the menu item that should show mega menu images
+    const parentLi = dropdownLink.closest("li");
+    const shouldShowMegaMenu = parentLi && parentLi.id === "menu-item-51";
+
     // Items timeline
     const itemsTimeline = gsap.timeline({
       paused: true,
@@ -28,24 +32,38 @@ const menuDropdown = (dropdownLinksNodeList) => {
         "<"
       )
       .to(
-        ".sub-menu, .mega-menu-images",
+        ".mega-menu-images .mega-menu-images__item",
         {
-          display: "none",
+          // visibility: "hidden",
+          clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+          opacity: 0,
+          ease: "ease.in",
         },
         "<"
       )
+      // .to(
+      //   ".sub-menu, .mega-menu-images",
+      //   {
+      //     display: "none",
+      //   },
+      //   "<"
+      // )
       .to(
-        [currentSubmenu, ".mega-menu-images"],
+        shouldShowMegaMenu
+          ? [currentSubmenu, ".mega-menu-images"]
+          : currentSubmenu,
         {
           display: "flex",
         },
         "<"
       )
       .fromTo(
-        [
-          currentSubmenu.querySelectorAll("a"),
-          ".mega-menu-images .mega-menu-images__item",
-        ],
+        shouldShowMegaMenu
+          ? [
+              currentSubmenu.querySelectorAll("a"),
+              ".mega-menu-images .mega-menu-images__item",
+            ]
+          : currentSubmenu.querySelectorAll("a"),
         {
           visibility: "hidden",
           clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
@@ -158,6 +176,9 @@ const menuDropdown = (dropdownLinksNodeList) => {
       // gsap.to(".sub-menu a", {
       //   opacity: 0,
       // });
+
+      // Immediately hide mega menu images to prevent flash during reverse
+      gsap.set(".mega-menu-images", { display: "none" });
 
       itemsTimeline.reverse();
       dropdownTimeline.reverse();
