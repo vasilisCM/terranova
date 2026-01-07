@@ -10,6 +10,7 @@ class GlobalAnimations {
 
   init() {
     console.log("GlobalAnimations.init() called");
+    console.log("Current timelines count:", this.timelines.length);
 
     // Banner animations - runs on any page with these elements
     const bannerElements = document.querySelectorAll(
@@ -17,16 +18,28 @@ class GlobalAnimations {
     );
 
     console.log(
-      `GlobalAnimations: Found ${bannerElements.length} banner elements`
+      `GlobalAnimations: Found ${bannerElements.length} banner elements`,
+      bannerElements
     );
 
     if (bannerElements.length > 0) {
+      console.log("Calling clipUp with selector:", [
+        ".banner__text-background, .banner h1, .banner__subheading",
+      ]);
       const bannerTimeline = clipUp(
         [".banner__text-background, .banner h1, .banner__subheading"],
         1
       );
+      console.log("clipUp returned:", bannerTimeline);
       this.timelines.push(bannerTimeline);
-      console.log("GlobalAnimations: Banner animation initialized");
+      console.log(
+        "GlobalAnimations: Banner animation initialized, timelines count now:",
+        this.timelines.length
+      );
+    } else {
+      console.log(
+        "GlobalAnimations: No banner elements found, skipping animation"
+      );
     }
 
     // Add more global animations here as needed

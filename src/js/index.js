@@ -27,22 +27,26 @@ function global() {
 
   // Initialize semi-global features
   function initGlobalFeatures() {
-    console.log("Initializing global features");
-    Object.values(globalFeatures).forEach((feature) => {
+    console.log("============ initGlobalFeatures() called ============");
+    Object.entries(globalFeatures).forEach(([name, feature]) => {
       if (feature && typeof feature.init === "function") {
+        console.log(`Initializing: ${name}`);
         feature.init();
       }
     });
+    console.log("============ initGlobalFeatures() complete ============");
   }
 
   // Cleanup semi-global features
   function destroyGlobalFeatures() {
-    console.log("Destroying global features");
-    Object.values(globalFeatures).forEach((feature) => {
+    console.log("============ destroyGlobalFeatures() called ============");
+    Object.entries(globalFeatures).forEach(([name, feature]) => {
       if (feature && typeof feature.destroy === "function") {
+        console.log(`Destroying: ${name}`);
         feature.destroy();
       }
     });
+    console.log("============ destroyGlobalFeatures() complete ============");
   }
 
   // Prevent browser scroll restoration and force the viewport to start at the top
@@ -91,7 +95,13 @@ function global() {
         currentPageScript = script; // Track this script
         resolve();
       };
-      script.onerror = reject;
+      script.onerror = (error) => {
+        // Clean up the failed script element
+        if (script.parentNode) {
+          document.body.removeChild(script);
+        }
+        reject(error);
+      };
 
       document.body.appendChild(script);
     });
@@ -251,15 +261,23 @@ function global() {
 
   barba.hooks.after(async (data) => {
     const pageName = data.next.namespace;
-    console.log("Page name:", pageName);
+    console.log("barba.hooks.after - Page name:", pageName);
 
-    await loadScript(`${themeUrl}/dist/${pageName}.bundle.js`);
+    // Try to load page-specific JS bundle (some pages don't have one)
+    try {
+      await loadScript(`${themeUrl}/dist/${pageName}.bundle.js`);
+      console.log(`Successfully loaded ${pageName}.bundle.js`);
+    } catch (error) {
+      console.log(`No JS bundle for ${pageName} (this is ok)`);
+      currentPageScript = null; // No script to track
+    }
 
-    console.log("After");
+    console.log("After - dispatching loaderDone");
     document.dispatchEvent(new CustomEvent("loaderDone"));
 
     // Initialize global features after page is fully loaded
     // This ensures DOM is ready and page-specific JS has loaded
+    console.log("About to call initGlobalFeatures from barba.hooks.after");
     initGlobalFeatures();
   });
 
@@ -269,6 +287,7 @@ function global() {
       {
         name: "general-transition",
         once: ({ next }) => {
+          console.log("barba once hook - namespace:", next.namespace);
           fadeInOnce(next.container);
 
           // Track the initial page script
@@ -285,6 +304,7 @@ function global() {
           }
 
           // Initialize global features on first load
+          console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
         },
 
