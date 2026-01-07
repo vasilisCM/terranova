@@ -4,18 +4,45 @@ import mobileMenu from "./global/mobileMenu.js";
 import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
 import { menuDropdown } from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
-import customCursor from "./logic/customCursor.js";
+import CustomCursor from "./logic/customCursor.js";
+import GlobalAnimations from "./global/globalAnimations.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
 
 function global() {
   console.log("JavaScript");
 
+  // Semi-global features that need to reinitialize after page transitions
+  const globalFeatures = {
+    customCursor: new CustomCursor(),
+    globalAnimations: new GlobalAnimations(),
+  };
+
   function scrollToTopWithLenis(options = {}) {
     if (!lenis || typeof lenis.scrollTo !== "function") return;
 
     const { immediate = true, force = true } = options;
     lenis.scrollTo(0, { immediate, force });
+  }
+
+  // Initialize semi-global features
+  function initGlobalFeatures() {
+    console.log("Initializing global features");
+    Object.values(globalFeatures).forEach((feature) => {
+      if (feature && typeof feature.init === "function") {
+        feature.init();
+      }
+    });
+  }
+
+  // Cleanup semi-global features
+  function destroyGlobalFeatures() {
+    console.log("Destroying global features");
+    Object.values(globalFeatures).forEach((feature) => {
+      if (feature && typeof feature.destroy === "function") {
+        feature.destroy();
+      }
+    });
   }
 
   // Prevent browser scroll restoration and force the viewport to start at the top
@@ -34,28 +61,24 @@ function global() {
   }
 
   // Page Transition
+  let currentPageScript = null; // Track the currently loaded page script
+
   function getCurrentScript() {
-    // Try to get script by data-barba-namespace first
-    const body = document.querySelector("body");
-    if (body && body.dataset.barbaNamespace) {
-      const currentScript = document.querySelector(
-        `script[src*="${body.dataset.barbaNamespace}"]`
-      );
-      if (currentScript) {
-        return currentScript;
-      }
+    // Return the tracked script if it exists
+    if (currentPageScript && document.body.contains(currentPageScript)) {
+      return currentPageScript;
     }
 
-    // // Fallback: get the last dynamically loaded script
-    // const scripts = document.querySelectorAll("script[src]");
-    // const dynamicScripts = Array.from(scripts).filter(
-    //   (script) =>
-    //     script.src.includes("bundle.js") && script.parentNode === document.body
-    // );
+    // Fallback: get the last dynamically loaded script
+    const scripts = document.querySelectorAll("script[src]");
+    const dynamicScripts = Array.from(scripts).filter(
+      (script) =>
+        script.src.includes("bundle.js") && script.parentNode === document.body
+    );
 
-    // return dynamicScripts.length > 0
-    //   ? dynamicScripts[dynamicScripts.length - 1]
-    //   : null;
+    return dynamicScripts.length > 0
+      ? dynamicScripts[dynamicScripts.length - 1]
+      : null;
   }
 
   function loadScript(src) {
@@ -65,6 +88,7 @@ function global() {
       // script.type = "module";
       script.onload = () => {
         console.log("Script loaded:", script.src);
+        currentPageScript = script; // Track this script
         resolve();
       };
       script.onerror = reject;
@@ -74,32 +98,40 @@ function global() {
   }
 
   function unloadScript() {
-    const currentScript = getCurrentScript();
-    if (currentScript) {
-      console.log("Unloading script:", currentScript.src);
+    console.log("unloadScript called");
 
-      // Call all possible cleanup functions
-      const cleanupFunctions = [
-        "homeCleanup",
-        "contactCleanup",
-        "aboutCleanup",
-        "archiveProductCleanup",
-        "postsCleanup",
-        "singleCleanup",
-        "singleProductCleanup",
-        "skinNutritionCleanup",
-      ];
+    // Call all possible cleanup functions FIRST (before removing the script)
+    const cleanupFunctions = [
+      "homeCleanup",
+      "contactCleanup",
+      "aboutCleanup",
+      "archiveProductCleanup",
+      "postsCleanup",
+      "singleCleanup",
+      "singleProductCleanup",
+      "skinNutritionCleanup",
+    ];
 
-      cleanupFunctions.forEach((funcName) => {
-        if (window[funcName]) {
+    cleanupFunctions.forEach((funcName) => {
+      if (window[funcName]) {
+        console.log(`Calling ${funcName}`);
+        try {
           window[funcName]();
           delete window[funcName];
+        } catch (error) {
+          console.error(`Error in ${funcName}:`, error);
         }
-      });
+      }
+    });
 
+    // Then remove the script element
+    const currentScript = getCurrentScript();
+    if (currentScript) {
+      console.log("Removing script:", currentScript.src);
       document.body.removeChild(currentScript);
+      currentPageScript = null; // Clear the reference
     } else {
-      console.log("No current script to unload");
+      console.log("No current script element to remove");
     }
   }
 
@@ -225,6 +257,10 @@ function global() {
 
     console.log("After");
     document.dispatchEvent(new CustomEvent("loaderDone"));
+
+    // Initialize global features after page is fully loaded
+    // This ensures DOM is ready and page-specific JS has loaded
+    initGlobalFeatures();
   });
 
   barba.init({
@@ -235,7 +271,21 @@ function global() {
         once: ({ next }) => {
           fadeInOnce(next.container);
 
-          // global();
+          // Track the initial page script
+          const initialScript = Array.from(
+            document.querySelectorAll("script[src]")
+          ).find(
+            (script) =>
+              script.src.includes("bundle.js") &&
+              script.src.includes(next.namespace)
+          );
+          if (initialScript) {
+            currentPageScript = initialScript;
+            console.log("Initial script tracked:", initialScript.src);
+          }
+
+          // Initialize global features on first load
+          initGlobalFeatures();
         },
 
         leave: function ({ current }) {
@@ -245,24 +295,16 @@ function global() {
         enter: ({ next }) => {
           fadeIn(next.container);
           console.log("new page");
-          // global();
         },
       },
     ],
   });
 
   barba.hooks.beforeLeave(() => {
-    // gsap.fromTo(
-    //   ".body",
+    // Clean up global features before leaving
+    destroyGlobalFeatures();
 
-    //   {
-    //     position: "absolute", // For Menu Overlay
-    //   },
-    //   {
-    //     position: "static", // For Menu Overlay
-    //   }
-    // );
-
+    // Clean up page-specific scripts
     unloadScript();
   });
 
@@ -281,48 +323,6 @@ function global() {
   });
 
   searchFormAnimation();
-
-  // Custom Cursor on Draggable Carousels
-  let cursorDrag = document.querySelector(".cursor-track");
-  if (cursorDrag) customCursor(cursorDrag);
-
-  // Elements activating custom cursor
-  const draggableImages = document.querySelectorAll("[draggable-image]");
-
-  if (draggableImages) {
-    // Cursor Mouse Events
-    draggableImages.forEach((img) => {
-      // Hover
-      img.addEventListener("mouseover", () => {
-        cursorDrag.classList.add("cursor-track--active");
-      });
-
-      // Click
-      img.addEventListener("mousedown", () => {
-        cursorDrag.classList.add("cursor-track--clicked");
-
-        gsap.to(cursorDrag, {
-          scale: 0.9,
-        });
-      });
-
-      // Unclick
-      img.addEventListener("mouseup", () => {
-        cursorDrag.classList.remove("cursor-track--clicked");
-        gsap.to(cursorDrag, {
-          scale: 1,
-        });
-      });
-
-      // Leave
-      img.addEventListener("mouseout", () => {
-        cursorDrag.classList.remove("cursor-track--active");
-        cursorDrag.classList.remove("cursor-track--clicked");
-      });
-    });
-  }
-
-  // marqueeInfinite();
 }
 
 document.addEventListener("DOMContentLoaded", global);

@@ -1,4 +1,3 @@
-import clipUp from "../animations/clipUp.js";
 import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 
@@ -11,8 +10,8 @@ class SkinNutrition {
   init() {
     console.log("Skin Nutrition");
 
-    // Hero Entrance
-    clipUp([".banner__text-background, h1, .banner__subheading"]);
+    // Hero Entrance is now handled by globalAnimations.js
+    // No need to call clipUp here anymore
 
     setAsymmetricalClasses();
 

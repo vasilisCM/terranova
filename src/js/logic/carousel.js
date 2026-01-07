@@ -92,6 +92,7 @@ class Carousel {
   }
 
   destroy() {
+    console.log("Carousel destroyed");
     this.carouselElement = null;
     this.glideInstance.destroy();
     this.glideInstance = null;
