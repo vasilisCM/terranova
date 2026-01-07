@@ -173,7 +173,6 @@
     & ul {
       opacity: 1;
       top: 0;
-      left: 0;
       display: none;
       flex-direction: column;
       flex-wrap: wrap;
@@ -181,14 +180,6 @@
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
-
-      @include view(box-min) {
-        margin-left: calc((100vw - #{$box}) / 2 - 20px); // 20px is klepsimo
-      }
-
-      @include view(xxl) {
-        margin-left: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
-      }
 
       @include view(lg-min) {
         max-height: 180px;
@@ -276,8 +267,20 @@
   }
 
   &-1 {
-    ul {
+    & .main-menu__list {
       justify-content: start;
+
+      & ul {
+        left: 0;
+        justify-content: start;
+        @include view(box-min) {
+          margin-left: calc((100vw - #{$box}) / 2 - 20px); // 20px is klepsimo
+        }
+
+        @include view(xxl) {
+          margin-left: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
+        }
+      }
     }
   }
 
@@ -285,8 +288,24 @@
     display: flex;
     align-items: center;
 
-    ul {
-      justify-content: end;
+    & .main-menu__list {
+      @include view(lg-min) {
+        justify-content: end;
+      }
+
+      & ul {
+        @include view(lg-min) {
+          justify-content: end;
+        }
+
+        @include view(box-min) {
+          margin-right: calc((100vw - #{$box}) / 2 - 20px); // 20px is klepsimo
+        }
+
+        @include view(xxl) {
+          margin-right: calc((100vw - cross-media($box, 3000px, $box-4k)) / 2);
+        }
+      }
     }
   }
 
