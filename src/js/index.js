@@ -364,17 +364,29 @@ function global() {
 
     // Cleanup when leaving desktop breakpoint
     return () => {
+      console.log("Desktop cleanup called");
+
       if (menuDropdownInstance) {
         menuDropdownInstance.destroy();
       }
+
+      // Reset desktop-specific styles that might interfere with mobile
+      gsap.set(".main-menu__dropdown-background", { clearProps: "all" });
+      gsap.set(".dropdown-menu-overlay", { clearProps: "all" });
     };
   });
 
   mm.add("(max-width: 1024px)", () => {
-    mobileMenu();
+    const mobileMenuCleanup = mobileMenu();
 
-    // Ensure MenuDropdown is destroyed on mobile
+    // Cleanup when leaving mobile breakpoint
     return () => {
+      // Clean up mobile menu (restore DOM)
+      if (mobileMenuCleanup) {
+        mobileMenuCleanup();
+      }
+
+      // Ensure MenuDropdown is destroyed on mobile
       if (menuDropdownInstance) {
         menuDropdownInstance.destroy();
       }

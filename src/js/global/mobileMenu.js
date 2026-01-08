@@ -4,8 +4,15 @@ function mobileMenu() {
   // Wrap Menus in One
   const menuListTwo = document.querySelector(".main-menu-2 .main-menu__list");
   const mainMenu = document.querySelector(".main-menu-1");
+  const mainMenuTwo = document.querySelector(".main-menu-2");
 
-  if (menuListTwo) {
+  // Store original parent for cleanup
+  let originalParent = null;
+  let movedElement = null;
+
+  if (menuListTwo && mainMenuTwo) {
+    originalParent = mainMenuTwo;
+    movedElement = menuListTwo;
     moveItems(menuListTwo, mainMenu, "beforeend");
   }
 
@@ -179,6 +186,36 @@ function mobileMenu() {
 
   const hamburger = document.querySelector(".hamburger");
   openCloseMobileMenu(hamburger, "active", mainMenu);
+
+  // Return cleanup function to restore DOM to original state
+  return () => {
+    console.log("mobileMenu cleanup called");
+
+    // Move menu list back to original position
+    if (
+      movedElement &&
+      originalParent &&
+      movedElement.parentNode !== originalParent
+    ) {
+      originalParent.appendChild(movedElement);
+    }
+
+    // Reset any open submenus
+    const openSubmenus = document.querySelectorAll('[data-open="true"]');
+    openSubmenus.forEach((submenu) => {
+      gsap.set(submenu, { x: "100%" });
+      submenu.removeAttribute("data-open");
+    });
+
+    // Reset mobile menu position
+    gsap.set(mainMenu, { left: "-100%" });
+
+    // Reset header background
+    gsap.set(".header", { backgroundColor: "transparent" });
+
+    // Reset body overflow
+    gsap.set(".body", { overflowY: "visible" });
+  };
 }
 
 export default mobileMenu;
