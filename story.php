@@ -53,7 +53,7 @@
         $text_1 = $challenges['text_1'];
         $text_2 = $challenges['text_2'];
         ?>
-        <div class="boxed centered two-col-grid">
+        <div class="boxed-md centered two-col-grid">
             <div class="story-challenges__img-container"><img src="<?php echo $image; ?>" alt=""></div>
             <div class="text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
@@ -63,13 +63,17 @@
         </div>
     </section>
 
-    <section class="basic last-section story-global-presence">
+    <section class="basic last-section story-global-presence relative">
         <?php $global_presence = get_field('story__global_presence');
         $image = $global_presence['image'];
+        $image_background = $global_presence['bg_image'];
         $heading = $global_presence['heading'];
         $text = $global_presence['text'];
         ?>
-        <div class="boxed centered two-col-grid">
+        <div class="story-global-presence__background absolute">
+            <img src="<?php echo $image_background; ?>" alt="">
+        </div>
+        <div class="boxed-md centered two-col-grid">
             <div><img src="<?php echo $image; ?>" alt=""></div>
             <div class="text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>

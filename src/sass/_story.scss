@@ -10,9 +10,9 @@
     padding: cross-media(40px, 1024px, 100px) cross-media(30px, 1024px, 60px)
       cross-media(40px, 1024px, 100px) 0;
 
-    @include view(box-max) {
-      padding: cross-media(40px, 1024px, 100px) cross-media(30px, 1024px, 60px);
-    }
+    // @include view(box-max) {
+    //   padding: cross-media(40px, 1024px, 100px) cross-media(30px, 1024px, 60px);
+    // }
 
     @include view(xxl) {
       padding: cross-media(100px, $xxl-breakpoint, calc(100px * $xxl-scale))
@@ -52,5 +52,13 @@
 
   @include view(xxl) {
     margin-top: cross-media(120px, $xxl-breakpoint, calc(120px * $xxl-scale));
+  }
+
+  &__background {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    //object-fit: cover;
   }
 }

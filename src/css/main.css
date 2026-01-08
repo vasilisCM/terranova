@@ -451,7 +451,7 @@ h4 {
 
 .boxed-sm {
   max-width: 1140px;
-  padding-inline: 40px;
+  padding-inline: clamp(20px, 3.6363636364vw, 40px);
 }
 @media only screen and (min-width: 1921px) {
   .boxed-sm {
@@ -492,6 +492,9 @@ h4 {
   width: 100%;
 }
 
+.push-left {
+  margin-left: max((100vw - 1800px) / 2, clamp(20px, 2.2222222222vw, 40px));
+}
 @media only screen and (min-width: 1800px) {
   .push-left {
     margin-left: calc((100vw - 1800px) / 2);
@@ -1253,44 +1256,33 @@ h4 {
 .banner {
   margin-top: clamp(100px, 11.1111111111vw, 200px);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   color: #fcfcfc;
 }
 .banner__wrapper {
   position: relative;
-  min-height: clamp(350px, 36.6666666667vw, 660px);
+  min-height: clamp(250px, 47.8260869565vw, 660px);
 }
 .banner__container {
   position: absolute;
-  left: 0;
-  bottom: -50px;
-}
-@media only screen and (max-width: 1024px) {
-  .banner__container {
-    bottom: revert;
-    top: 80px;
-  }
+  width: 100%;
+  left: clamp(20px, 2.2222222222vw, 40px);
+  bottom: -7%;
 }
 .banner__text-background {
   position: absolute;
   z-index: 1;
-  width: 550px;
-  height: clamp(300px, 27.7777777778vw, 500px);
+  width: 65%;
+  max-width: 550px;
+  height: clamp(200px, 36.231884058vw, 500px);
   background-color: rgba(91, 105, 123, 0.7);
   mix-blend-mode: multiply;
-}
-@media only screen and (max-width: 1024px) {
-  .banner__text-background {
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: clamp(330px, 91.2646675359vw, 700px);
-  }
 }
 @media only screen and (min-width: 1921px) {
   .banner__text-background {
     width: clamp(550px, 27.5vw, 825px);
-    height: clamp(500px, 20vw, 600px);
+    height: clamp(500px, 25vw, 750px);
   }
 }
 .banner__text-container {
@@ -1298,18 +1290,11 @@ h4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(20px, 2.2222222222vw, 40px);
-  width: clamp(270px, 30.5555555556vw, 550px);
-  height: 500px;
-  padding: 40px 40px 160px;
+  width: 65%;
+  max-width: 550px;
+  height: clamp(200px, 36.231884058vw, 500px);
+  padding: clamp(20px, 2.2222222222vw, 40px);
   z-index: 2;
-}
-@media only screen and (max-width: 1024px) {
-  .banner__text-container {
-    width: 100%;
-    height: 600px;
-    gap: clamp(8px, 5.2151238592vw, 40px);
-  }
 }
 @media only screen and (min-width: 1921px) {
   .banner__text-container {
@@ -3734,11 +3719,6 @@ main--home {
 .story-inspiration__text-container {
   padding: clamp(40px, 9.765625vw, 100px) clamp(30px, 5.859375vw, 60px) clamp(40px, 9.765625vw, 100px) 0;
 }
-@media only screen and (max-width: 1800px) {
-  .story-inspiration__text-container {
-    padding: clamp(40px, 9.765625vw, 100px) clamp(30px, 5.859375vw, 60px);
-  }
-}
 @media only screen and (min-width: 1921px) {
   .story-inspiration__text-container {
     padding: clamp(100px, 5vw, 150px) clamp(60px, 3vw, 90px) clamp(100px, 4vw, 120px) 0;
@@ -3768,6 +3748,12 @@ main--home {
   .story-global-presence {
     margin-top: clamp(120px, 6vw, 180px);
   }
+}
+.story-global-presence__background {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .philosophy-matters__container {

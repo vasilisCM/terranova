@@ -26,7 +26,7 @@
 
 .boxed-sm {
   max-width: $box-sm + $padding-inline;
-  padding-inline: $padding-inline;
+  padding-inline: cross-media($padding-inline-mob, $box-sm, $padding-inline);
 
   @include view(xxl) {
     max-width: cross-media($box-sm, $xxl-breakpoint, $box-sm-4k);
@@ -67,6 +67,10 @@
 }
 
 .push-left {
+  margin-left: max(
+    calc((100vw - #{$box}) / 2),
+    cross-media($padding-inline-mob, $box, $padding-inline)
+  );
   @include view(box-min) {
     margin-left: calc((100vw - #{$box}) / 2);
   }
