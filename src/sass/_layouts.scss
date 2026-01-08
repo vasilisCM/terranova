@@ -561,9 +561,17 @@
   background-repeat: no-repeat;
   color: $white;
 
+  @include view(xxl) {
+    margin-top: cross-media(200px, $xxl-breakpoint, calc(200px * $xxl-scale));
+  }
+
   &__wrapper {
     position: relative;
     min-height: cross-media(250px, $box-md, 660px);
+
+    @include view(xxl) {
+      min-height: cross-media(660px, $xxl-breakpoint, calc(660px * $xxl-scale));
+    }
   }
 
   &__container {
@@ -571,11 +579,6 @@
     width: 100%;
     left: cross-media($padding-inline-mob, $box, $padding-inline);
     bottom: -7%;
-
-    // @include view(md-max) {
-    //   bottom: revert;
-    //   top: 80px;
-    // }
   }
 
   &__text-background {
@@ -587,15 +590,8 @@
     background-color: rgba($secondary, 0.7);
     mix-blend-mode: multiply;
 
-    // @include view(md-max) {
-    //   left: 0;
-    //   right: 0;
-    //   margin: auto;
-    //   width: cross-media(330px, 767px, 700px);
-    // }
-
     @include view(xxl) {
-      width: cross-media(550px, $xxl-breakpoint, calc(550px * $xxl-scale));
+      max-width: cross-media(550px, $xxl-breakpoint, calc(550px * $xxl-scale));
       height: cross-media(500px, $xxl-breakpoint, calc(500px * $xxl-scale));
     }
   }
@@ -605,22 +601,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // gap: cross-media(20px, $box, 40px);
     width: 65%;
     max-width: 550px;
     height: cross-media(200px, $box-md, 500px);
     padding: cross-media($padding-inline-mob, $box, $padding-inline);
     z-index: 2;
 
-    // @include view(md-max) {
-    //   width: 100%;
-    //   height: 600px;
-    //   gap: cross-media(8px, 767px, 40px);
-    // }
-
     @include view(xxl) {
-      width: cross-media(550px, $xxl-breakpoint, 825px);
-      height: cross-media(500px, $xxl-breakpoint, 600px);
+      max-width: cross-media(550px, $xxl-breakpoint, calc(550px * $xxl-scale));
+      height: cross-media(500px, $xxl-breakpoint, calc(500px * $xxl-scale));
     }
   }
 

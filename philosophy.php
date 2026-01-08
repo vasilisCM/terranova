@@ -26,7 +26,7 @@
 
         </div>
 
-        <div class="basic boxed centered">
+        <div class="basic boxed-md centered">
             <div class="basic icon-list"> <?php if (have_rows('icon_list')): ?>
                     <?php while (have_rows('icon_list')): the_row();
                                                     $heading = get_sub_field('heading');

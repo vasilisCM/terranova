@@ -73,8 +73,8 @@
         <div class="story-global-presence__background absolute">
             <img src="<?php echo $image_background; ?>" alt="">
         </div>
-        <div class="boxed-md centered two-col-grid">
-            <div><img src="<?php echo $image; ?>" alt=""></div>
+        <div class="boxed-md centered two-col-grid story-global-presence__container">
+            <div class="story-global-presence__img-container"><img src="<?php echo $image; ?>" alt=""></div>
             <div class="text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text; ?></div>
