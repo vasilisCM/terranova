@@ -2,7 +2,7 @@ import loader from "./global/loader.js";
 import stickyHeader from "./global/stickyHeader.js";
 import mobileMenu from "./global/mobileMenu.js";
 import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
-import { menuDropdown } from "./global/menuDropdown.js";
+import MenuDropdown from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import CustomCursor from "./logic/customCursor.js";
 import GlobalAnimations from "./global/globalAnimations.js";
@@ -16,6 +16,7 @@ function global() {
   const globalFeatures = {
     customCursor: new CustomCursor(),
     globalAnimations: new GlobalAnimations(),
+    menuDropdown: new MenuDropdown(".menu-item-has-children > a"),
   };
 
   function scrollToTopWithLenis(options = {}) {
@@ -334,8 +335,8 @@ function global() {
     // Sticky Header
     hideHeaderOnScroll(".header", "header--sticky");
 
-    // Dropdown Menu
-    menuDropdown(".menu-item-has-children > a");
+    // Dropdown Menu - now handled by globalFeatures lifecycle
+    // (MenuDropdown will initialize/destroy on page transitions)
   });
 
   mm.add("(max-width: 1024px)", () => {

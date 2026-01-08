@@ -1,213 +1,287 @@
-const menuDropdown = (dropdownLinksNodeList) => {
-  const dropdownLinks = document.querySelectorAll(dropdownLinksNodeList);
-  let isOpen = false;
-  let currentActiveSubmenu = null;
-  let currentItemsTimeline = null;
+class MenuDropdown {
+  constructor(selector) {
+    this.selector = selector;
+    this.isOpen = false;
+    this.currentActiveSubmenu = null;
+    this.currentItemsTimeline = null;
+    this.dropdownLinks = [];
+    this.dropdownData = []; // Store timelines and event handlers for cleanup
+    this.header = null;
+    this.dropdownMenuOverlay = null;
+  }
 
-  const header = document.querySelector(".header");
+  init() {
+    console.log("MenuDropdown.init() called");
 
-  dropdownLinks.forEach((dropdownLink) => {
-    const dropdownMenuOverlay = document.querySelector(
-      ".dropdown-menu-overlay"
-    );
+    // Check if selector exists
+    this.dropdownLinks = document.querySelectorAll(this.selector);
+    if (!this.dropdownLinks.length) {
+      console.log("MenuDropdown: No dropdown links found");
+      return;
+    }
 
-    let currentSubmenu = dropdownLink.closest("li").querySelector(".sub-menu");
+    this.header = document.querySelector(".header");
+    this.dropdownMenuOverlay = document.querySelector(".dropdown-menu-overlay");
 
-    // Check if this is the menu item that should show mega menu images
-    const parentLi = dropdownLink.closest("li");
-    const shouldShowMegaMenu = parentLi && parentLi.id === "menu-item-51";
+    if (!this.dropdownMenuOverlay) {
+      console.warn("MenuDropdown: .dropdown-menu-overlay not found");
+      return;
+    }
 
-    // Items timeline
-    const itemsTimeline = gsap.timeline({
-      paused: true,
-      // onStart: () => {
-      //   console.log("Items timeline");
-      // },
-    });
+    this.dropdownLinks.forEach((dropdownLink) => {
+      const currentSubmenu = dropdownLink
+        .closest("li")
+        .querySelector(".sub-menu");
 
-    itemsTimeline
-      .to(
-        ".sub-menu a",
-        {
-          opacity: 0,
-        },
-        "<"
-      )
-      .to(
-        ".mega-menu-images .mega-menu-images__item",
-        {
-          // visibility: "hidden",
-          clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-          opacity: 0,
-          ease: "ease.in",
-        },
-        "<"
-      )
-      // .to(
-      //   ".sub-menu, .mega-menu-images",
-      //   {
-      //     display: "none",
-      //   },
-      //   "<"
-      // )
-      .to(
-        shouldShowMegaMenu
-          ? [currentSubmenu, ".mega-menu-images"]
-          : currentSubmenu,
-        {
-          display: "flex",
-        },
-        "<"
-      )
-      .fromTo(
-        shouldShowMegaMenu
-          ? [
-              currentSubmenu.querySelectorAll("a"),
-              ".mega-menu-images .mega-menu-images__item",
-            ]
-          : currentSubmenu.querySelectorAll("a"),
-        {
-          visibility: "hidden",
-          clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-          opacity: 0,
-        },
-        {
-          visibility: "visible",
-          clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
-          opacity: 1,
-          ease: "ease.in",
-        }
-      );
+      if (!currentSubmenu) {
+        console.warn("MenuDropdown: No submenu found for link", dropdownLink);
+        return;
+      }
 
-    // Dropdown Animation
-    const dropdownTimeline = gsap.timeline({
-      paused: true,
-      onStart: () => {
-        if (header.classList.contains("header--sticky")) {
-          header.classList.remove("header--sticky");
-        }
+      // Check if this is the menu item that should show mega menu images
+      const parentLi = dropdownLink.closest("li");
+      const shouldShowMegaMenu = parentLi && parentLi.id === "menu-item-51";
 
-        itemsTimeline.play();
-        itemsTimeline.restart();
-      },
+      // Items timeline
+      const itemsTimeline = gsap.timeline({
+        paused: true,
+      });
 
-      onComplete: () => {
-        isOpen = true;
-      },
-    });
-
-    dropdownTimeline
-
-      .fromTo(
-        ".main-menu__dropdown-background",
-        { y: "-200%", visibility: "hidden" },
-        {
-          y: "0",
-          visibility: "visible",
-        },
-        "<"
-      )
-      .fromTo(
-        dropdownMenuOverlay,
-        { visibility: "hidden", opacity: 0 },
-        { visibility: "visible", opacity: 1 },
-        "<+0.2"
-      );
-
-    // Hover In Event
-    dropdownLink.addEventListener("mouseenter", (e) => {
-      // console.log(e.target);
-      // console.log(dropdownTimeline.totalProgress());
-
-      // Track if we're switching between different menus
-      const isSwitchingMenus =
-        isOpen &&
-        currentActiveSubmenu &&
-        currentActiveSubmenu !== currentSubmenu;
-
-      // If switching between menu items, animate out the previous submenu
-      if (isSwitchingMenus) {
-        // Kill any running animation
-        if (currentItemsTimeline) {
-          currentItemsTimeline.kill();
-        }
-
-        // Animate out the previous submenu with clip path effect
-        gsap.to(
-          [
-            currentActiveSubmenu.querySelectorAll("a"),
-            ".mega-menu-images .mega-menu-images__item",
-          ],
+      itemsTimeline
+        .to(
+          ".sub-menu a",
+          {
+            opacity: 0,
+          },
+          "<"
+        )
+        .to(
+          ".mega-menu-images .mega-menu-images__item",
           {
             clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
             opacity: 0,
-            duration: 0.2,
             ease: "ease.in",
-            onComplete: () => {
-              // Hide after animation completes
-              gsap.set([currentActiveSubmenu, ".mega-menu-images"], {
-                display: "none",
-              });
-            },
+          },
+          "<"
+        )
+        .to(
+          shouldShowMegaMenu
+            ? [currentSubmenu, ".mega-menu-images"]
+            : currentSubmenu,
+          {
+            display: "flex",
+          },
+          "<"
+        )
+        .fromTo(
+          shouldShowMegaMenu
+            ? [
+                currentSubmenu.querySelectorAll("a"),
+                ".mega-menu-images .mega-menu-images__item",
+              ]
+            : currentSubmenu.querySelectorAll("a"),
+          {
+            visibility: "hidden",
+            clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+            opacity: 0,
+          },
+          {
+            visibility: "visible",
+            clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
+            opacity: 1,
+            ease: "ease.in",
           }
         );
-      }
 
-      // Track the current active submenu and timeline
-      currentActiveSubmenu = currentSubmenu;
-      currentItemsTimeline = itemsTimeline;
+      // Dropdown Animation
+      const dropdownTimeline = gsap.timeline({
+        paused: true,
+        onStart: () => {
+          if (this.header && this.header.classList.contains("header--sticky")) {
+            this.header.classList.remove("header--sticky");
+          }
 
-      if (!isOpen) {
-        dropdownTimeline.restart();
-        dropdownTimeline.play();
-      } else {
-        // Small delay to let previous menu animate out if switching
-        setTimeout(
-          () => {
-            itemsTimeline.play();
-            itemsTimeline.restart();
+          itemsTimeline.play();
+          itemsTimeline.restart();
+        },
+        onComplete: () => {
+          this.isOpen = true;
+        },
+      });
+
+      dropdownTimeline
+        .fromTo(
+          ".main-menu__dropdown-background",
+          { y: "-200%", visibility: "hidden" },
+          {
+            y: "0",
+            visibility: "visible",
           },
-          isSwitchingMenus ? 150 : 0
+          "<"
+        )
+        .fromTo(
+          this.dropdownMenuOverlay,
+          { visibility: "hidden", opacity: 0 },
+          { visibility: "visible", opacity: 1 },
+          "<+0.2"
         );
 
-        /*
-        currentSubmenu.querySelectorAll("a").forEach((link) => {
-          const timeline = linksTimeline(link);
-          timeline.play();
-          timeline.restart();
-        });
-        */
-      }
+      // Hover In Event Handler (stored for cleanup)
+      const mouseEnterHandler = (e) => {
+        // Track if we're switching between different menus
+        const isSwitchingMenus =
+          this.isOpen &&
+          this.currentActiveSubmenu &&
+          this.currentActiveSubmenu !== currentSubmenu;
+
+        // If switching between menu items, animate out the previous submenu
+        if (isSwitchingMenus) {
+          // Kill any running animation
+          if (this.currentItemsTimeline) {
+            this.currentItemsTimeline.kill();
+          }
+
+          // Animate out the previous submenu with clip path effect
+          gsap.to(
+            [
+              this.currentActiveSubmenu.querySelectorAll("a"),
+              ".mega-menu-images .mega-menu-images__item",
+            ],
+            {
+              clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+              opacity: 0,
+              duration: 0.2,
+              ease: "ease.in",
+              onComplete: () => {
+                // Hide after animation completes
+                gsap.set([this.currentActiveSubmenu, ".mega-menu-images"], {
+                  display: "none",
+                });
+              },
+            }
+          );
+        }
+
+        // Track the current active submenu and timeline
+        this.currentActiveSubmenu = currentSubmenu;
+        this.currentItemsTimeline = itemsTimeline;
+
+        if (!this.isOpen) {
+          dropdownTimeline.restart();
+          dropdownTimeline.play();
+        } else {
+          // Small delay to let previous menu animate out if switching
+          setTimeout(
+            () => {
+              itemsTimeline.play();
+              itemsTimeline.restart();
+            },
+            isSwitchingMenus ? 150 : 0
+          );
+        }
+      };
+
+      dropdownLink.addEventListener("mouseenter", mouseEnterHandler);
+
+      // Store data for cleanup
+      this.dropdownData.push({
+        link: dropdownLink,
+        itemsTimeline,
+        dropdownTimeline,
+        mouseEnterHandler,
+        currentSubmenu,
+      });
     });
 
-    // Hover Out Event
-    dropdownMenuOverlay.addEventListener("mouseenter", (e) => {
-      // gsap.to(".sub-menu a", {
-      //   opacity: 0,
-      // });
-
+    // Hover Out Event Handler for overlay (stored for cleanup)
+    this.overlayMouseEnterHandler = (e) => {
       // Hide all non-active submenus to prevent stacking
       document.querySelectorAll(".sub-menu").forEach((submenu) => {
-        if (submenu !== currentActiveSubmenu) {
+        if (submenu !== this.currentActiveSubmenu) {
           gsap.set(submenu, { display: "none" });
         }
       });
 
       // Reverse animations to animate out with clip path effect
-      if (currentItemsTimeline) {
-        currentItemsTimeline.reverse();
+      if (this.currentItemsTimeline) {
+        this.currentItemsTimeline.reverse();
       }
-      dropdownTimeline.reverse();
 
-      isOpen = false;
-      currentActiveSubmenu = null;
-      currentItemsTimeline = null;
+      // Find and reverse the appropriate dropdown timeline
+      this.dropdownData.forEach(({ dropdownTimeline }) => {
+        dropdownTimeline.reverse();
+      });
 
-      // setTimeout(() => {
-      //   header.classList.add("header--sticky");
-      // }, 500);
+      this.isOpen = false;
+      this.currentActiveSubmenu = null;
+      this.currentItemsTimeline = null;
+    };
+
+    this.dropdownMenuOverlay.addEventListener(
+      "mouseenter",
+      this.overlayMouseEnterHandler
+    );
+  }
+
+  destroy() {
+    console.log("MenuDropdown.destroy() called");
+
+    // Remove event listeners
+    this.dropdownData.forEach(
+      ({ link, mouseEnterHandler, itemsTimeline, dropdownTimeline }) => {
+        if (link && mouseEnterHandler) {
+          link.removeEventListener("mouseenter", mouseEnterHandler);
+        }
+
+        // Kill timelines
+        if (itemsTimeline) {
+          itemsTimeline.kill();
+        }
+        if (dropdownTimeline) {
+          dropdownTimeline.kill();
+        }
+      }
+    );
+
+    // Remove overlay event listener
+    if (this.dropdownMenuOverlay && this.overlayMouseEnterHandler) {
+      this.dropdownMenuOverlay.removeEventListener(
+        "mouseenter",
+        this.overlayMouseEnterHandler
+      );
+    }
+
+    // Reset visual state instantly (no animation)
+    gsap.set(".main-menu__dropdown-background", {
+      y: "-200%",
+      visibility: "hidden",
     });
-  });
-};
 
-export { menuDropdown };
+    gsap.set(".dropdown-menu-overlay", {
+      visibility: "hidden",
+      opacity: 0,
+    });
+
+    gsap.set(".sub-menu", {
+      display: "none",
+    });
+
+    gsap.set(".mega-menu-images", {
+      display: "none",
+    });
+
+    gsap.set([".sub-menu a", ".mega-menu-images .mega-menu-images__item"], {
+      visibility: "hidden",
+      clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+      opacity: 0,
+    });
+
+    // Clear stored data
+    this.dropdownData = [];
+    this.isOpen = false;
+    this.currentActiveSubmenu = null;
+    this.currentItemsTimeline = null;
+  }
+}
+
+export default MenuDropdown;
