@@ -977,9 +977,11 @@ h4 {
 .main-menu-1 .main-menu__list {
   justify-content: start;
 }
-.main-menu-1 .main-menu__list ul {
-  left: 0;
-  justify-content: start;
+@media only screen and (min-width: 1025px) {
+  .main-menu-1 .main-menu__list ul {
+    left: 0;
+    justify-content: start;
+  }
 }
 @media only screen and (min-width: 1800px) {
   .main-menu-1 .main-menu__list ul {
@@ -1003,6 +1005,7 @@ h4 {
 @media only screen and (min-width: 1025px) {
   .main-menu-2 .main-menu__list ul {
     justify-content: end;
+    padding-inline: 0 !important;
   }
 }
 @media only screen and (min-width: 1800px) {
@@ -1086,6 +1089,11 @@ h4 {
 
 .search {
   position: relative;
+}
+@media only screen and (min-width: 1025px) {
+  .search {
+    justify-self: end;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .search {
@@ -1188,7 +1196,7 @@ h4 {
   border: none;
   border-bottom: solid 1px #000;
   background: #fcfcfc;
-  font-size: 48px;
+  font-size: clamp(16px, 2.6666666667vw, 48px);
 }
 @media only screen and (min-width: 1921px) {
   .search-form__input {
@@ -1203,8 +1211,8 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 54px;
-  height: 54px;
+  width: clamp(24px, 3vw, 54px);
+  height: clamp(24px, 3vw, 54px);
   border: none;
   outline: none;
   border-radius: 50%;
@@ -1217,7 +1225,7 @@ h4 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000;
-  font-size: 48px;
+  font-size: clamp(28px, 2.6666666667vw, 48px);
 }
 @media only screen and (min-width: 1921px) {
   .search-form__button:after {

@@ -1,4 +1,4 @@
-<div class="mega-menu-images text white lowercase hidden-mobile">
+<div class="mega-menu-images boxed text white lowercase hidden-mobile">
     <?php
     $mega_menu_banner_1 = get_field('mega_menu_banner_1', 'option');
     $mega_menu_banner_2 = get_field('mega_menu_banner_2', 'option');

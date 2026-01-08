@@ -1,5 +1,5 @@
       <!-- Search Form -->
-      <div class="search">
+      <div class="search boxed">
           <div class="search__toggle search__toggle--open"></div>
           <div class="search__toggle search__toggle--close"></div>
           <div class="search__background"></div>

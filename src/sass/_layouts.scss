@@ -271,8 +271,11 @@
       justify-content: start;
 
       & ul {
-        left: 0;
-        justify-content: start;
+        @include view(lg-min) {
+          left: 0;
+          justify-content: start;
+        }
+
         @include view(box-min) {
           margin-left: calc((100vw - #{$box}) / 2 - 20px); // 20px is klepsimo
         }
@@ -296,6 +299,7 @@
       & ul {
         @include view(lg-min) {
           justify-content: end;
+          padding-inline: 0 !important;
         }
 
         @include view(box-min) {
@@ -386,6 +390,10 @@
 // Search
 .search {
   position: relative;
+
+  @include view(lg-min) {
+    justify-self: end;
+  }
 
   @include view(md-max) {
     order: 2;
@@ -493,7 +501,7 @@
     border: none;
     border-bottom: solid 1px $black;
     background: $white;
-    font-size: 48px;
+    font-size: cross-media(16px, $box, 48px);
 
     @include view(xxl) {
       font-size: calc(1.5 * 48px);
@@ -509,8 +517,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 54px;
-    height: 54px;
+    width: cross-media(24px, $box, 54px);
+    height: cross-media(24px, $box, 54px);
     border: none;
     outline: none;
     border-radius: 50%;
@@ -519,7 +527,7 @@
     &:after {
       @include icon("\e901");
       color: $black;
-      font-size: 48px;
+      font-size: cross-media(28px, $box, 48px);
 
       @include view(xxl) {
         font-size: calc(1.5 * 48px);
