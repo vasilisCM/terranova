@@ -16,8 +16,10 @@ function global() {
   const globalFeatures = {
     customCursor: new CustomCursor(),
     globalAnimations: new GlobalAnimations(),
-    menuDropdown: new MenuDropdown(".menu-item-has-children > a"),
   };
+
+  // Desktop-only feature (will be managed by matchMedia)
+  let menuDropdownInstance = null;
 
   function scrollToTopWithLenis(options = {}) {
     if (!lenis || typeof lenis.scrollTo !== "function") return;
@@ -280,6 +282,13 @@ function global() {
     // This ensures DOM is ready and page-specific JS has loaded
     console.log("About to call initGlobalFeatures from barba.hooks.after");
     initGlobalFeatures();
+
+    // Reinitialize MenuDropdown on desktop after page transition
+    if (window.matchMedia("(min-width: 1025px)").matches) {
+      if (menuDropdownInstance) {
+        menuDropdownInstance.init();
+      }
+    }
   });
 
   barba.init({
@@ -307,6 +316,13 @@ function global() {
           // Initialize global features on first load
           console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
+
+          // Initialize MenuDropdown on desktop on first load
+          if (window.matchMedia("(min-width: 1025px)").matches) {
+            if (menuDropdownInstance) {
+              menuDropdownInstance.init();
+            }
+          }
         },
 
         leave: function ({ current }) {
@@ -325,6 +341,11 @@ function global() {
     // Clean up global features before leaving
     destroyGlobalFeatures();
 
+    // Clean up MenuDropdown
+    if (menuDropdownInstance) {
+      menuDropdownInstance.destroy();
+    }
+
     // Clean up page-specific scripts
     unloadScript();
   });
@@ -335,12 +356,29 @@ function global() {
     // Sticky Header
     hideHeaderOnScroll(".header", "header--sticky");
 
-    // Dropdown Menu - now handled by globalFeatures lifecycle
-    // (MenuDropdown will initialize/destroy on page transitions)
+    // Dropdown Menu - Desktop only
+    if (!menuDropdownInstance) {
+      menuDropdownInstance = new MenuDropdown(".menu-item-has-children > a");
+    }
+    menuDropdownInstance.init();
+
+    // Cleanup when leaving desktop breakpoint
+    return () => {
+      if (menuDropdownInstance) {
+        menuDropdownInstance.destroy();
+      }
+    };
   });
 
   mm.add("(max-width: 1024px)", () => {
     mobileMenu();
+
+    // Ensure MenuDropdown is destroyed on mobile
+    return () => {
+      if (menuDropdownInstance) {
+        menuDropdownInstance.destroy();
+      }
+    };
   });
 
   searchFormAnimation();

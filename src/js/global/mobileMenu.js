@@ -23,7 +23,32 @@ function mobileMenu() {
     let dropdownItem = e.target.closest(".menu-item-has-children");
 
     if (dropdownItem) {
-      if (e.target === dropdownItem) {
+      // Check if the click is on the parent menu item link (not a submenu item)
+      const parentLink = e.target.closest("a");
+      const isParentLink =
+        parentLink && parentLink.parentElement === dropdownItem;
+
+      // Check if clicked directly on the li (happens when clicking the ::after arrow)
+      const isDirectLiClick = e.target === dropdownItem;
+
+      // Check if clicked on back button
+      const isBackButton = e.target.closest(".main-menu__back-button");
+
+      if (isBackButton) {
+        // Close Submenu
+        const openSubmenu = document.querySelectorAll('[data-open="true"]');
+        gsap.to(openSubmenu, {
+          x: "0%",
+        });
+        openSubmenu.forEach((submenu) => {
+          submenu.removeAttribute("data-open");
+        });
+      } else if (isParentLink || isDirectLiClick) {
+        // Prevent default link behavior (only if clicking on link)
+        if (isParentLink) {
+          e.preventDefault();
+        }
+
         const submenu = dropdownItem.querySelector("ul");
 
         // Insert backButton as the first child of submenu
@@ -49,12 +74,6 @@ function mobileMenu() {
 
         // Flag sub menu as "open"
         submenu.setAttribute("data-open", true);
-      } else {
-        // Close Submenu
-        const openSubmenu = document.querySelectorAll('[data-open="true"]');
-        gsap.to(openSubmenu, {
-          x: "0%",
-        });
       }
     }
   });
