@@ -4087,11 +4087,12 @@ main--home {
   content: "";
   position: absolute;
   inset-inline: auto;
-  top: -10px;
+  top: -1px;
   background-color: #5b697b;
-  transform: rotate(45deg) translateY(-50%);
-  width: clamp(25px, 2.5vw, 45px);
-  aspect-ratio: 1;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform: translateX(-50%);
+  width: clamp(26px, 2.5555555556vw, 46px);
+  height: clamp(14px, 1.3333333333vw, 24px);
 }
 .intro-next-gen__text-container {
   display: flex;

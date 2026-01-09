@@ -75,11 +75,12 @@
       content: "";
       position: absolute;
       inset-inline: auto;
-      top: -10px;
+      top: -1px;
       background-color: $secondary;
-      transform: rotate(45deg) translateY(-50%);
-      width: cross-media(25px, $box, 45px);
-      aspect-ratio: 1;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform: translateX(-50%);
+      width: cross-media(26px, $box, 46px);
+      height: cross-media(14px, $box, 24px);
     }
   }
 
