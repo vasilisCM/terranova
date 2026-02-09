@@ -923,8 +923,19 @@
     padding-block: cross-media(8px, 1024px, 16px);
   }
 
+  &__title {
+    display: flex;
+    gap: 20px;
+  }
+
   &__text {
     padding-block: cross-media(20px, 1024px, 35px) cross-media(30px, 1024px, 50px);
+
+    & > div {
+      @include view(md-min) {
+        padding-left: cross-media(62px, $box, 90px);
+      }
+    }
   }
 
   &__button {

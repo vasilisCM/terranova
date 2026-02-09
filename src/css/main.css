@@ -1585,8 +1585,17 @@ h4 {
 .accordion__button {
   padding-block: clamp(8px, 1.5625vw, 16px);
 }
+.accordion__title {
+  display: flex;
+  gap: 20px;
+}
 .accordion__text {
   padding-block: clamp(20px, 3.41796875vw, 35px) clamp(30px, 4.8828125vw, 50px);
+}
+@media only screen and (min-width: 768px) {
+  .accordion__text > div {
+    padding-left: clamp(62px, 5vw, 90px);
+  }
 }
 .accordion__button {
   display: flex;
