@@ -615,6 +615,14 @@
 
   &__img-container {
     margin-left: auto;
+
+    & img {
+      height: cross-media(40px, $box-md, 100px);
+
+      @include view(xxl) {
+        height: cross-media(100px, $xxl-breakpoint, calc(100px * $xxl-scale));
+      }
+    }
   }
 
   // &__heading {
@@ -679,7 +687,7 @@
     text-align: left;
 
     @include view(md-max) {
-      flex: 1 0 35%;
+      flex: 1 0 max(210px, 35%);
     }
   }
 
@@ -908,7 +916,15 @@
 
   &__button,
   &__text {
-    padding: cross-media(8px, 1024px, 16px);
+    padding-inline: $padding-inline-mob;
+  }
+
+  &__button {
+    padding-block: cross-media(8px, 1024px, 16px);
+  }
+
+  &__text {
+    padding-block: cross-media(20px, 1024px, 35px) cross-media(30px, 1024px, 50px);
   }
 
   &__button {

@@ -12,7 +12,7 @@
                     </div>
                 </h3>
                 <div class="accordion__content">
-                    <div class="accordion__text">
+                    <div class="accordion__text text">
                         <div class="boxed-md centered">
                             <?php echo $content; ?>
                         </div>

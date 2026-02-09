@@ -47,7 +47,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* A elements that don't have a class get default styles */
@@ -213,7 +213,7 @@ html.lenis {
 
 h1,
 .heading {
-  font-size: clamp(36px, 4.1666666667vw, 75px);
+  font-size: clamp(34px, 4.1666666667vw, 75px);
   line-height: 1.2;
   font-weight: 300;
 }
@@ -1315,6 +1315,14 @@ h4 {
 .banner__img-container {
   margin-left: auto;
 }
+.banner__img-container img {
+  height: clamp(40px, 7.2463768116vw, 100px);
+}
+@media only screen and (min-width: 1921px) {
+  .banner__img-container img {
+    height: clamp(100px, 5vw, 150px);
+  }
+}
 .banner__subheading {
   font-weight: 300;
 }
@@ -1376,7 +1384,7 @@ h4 {
 }
 @media only screen and (max-width: 1024px) {
   .icon-list__item {
-    flex: 1 0 35%;
+    flex: 1 0 max(210px, 35%);
   }
 }
 .icon-list__img-container {
@@ -1572,7 +1580,13 @@ h4 {
   transition: border ease 300ms;
 }
 .accordion__button, .accordion__text {
-  padding: clamp(8px, 1.5625vw, 16px);
+  padding-inline: 20px;
+}
+.accordion__button {
+  padding-block: clamp(8px, 1.5625vw, 16px);
+}
+.accordion__text {
+  padding-block: clamp(20px, 3.41796875vw, 35px) clamp(30px, 4.8828125vw, 50px);
 }
 .accordion__button {
   display: flex;

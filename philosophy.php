@@ -36,7 +36,7 @@
                         <div class="icon-list__item">
                             <div class="icon-list__img-container"><img src="<?php echo $image; ?>" alt=""></div>
                             <div class="heading-xs uppercase letter-spacing-medium"><?php echo $heading; ?></div>
-                            <div class="text"><?php echo $text; ?></div>
+                            <div class="text-m"><?php echo $text; ?></div>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
