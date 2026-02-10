@@ -26,7 +26,7 @@
 
 
     <section class="basic last-section">
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <?php if (have_rows('awards')): ?>
                 <div class="accordion awards-accordion">
                     <?php while (have_rows('awards')): the_row();
@@ -38,7 +38,7 @@
                                 <span class="accordion__icon black">+</span>
                             </h3>
                             <div class="accordion__content awards-accordion__content">
-                                <div class="accordion__text awards-accordion__content-container">
+                                <div class="awards-accordion__content-container">
                                     <?php if (have_rows('item')): ?>
                                         <?php while (have_rows('item')): the_row();
                                             $image = get_sub_field('image');
@@ -48,11 +48,11 @@
                                         ?>
                                             <div class="accordion__item">
                                                 <div class="accordion__text awards-accordion__content-item">
-                                                    <div>
+                                                    <div class="awards-accordion__content-image">
                                                         <img src="<?php echo $image; ?>" alt="">
                                                     </div>
                                                     <h3 class="text-s uppercase letter-spacing-medium accent"><?php echo $heading; ?></h3>
-                                                    <div class="heading-ms lowercase"><?php echo $text; ?></div>
+                                                    <div class="heading-ms lowercase line-height-s"><?php echo $text; ?></div>
                                                     <?php if (!empty($product)) :
                                                         $product_id = url_to_postid($product);
                                                         $product_title = $product_id ? get_the_title($product_id) : $product;
