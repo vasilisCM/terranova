@@ -1,0 +1,17 @@
+.vegan-content {
+    &__grid {
+
+    }
+    
+    &__item {
+        background-color: #f1f1f1;
+        padding-block: cross-media(20px, $box-md, 40px);
+        padding-inline: cross-media(20px, $box-md, 40px) cross-media(40px, $box-md, 80px);
+        border-radius: 150px;
+        gap: cross-media(16px, $box-md, 25px);
+
+        & span {
+            text-wrap: nowrap;
+        }
+    }
+}

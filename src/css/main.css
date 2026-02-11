@@ -4315,4 +4315,15 @@ main--home {
   }
 }
 
+.vegan-content__item {
+  background-color: #f1f1f1;
+  padding-block: clamp(20px, 2.8985507246vw, 40px);
+  padding-inline: clamp(20px, 2.8985507246vw, 40px) clamp(40px, 5.7971014493vw, 80px);
+  border-radius: 150px;
+  gap: clamp(16px, 1.8115942029vw, 25px);
+}
+.vegan-content__item span {
+  text-wrap: nowrap;
+}
+
 /*# sourceMappingURL=main.css.map */

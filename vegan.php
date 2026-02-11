@@ -9,7 +9,7 @@
     <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
-        <div class="boxed-sm centered intro__container">
+        <div class="boxed-sm centered intro__container text">
             <?php the_content(); ?>
         </div>
     </section>
@@ -22,7 +22,7 @@
         $text_2 = $content['text_2'];
         $image_2 = $content['image_2'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed-md centered">
 
             <div class="heading-m text-center"><?php echo $heading; ?></div>
 
@@ -31,14 +31,14 @@
                     <div>
                         <img src="<?php echo $image_1; ?>" alt="">
                     </div>
-                    <div class="heading-ms italic"><?php echo $text_1; ?></div>
+                    <div class="heading-ms italic line-height-s"><?php echo $text_1; ?></div>
 
                 </div>
                 <div class="flex vegan-content__item">
                     <div>
                         <img src="<?php echo $image_2; ?>" alt="">
                     </div>
-                    <div class="heading-ms italic"><?php echo $text_2; ?></div>
+                    <div class="heading-ms italic line-height-s"><?php echo $text_2; ?></div>
                 </div>
             </div>
 
