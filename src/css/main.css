@@ -599,6 +599,15 @@ h4 {
   }
 }
 
+.margin-p p {
+  margin-block: 20px;
+}
+@media only screen and (min-width: 1921px) {
+  .margin-p p {
+    margin-block: clamp(20px, 1vw, 30px);
+  }
+}
+
 .auto-fit-grid {
   display: grid;
   gap: 16px;

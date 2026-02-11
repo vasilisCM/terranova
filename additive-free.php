@@ -31,9 +31,9 @@
         $text_3 = $texts['text_3'];
         ?>
         <div class="boxed-sm centered text-container additive-free__text-container">
-            <div class="heading-ms"><?php echo $text_1; ?></div>
-            <div class="text"><?php echo $text_2; ?></div>
-            <div class="heading-ms"><?php echo $text_3; ?></div>
+            <div class="heading-ms line-height-s"><?php echo $text_1; ?></div>
+            <div class="text margin-p"><?php echo $text_2; ?></div>
+            <div class="heading-ms line-height-s"><?php echo $text_3; ?></div>
         </div>
     </section>
 

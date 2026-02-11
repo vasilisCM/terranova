@@ -191,7 +191,7 @@ function load_js()
   }
 
   // Skin Nutrition
-  elseif (is_page_template('skin-nutrition.php') || is_page_template('ingredients.php') || is_page_template('synergy.php')) {
+  elseif (is_page_template('skin-nutrition.php') || is_page_template('ingredients.php') || is_page_template('synergy.php') || is_page_template('additive-free.php')) {
     wp_enqueue_script('skinNutrition', get_template_directory_uri() . '/dist/skinNutrition.bundle.js', array(), null, true);
   }
 
