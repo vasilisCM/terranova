@@ -15,12 +15,12 @@
         $text_3 = $texts['text_3'];
         $text_4 = $texts['text_4'];
         ?>
-        <div class="boxed-sm centered intro__container">
+        <div class="boxed-sm centered intro__container text">
             <?php the_content(); ?>
         </div>
 
         <!-- Icons -->
-        <div class="basic boxed centered">
+        <div class="basic boxed-md centered">
             <div class="basic icon-list"> <?php if (have_rows('icon_list')): ?>
                     <?php while (have_rows('icon_list')): the_row();
 
@@ -28,7 +28,7 @@
                                                     $text = get_sub_field('text');
                     ?>
                         <div class="icon-list__item">
-                            <div class="icon-list__img-container"><img src="<?php echo $image; ?>" alt=""></div>
+                            <div class="icon-list__img-container left-align"><img src="<?php echo $image; ?>" alt=""></div>
 
                             <div class="text"><?php echo $text; ?></div>
                         </div>
