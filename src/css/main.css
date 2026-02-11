@@ -1317,7 +1317,15 @@ h4 {
   }
 }
 .banner__img-container {
-  margin-left: auto;
+  position: absolute;
+  top: clamp(20px, 2.2222222222vw, 40px);
+  right: clamp(20px, 2.2222222222vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .banner__img-container {
+    top: clamp(40px, 2vw, 60px);
+    right: clamp(40px, 2vw, 60px);
+  }
 }
 .banner__img-container img {
   height: clamp(40px, 7.2463768116vw, 100px);
@@ -4322,8 +4330,23 @@ main--home {
   border-radius: 150px;
   gap: clamp(16px, 1.8115942029vw, 25px);
 }
+@media only screen and (min-width: 1921px) {
+  .vegan-content__item {
+    padding-block: clamp(40px, 2vw, 60px);
+    padding-inline: clamp(40px, 2vw, 60px) clamp(80px, 4vw, 120px);
+    gap: clamp(25px, 1.25vw, 37.5px);
+  }
+}
 .vegan-content__item span {
   text-wrap: nowrap;
+}
+
+.synergy-banner__text-container {
+  align-items: center;
+}
+
+.synergy-icons .icon-list__img-container {
+  margin-inline: revert;
 }
 
 /*# sourceMappingURL=main.css.map */

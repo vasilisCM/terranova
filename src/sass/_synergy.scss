@@ -1,0 +1,11 @@
+.synergy-banner {
+    &__text-container {
+        align-items: center;
+    }
+}
+
+.synergy-icons {
+    &  .icon-list__img-container {
+        margin-inline: revert;
+    }
+}

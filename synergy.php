@@ -9,7 +9,7 @@
     <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
-        <div class="boxed-sm centered intro__container">
+        <div class="boxed-sm centered intro__container text">
             <?php the_content(); ?>
         </div>
     </section>
@@ -23,16 +23,16 @@
         $text_1 = $banner['text_1'];
         $text_2 = $banner['text_2'];
         ?>
-        <div class="boxed centered text-center text-container">
-            <div>
-                <img src="<?php echo $image; ?>" alt="" class="centered">
+        <div class="boxed-md centered text-center text-container synergy-banner__text-container">
+            <div class="synergy-banner__image">
+                <img src="<?php echo $image; ?>" alt="">
             </div>
-            <div class="heading-m text-center"><?php echo $heading; ?></div>
+            <div class="heading-m"><?php echo $heading; ?></div>
             <div class="text"><?php echo $text_1; ?></div>
         </div>
 
         <!-- Icons -->
-        <div class="basic boxed centered">
+        <div class="synergy-icons basic boxed-md centered">
             <div class="basic icon-list"> <?php if (have_rows('icon_list')): ?>
                     <?php while (have_rows('icon_list')): the_row();
                                                     $heading = get_sub_field('heading');

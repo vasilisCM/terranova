@@ -10,6 +10,12 @@
         border-radius: 150px;
         gap: cross-media(16px, $box-md, 25px);
 
+        @include view(xxl) {
+            padding-block: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+            padding-inline: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale)) cross-media(80px, $xxl-breakpoint, calc(80px * $xxl-scale));
+            gap: cross-media(25px, $xxl-breakpoint, calc(25px * $xxl-scale));
+          }
+
         & span {
             text-wrap: nowrap;
         }

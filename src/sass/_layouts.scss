@@ -614,7 +614,14 @@
   }
 
   &__img-container {
-    margin-left: auto;
+    // margin-left: auto;
+    position: absolute;
+    top: cross-media(20px, $box, 40px);
+    right: cross-media(20px, $box, 40px);
+    @include view(xxl) {
+      top: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+      right: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+    }
 
     & img {
       height: cross-media(40px, $box-md, 100px);
