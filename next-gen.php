@@ -56,7 +56,7 @@
         $text_2 = $intro['text_2'];
         $text_3 = $intro['text_3'];
         ?>
-        <div class="basic boxed centered intro-next-gen__container">
+        <div class="basic boxed-md centered intro-next-gen__container">
             <div class="basic boxed-sm centered intro-next-gen__text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text_1; ?></div>
@@ -68,7 +68,7 @@
             </div>
 
         </div>
-        <div class="basic-section boxed centered accent-bg intro-next-gen__accent-box">
+        <div class="basic-section boxed-md centered accent-bg intro-next-gen__accent-box">
 
             <div class="boxed-sm centered intro-next-gen__text-container">
                 <h3 class="heading-m"><?php echo $subheading_2; ?></h3>
@@ -80,7 +80,7 @@
 
     <section class="basic text-center highlights-next-gen">
 
-        <div class="boxed centered highlights-next-gen__container">
+        <div class="boxed-md centered highlights-next-gen__container">
 
             <?php if (have_rows('next_gen__highlights')): while (have_rows('next_gen__highlights')): the_row();
                     $heading = get_sub_field('heading');
@@ -150,7 +150,7 @@
     </section>
 
     <section class="how-it-works-next-gen">
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <?php if (have_rows('next_gen__how_it_works')): while (have_rows('next_gen__how_it_works')): the_row();
                     $heading = get_sub_field('heading');
             ?>
@@ -188,9 +188,11 @@
         $subheading_2 = $card_1['subheading_2'];
         $text_2 = $card_1['text_2'];
         $image = $card_1['image'];
+        $text_3 = $card_1['text_3'];
+        $text_4 = $card_1['text_4'];
         ?>
 
-        <div class="boxed centered basic card-next-gen__container card-next-gen__container--1">
+        <div class="boxed-md centered basic card-next-gen__container card-next-gen__container--1">
             <h2 class="heading-m"><?php echo $heading; ?></h2>
             <div class="basic card-next-gen__text-container">
                 <div class="italic">
@@ -202,7 +204,16 @@
                     <div class="text"><?php echo $text_2; ?></div>
                 </div>
             </div>
-            <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
+            <div class="white-bg card-next-gen__image-grid">
+                <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
+                <div class="text">
+                    <div class="medium secondary">
+                        <?php echo $text_3; ?>
+                    </div>
+                    <div class="black"><?php echo $text_4; ?></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -217,7 +228,7 @@
         $text_3 = $less_is_more['text_3'];
         ?>
 
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
             <div class="text-center basic">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
@@ -254,7 +265,7 @@
         $gallery = $card_2['gallery'];
         ?>
 
-        <div class="boxed centered basic accent-bg">
+        <div class="boxed-md centered basic accent-bg">
             <h2 class="heading-m"><?php echo $heading; ?></h2>
             <div class="basic card-next-gen__text-container">
                 <div class="italic">
@@ -307,7 +318,7 @@
         $image = $card_3['image'];
         ?>
 
-        <div class="boxed centered basic accent-bg">
+        <div class="boxed-md centered basic accent-bg">
             <h2 class="heading-m"><?php echo $heading; ?></h2>
             <div class="text italic basic"><?php echo $subheading_1; ?></div>
             <div class="white-bg text-center">
@@ -327,7 +338,7 @@
         $image = $why['image'];
         ?>
 
-        <div class="basic-section boxed centered why-next-gen__container">
+        <div class="basic-section boxed-md centered why-next-gen__container">
             <h2 class="heading-m"><?php echo $heading; ?></h2>
 
             <div class="why-next-gen__content">
