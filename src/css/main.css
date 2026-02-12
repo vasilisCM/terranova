@@ -2826,7 +2826,7 @@ main--home {
 
 @media only screen and (min-width: 1025px) {
   .home-presentation {
-    background: linear-gradient(to bottom, #fcfcfc 0%, #fcfcfc 15%, #151f28 15%, #151f28 85%, rgba(76, 104, 124, 0.2) 85%, rgba(76, 104, 124, 0.2) 100%);
+    background: linear-gradient(to bottom, #fcfcfc 0%, #fcfcfc 15%, #151f28 15%, #495667 85%, rgba(76, 104, 124, 0.2) 85%, rgba(76, 104, 124, 0.2) 100%);
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -2874,21 +2874,6 @@ main--home {
 .home-presentation__img-container--1 img {
   position: relative;
   z-index: 2;
-}
-.home-presentation__img-container--1::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180%;
-  aspect-ratio: 1/1;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(252, 252, 252, 0.8) 0%, rgba(252, 252, 252, 0.4) 35%, rgba(252, 252, 252, 0.15) 60%, transparent 100%);
-  border-radius: 50%;
-  filter: blur(35px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 1;
 }
 @media only screen and (max-width: 1024px) {
   .home-presentation__img-container--2 {

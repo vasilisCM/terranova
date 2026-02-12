@@ -14,6 +14,9 @@ class MegaMenuDropdown {
   }
 
   init() {
+    // Clean up any existing state first (in case init is called multiple times)
+    this.cleanup();
+
     this.dropdownBackground = document.querySelector(".main-menu__dropdown-background");
     this.megaMenuOverlay = document.querySelector(".dropdown-menu-overlay");
     this.productImages = document.querySelectorAll(".mega-menu-images");
@@ -101,7 +104,7 @@ class MegaMenuDropdown {
     this.megaMenuOverlay.addEventListener("mouseenter", this.overlayHandler);
   }
 
-  destroy() {
+  cleanup() {
     this.eventHandlers.forEach(({ element, handler }) => {
       element.removeEventListener("mouseenter", handler);
     });
@@ -109,6 +112,7 @@ class MegaMenuDropdown {
 
     if (this.megaMenuOverlay && this.overlayHandler) {
       this.megaMenuOverlay.removeEventListener("mouseenter", this.overlayHandler);
+      this.overlayHandler = null;
     }
 
     if (this.openTl) {
@@ -120,13 +124,17 @@ class MegaMenuDropdown {
       this.closeTl = null;
     }
 
+    this.links = [];
+    this.isOpen = false;
+  }
+
+  destroy() {
+    this.cleanup();
+
     gsap.set(".main-menu__dropdown-background", { y: "-200%", autoAlpha: 0 });
     gsap.set(".dropdown-menu-overlay", { autoAlpha: 0 });
     gsap.set(".sub-menu", { display: "none" });
     gsap.set(".mega-menu-images", { autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)" });
-
-    this.links = [];
-    this.isOpen = false;
   }
 }
 
