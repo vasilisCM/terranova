@@ -671,6 +671,10 @@
   flex-direction: column;
   align-items: start;
   gap: 16px;
+
+  &--centered {
+    align-items: center;
+  }
 }
 
 .icon-list {

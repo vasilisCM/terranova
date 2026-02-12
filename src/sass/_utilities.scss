@@ -174,11 +174,13 @@
   }
 }
 
-.margin-p p {
-  margin-block: 20px;
+.margin-p {
+  & p {
+    margin-block: 20px;
 
-  @include view(xxl) {
-    margin-block: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
+    @include view(xxl) {
+      margin-block: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
+    }
   }
 }
 

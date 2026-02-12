@@ -117,6 +117,10 @@ h5,
 
 .text-m {
   font-size: cross-media(14px, $box, 16px);
+
+  @include view(xxl) {
+    font-size: cross-media(16px, $xxl-breakpoint, calc(16px * $xxl-scale));
+  }
 }
 
 .text-ms {

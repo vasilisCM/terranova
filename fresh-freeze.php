@@ -45,32 +45,32 @@
     <?php include 'components/asymmetrical-carousel.php'; ?>
 
 
-    <section class="basic fresh-freeze-steps text-center">
-        <div class="boxed centered text-container">
-            <h2 class="heading-m"><?php echo $text_2; ?></h2>
-            <div class="text"><?php echo $text_3; ?></div>
+    <section class="basic fresh-freeze-steps">
+        <div class="boxed-md centered text-container text-container--centered">
+            <h2 class="heading-m line-height-s text-center"><?php echo $text_2; ?></h2>
+            <div class="boxed-sm centered no-padding text margin-p text-center"><?php echo $text_3; ?></div>
 
-            <div class="fresh-freeze-steps__steps flex">
+            <div class="fresh-freeze-steps__steps basic">
                 <?php if (have_rows('fresh_freeze__steps')): ?>
                     <?php while (have_rows('fresh_freeze__steps')): the_row();
                         $image = get_sub_field('image');
                         $heading = get_sub_field('heading');
                         $text = get_sub_field('text');
                     ?>
-                        <div class="fresh-freeze-steps__item flex">
+                        <div class="fresh-freeze-steps__item">
                             <div class="fresh-freeze-steps__img-container"><img src="<?php echo $image; ?>" alt=""></div>
-                            <div class="text-container">
+                            <div class="fresh-freeze-steps__text-container text-container">
                                 <div>
                                     <div class="heading-s">Step <?php echo get_row_index(); ?></div>
                                     <h3 class="heading-ms"><?php echo $heading; ?></h3>
                                 </div>
-                                <div class="text"><?php echo $text; ?></div>
+                                <div class="text-m"><?php echo $text; ?></div>
                             </div>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
-            <div class="text"><?php echo $text_4; ?></div>
+            <div class="boxed-sm centered no-padding text text-center"><?php echo $text_4; ?></div>
         </div>
 
     </section>
@@ -82,14 +82,20 @@
         $image = $difference['image'];
         $text_2 = $difference['text_2'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed-sm centered">
             <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
-            <div class="flex fresh-freeze-difference__diagram">
-                <div class="text"><?php echo $text_1; ?></div>
+            <div class="fresh-freeze-difference__diagram basic">
+                <div class="text-m line-height-s fresh-freeze-difference__text fresh-freeze-difference__text--1">
+                    <div><?php echo $text_1; ?></div>
+                    <div class="fresh-freeze-difference__line fresh-freeze-difference__line--1"></div>
+                </div>
                 <div class="fresh-freeze-difference__img-container">
                     <img src="<?php echo $image; ?>" alt="">
                 </div>
-                <div class="text"><?php echo $text_2; ?></div>
+                <div class="text-m line-height-s fresh-freeze-difference__text fresh-freeze-difference__text--2">
+                    <div class="fresh-freeze-difference__line fresh-freeze-difference__line--2"></div>
+                    <div><?php echo $text_2; ?></div>
+                </div>
             </div>
         </div>
     </section>
