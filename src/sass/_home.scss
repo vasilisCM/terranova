@@ -308,8 +308,12 @@ main {
   }
 
   &__img-container {
+
+  
     &--1 {
       position: relative;
+      clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
+     
 
       & img {
         position: relative;
@@ -363,6 +367,8 @@ main {
     }
   }
 }
+
+
 
 .home-presentation-products {
   &__container {

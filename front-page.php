@@ -117,7 +117,7 @@
   ?>
 
   <!-- NextGen Presentation  -->
-  <section class="relative home-presentation white">
+  <section class="relative home-presentation white move-up-on-scroll-trigger">
     <?php $presentation = get_field('home__presentation');
     $text_1 = $presentation['text_1'];
     $text_2 = $presentation['text_2'];
@@ -138,7 +138,7 @@
       </div>
       <div class="home-presentation__images">
         <div class="relative home-presentation__img-container home-presentation__img-container--1">
-          <img src="<?php echo $image_1; ?>">
+          <img src="<?php echo $image_1; ?>" class="move-up-on-scroll">
         </div>
         <div class="home-presentation__img-container home-presentation__img-container--2">
           <img src="<?php echo $image_2; ?>">

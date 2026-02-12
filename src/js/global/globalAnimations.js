@@ -1,4 +1,5 @@
 import clipUp from "../animations/clipUp.js";
+import moveUp from "../animations/moveUp.js";
 
 /**
  * Global animations that should run on any page if elements exist
@@ -42,6 +43,7 @@ class GlobalAnimations {
       );
     }
 
+  
     // Add more global animations here as needed
     // Example:
     // const fadeElements = document.querySelectorAll('.fade-in');

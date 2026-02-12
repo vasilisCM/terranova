@@ -8,7 +8,7 @@ import CustomCursor from "./logic/customCursor.js";
 import GlobalAnimations from "./global/globalAnimations.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
-import megaMenuDropdown from "./global/megaMenuDropdown.js";
+import MegaMenuDropdown from "./global/megaMenuDropdown.js";
 
 function global() {
   console.log("JavaScript");
@@ -19,8 +19,9 @@ function global() {
     globalAnimations: new GlobalAnimations(),
   };
 
-  // Desktop-only feature (will be managed by matchMedia)
+  // Desktop-only features (will be managed by matchMedia)
   let menuDropdownInstance = null;
+  let megaMenuDropdownInstance = null;
 
   function scrollToTopWithLenis(options = {}) {
     if (!lenis || typeof lenis.scrollTo !== "function") return;
@@ -284,12 +285,12 @@ function global() {
     console.log("About to call initGlobalFeatures from barba.hooks.after");
     initGlobalFeatures();
 
-    // Reinitialize MenuDropdown on desktop after page transition
+    // Reinitialize MegaMenuDropdown on desktop after page transition
     if (window.matchMedia("(min-width: 1025px)").matches) {
-      // if (menuDropdownInstance) {
-      //   menuDropdownInstance.init();
-      // }
-      megaMenuDropdown();
+      if (!megaMenuDropdownInstance) {
+        megaMenuDropdownInstance = new MegaMenuDropdown();
+      }
+      megaMenuDropdownInstance.init();
     }
   });
 
@@ -319,12 +320,12 @@ function global() {
           console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
 
-          // Initialize MenuDropdown on desktop on first load
+          // Initialize MegaMenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {
-            // if (menuDropdownInstance) {
-            //   menuDropdownInstance.init();
-            // }
-            megaMenuDropdown();
+            if (!megaMenuDropdownInstance) {
+              megaMenuDropdownInstance = new MegaMenuDropdown();
+            }
+            megaMenuDropdownInstance.init();
           }
         },
 
@@ -349,6 +350,11 @@ function global() {
       menuDropdownInstance.destroy();
     }
 
+    // Clean up MegaMenuDropdown
+    if (megaMenuDropdownInstance) {
+      megaMenuDropdownInstance.destroy();
+    }
+
     // Clean up page-specific scripts
     unloadScript();
   });
@@ -359,12 +365,11 @@ function global() {
     // Sticky Header
     hideHeaderOnScroll(".header", "header--sticky");
 
-    // Dropdown Menu - Desktop only
-    // if (!menuDropdownInstance) {
-    //   menuDropdownInstance = new MenuDropdown(".menu-item-has-children > a");
-    // }
-    // menuDropdownInstance.init();
-    megaMenuDropdown();
+    // MegaMenuDropdown - Desktop only
+    if (!megaMenuDropdownInstance) {
+      megaMenuDropdownInstance = new MegaMenuDropdown();
+    }
+    megaMenuDropdownInstance.init();
 
     // Cleanup when leaving desktop breakpoint
     return () => {
@@ -372,6 +377,10 @@ function global() {
 
       if (menuDropdownInstance) {
         menuDropdownInstance.destroy();
+      }
+
+      if (megaMenuDropdownInstance) {
+        megaMenuDropdownInstance.destroy();
       }
 
       // Reset desktop-specific styles that might interfere with mobile
@@ -393,6 +402,11 @@ function global() {
       // Ensure MenuDropdown is destroyed on mobile
       if (menuDropdownInstance) {
         menuDropdownInstance.destroy();
+      }
+
+      // Ensure MegaMenuDropdown is destroyed on mobile
+      if (megaMenuDropdownInstance) {
+        megaMenuDropdownInstance.destroy();
       }
     };
   });

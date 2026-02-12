@@ -2865,6 +2865,7 @@ main--home {
 }
 .home-presentation__img-container--1 {
   position: relative;
+  clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
 }
 .home-presentation__img-container--1 img {
   position: relative;

@@ -4,6 +4,7 @@ import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { parallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
 import { imageOnTexthover } from "../logic/imageOnTextHover.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
+import moveUp from "../animations/moveUp.js";
 
 class Home {
   constructor() {
@@ -158,6 +159,17 @@ class Home {
         }
       );
     this.scrollTriggers.push(textTrigger);
+
+    // Move Up  const moveUpElements = document.querySelectorAll(".move-up-on-scroll");
+    const moveUpElements = document.querySelectorAll(".move-up-on-scroll");
+    if (moveUpElements.length > 0) {
+      console.log("Calling moveUp with selector:", [
+        ".move-up-on-scroll",
+      ]);
+    moveUp(".move-up-on-scroll-trigger", [".move-up-on-scroll"], 1);
+    
+    }
+
 
     // Carousel (with Entrance)
     const asymmetricalCarouselContainer =
