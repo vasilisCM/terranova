@@ -8,6 +8,7 @@ import CustomCursor from "./logic/customCursor.js";
 import GlobalAnimations from "./global/globalAnimations.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
+import megaMenuDropdown from "./global/megaMenuDropdown.js";
 
 function global() {
   console.log("JavaScript");
@@ -285,9 +286,10 @@ function global() {
 
     // Reinitialize MenuDropdown on desktop after page transition
     if (window.matchMedia("(min-width: 1025px)").matches) {
-      if (menuDropdownInstance) {
-        menuDropdownInstance.init();
-      }
+      // if (menuDropdownInstance) {
+      //   menuDropdownInstance.init();
+      // }
+      megaMenuDropdown();
     }
   });
 
@@ -319,9 +321,10 @@ function global() {
 
           // Initialize MenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {
-            if (menuDropdownInstance) {
-              menuDropdownInstance.init();
-            }
+            // if (menuDropdownInstance) {
+            //   menuDropdownInstance.init();
+            // }
+            megaMenuDropdown();
           }
         },
 
@@ -357,10 +360,11 @@ function global() {
     hideHeaderOnScroll(".header", "header--sticky");
 
     // Dropdown Menu - Desktop only
-    if (!menuDropdownInstance) {
-      menuDropdownInstance = new MenuDropdown(".menu-item-has-children > a");
-    }
-    menuDropdownInstance.init();
+    // if (!menuDropdownInstance) {
+    //   menuDropdownInstance = new MenuDropdown(".menu-item-has-children > a");
+    // }
+    // menuDropdownInstance.init();
+    megaMenuDropdown();
 
     // Cleanup when leaving desktop breakpoint
     return () => {
