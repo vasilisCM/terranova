@@ -204,7 +204,7 @@
                     <div class="text"><?php echo $text_2; ?></div>
                 </div>
             </div>
-            <div class="white-bg card-next-gen__image-grid">
+            <div class="white-bg card-next-gen__image-grid basic two-col-grid inline-padding">
                 <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
                 <div class="text">
                     <div class="medium secondary">
