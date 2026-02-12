@@ -8,7 +8,7 @@
     <?php include 'components/hero-with-bg.php'; ?>
 
     <section class="basic intro text-center">
-        <div class="boxed-md centered intro__container">
+        <div class="boxed-sm centered intro__container text">
             <?php the_content(); ?>
         </div>
     </section>
@@ -16,13 +16,13 @@
     <?php include 'components/asymmetrical-carousel.php'; ?>
 
     <section class="basic text-center">
-        <div class="boxed-sm centered intro__container">
+        <div class="boxed-sm centered intro__container text">
             <?php echo get_field('advanced_fermentation__text'); ?>
         </div>
     </section>
 
     <section class="fermendics">
-        <div class="boxed-md centered fermendics__container two-col-grid basic-section">
+        <div class="boxed-md centered fermendics__container two-col-grid basic-section text">
             <div class="fermendics__column intro__container">
                 <?php echo get_field('advanced_fermentation__two_columns')['text_1']; ?>
             </div>
@@ -33,7 +33,7 @@
     </section>
 
     <section class="basic text-center advanced-fermentation__icons-section">
-        <div class="boxed-sm centered intro__container basic">
+        <div class="boxed-sm centered intro__container basic text">
             <?php echo get_field('advanced_fermentation__icons_section')['text']; ?>
         </div>
 
@@ -52,7 +52,7 @@
                             <img src="<?php echo $image; ?>" alt="" class="centered">
                         </div>
                         <div class="advanced-fermentation__icon-item-text-container">
-                            <div class="text"><?php echo $text; ?></div>
+                            <div class="text-m"><?php echo $text; ?></div>
                         </div>
                     </div>
                 <?php endwhile; ?>
