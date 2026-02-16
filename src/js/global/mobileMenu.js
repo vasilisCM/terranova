@@ -187,8 +187,8 @@ function mobileMenu() {
   const hamburger = document.querySelector(".hamburger");
   openCloseMobileMenu(hamburger, "active", mainMenu);
 
-  // Return cleanup function to restore DOM to original state
-  return () => {
+  // Return destroy API (same cleanup as before, for Barba + matchMedia)
+  function destroy() {
     console.log("mobileMenu cleanup called");
 
     // Move menu list back to original position
@@ -215,7 +215,9 @@ function mobileMenu() {
 
     // Reset body overflow
     gsap.set(".body", { overflowY: "visible" });
-  };
+  }
+
+  return { destroy };
 }
 
 export default mobileMenu;

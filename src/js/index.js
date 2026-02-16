@@ -22,6 +22,7 @@ function global() {
   // Desktop-only features (will be managed by matchMedia)
   let menuDropdownInstance = null;
   let megaMenuDropdownInstance = null;
+  let mobileMenuInstance = null;
 
   function scrollToTopWithLenis(options = {}) {
     if (!lenis || typeof lenis.scrollTo !== "function") return;
@@ -292,6 +293,11 @@ function global() {
       }
       megaMenuDropdownInstance.init();
     }
+
+    // Reinitialize mobile menu on mobile after page transition
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+      mobileMenuInstance = mobileMenu();
+    }
   });
 
   barba.init({
@@ -355,6 +361,12 @@ function global() {
       megaMenuDropdownInstance.destroy();
     }
 
+    // Clean up mobile menu (restore DOM, reset state)
+    if (mobileMenuInstance) {
+      mobileMenuInstance.destroy();
+      mobileMenuInstance = null;
+    }
+
     // Clean up page-specific scripts
     unloadScript();
   });
@@ -390,13 +402,14 @@ function global() {
   });
 
   mm.add("(max-width: 1024px)", () => {
-    const mobileMenuCleanup = mobileMenu();
+    mobileMenuInstance = mobileMenu();
 
     // Cleanup when leaving mobile breakpoint
     return () => {
       // Clean up mobile menu (restore DOM)
-      if (mobileMenuCleanup) {
-        mobileMenuCleanup();
+      if (mobileMenuInstance) {
+        mobileMenuInstance.destroy();
+        mobileMenuInstance = null;
       }
 
       // Ensure MenuDropdown is destroyed on mobile
