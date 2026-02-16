@@ -416,77 +416,72 @@
 
     <!-- Life Drink  -->
     <section class="life-drink text-center">
+        <?php $productSpotlight = get_field('skin_nutrition__product_spotlight');
+        $productSpotlightRecipe = $productSpotlight['recipe'];
+        $productSpotlightBtn = $productSpotlight['button'] ?>
         <div class="life-drink__container boxed-md centered">
             <div class="life-drink__product">
                 <!-- Text  -->
                 <div class="text-container life-drink__text-container">
                     <div class="text-ms uppercase letter-spacing-medium">
-                        Recipe
+                        <?php echo $productSpotlight['heading']; ?>
                     </div>
                     <h2
                         class="single-product__heading heading-m normal life-drink__text">
-                        Life Drink face mask
+                        <?php echo $productSpotlight['text_1']; ?>
                     </h2>
                     <!-- Featured Image Mobile -->
                     <div class="hidden-desktop">
                         <img
                             class="life-drink__img"
-                            src="<?php echo get_template_directory_uri() . '/./assets/img/skin-nutrition-004.webp'; ?>"
+                            src="<?php echo $productSpotlight['image']; ?>"
                             alt="" />
                     </div>
-                    <p class="text life-drink__text">
-                        If you are looking for “active ingredients” for your skin care
-                        regime, then Life Drink is a rich source of antioxidants,
-                        enzymes, probiotics and omega fatty acids, to not only nourish
-                        your body, but also enhance your beauty.
-                    </p>
+                    <div class="text life-drink__text">
+                        <?php echo $productSpotlight['text_2']; ?>
+                    </div>
 
                     <!-- Featured Image  -->
                     <div class="hidden-mobile">
                         <img
                             class="life-drink__img"
-                            src="/wp-content/uploads/2025/12/skin-nutrition-life-drink-recipe.png"
+                            src="<?php echo $productSpotlight['image']; ?>"
                             alt="" />
                     </div>
 
                     <div class="life-drink__recipe life-drink__text">
                         <div class="heading-s">
-                            Add a Life Drink face mask in your weekly beauty routine!
+                            <?php echo $productSpotlight['text_3']; ?>
                         </div>
                         <div class="text-ms uppercase letter-spacing-medium">
-                            The recipe is so simple:
+                            <?php echo $productSpotlight['text_4']; ?>
                         </div>
 
                         <div class="life-drink__dosage-container">
                             <div class="text life-drink__dosage">
-                                1 tablespoon Life drink
+                                <?php echo $productSpotlightRecipe['text_1']; ?>
                             </div>
-                            <div class="heading-l light">
-
+                            <div class="heading-l thin">
                                 +
                             </div>
                             <div class="text life-drink__dosage">
-                                ½ spoon Terranova Omega oil <br> 3-6-7-9 or rose tonic or water
+                                <?php echo $productSpotlightRecipe['text_2']; ?>
                             </div>
                         </div>
                     </div>
 
-                    <p class="text life-drink__text">
-                        Mix together. The mixture should be thick. <br /> Apply onto clean
-                        skin over the face and neck, avoiding the eye area and making
-                        small circular motions with your fingers. Put on some mellow
-                        music, close your eyes and relax for 10 minutes. <br /> Rinse well
-                        and apply your moisturizing serum/ cream.
-                    </p>
+                    <div class="text life-drink__text">
+                        <?php echo $productSpotlight['text_5']; ?>
+                    </div>
                 </div>
 
 
             </div>
 
-            <a href="">
+            <a href="<?php echo $productSpotlightBtn['link']; ?>">
                 <button
                     class="button life-drink__button centered text-button mask-text">
-                    <span class="text-button button__text">Learn more about the Terranova Life Drink</span>
+                    <span class="text-button button__text"><?php echo $productSpotlightBtn['label']; ?></span>
                 </button>
             </a>
         </div>

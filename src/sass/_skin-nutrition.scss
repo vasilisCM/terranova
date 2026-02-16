@@ -219,7 +219,7 @@
     gap: cross-media(4px, 991px, 8px);
 
     &:before {
-      content: "🥄";
+      @include icon("\e908");
     }
   }
 }

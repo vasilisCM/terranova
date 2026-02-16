@@ -183,8 +183,8 @@ html.lenis {
 }
 @font-face {
   font-family: "icomoon";
-  src: url("../../assets/fonts/icomoon/icomoon.eot?v8o24f");
-  src: url("../../assets/fonts/icomoon/icomoon.eot?v8o24f#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?v8o24f") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?v8o24f") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?v8o24f#icomoon") format("svg");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?fzah4i");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?fzah4i#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?fzah4i") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?fzah4i") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?fzah4i#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -3716,7 +3716,11 @@ main--home {
   gap: clamp(4px, 0.8072653885vw, 8px);
 }
 .life-drink__dosage:before {
-  content: "🥄";
+  content: "\e908";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .awards-accordion__button {
