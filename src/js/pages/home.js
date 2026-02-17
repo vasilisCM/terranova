@@ -4,6 +4,7 @@ import { parallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
 import { imageOnTexthover } from "../logic/imageOnTextHover.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 import moveUp from "../animations/moveUp.js";
+import lenis from "../global/smoothScroll.js";
 
 class Home {
   constructor() {
@@ -16,6 +17,11 @@ class Home {
 
   init() {
     console.log("Home");
+
+    // Ensure scroll is at top before measuring and creating ScrollTriggers (fixes wrong trigger positions on reload from mid-page)
+    if (lenis && typeof lenis.scrollTo === "function") {
+      lenis.scrollTo(0, { immediate: true, force: true });
+    }
 
     // Hero
     const header = document.querySelector(".header");
@@ -56,6 +62,7 @@ class Home {
             }`,
             end: "50% 500",
             ease: "circ.out",
+            // markers: true,
             onEnter: () => {
               video.play();
               console.log("Home Hero Intro Tl");

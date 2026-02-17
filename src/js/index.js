@@ -388,11 +388,16 @@ function global() {
           console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
 
-          // Init carousels when first page is ready; refresh ScrollTrigger so entrance animations fire (layout/loader may still be settling)
-          initCarousels();
-          requestAnimationFrame(() => ScrollTrigger.refresh());
-          setTimeout(() => ScrollTrigger.refresh(), 1500);
-          window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+          // First-load carousels + scroll-to-top when loader is done (same logical moment as transition: scroll top then init)
+          document.addEventListener(
+            "loaderDone",
+            () => {
+              scrollToTopWithLenis({ immediate: true });
+              initCarousels();
+              ScrollTrigger.refresh();
+            },
+            { once: true }
+          );
 
           // Initialize MegaMenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {

@@ -2913,8 +2913,13 @@ main--home {
 }
 
 .choice {
-  margin-top: 80px;
+  margin-top: clamp(120px, 18.1634712412vw, 180px);
   position: relative;
+}
+@media only screen and (min-width: 1921px) {
+  .choice {
+    margin-top: clamp(180px, 9vw, 270px);
+  }
 }
 .choice .image-on-text-hover {
   margin-top: clamp(8px, 4.843592331vw, 48px);

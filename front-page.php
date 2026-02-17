@@ -292,15 +292,29 @@
           'hide_empty' => false,
         ));
 
-        if ($terms && !is_wp_error($terms)):
-          foreach ($terms as $term):
-            // Check if is_featured_category ACF field is true
-            $is_featured = get_field('is_featured_category', $term);
+        // Custom order (only featured terms are shown; order by these IDs)
+        $featured_order = array(94, 73, 75, 71, 81);
 
-            if ($is_featured):
-              $category_name = $term->name;
-              $category_permalink = get_term_link($term);
-              $featured_image = get_field('featured_category_image', $term);
+        if ($terms && !is_wp_error($terms)):
+          // Keep only featured categories and sort by custom order
+          $featured_terms = array();
+          foreach ($terms as $term) {
+            if (get_field('is_featured_category', $term)) {
+              $featured_terms[] = $term;
+            }
+          }
+          usort($featured_terms, function ($a, $b) use ($featured_order) {
+            $pos_a = array_search($a->term_id, $featured_order);
+            $pos_b = array_search($b->term_id, $featured_order);
+            $pos_a = $pos_a === false ? 999 : $pos_a;
+            $pos_b = $pos_b === false ? 999 : $pos_b;
+            return $pos_a - $pos_b;
+          });
+
+          foreach ($featured_terms as $term):
+            $category_name = $term->name;
+            $category_permalink = get_term_link($term);
+            $featured_image = get_field('featured_category_image', $term);
         ?>
               <a href="<?php echo $category_permalink; ?>">
                 <h3 class="choice__text heading-ms italic" data-category-link="<?php echo esc_url($category_permalink); ?>">
@@ -314,7 +328,6 @@
                   alt="<?php echo esc_attr($category_name); ?>" />
               </div>
         <?php
-            endif;
           endforeach;
         endif;
         ?>

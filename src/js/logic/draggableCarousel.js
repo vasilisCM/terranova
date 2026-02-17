@@ -69,6 +69,8 @@ class DraggableCarousel {
         trigger: carouselContainer,
         start: "20% 100%",
         toggleActions: "play reverse restart reverse",
+        // markers: true,
+        
       },
     });
 

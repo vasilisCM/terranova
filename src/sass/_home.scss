@@ -379,8 +379,12 @@ main {
 
 // Choice
 .choice {
-  margin-top: 80px;
+  margin-top: cross-media(120px, 991px, 180px);
   position: relative;
+
+  @include view(xxl) {
+    margin-top: cross-media(180px, 3000px, 180px * $xxl-scale);
+  }
 
   .image-on-text-hover {
     margin-top: cross-media(8px, 991px, 48px);
