@@ -751,6 +751,10 @@ h4 {
   background-color: rgba(76, 104, 124, 0.2);
 }
 
+.light-gray-bg {
+  background-color: #f1f1f1;
+}
+
 .header {
   position: fixed;
   z-index: 100;
@@ -3586,7 +3590,6 @@ main--home {
 }
 .skin-nutrition-steps__step {
   display: grid;
-  gap: clamp(8px, 1.614530777vw, 16px);
 }
 @media only screen and (max-width: 1024px) {
   .skin-nutrition-steps__step--extra .skin-nutrition-steps__heading, .skin-nutrition-steps__step--extra .skin-nutrition-steps__text-container, .skin-nutrition-steps__step--extra .skin-nutrition-steps__subheading,
@@ -3620,7 +3623,6 @@ main--home {
   }
   .skin-nutrition-steps__step--extra .skin-nutrition-steps__product {
     grid-area: product-info;
-    margin-top: -360px;
   }
   .skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
     grid-area: icons;
