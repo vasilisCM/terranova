@@ -46,7 +46,7 @@
 
   &__step {
     display: grid;
-    gap: cross-media(8px, 991px, 16px);
+    // gap: cross-media(8px, 991px, 16px);
 
     &--extra {
       & .skin-nutrition-steps__heading,
@@ -92,7 +92,7 @@
 
         & .skin-nutrition-steps__product {
           grid-area: product-info;
-          margin-top: -360px; // FIX
+          // margin-top: -360px; // FIX
         }
 
         & .skin-nutrition-steps__icons {

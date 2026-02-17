@@ -74,6 +74,9 @@
 
     <!-- Steps  -->
     <section class="skin-nutrition-steps">
+        <?php $steps = get_field('skin_nutrition__steps');
+        $step3Recommended = $steps['step_3__recommended'];   ?>
+
         <div class="skin-nutrition-steps__container">
 
             <!-- Step 1 -->
@@ -298,115 +301,108 @@
                     </div>
                 </div>
 
-                <div class="boxed centered">
-                    <div
-                        class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
+                <div class="light-gray-bg">
+                    <div class="boxed-md centered">
+                        <div
+                            class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
 
-                        <div
-                            class="heading-ms underline skin-nutrition-steps__subheading">
-                            Recommended Products
-                        </div>
-                        <!-- Product  -->
-                        <div
-                            class="archive-product__product skin-nutrition-steps__product">
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
+                            <div
+                                class="heading-ms underline skin-nutrition-steps__subheading">
+                                <?php echo $step3Recommended['heading']; ?>
+                            </div>
+                            <!-- Product  -->
+                            <div
+                                class="archive-product__product skin-nutrition-steps__product">
+                                <div class="skin-nutrition-steps__product-text-container">
+                                    <a href="">
+                                        <h4
+                                            class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                            <?php echo $step3Recommended['text_1']; ?>
+                                        </h4>
+                                    </a>
+                                    <h3 class="archive-product__product-title">
+                                        <?php echo $step3Recommended['text_2']; ?>
+                                    </h3>
+                                    <h4 class="heading-s">
+                                        <?php echo $step3Recommended['text_3']; ?>
                                     </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
-                                <h4 class="heading-s">
-                                    This product is a unique blend featuring 14 carefully
-                                    selected organic oils, combined with organic extracts of
-                                    calendula and arnica.
-                                </h4>
-                                <p class="text-single-product">
-                                    All ingredients have been specifically selected for their
-                                    skin rejuvenating properties and work synergistically to
-                                    provide a formula that is deeply nourishing and intensely
-                                    restorative to skin that is affected by dryness, ageing,
-                                    blemishes or other common challenges to skin health. Serum
-                                    768 – Organic Skin Oil delivers the lipids that healthy skin
-                                    needs for moisture, while providing the nourishment via
-                                    ingredients that the skin can’t make itself.
-                                </p>
+                                    <p class="text-single-product">
+                                        <?php echo $step3Recommended['text_4']; ?>
+                                    </p>
 
-                                <div class="text-ms uppercase letter-spacing-medium">
-                                    100% Natural - 99,49% Organic - 100% Vegan
+                                    <div class="text-ms uppercase letter-spacing-medium">
+                                        <?php echo $step3Recommended['text_5']; ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="skin-nutrition-steps__img-container">
-                            <img
-                                src="<?php echo get_template_directory_uri() . '/./assets/img/skin-nutrition-steps-001.webp'; ?>"
-                                alt=""
-                                class="archive-product__featured-image skin-nutrition-steps__img" />
+                            <div class="skin-nutrition-steps__img-container">
+                                <img
+                                    src="<?php echo $step3Recommended['image']; ?>"
+                                    alt=""
+                                    class="archive-product__featured-image skin-nutrition-steps__img" />
+                            </div>
+
+                            <div class="skin-nutrition-steps__icons auto-fit-grid">
+                                <div class="card-icon">
+                                    <div class="card-icon__img-container">
+                                        <img
+                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-001.svg'; ?>"
+                                            alt=""
+                                            class="card-icon__img" />
+                                    </div>
+                                    <p class="text card-icon__text">
+                                        helps the skin to retain its natural moisture barrier. The
+                                        fatty acid content of the oils penetrates deeply and offers
+                                        a long-lasting moisturizing effect
+                                    </p>
+                                </div>
+                                <div class="card-icon">
+                                    <div class="card-icon__img-container">
+                                        <img
+                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-002.svg'; ?>"
+                                            alt=""
+                                            class="card-icon__img" />
+                                    </div>
+                                    <p class="text card-icon__text">
+                                        provides additional nourishment that the skin can’t make
+                                        itself
+                                    </p>
+                                </div>
+                                <div class="card-icon">
+                                    <div class="card-icon__img-container">
+                                        <img
+                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-003.svg'; ?>"
+                                            alt=""
+                                            class="card-icon__img" />
+                                    </div>
+                                    <p class="text card-icon__text">
+                                        protects the skin barrier which can be easily damaged from
+                                        neglect, abrasive ingredients, environmental toxins (removed
+                                        comma) and sun damage
+                                    </p>
+                                </div>
+                                <div class="card-icon">
+                                    <div class="card-icon__img-container">
+                                        <img
+                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-004.svg'; ?>"
+                                            alt=""
+                                            class="card-icon__img" />
+                                    </div>
+                                    <p class="text card-icon__text">
+                                        offers a calming effect by working with good bacteria on the
+                                        skin to modulate inflammation (such as that seen in
+                                        conditions like acne or eczema)
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="skin-nutrition-steps__icons auto-fit-grid">
-                            <div class="card-icon">
-                                <div class="card-icon__img-container">
-                                    <img
-                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-001.svg'; ?>"
-                                        alt=""
-                                        class="card-icon__img" />
-                                </div>
-                                <p class="text card-icon__text">
-                                    helps the skin to retain its natural moisture barrier. The
-                                    fatty acid content of the oils penetrates deeply and offers
-                                    a long-lasting moisturizing effect
-                                </p>
-                            </div>
-                            <div class="card-icon">
-                                <div class="card-icon__img-container">
-                                    <img
-                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-002.svg'; ?>"
-                                        alt=""
-                                        class="card-icon__img" />
-                                </div>
-                                <p class="text card-icon__text">
-                                    provides additional nourishment that the skin can’t make
-                                    itself
-                                </p>
-                            </div>
-                            <div class="card-icon">
-                                <div class="card-icon__img-container">
-                                    <img
-                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-003.svg'; ?>"
-                                        alt=""
-                                        class="card-icon__img" />
-                                </div>
-                                <p class="text card-icon__text">
-                                    protects the skin barrier which can be easily damaged from
-                                    neglect, abrasive ingredients, environmental toxins (removed
-                                    comma) and sun damage
-                                </p>
-                            </div>
-                            <div class="card-icon">
-                                <div class="card-icon__img-container">
-                                    <img
-                                        src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-004.svg'; ?>"
-                                        alt=""
-                                        class="card-icon__img" />
-                                </div>
-                                <p class="text card-icon__text">
-                                    offers a calming effect by working with good bacteria on the
-                                    skin to modulate inflammation (such as that seen in
-                                    conditions like acne or eczema)
-                                </p>
-                            </div>
-                        </div>
+                        <a href="<?php echo $step3Recommended['button']['link']; ?>" class="skin-nutrition-steps__button">
+                            <button class="button centered text-button mask-text">
+                                <span class="text-button button__text"><?php echo $step3Recommended['button']['label']; ?></span>
+                            </button>
+                        </a>
                     </div>
-
-                    <a href="" class="skin-nutrition-steps__button">
-                        <button class="button centered text-button mask-text">
-                            <span class="text-button button__text">Learn more about the Terranova Serum 768</span>
-                        </button>
-                    </a>
                 </div>
 
             </div>
