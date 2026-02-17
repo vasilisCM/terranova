@@ -713,13 +713,21 @@
 
 .card-icon {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   gap: cross-media(20px, $box, 40px);
 
   @include view(md-max) {
     grid-template-rows: revert;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto 1fr;
     align-items: center;
+  }
+
+  &__img {
+    width: cross-media(75px, 1024px, 114px);
+
+    @include view(xxl) {
+      width: cross-media(114px, $xxl-breakpoint, calc(114px * $xxl-scale));
+    }
   }
 }
 

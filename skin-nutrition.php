@@ -75,339 +75,205 @@
     <!-- Steps  -->
     <section class="skin-nutrition-steps">
         <?php $steps = get_field('skin_nutrition__steps');
-        $step3Recommended = $steps['step_3__recommended'];   ?>
+        $step3Recommended = $steps['step_3__recommended']; ?>
 
         <div class="skin-nutrition-steps__container">
 
-            <!-- Step 1 -->
-            <div class="skin-nutrition-steps__step">
-                <div class="skin-nutrition-steps__heading-bg accent-bg white">
-                    <div class="boxed centered">
-                        <div
-                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
-                            Step1 <br />
-                            Foundational Nutrition
-                        </div>
-                        <div class="skin-nutrition-steps__text-container">
-                            <h3 class="heading-s">
-                                Create a daily foundation built upon nutrient-dense foods.
-                            </h3>
-                            <p class="text skin-nutrition-steps__description">
-                                Vitamins, minerals, enzymes, essential fatty acids, water and
-                                phytonutrients are just some of the elements that are required
-                                to nourish the body and skin. The simplest way to achieve this
-                                is to base your diet on natural foods, while minimizing
-                                processed and manufactured products. This step will ensure
-                                that you are receiving and utilizing the nutrients provided by
-                                your diet, as well those from any nutritional supplements that
-                                you may choose to incorporate.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="boxed centered width-full">
-                    <div
-                        class="heading-ms underline skin-nutrition-steps__subheading">
-                        Recommended Products
-                    </div>
-                    <!-- Grid  -->
-                    <div class="auto-fit-grid">
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+            <?php if (have_rows('skin_nutrition__steps')) : ?>
+                <?php while (have_rows('skin_nutrition__steps')) : the_row(); ?>
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                    <?php if (have_rows('steps_1_and_2')) : ?>
+                        <?php while (have_rows('steps_1_and_2')): the_row();
+                            $heading = get_sub_field('heading');
+                            $text_1 = get_sub_field('text_1');
+                            $text_2 = get_sub_field('text_2');
+                            $recommendedProducts = get_sub_field('recommended_products');
+                        ?>
+                            <div class="skin-nutrition-steps__step">
+                                <div class="skin-nutrition-steps__heading-bg accent-bg white">
+                                    <div class="boxed-md centered">
+                                        <div
+                                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
+                                            <?php echo __('Step', 'terranova'); ?><?php echo get_row_index(); ?> <br />
+                                            <?php if ($heading):
+                                                echo $heading;
+                                            endif; ?>
+                                        </div>
+                                        <div class="skin-nutrition-steps__text-container">
+                                            <?php if ($text_1): ?>
+                                                <h3 class="heading-s">
+                                                    <?php echo $text_1; ?>
+                                                </h3>
+                                            <?php endif; ?>
+                                            <?php if ($text_2): ?>
+                                                <p class="text skin-nutrition-steps__description">
+                                                    <?php echo $text_2; ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+                                <?php if (!empty($recommendedProducts)) {
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                                    if (!is_array($recommendedProducts)) {
+                                        $recommendedProducts = array($recommendedProducts);
+                                    }
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+                                    $recommendedProducts_ids = array_slice($recommendedProducts, 0, 3);
+                                }
+                                ?>
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                                <?php if (!empty($recommendedProducts_ids)) : ?>
+                                    <div class="light-gray-bg">
+                                        <div class="boxed-md centered width-full">
+                                            <div
+                                                class="heading-ms underline skin-nutrition-steps__subheading">
+                                                <?php echo __('Recommended Products', 'terranova'); ?>
+                                            </div>
+                                            <!-- Grid  -->
+                                            <div class="auto-fit-grid">
+                                                <?php
+                                                foreach ($recommendedProducts_ids as $recommendedProducts_id) :
+                                                    $post_obj = get_post($recommendedProducts_id);
+                                                    if (!$post_obj) {
+                                                        continue;
+                                                    }
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                                    setup_postdata($post_obj);
 
-            <!-- Step 2  -->
-            <div class="skin-nutrition-steps__step">
-                <div class="skin-nutrition-steps__heading-bg accent-bg white">
-                    <div class="boxed centered">
-                        <div
-                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
-                            Step2 <br />
-                            Targeted Nutritional Supplements
-                        </div>
-                        <div class="skin-nutrition-steps__text-container">
-                            <h3 class="heading-s">
-                                Specific nutritional supplements can be selected to support
-                                the skin depending on skin type, age and any existing skin
-                                conditions.
-                            </h3>
-                            <p class="text skin-nutrition-steps__description">
-                                Supplements may help with issues such as fine lines, dryness
-                                and hydration, while also supporting the general structural
-                                components that make up the various layers of the skin.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="boxed centered width-full">
-                    <div
-                        class="heading-ms underline skin-nutrition-steps__subheading">
-                        Recommended Products
-                    </div>
-                    <!-- Grid  -->
-                    <div class="auto-fit-grid">
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+                                                    // Retrieve custom fields
+                                                    $thumbnail_url = get_the_post_thumbnail_url($recommendedProducts_id, 'large');
+                                                ?>
+                                                    <div class="archive-product__product">
+                                                        <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
+                                                            <div class="archive-product__img-container">
+                                                                <img
+                                                                    src="<?php echo esc_url($thumbnail_url); ?>"
+                                                                    alt=""
+                                                                    class="archive-product__featured-image" />
+                                                            </div>
+                                                        </a>
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                                                        <div class="skin-nutrition-steps__product-text-container">
+                                                            <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
+                                                                <h4
+                                                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                                                    Terranova
+                                                                </h4>
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+                                                                <h3 class="archive-product__product-title">
+                                                                    <?php echo get_the_title($recommendedProducts_id); ?>
+                                                                </h3>
+                                                            </a>
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                                                            <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>" class="link link--arrow archive-product__link"><?php echo __('View more', 'terranova'); ?></a>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                                <?php wp_reset_postdata(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                        <div class="archive-product__product">
-                            <div class="archive-product__img-container">
-                                <img
-                                    src="<?php echo get_template_directory_uri() . '/./assets/img/single-product-featured-image-placeholder.webp'; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image" />
-                            </div>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
 
-                            <div class="skin-nutrition-steps__product-text-container">
-                                <a href="">
-                                    <h4
-                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                        Terranova
-                                    </h4>
-                                </a>
-                                <h3 class="archive-product__product-title">
-                                    Vollagen® & Hyaluronic Acid Complex
-                                </h3>
+                    <?php endwhile; ?>
+                <?php endif; ?>
 
-                                <a href="" class="link link--arrow archive-product__link">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <!-- Step 3  -->
+                <div class="skin-nutrition-steps__step">
 
-            <!-- Step 3  -->
-            <div class="skin-nutrition-steps__step">
-                <div class="skin-nutrition-steps__heading-bg accent-bg white">
-                    <div class="boxed centered">
-                        <div
-                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
-                            Step3 <br />
-                            Topical Application
-                        </div>
-                        <div class="skin-nutrition-steps__text-container">
-                            <h3 class="heading-s">
-                                Daily application of a serum oil is a great way to compliment
-                                the skin-enhancing benefits of steps 1 and 2.
-                            </h3>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="light-gray-bg">
-                    <div class="boxed-md centered">
-                        <div
-                            class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
-
+                    <div class="light-gray-bg">
+                        <div class="boxed-md centered">
                             <div
-                                class="heading-ms underline skin-nutrition-steps__subheading">
-                                <?php echo $step3Recommended['heading']; ?>
-                            </div>
-                            <!-- Product  -->
-                            <div
-                                class="archive-product__product skin-nutrition-steps__product">
-                                <div class="skin-nutrition-steps__product-text-container">
-                                    <a href="">
-                                        <h4
-                                            class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                            <?php echo $step3Recommended['text_1']; ?>
+                                class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
+
+                                <div
+                                    class="heading-ms underline skin-nutrition-steps__subheading">
+                                    <?php echo $step3Recommended['heading']; ?>
+                                </div>
+                                <!-- Product  -->
+                                <div
+                                    class="archive-product__product skin-nutrition-steps__product">
+                                    <div class="skin-nutrition-steps__product-text-container">
+                                        <a href="">
+                                            <h4
+                                                class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                                <?php echo $step3Recommended['text_1']; ?>
+                                            </h4>
+                                        </a>
+                                        <h3 class="archive-product__product-title">
+                                            <?php echo $step3Recommended['text_2']; ?>
+                                        </h3>
+                                        <h4 class="heading-s">
+                                            <?php echo $step3Recommended['text_3']; ?>
                                         </h4>
-                                    </a>
-                                    <h3 class="archive-product__product-title">
-                                        <?php echo $step3Recommended['text_2']; ?>
-                                    </h3>
-                                    <h4 class="heading-s">
-                                        <?php echo $step3Recommended['text_3']; ?>
-                                    </h4>
-                                    <p class="text-single-product">
-                                        <?php echo $step3Recommended['text_4']; ?>
-                                    </p>
+                                        <p class="text-single-product">
+                                            <?php echo $step3Recommended['text_4']; ?>
+                                        </p>
 
-                                    <div class="text-ms uppercase letter-spacing-medium">
-                                        <?php echo $step3Recommended['text_5']; ?>
+                                        <div class="text-ms uppercase letter-spacing-medium">
+                                            <?php echo $step3Recommended['text_5']; ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="skin-nutrition-steps__img-container">
-                                <img
-                                    src="<?php echo $step3Recommended['image']; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image skin-nutrition-steps__img" />
+                                <div class="skin-nutrition-steps__img-container">
+                                    <img
+                                        src="<?php echo $step3Recommended['image']; ?>"
+                                        alt=""
+                                        class="archive-product__featured-image skin-nutrition-steps__img" />
+                                </div>
+
+                                <?php if (have_rows('skin_nutrition__steps')) : ?>
+                                    <?php while (have_rows('skin_nutrition__steps')) : the_row(); ?>
+
+                                        <?php if (have_rows('step_3__recommended')) : ?>
+                                            <?php while (have_rows('step_3__recommended')) : the_row(); ?>
+
+                                                <?php if (have_rows('list')) : ?>
+                                                    <div class="skin-nutrition-steps__icons">
+                                                        <?php while (have_rows('list')): the_row();
+                                                            $image = get_sub_field('image');
+                                                            $text = get_sub_field('text');
+                                                        ?>
+                                                            <div class="card-icon">
+                                                                <div class="card-icon__img-container">
+                                                                    <img
+                                                                        src="<?php echo $image; ?>"
+                                                                        alt=""
+                                                                        class="card-icon__img" />
+                                                                </div>
+                                                                <div class="text card-icon__text">
+                                                                    <?php echo $text; ?>
+                                                                </div>
+                                                            </div>
+                                                        <?php endwhile; ?>
+                                                    </div>
+                                                <?php endif; ?>
+
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
+
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+
+
                             </div>
 
-                            <div class="skin-nutrition-steps__icons auto-fit-grid">
-                                <div class="card-icon">
-                                    <div class="card-icon__img-container">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-001.svg'; ?>"
-                                            alt=""
-                                            class="card-icon__img" />
-                                    </div>
-                                    <p class="text card-icon__text">
-                                        helps the skin to retain its natural moisture barrier. The
-                                        fatty acid content of the oils penetrates deeply and offers
-                                        a long-lasting moisturizing effect
-                                    </p>
-                                </div>
-                                <div class="card-icon">
-                                    <div class="card-icon__img-container">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-002.svg'; ?>"
-                                            alt=""
-                                            class="card-icon__img" />
-                                    </div>
-                                    <p class="text card-icon__text">
-                                        provides additional nourishment that the skin can’t make
-                                        itself
-                                    </p>
-                                </div>
-                                <div class="card-icon">
-                                    <div class="card-icon__img-container">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-003.svg'; ?>"
-                                            alt=""
-                                            class="card-icon__img" />
-                                    </div>
-                                    <p class="text card-icon__text">
-                                        protects the skin barrier which can be easily damaged from
-                                        neglect, abrasive ingredients, environmental toxins (removed
-                                        comma) and sun damage
-                                    </p>
-                                </div>
-                                <div class="card-icon">
-                                    <div class="card-icon__img-container">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() . '/assets/img/skin-nutrition-icon-004.svg'; ?>"
-                                            alt=""
-                                            class="card-icon__img" />
-                                    </div>
-                                    <p class="text card-icon__text">
-                                        offers a calming effect by working with good bacteria on the
-                                        skin to modulate inflammation (such as that seen in
-                                        conditions like acne or eczema)
-                                    </p>
-                                </div>
-                            </div>
+                            <a href="<?php echo $step3Recommended['button']['link']; ?>" class="skin-nutrition-steps__button">
+                                <button class="button centered text-button mask-text">
+                                    <span class="text-button button__text"><?php echo $step3Recommended['button']['label']; ?></span>
+                                </button>
+                            </a>
                         </div>
-
-                        <a href="<?php echo $step3Recommended['button']['link']; ?>" class="skin-nutrition-steps__button">
-                            <button class="button centered text-button mask-text">
-                                <span class="text-button button__text"><?php echo $step3Recommended['button']['label']; ?></span>
-                            </button>
-                        </a>
                     </div>
+
                 </div>
 
-            </div>
-
-        </div>
+                            </div>
     </section>
 
     <!-- Life Drink  -->
@@ -415,7 +281,7 @@
         <?php $productSpotlight = get_field('skin_nutrition__product_spotlight');
         $productSpotlightRecipe = $productSpotlight['recipe'];
         $productSpotlightBtn = $productSpotlight['button'] ?>
-        <div class="life-drink__container boxed-md centered">
+        <div class="life-drink__container boxed-sm centered">
             <div class="life-drink__product">
                 <!-- Text  -->
                 <div class="text-container life-drink__text-container">

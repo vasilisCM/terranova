@@ -1433,14 +1433,22 @@ h4 {
 
 .card-icon {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   gap: clamp(20px, 2.2222222222vw, 40px);
 }
 @media only screen and (max-width: 1024px) {
   .card-icon {
     grid-template-rows: revert;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto 1fr;
     align-items: center;
+  }
+}
+.card-icon__img {
+  width: clamp(75px, 11.1328125vw, 114px);
+}
+@media only screen and (min-width: 1921px) {
+  .card-icon__img {
+    width: clamp(114px, 5.7vw, 171px);
   }
 }
 
@@ -3602,6 +3610,14 @@ main--home {
     order: -1;
   }
 }
+.skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
+  display: grid;
+}
+@media only screen and (min-width: 768px) {
+  .skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media only screen and (min-width: 1025px) {
   .skin-nutrition-steps__step--extra {
     grid-template-columns: 1fr 1fr;
@@ -3630,6 +3646,7 @@ main--home {
     grid-area: product-info;
   }
   .skin-nutrition-steps__step--extra .skin-nutrition-steps__icons {
+    grid-template-columns: repeat(4, 1fr);
     grid-area: icons;
     margin-top: clamp(50px, 10.0908173562vw, 100px);
   }
@@ -3681,7 +3698,7 @@ main--home {
 }
 .skin-nutrition-steps__button {
   display: block;
-  margin-top: clamp(60px, 12.1089808274vw, 120px);
+  margin-block: clamp(60px, 12.1089808274vw, 120px);
 }
 
 .life-drink {

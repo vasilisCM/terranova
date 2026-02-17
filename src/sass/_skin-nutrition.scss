@@ -58,6 +58,16 @@
         }
       }
 
+      & .skin-nutrition-steps__icons {
+        display: grid;
+      }
+
+      @include view(md-min) {
+        & .skin-nutrition-steps__icons {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
       @include view(lg-min) {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "step step" "description description" "recommended image" "product-info image" "icons icons";
@@ -96,6 +106,7 @@
         }
 
         & .skin-nutrition-steps__icons {
+          grid-template-columns: repeat(4, 1fr);
           grid-area: icons;
           margin-top: cross-media(50px, 991px, 100px);
         }
@@ -155,7 +166,7 @@
 
   &__button {
     display: block;
-    margin-top: cross-media(60px, 991px, 120px);
+    margin-block: cross-media(60px, 991px, 120px);
   }
 }
 
