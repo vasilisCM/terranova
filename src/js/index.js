@@ -124,8 +124,6 @@ function global() {
     carouselInstances = [];
   }
 
-  initCarousels();
-
   // Page Transition
   let currentPageScript = null; // Track the currently loaded page script
 
@@ -390,7 +388,11 @@ function global() {
           console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
 
-          // Carousels already inited above via initCarousels()
+          // Init carousels when first page is ready; refresh ScrollTrigger so entrance animations fire (layout/loader may still be settling)
+          initCarousels();
+          requestAnimationFrame(() => ScrollTrigger.refresh());
+          setTimeout(() => ScrollTrigger.refresh(), 1500);
+          window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
 
           // Initialize MegaMenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {
