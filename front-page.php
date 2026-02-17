@@ -13,7 +13,8 @@
     <div class="hero__container">
       <!-- Text  -->
       <div class="hero__text-container text-container">
-        <h1 class="heading-xl lowercase hero__heading">
+        <h1 class="heading-xl hero__heading">
+          
           <span class="hero__heading-span"><?php echo $text_1; ?></span>
           <br />
           <span class="hero__heading-span italic"><?php echo $text_2; ?></span>
