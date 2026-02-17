@@ -1,4 +1,3 @@
-import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 
 class SkinNutrition {
@@ -15,17 +14,7 @@ class SkinNutrition {
 
     setAsymmetricalClasses();
 
-    const asymmetricalCarouselContainer =
-      document.querySelector(".slides-container");
-    const asymmetricalCarouselTrack = document.querySelector(
-      ".asymmetrical-carousel__container"
-    );
-    const carousel = draggableCarousel(
-      asymmetricalCarouselContainer,
-      asymmetricalCarouselTrack,
-      ".asymmetrical-carousel__image-container"
-    );
-    this.carousels.push(carousel);
+    // Draggable carousels are inited in index.js (initCarousels).
   }
 
   destroy() {

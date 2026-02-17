@@ -9,6 +9,7 @@ import GlobalAnimations from "./global/globalAnimations.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
 import MegaMenuDropdown from "./global/megaMenuDropdown.js";
+import { DraggableCarousel } from "./logic/draggableCarousel.js";
 
 function global() {
   console.log("JavaScript");
@@ -63,12 +64,67 @@ function global() {
 
   stickyHeader(".header", "header--sticky");
 
-  // Accordion
+  // Accordion (re-inited on every transition so it works on pages without a bundle)
   const accordion = new Accordion();
-  const accordionElement = document.querySelector(".accordion");
-  if (accordionElement) {
-    accordion.init(accordionElement);
+  if (document.querySelector(".accordion")) {
+    accordion.init();
   }
+
+  // Draggable carousels (re-inited on every transition so they work on pages without a bundle)
+  const CAROUSEL_CONFIG = [
+    {
+      container: ".slides-container",
+      track: ".asymmetrical-carousel__container",
+      slides: [
+        ".asymmetrical-carousel__image-container",
+        ".asymmetrical-carousel__column",
+      ],
+    },
+    {
+      container: ".blog-home__archive-container",
+      track: ".blog-home__archive",
+      slides: [".blog-home__post"],
+    },
+    {
+      container: ".instagram__slides-container",
+      track: ".instagram__container",
+      slides: [".instagram__column", ".instagram__image"],
+    },
+    {
+      container: ".recipes__archive-container",
+      track: ".recipes__archive",
+      slides: [".recipes__post"],
+    },
+  ];
+  let carouselInstances = [];
+
+  function initCarousels() {
+    const initedContainers = new Set();
+    CAROUSEL_CONFIG.forEach(({ container, track, slides }) => {
+      const containers = document.querySelectorAll(container);
+      containers.forEach((el) => {
+        if (initedContainers.has(el)) return;
+        const trackEl = el.querySelector(track);
+        if (!trackEl) return;
+        for (const slide of slides) {
+          if (el.querySelector(slide)) {
+            const carousel = new DraggableCarousel(el, trackEl, slide);
+            carousel.init();
+            carouselInstances.push(carousel);
+            initedContainers.add(el);
+            break;
+          }
+        }
+      });
+    });
+  }
+
+  function destroyCarousels() {
+    carouselInstances.forEach((c) => c.destroy());
+    carouselInstances = [];
+  }
+
+  initCarousels();
 
   // Page Transition
   let currentPageScript = null; // Track the currently loaded page script
@@ -286,6 +342,14 @@ function global() {
     console.log("About to call initGlobalFeatures from barba.hooks.after");
     initGlobalFeatures();
 
+    // Reinitialize Accordion when the new page has one (e.g. pages without a dedicated bundle)
+    if (document.querySelector(".accordion")) {
+      accordion.init();
+    }
+
+    // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
+    initCarousels();
+
     // Reinitialize MegaMenuDropdown on desktop after page transition
     if (window.matchMedia("(min-width: 1025px)").matches) {
       if (!megaMenuDropdownInstance) {
@@ -326,6 +390,8 @@ function global() {
           console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
 
+          // Carousels already inited above via initCarousels()
+
           // Initialize MegaMenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {
             if (!megaMenuDropdownInstance) {
@@ -350,6 +416,12 @@ function global() {
   barba.hooks.beforeLeave(() => {
     // Clean up global features before leaving
     destroyGlobalFeatures();
+
+    // Clean up Accordion so it can be re-inited on the next page
+    accordion.destroy();
+
+    // Clean up draggable carousels
+    destroyCarousels();
 
     // Clean up MenuDropdown
     if (menuDropdownInstance) {

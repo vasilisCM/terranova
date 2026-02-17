@@ -1,265 +1,291 @@
 /**
- * Initialize a draggable carousel with the provided elements and settings.
+ * Draggable carousel with init/destroy for page transitions.
  *
- * @param {Element} carouselContainer - The element that contains the carousel's track, which contains all the carousel's slides.
- * @param {Element} carouselTrack - The element that contains all the carousel's slides.
- * @param {string} slideSelector - A CSS selector for each carousel slide, e.g., '.carousel__slide'.
- * @param {Element} nextButton - (Optional) The element that triggers the next carousel slide.
- * @param {Element} previousButton - (Optional) The element that triggers the previous carousel slide.
- * @param {Element} indicator - (Optional) An absolute positioned element representing the carousel's progress indicator.
+ * @param {Element} carouselContainer - Container of the carousel track.
+ * @param {Element} carouselTrack - Element that contains all slides.
+ * @param {string} slideSelector - CSS selector for each slide, e.g. '.carousel__slide'.
+ * @param {Element} nextButton - (Optional) Next button.
+ * @param {Element} previousButton - (Optional) Previous button.
+ * @param {Element} indicator - (Optional) Progress indicator element.
  */
 
-// FIX NEXT, PREVIOUS BUTTONS AND INDICATOR!
-
-const draggableCarousel = (
-  carouselContainer,
-  carouselTrack,
-  slideSelector,
-  nextButton = undefined,
-  previousButton = undefined,
-  indicator = undefined
-) => {
-  // Entrance
-  ScrollTrigger.create({
-    ease: "power3.out",
-  });
-
-  const draggableCarouselTimeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: carouselContainer,
-      start: "20% 100%",
-      toggleActions: "play reverse restart reverse",
-    },
-  });
-
-  draggableCarouselTimeline.fromTo(
-    slideSelector,
-    {
-      opacity: 0,
-      x: "20%",
-    },
-    {
-      opacity: 1,
-      x: 0,
-      ease: "power3.out",
-      duration: 3,
-      stagger: { amount: 0.2, from: "random" },
-    }
-  );
-
-  // Initial UI State
-  carouselContainer.style.overflow = "hidden";
-  // Set the initial values for data attributes
-  carouselTrack.setAttribute("data-mouse-down-at", "0");
-  carouselTrack.setAttribute("data-prev-percentage", "0");
-
-  // Define a variable to track whether the mouse button is down
-  let isMouseDown = false;
-
-  if (previousButton) previousButton.style.visibility = "hidden";
-
-  // Calculate Carousel Track Width
-  const draggableCarouselWidth = carouselTrack.scrollWidth;
-
-  // Get All Slides
-  const carouselSlides = carouselContainer.querySelectorAll(slideSelector);
-
-  // Calculate All Slides Width
-  let totalSlideWidth = 0;
-  carouselSlides.forEach((slide) => {
-    // console.log(slide.offsetWidth);
-    totalSlideWidth += slide.offsetWidth;
-    // console.log(slide);
-  });
-
-  // Calculate Each Slide Width
-  const slidesNumber = carouselSlides.length;
-  const slideWidth = draggableCarouselWidth / slidesNumber;
-
-  // CalculateOffsets
-  const offset = window.innerWidth - slideWidth;
-  const offsetTouch = window.screen.width - slideWidth;
-
-  // Carousel Timeline
-  const carouselTimeline = gsap.timeline({ paused: true });
-
-  carouselTimeline.fromTo(
+class DraggableCarousel {
+  constructor(
+    carouselContainer,
     carouselTrack,
-    {
-      x: "0%",
-    },
-    {
-      x: -totalSlideWidth + offset,
-      ease: "none",
-    }
-  );
+    slideSelector,
+    nextButton = undefined,
+    previousButton = undefined,
+    indicator = undefined
+  ) {
+    this.carouselContainer = carouselContainer;
+    this.carouselTrack = carouselTrack;
+    this.slideSelector = slideSelector;
+    this.nextButton = nextButton;
+    this.previousButton = previousButton;
+    this.indicator = indicator;
 
-  // Mouse/ Touch Down
-  const click = (e) => {
-    console.log(carouselSlides.length);
-    isMouseDown = true;
+    this.scrollTrigger = null;
+    this.entranceTimeline = null;
+    this.carouselTimeline = null;
+    this.carouselSlides = null;
+    this.slidesNumber = 0;
+    this.slideWidth = 0;
+    this.totalSlideWidth = 0;
+    this.offset = 0;
+    this.currentSlide = 0;
+    this.isMouseDown = false;
 
-    carouselTrack.dataset.mouseDownAt = e.clientX;
-    carouselTimeline.pause();
+    this.boundClick = null;
+    this.boundTouchStart = null;
+    this.boundMoveSwipe = null;
+    this.boundMousemove = null;
+    this.boundTouchmove = null;
+    this.boundTouchend = null;
+    this.boundLeave = null;
+    this.boundWindowMouseMove = null;
+    this.boundDisableDrag = null;
+    this.boundNavigateNext = null;
+    this.boundNavigatePrev = null;
+  }
 
-    // Scale down on click
-    gsap.to(carouselSlides, {
-      scale: 0.95,
+  init() {
+    if (!this.carouselContainer || !this.carouselTrack) return this;
+
+    const carouselContainer = this.carouselContainer;
+    const carouselTrack = this.carouselTrack;
+    const slideSelector = this.slideSelector;
+    const nextButton = this.nextButton;
+    const previousButton = this.previousButton;
+    const indicator = this.indicator;
+
+    // Entrance
+    this.scrollTrigger = ScrollTrigger.create({
+      ease: "power3.out",
     });
-  };
 
-  const touch = (e) => {
-    carouselTrack.dataset.mouseDownAt = e.clientX;
-    carouselTimeline.pause();
-
-    // Scale down on click
-    gsap.to(carouselSlides, {
-      scale: 0.95,
+    this.entranceTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: carouselContainer,
+        start: "20% 100%",
+        toggleActions: "play reverse restart reverse",
+      },
     });
-  };
 
-  carouselTrack.addEventListener("mousedown", (e) => {
-    click(e);
-  });
-  carouselTrack.addEventListener("touchstart", (e) => {
-    touch(e.touches[0]);
-  });
-
-  // Mouse/ Touch Move
-  const moveSwipe = (e) => {
-    if (carouselTrack.dataset.mouseDownAt === "0") return;
-    const mouseDelta =
-      parseFloat(carouselTrack.dataset.mouseDownAt) - e.clientX;
-    const maxDelta = window.innerWidth * 2;
-
-    const percentage = (mouseDelta / maxDelta) * -100;
-    const nextPercentageUnconstrained =
-      parseFloat(carouselTrack.dataset.prevPercentage) + percentage;
-    const nextPercentage = Math.max(
-      Math.min(nextPercentageUnconstrained, 0),
-      -100
+    this.entranceTimeline.fromTo(
+      slideSelector,
+      { opacity: 0, x: "20%" },
+      {
+        opacity: 1,
+        x: 0,
+        ease: "power3.out",
+        duration: 3,
+        stagger: { amount: 0.2, from: "random" },
+      }
     );
 
-    carouselTrack.dataset.percentage = nextPercentage;
+    carouselContainer.style.overflow = "hidden";
+    carouselTrack.setAttribute("data-mouse-down-at", "0");
+    carouselTrack.setAttribute("data-prev-percentage", "0");
 
-    // Use gsap.to to animate the timeline's progress
-    gsap.to(carouselTimeline, {
-      progress: Math.abs(nextPercentage / 100),
+    if (previousButton) previousButton.style.visibility = "hidden";
+
+    const draggableCarouselWidth = carouselTrack.scrollWidth;
+    this.carouselSlides = carouselContainer.querySelectorAll(slideSelector);
+
+    let totalSlideWidth = 0;
+    this.carouselSlides.forEach((slide) => {
+      totalSlideWidth += slide.offsetWidth;
     });
-  };
+    this.totalSlideWidth = totalSlideWidth;
+    this.slidesNumber = this.carouselSlides.length;
+    this.slideWidth = draggableCarouselWidth / this.slidesNumber;
+    this.offset = window.innerWidth - this.slideWidth;
 
-  carouselTrack.addEventListener("mousemove", (e) => {
-    moveSwipe(e);
-  });
-
-  carouselTrack.addEventListener("touchmove", (e) => {
-    moveSwipe(e.touches[0]);
-  });
-
-  // Mouse/ Touch Leave
-  const leave = (e) => {
-    isMouseDown = false;
-    carouselTrack.dataset.mouseDownAt = "0";
-    carouselTrack.dataset.prevPercentage = carouselTrack.dataset.percentage;
-    carouselTimeline.pause();
-    gsap.to(carouselSlides, { scale: 1 });
-  };
-  carouselTrack.addEventListener("mouseup", (e) => leave(e));
-  carouselTrack.addEventListener("touchend", (e) => leave(e.touches[0]));
-
-  // Touch Move
-  carouselTrack.addEventListener("touchmove", (e) => {
-    if (!isMouseDown) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - carouselTrack.offsetLeft;
-
-    const walk = x - mouseStartingPosition;
-    const newTranslateAmount = translateAmount + walk;
-
-    // Calculate the percentage of translation relative to the maximum allowed translation
-    const minTranslateAmount = 0;
-    const maxTranslateAmount = -totalSlideWidth + offsetTouch;
-    const percentage = (newTranslateAmount / maxTranslateAmount) * 100;
-
-    // Update the indicator position
-    if (indicator) {
-      if (percentage <= 100 && percentage >= 0)
-        indicator.style.left = `${percentage}%`;
-    }
-
-    if (newTranslateAmount > minTranslateAmount) {
-      gsap.to(carouselTrack, { x: `${minTranslateAmount}px` });
-    } else if (newTranslateAmount < maxTranslateAmount) {
-      gsap.to(carouselTrack, { x: `${maxTranslateAmount}px` });
-    } else {
-      gsap.to(carouselTrack, { x: `${newTranslateAmount}px` });
-    }
-  });
-
-  // Leave mouse when dragging outside the screen
-  window.addEventListener("mousemove", (e) => {
-    if (isMouseDown) {
-      moveSwipe(e);
-
-      // Check if the cursor has moved outside a certain boundary (e.g., the window width)
-      if (e.clientX > window.innerWidth) {
-        leave();
+    this.carouselTimeline = gsap.timeline({ paused: true });
+    this.carouselTimeline.fromTo(
+      carouselTrack,
+      { x: "0%" },
+      {
+        x: -totalSlideWidth + this.offset,
+        ease: "none",
       }
-    }
-  });
+    );
 
-  // Firefox Bug Fix
-  const disableDrag = (e) => {
-    e.preventDefault();
-  };
-  carouselTrack.addEventListener("dragstart", disableDrag);
+    this.boundClick = (e) => {
+      this.isMouseDown = true;
+      carouselTrack.dataset.mouseDownAt = e.clientX;
+      this.carouselTimeline.pause();
+      gsap.to(this.carouselSlides, { scale: 0.95 });
+    };
 
-  // Next/ Previous Button Navigation
-  let currentSlide = 0;
+    this.boundTouchStart = (e) => {
+      carouselTrack.dataset.mouseDownAt = e.touches[0].clientX;
+      this.carouselTimeline.pause();
+      gsap.to(this.carouselSlides, { scale: 0.95 });
+    };
 
-  const navigateWithArrow = (direction) => {
+    this.boundMoveSwipe = (e) => {
+      if (carouselTrack.dataset.mouseDownAt === "0") return;
+      const mouseDelta =
+        parseFloat(carouselTrack.dataset.mouseDownAt) - e.clientX;
+      const maxDelta = window.innerWidth * 2;
+      const percentage = (mouseDelta / maxDelta) * -100;
+      const nextPercentageUnconstrained =
+        parseFloat(carouselTrack.dataset.prevPercentage || "0") + percentage;
+      const nextPercentage = Math.max(
+        Math.min(nextPercentageUnconstrained, 0),
+        -100
+      );
+      carouselTrack.dataset.percentage = nextPercentage;
+      gsap.to(this.carouselTimeline, {
+        progress: Math.abs(nextPercentage / 100),
+      });
+    };
+
+    this.boundLeave = () => {
+      this.isMouseDown = false;
+      carouselTrack.dataset.mouseDownAt = "0";
+      carouselTrack.dataset.prevPercentage = carouselTrack.dataset.percentage || "0";
+      this.carouselTimeline.pause();
+      gsap.to(this.carouselSlides, { scale: 1 });
+    };
+
+    this.boundMousemove = (e) => this.boundMoveSwipe(e);
+    this.boundTouchmove = (e) => this.boundMoveSwipe(e.touches[0]);
+    this.boundTouchend = (e) => {
+      if (e.touches.length === 0) this.boundLeave();
+    };
+
+    carouselTrack.addEventListener("mousedown", this.boundClick);
+    carouselTrack.addEventListener("touchstart", this.boundTouchStart);
+    carouselTrack.addEventListener("mousemove", this.boundMousemove);
+    carouselTrack.addEventListener("touchmove", this.boundTouchmove);
+    carouselTrack.addEventListener("mouseup", this.boundLeave);
+    carouselTrack.addEventListener("touchend", this.boundTouchend);
+
+    this.boundWindowMouseMove = (e) => {
+      if (this.isMouseDown) {
+        this.boundMoveSwipe(e);
+        if (e.clientX > window.innerWidth) this.boundLeave();
+      }
+    };
+    window.addEventListener("mousemove", this.boundWindowMouseMove);
+
+    this.boundDisableDrag = (e) => e.preventDefault();
+    carouselTrack.addEventListener("dragstart", this.boundDisableDrag);
+
+    this.boundNavigateNext = () => this.navigateWithArrow("next");
+    this.boundNavigatePrev = () => this.navigateWithArrow("previous");
+    if (nextButton) nextButton.addEventListener("click", this.boundNavigateNext);
+    if (previousButton)
+      previousButton.addEventListener("click", this.boundNavigatePrev);
+
+    return this;
+  }
+
+  navigateWithArrow(direction) {
+    const { carouselTrack, nextButton, previousButton, indicator } = this;
+    if (!carouselTrack) return;
+
     if (direction === "next") {
-      currentSlide++;
-      if (currentSlide >= slidesNumber) {
-        currentSlide = 0;
-        nextButton.style.visibility = "hidden";
+      this.currentSlide++;
+      if (this.currentSlide >= this.slidesNumber) {
+        this.currentSlide = 0;
+        if (nextButton) nextButton.style.visibility = "hidden";
       }
-    } else if (direction === "previous") {
-      currentSlide--;
-      if (currentSlide < 0) {
-        currentSlide = slidesNumber - 1;
-        previousButton.style.visibility = "hidden";
+    } else {
+      this.currentSlide--;
+      if (this.currentSlide < 0) {
+        this.currentSlide = this.slidesNumber - 1;
+        if (previousButton) previousButton.style.visibility = "hidden";
       }
     }
 
-    const translateX = `-${slideWidth * currentSlide}px`;
+    const translateX = `-${this.slideWidth * this.currentSlide}px`;
     gsap.to(carouselTrack, { x: translateX, duration: 0.3 });
 
-    // Calculate the percentage of translation relative to the maximum allowed translation
-    const maxTranslateAmount = -totalSlideWidth + window.innerWidth;
+    const maxTranslateAmount = -this.totalSlideWidth + window.innerWidth;
     const percentage =
-      -((slideWidth * currentSlide) / maxTranslateAmount) * 100;
-
-    // Update the indicator position
-    if (!indicator) return;
-    if (percentage <= 100 && percentage >= 0)
+      -((this.slideWidth * this.currentSlide) / maxTranslateAmount) * 100;
+    if (indicator && percentage <= 100 && percentage >= 0) {
       gsap.to(indicator, { left: `${percentage}%` });
-
-    nextButton.style.visibility = "visible";
-    previousButton.style.visibility = "visible";
-  };
-
-  // Next Button
-  if (nextButton) {
-    nextButton.addEventListener("click", () => navigateWithArrow("next"));
+    }
+    if (nextButton) nextButton.style.visibility = "visible";
+    if (previousButton) previousButton.style.visibility = "visible";
   }
 
-  // Previous Button
-  if (previousButton) {
-    previousButton.addEventListener("click", () =>
-      navigateWithArrow("previous")
-    );
-  }
-};
+  destroy() {
+    const {
+      carouselContainer,
+      carouselTrack,
+      nextButton,
+      previousButton,
+      scrollTrigger,
+      entranceTimeline,
+      carouselTimeline,
+    } = this;
 
-export { draggableCarousel };
+    if (!carouselTrack) return;
+
+    if (this.boundClick)
+      carouselTrack.removeEventListener("mousedown", this.boundClick);
+    if (this.boundTouchStart)
+      carouselTrack.removeEventListener("touchstart", this.boundTouchStart);
+    if (this.boundMousemove)
+      carouselTrack.removeEventListener("mousemove", this.boundMousemove);
+    if (this.boundTouchmove)
+      carouselTrack.removeEventListener("touchmove", this.boundTouchmove);
+    if (this.boundLeave)
+      carouselTrack.removeEventListener("mouseup", this.boundLeave);
+    if (this.boundTouchend)
+      carouselTrack.removeEventListener("touchend", this.boundTouchend);
+    if (this.boundWindowMouseMove)
+      window.removeEventListener("mousemove", this.boundWindowMouseMove);
+    if (this.boundDisableDrag)
+      carouselTrack.removeEventListener("dragstart", this.boundDisableDrag);
+    if (nextButton && this.boundNavigateNext)
+      nextButton.removeEventListener("click", this.boundNavigateNext);
+    if (previousButton && this.boundNavigatePrev)
+      previousButton.removeEventListener("click", this.boundNavigatePrev);
+
+    if (scrollTrigger && scrollTrigger.kill) scrollTrigger.kill();
+    if (entranceTimeline) {
+      if (entranceTimeline.scrollTrigger) entranceTimeline.scrollTrigger.kill();
+      entranceTimeline.kill();
+    }
+    if (carouselTimeline) carouselTimeline.kill();
+
+    if (carouselContainer) carouselContainer.style.overflow = "";
+    if (carouselTrack) {
+      carouselTrack.removeAttribute("data-mouse-down-at");
+      carouselTrack.removeAttribute("data-prev-percentage");
+      carouselTrack.removeAttribute("data-percentage");
+      gsap.set(carouselTrack, { clearProps: "x" });
+    }
+    if (this.carouselSlides && this.carouselSlides.length)
+      gsap.set(this.carouselSlides, { clearProps: "scale" });
+    if (previousButton) previousButton.style.visibility = "";
+    if (nextButton) nextButton.style.visibility = "";
+
+    this.carouselContainer = null;
+    this.carouselTrack = null;
+    this.carouselSlides = null;
+    this.scrollTrigger = null;
+    this.entranceTimeline = null;
+    this.carouselTimeline = null;
+    this.boundClick = null;
+    this.boundTouchStart = null;
+    this.boundMoveSwipe = null;
+    this.boundLeave = null;
+    this.boundWindowMouseMove = null;
+    this.boundDisableDrag = null;
+    this.boundNavigateNext = null;
+    this.boundNavigatePrev = null;
+    this.boundMousemove = null;
+    this.boundTouchmove = null;
+    this.boundTouchend = null;
+  }
+}
+
+export { DraggableCarousel };

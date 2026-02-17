@@ -1,4 +1,3 @@
-import { draggableCarousel } from "../logic/draggableCarousel.js";
 import Carousel from "../logic/carousel.js";
 import Tabs from "../logic/tabs.js";
 import GalleryLightbox from "../logic/galleryLightbox.js";
@@ -52,19 +51,7 @@ class SingleProduct {
       this.carousels.push(relatedProductsCarousel);
     }
 
-    // Instagram
-    const instagramCarouselContainer = document.querySelector(
-      ".instagram__slides-container"
-    );
-    const instagramCarouselTrack = document.querySelector(
-      ".instagram__container"
-    );
-    const carousel2 = draggableCarousel(
-      instagramCarouselContainer,
-      instagramCarouselTrack,
-      ".instagram__image"
-    );
-    this.carousels.push(carousel2);
+    // Draggable carousels (e.g. Instagram) are inited in index.js (initCarousels).
   }
 
   destroy() {

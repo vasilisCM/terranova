@@ -1,5 +1,4 @@
 import clipUp from "../animations/clipUp";
-import { draggableCarousel } from "../logic/draggableCarousel";
 
 class ArchiveProduct {
   constructor() {
@@ -32,19 +31,7 @@ class ArchiveProduct {
       handler: filterClickHandler,
     });
 
-    // Instagram
-    const instagramCarouselContainer = document.querySelector(
-      ".instagram__slides-container"
-    );
-    const instagramCarouselTrack = document.querySelector(
-      ".instagram__container"
-    );
-    const carousel = draggableCarousel(
-      instagramCarouselContainer,
-      instagramCarouselTrack,
-      ".instagram__column"
-    );
-    this.carousels.push(carousel);
+    // Draggable carousels are inited in index.js (initCarousels).
   }
 
   destroy() {

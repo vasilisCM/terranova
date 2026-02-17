@@ -1,6 +1,5 @@
 import clipUp from "../animations/clipUp.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
-import { draggableCarousel } from "../logic/draggableCarousel.js";
 import loadMorePosts from "../services/loadMorePosts.js";
 
 class Posts {
@@ -18,29 +17,7 @@ class Posts {
 
     setAsymmetricalClasses();
 
-    // Archive Carousel
-    const blogCarouselContainer = document.querySelector(".slides-container");
-    const blogCarouselTrack = document.querySelector(
-      ".asymmetrical-carousel__container"
-    );
-    const carousel1 = draggableCarousel(
-      blogCarouselContainer,
-      blogCarouselTrack,
-      ".asymmetrical-carousel__column"
-    );
-    this.carousels.push(carousel1);
-
-    // Recipes
-    const recipesContainer = document.querySelector(
-      ".recipes__archive-container"
-    );
-    const recipesCarouselTrack = document.querySelector(".recipes__archive");
-    const carousel2 = draggableCarousel(
-      recipesContainer,
-      recipesCarouselTrack,
-      ".recipes__post"
-    );
-    this.carousels.push(carousel2);
+    // Draggable carousels are inited in index.js (initCarousels).
 
     /*
     // Load More

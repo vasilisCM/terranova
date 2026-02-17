@@ -1,6 +1,5 @@
 import clipUp from "../animations/clipUp.js";
 import multiEmailForm from "../logic/multiEmailForm.js";
-import { draggableCarousel } from "../logic/draggableCarousel.js";
 
 class Contact {
   constructor() {
@@ -17,19 +16,7 @@ class Contact {
     // Multi Email Form
     multiEmailForm();
 
-    // Instagram
-    const instagramCarouselContainer = document.querySelector(
-      ".instagram__slides-container"
-    );
-    const instagramCarouselTrack = document.querySelector(
-      ".instagram__container"
-    );
-    const carousel = draggableCarousel(
-      instagramCarouselContainer,
-      instagramCarouselTrack,
-      ".instagram__column"
-    );
-    this.carousels.push(carousel);
+    // Draggable carousels are inited in index.js (initCarousels).
   }
 
   destroy() {

@@ -27,6 +27,8 @@ class Accordion {
   }
 
   init() {
+    console.log("Accordion.init() called");
+    
     this.accordionElement = document.querySelector(this.accordionSelector);
 
     if (this.isFirstItemOpen) {

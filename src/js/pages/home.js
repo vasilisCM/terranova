@@ -1,6 +1,5 @@
 import clipUp from "../animations/clipUp.js";
 import Carousel from "../logic/carousel.js";
-import { draggableCarousel } from "../logic/draggableCarousel.js";
 import { parallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
 import { imageOnTexthover } from "../logic/imageOnTextHover.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
@@ -171,18 +170,7 @@ class Home {
     }
 
 
-    // Carousel (with Entrance)
-    const asymmetricalCarouselContainer =
-      document.querySelector(".slides-container");
-    const asymmetricalCarouselTrack = document.querySelector(
-      ".asymmetrical-carousel__container"
-    );
-    const carousel1 = draggableCarousel(
-      asymmetricalCarouselContainer,
-      asymmetricalCarouselTrack,
-      ".asymmetrical-carousel__image-container"
-    );
-    this.carousels.push(carousel1);
+    // Draggable carousels are inited in index.js (initCarousels) so they work on every transition.
 
     // Product Presentaiton Carousel
     const productPresentationCarousel = new Carousel(
@@ -193,32 +181,6 @@ class Home {
 
     // Choice
     imageOnTexthover();
-
-    // Blog
-    const blogCarouselContainer = document.querySelector(
-      ".blog-home__archive-container"
-    );
-    const blogCarouselTrack = document.querySelector(".blog-home__archive");
-    const carousel2 = draggableCarousel(
-      blogCarouselContainer,
-      blogCarouselTrack,
-      ".blog-home__post"
-    );
-    this.carousels.push(carousel2);
-
-    // Instagram
-    const instagramCarouselContainer = document.querySelector(
-      ".instagram__slides-container"
-    );
-    const instagramCarouselTrack = document.querySelector(
-      ".instagram__container"
-    );
-    const carousel3 = draggableCarousel(
-      instagramCarouselContainer,
-      instagramCarouselTrack,
-      ".instagram__column"
-    );
-    this.carousels.push(carousel3);
   }
 
   destroy() {
