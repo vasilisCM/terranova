@@ -1111,6 +1111,7 @@ h4 {
   opacity: 0;
   position: fixed;
   inset: 0;
+  z-index: 3;
   width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -3319,9 +3320,16 @@ main--home {
 .single-product__button--info {
   background-color: #fcfcfc;
   border: solid 2px #000;
+  cursor: revert;
 }
 .single-product__button--info:before, .single-product__button--info:after {
-  background-color: #000;
+  background-color: #fcfcfc;
+}
+.single-product__button--info:hover:before, .single-product__button--info:hover:after {
+  background-color: #fcfcfc;
+}
+.single-product__button--info:hover .button__text {
+  color: #000;
 }
 .single-product__button-inner--info:after {
   display: none;
