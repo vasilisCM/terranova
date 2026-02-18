@@ -1,3 +1,6 @@
+const DEBUG = true;
+const log = (msg, ...args) => DEBUG && console.log(`[MegaMenuDropdown] ${msg}`, ...args);
+
 class MegaMenuDropdown {
   constructor() {
     this.dropdownBackground = null;
@@ -6,6 +9,7 @@ class MegaMenuDropdown {
     this.topLevelItems = null;
     this.subMenus = [];
     this.links = [];
+    this.allLinksFlat = []; // flattened for close animation so every link is targeted
     this.isOpen = false;
     this.openTl = null;
     this.closeTl = null;
@@ -14,6 +18,7 @@ class MegaMenuDropdown {
   }
 
   init() {
+    log("init() called");
     // Clean up any existing state first (in case init is called multiple times)
     this.cleanup();
 
@@ -23,8 +28,12 @@ class MegaMenuDropdown {
     this.topLevelItems = document.querySelectorAll(".main-menu__list > li");
     this.subMenus = document.querySelectorAll(".sub-menu");
 
-    if (!this.dropdownBackground || !this.megaMenuOverlay) return;
+    if (!this.dropdownBackground || !this.megaMenuOverlay) {
+      log("init() early return: missing dropdownBackground or megaMenuOverlay");
+      return;
+    }
 
+    log("init() setting initial GSAP state (bg, overlay, productImages)");
     gsap.set(this.dropdownBackground, { y: "-200%", autoAlpha: 0 });
     gsap.set(this.megaMenuOverlay, { autoAlpha: 0 });
     gsap.set(this.productImages, { display: "flex", autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)" });
@@ -43,19 +52,29 @@ class MegaMenuDropdown {
 
         const openHandler = () => {
           if (this.closeTl) {
+            log("openHandler: killing closeTl (close was in progress)");
             this.closeTl.kill();
             this.closeTl = null;
             gsap.set(this.dropdownBackground, { y: "0", autoAlpha: 1 });
             gsap.set(this.megaMenuOverlay, { autoAlpha: 1, pointerEvents: "auto" });
             this.isOpen = true;
           }
-          if (this.openTl) this.openTl.kill();
+          if (this.openTl) {
+            log("openHandler: killing previous openTl");
+            this.openTl.kill();
+            this.openTl = null;
+          }
 
           gsap.set(this.subMenus, { display: "none" });
           gsap.set(subMenu, { display: "flex" });
 
           const wasOpen = this.isOpen;
-          this.openTl = gsap.timeline();
+          log("openHandler: building open timeline", { wasOpen, hasProductImages });
+          this.openTl = gsap.timeline({
+            onStart: () => log("openTl onStart"),
+            onComplete: () => log("openTl onComplete"),
+            onKill: () => log("openTl onKill"),
+          });
 
           if (!wasOpen) {
             this.openTl
@@ -94,22 +113,35 @@ class MegaMenuDropdown {
       }
     });
 
+    // Flatten so close animation targets every link (this.links is array of arrays)
+    this.allLinksFlat = this.links.length ? gsap.utils.toArray(this.links) : [];
+    log("init() done", { topLevelItems: this.topLevelItems.length, subMenus: this.subMenus.length, linksGroups: this.links.length, allLinksFlat: this.allLinksFlat.length });
     this.overlayHandler = () => this.runClose();
     this.megaMenuOverlay.addEventListener("mouseenter", this.overlayHandler);
   }
 
   runClose() {
-    if (this.openTl) this.openTl.kill();
+    log("runClose() called", { isOpen: this.isOpen, hadOpenTl: !!this.openTl });
+    if (this.openTl) {
+      this.openTl.kill();
+      this.openTl = null;
+    }
+
+    const targets = this.allLinksFlat.length ? this.allLinksFlat : this.links.flat();
+    log("runClose: building close timeline", { linksTargetCount: targets.length });
 
     this.closeTl = gsap.timeline({
+      onStart: () => log("closeTl onStart"),
       onComplete: () => {
+        log("closeTl onComplete");
         this.isOpen = false;
         this.closeTl = null;
-      }
+      },
+      onKill: () => log("closeTl onKill"),
     });
     this.closeTl
       .set(this.megaMenuOverlay, { pointerEvents: "none" })
-      .to(this.links, { autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)", duration: 0.5, ease: "power2.in" })
+      .to(targets, { autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)", duration: 0.5, ease: "power2.in" })
       .to(this.productImages, { autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)", duration: 0.5, ease: "power2.in" }, "-=0.7")
       .to(this.dropdownBackground, { y: "-200%", autoAlpha: 0, duration: 0.5, ease: "power2.in" }, "-=0.1")
       .to(this.megaMenuOverlay, { autoAlpha: 0, duration: 0.5, ease: "power2.in" }, "<")
@@ -117,6 +149,7 @@ class MegaMenuDropdown {
   }
 
   cleanup() {
+    log("cleanup() called", { handlers: this.eventHandlers.length, openTl: !!this.openTl, closeTl: !!this.closeTl });
     this.eventHandlers.forEach(({ element, handler }) => {
       element.removeEventListener("mouseenter", handler);
     });
@@ -137,16 +170,19 @@ class MegaMenuDropdown {
     }
 
     this.links = [];
+    this.allLinksFlat = [];
     this.isOpen = false;
   }
 
   destroy() {
+    log("destroy() called");
     this.cleanup();
 
     gsap.set(".main-menu__dropdown-background", { y: "-200%", autoAlpha: 0 });
     gsap.set(".dropdown-menu-overlay", { autoAlpha: 0 });
     gsap.set(".sub-menu", { display: "none" });
     gsap.set(".mega-menu-images", { autoAlpha: 0, clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)" });
+    log("destroy() done");
   }
 }
 

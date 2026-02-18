@@ -12,8 +12,6 @@ import MegaMenuDropdown from "./global/megaMenuDropdown.js";
 import { DraggableCarousel } from "./logic/draggableCarousel.js";
 
 function global() {
-  console.log("JavaScript");
-
   // Semi-global features that need to reinitialize after page transitions
   const globalFeatures = {
     customCursor: new CustomCursor(),
@@ -25,6 +23,10 @@ function global() {
   let megaMenuDropdownInstance = null;
   let mobileMenuInstance = null;
 
+  const MEGA_DEBUG = true;
+  const megaLog = (msg, ...args) =>
+    MEGA_DEBUG && console.log(`[index.js MegaMenu] ${msg}`, ...args);
+
   function scrollToTopWithLenis(options = {}) {
     if (!lenis || typeof lenis.scrollTo !== "function") return;
 
@@ -34,26 +36,20 @@ function global() {
 
   // Initialize semi-global features
   function initGlobalFeatures() {
-    console.log("============ initGlobalFeatures() called ============");
     Object.entries(globalFeatures).forEach(([name, feature]) => {
       if (feature && typeof feature.init === "function") {
-        console.log(`Initializing: ${name}`);
         feature.init();
       }
     });
-    console.log("============ initGlobalFeatures() complete ============");
   }
 
   // Cleanup semi-global features
   function destroyGlobalFeatures() {
-    console.log("============ destroyGlobalFeatures() called ============");
     Object.entries(globalFeatures).forEach(([name, feature]) => {
       if (feature && typeof feature.destroy === "function") {
-        console.log(`Destroying: ${name}`);
         feature.destroy();
       }
     });
-    console.log("============ destroyGlobalFeatures() complete ============");
   }
 
   // Prevent browser scroll restoration and force the viewport to start at the top
@@ -151,7 +147,6 @@ function global() {
       script.src = src;
       // script.type = "module";
       script.onload = () => {
-        console.log("Script loaded:", script.src);
         currentPageScript = script; // Track this script
         resolve();
       };
@@ -168,8 +163,6 @@ function global() {
   }
 
   function unloadScript() {
-    console.log("unloadScript called");
-
     // Call all possible cleanup functions FIRST (before removing the script)
     const cleanupFunctions = [
       "homeCleanup",
@@ -184,12 +177,11 @@ function global() {
 
     cleanupFunctions.forEach((funcName) => {
       if (window[funcName]) {
-        console.log(`Calling ${funcName}`);
         try {
           window[funcName]();
           delete window[funcName];
         } catch (error) {
-          console.error(`Error in ${funcName}:`, error);
+          // Silent catch
         }
       }
     });
@@ -197,11 +189,8 @@ function global() {
     // Then remove the script element
     const currentScript = getCurrentScript();
     if (currentScript) {
-      console.log("Removing script:", currentScript.src);
       document.body.removeChild(currentScript);
       currentPageScript = null; // Clear the reference
-    } else {
-      console.log("No current script element to remove");
     }
   }
 
@@ -210,7 +199,7 @@ function global() {
   }
 
   function fadeOut() {
-    const tl = gsap.timeline({ onStart: () => console.log("Fading out...") });
+    const tl = gsap.timeline();
     tl.set([".loader--1, .loader--2"], { autoAlpha: 1 })
       .fromTo(
         [".loader--1, .loader--2"],
@@ -261,7 +250,7 @@ function global() {
 
     // do whatever you want when all images are loaded
     return imgLoad.on("done", () => {
-      const tl = gsap.timeline({ onStart: () => console.log("Fading in...") });
+      const tl = gsap.timeline();
 
       tl.set(
         [".loader--1", ".loader--2"],
@@ -307,8 +296,7 @@ function global() {
   const { themeUrl } = wordpressObject;
 
   barba.hooks.beforeEnter(() => {
-    console.log("coming...");
-
+    megaLog("barba.hooks.beforeEnter: new page entering (DOM updated)");
     // Reset the ScrollTriggers
     let triggers = ScrollTrigger.getAll();
     triggers.forEach((trigger) => {
@@ -321,23 +309,18 @@ function global() {
 
   barba.hooks.after(async (data) => {
     const pageName = data.next.namespace;
-    console.log("barba.hooks.after - Page name:", pageName);
 
     // Try to load page-specific JS bundle (some pages don't have one)
     try {
       await loadScript(`${themeUrl}/dist/${pageName}.bundle.js`);
-      console.log(`Successfully loaded ${pageName}.bundle.js`);
     } catch (error) {
-      console.log(`No JS bundle for ${pageName} (this is ok)`);
       currentPageScript = null; // No script to track
     }
 
-    console.log("After - dispatching loaderDone");
     document.dispatchEvent(new CustomEvent("loaderDone"));
 
     // Initialize global features after page is fully loaded
     // This ensures DOM is ready and page-specific JS has loaded
-    console.log("About to call initGlobalFeatures from barba.hooks.after");
     initGlobalFeatures();
 
     // Reinitialize Accordion when the new page has one (e.g. pages without a dedicated bundle)
@@ -350,8 +333,10 @@ function global() {
 
     // Reinitialize MegaMenuDropdown on desktop after page transition
     if (window.matchMedia("(min-width: 1025px)").matches) {
+      megaLog("barba.hooks.after: desktop — init MegaMenuDropdown");
       if (!megaMenuDropdownInstance) {
         megaMenuDropdownInstance = new MegaMenuDropdown();
+        megaLog("barba.hooks.after: created new MegaMenuDropdown instance");
       }
       megaMenuDropdownInstance.init();
     }
@@ -368,7 +353,6 @@ function global() {
       {
         name: "general-transition",
         once: ({ next }) => {
-          console.log("barba once hook - namespace:", next.namespace);
           fadeInOnce(next.container);
 
           // Track the initial page script
@@ -381,11 +365,9 @@ function global() {
           );
           if (initialScript) {
             currentPageScript = initialScript;
-            console.log("Initial script tracked:", initialScript.src);
           }
 
           // Initialize global features on first load
-          console.log("About to call initGlobalFeatures from once hook");
           initGlobalFeatures();
 
           // First-load carousels + scroll-to-top when loader is done (same logical moment as transition: scroll top then init)
@@ -401,8 +383,10 @@ function global() {
 
           // Initialize MegaMenuDropdown on desktop on first load
           if (window.matchMedia("(min-width: 1025px)").matches) {
+            megaLog("barba once: desktop — init MegaMenuDropdown (first load)");
             if (!megaMenuDropdownInstance) {
               megaMenuDropdownInstance = new MegaMenuDropdown();
+              megaLog("barba once: created new MegaMenuDropdown instance");
             }
             megaMenuDropdownInstance.init();
           }
@@ -414,13 +398,13 @@ function global() {
 
         enter: ({ next }) => {
           fadeIn(next.container);
-          console.log("new page");
         },
       },
     ],
   });
 
   barba.hooks.beforeLeave(() => {
+    megaLog("barba.hooks.beforeLeave: leaving page");
     // Clean up global features before leaving
     destroyGlobalFeatures();
 
@@ -437,6 +421,7 @@ function global() {
 
     // Clean up MegaMenuDropdown
     if (megaMenuDropdownInstance) {
+      megaLog("barba.hooks.beforeLeave: destroying MegaMenuDropdown");
       megaMenuDropdownInstance.destroy();
     }
 
@@ -457,20 +442,21 @@ function global() {
     hideHeaderOnScroll(".header", "header--sticky");
 
     // MegaMenuDropdown - Desktop only
+    megaLog("matchMedia(min-width:1025px): init MegaMenuDropdown");
     if (!megaMenuDropdownInstance) {
       megaMenuDropdownInstance = new MegaMenuDropdown();
+      megaLog("matchMedia: created new MegaMenuDropdown instance");
     }
     megaMenuDropdownInstance.init();
 
     // Cleanup when leaving desktop breakpoint
     return () => {
-      console.log("Desktop cleanup called");
-
       if (menuDropdownInstance) {
         menuDropdownInstance.destroy();
       }
 
       if (megaMenuDropdownInstance) {
+        megaLog("matchMedia cleanup (leaving desktop): destroying MegaMenuDropdown");
         megaMenuDropdownInstance.destroy();
       }
 
@@ -498,6 +484,7 @@ function global() {
 
       // Ensure MegaMenuDropdown is destroyed on mobile
       if (megaMenuDropdownInstance) {
+        megaLog("matchMedia cleanup (mobile): destroying MegaMenuDropdown");
         megaMenuDropdownInstance.destroy();
       }
     };

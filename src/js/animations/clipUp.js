@@ -1,5 +1,4 @@
 const clipUp = (arr, delay = 1, additionalAnimations = []) => {
-  console.log("clipUp() called");
   const tl = gsap.timeline();
   tl.fromTo(
     arr,

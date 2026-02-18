@@ -8,15 +8,10 @@ class CustomCursor {
   }
 
   init() {
-    console.log("CustomCursor.init() called");
-
     this.cursor = document.querySelector(".cursor-track");
     if (!this.cursor) {
-      console.log("CustomCursor: No .cursor-track element found in DOM");
       return;
     }
-
-    console.log("CustomCursor: Found cursor element", this.cursor);
 
     // Track cursor position
     this.trackCursorPosition = (e) => {
@@ -28,16 +23,10 @@ class CustomCursor {
 
     // Setup draggable images
     this.setupDraggableImages();
-
-    console.log("CustomCursor initialized");
   }
 
   setupDraggableImages() {
     this.draggableImages = document.querySelectorAll("[draggable-image]");
-
-    console.log(
-      `CustomCursor: Found ${this.draggableImages.length} draggable images`
-    );
 
     if (!this.draggableImages.length || !this.cursor) return;
 
@@ -71,8 +60,6 @@ class CustomCursor {
   }
 
   destroy() {
-    console.log("CustomCursor.destroy() called");
-
     // Remove cursor position tracker
     if (this.trackCursorPosition) {
       window.removeEventListener("mousemove", this.trackCursorPosition);
@@ -80,10 +67,6 @@ class CustomCursor {
     }
 
     // Remove all draggable image event listeners
-    console.log(
-      `CustomCursor: Removing listeners from ${this.eventHandlers.size} images`
-    );
-
     this.eventHandlers.forEach((handlers, img) => {
       Object.entries(handlers).forEach(([event, handler]) => {
         img.removeEventListener(event, handler);
@@ -93,8 +76,6 @@ class CustomCursor {
     this.eventHandlers.clear();
     this.draggableImages = [];
     this.cursor = null;
-
-    console.log("CustomCursor destroyed");
   }
 }
 
