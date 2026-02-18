@@ -38,7 +38,7 @@
     </section>
 
     <section class="basic serum-organic-list">
-        <div class="boxed centered flex serum-organic-list__container">
+        <div class="boxed-md centered flex serum-organic-list__container">
             <?php if (have_rows('serum_organic__icon_list')): ?>
                 <?php while (have_rows('serum_organic__icon_list')): the_row();
                     $image = get_sub_field('image');
@@ -59,7 +59,7 @@
         $text = $how_it_works['text'];
         $image = $how_it_works['image'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
             <div class="text"><?php echo $text; ?></div>
 
@@ -92,7 +92,7 @@
         $text_1 = $ingredients['text_1'];
         $text_2 = $ingredients['text_2'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <div class="text-container">
                 <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text_1; ?></div>
@@ -127,7 +127,7 @@
     ?>
     <section class="basic serum-organic-importance" style="background-image: url('<?php echo $background; ?>');">
 
-        <div class="boxed centered flex">
+        <div class="boxed-md centered flex">
             <div class="serum-organic-importance__img-container">
                 <img src="<?php echo $image; ?>" alt="">
             </div>
@@ -148,7 +148,7 @@
         $text_4 = $why['text_4'];
         $text_5 = $why['text_5'];
         ?>
-        <div class="boxed centered">
+        <div class="boxed-md centered">
             <div><img src="<?php echo $image; ?>" alt=""></div>
             <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
 
