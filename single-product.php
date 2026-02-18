@@ -58,10 +58,10 @@
                         <span
                             class="uppercase text-s uppercase letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
                     </button>
-                    <button
+                    <!-- <button
                         class="button single-product__button text-button mask-text">
                         <span class="text-button button__text">where to buy </span>
-                    </button>
+                    </button> -->
                 </div>
 
 
