@@ -86,10 +86,22 @@
     &--info {
       background-color: $white;
       border: solid 2px $black;
+      cursor: revert;
 
       &:before,
       &:after {
-        background-color: $black;
+        background-color: $white;
+      }
+
+      &:hover {
+        &:before,
+        &:after {
+          background-color: $white;
+        }
+
+        & .button__text {
+          color: $black;
+        }
       }
     }
   }

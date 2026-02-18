@@ -38,6 +38,10 @@ class GalleryLightbox {
     this.galleryElement = document.querySelector(this.gallerySelector);
     this.lightboxElement = document.querySelector(this.lightboxSelector);
 
+    if (!this.galleryElement || !this.lightboxElement) {
+      return;
+    }
+
     const carouselTrack = this.lightboxElement.querySelector(
       this.lightboxCarouselTrackSelector
     );
@@ -129,18 +133,26 @@ class GalleryLightbox {
   }
 
   destroy() {
+    if (!this.galleryElement || !this.lightboxElement) {
+      return;
+    }
     this.galleryElement.removeEventListener("click", this.handleOpenLightbox);
     this.lightboxElement.removeEventListener("click", this.handleCloseLightbox);
-    this.closeButton.removeEventListener(
-      "click",
-      this.handleCloseLightboxButton
-    );
+    if (this.closeButton) {
+      this.closeButton.removeEventListener(
+        "click",
+        this.handleCloseLightboxButton
+      );
+    }
     document.removeEventListener("keydown", this.handleEscKey);
 
     this.galleryElement = null;
     this.lightboxElement = null;
-    this.carousel.destroy();
-    this.carousel = null;
+    if (this.carousel) {
+      this.carousel.destroy();
+      this.carousel = null;
+    }
+    this.closeButton = null;
   }
 }
 
