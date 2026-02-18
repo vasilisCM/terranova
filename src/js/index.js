@@ -103,13 +103,14 @@ function global() {
         const trackEl = el.querySelector(track);
         if (!trackEl) return;
         for (const slide of slides) {
-          if (el.querySelector(slide)) {
-            const carousel = new DraggableCarousel(el, trackEl, slide);
-            carousel.init();
-            carouselInstances.push(carousel);
-            initedContainers.add(el);
-            break;
-          }
+          const slideEls = el.querySelectorAll(slide);
+          if (slideEls.length === 0) continue;
+          if (slideEls.length <= 4) break;
+          const carousel = new DraggableCarousel(el, trackEl, slide);
+          carousel.init();
+          carouselInstances.push(carousel);
+          initedContainers.add(el);
+          break;
         }
       });
     });

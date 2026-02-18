@@ -37,8 +37,9 @@
         </div>
     </section>
 
-      <!-- Custom Cursor  -->
-  <?php include 'components/custom-cursor.php'; ?>
+    <!-- Custom Cursor  -->
+    <?php // include 'components/custom-cursor.php'; 
+    ?>
 
 </main>
 
