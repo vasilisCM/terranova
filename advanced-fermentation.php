@@ -61,6 +61,8 @@
 
     </section>
 
+    <!-- Custom Cursor  -->
+    <?php include 'components/custom-cursor.php'; ?>
 </main>
 
 <?php get_footer(); ?>
