@@ -50,7 +50,7 @@
                   <?php endif; ?>
                 </div>
                 <a href="<?php the_permalink(); ?>">
-                  <h2 class="archive-blog__heading heading-single-product">
+                  <h2 class="archive-blog__heading heading-single-product heading-m">
                     <?php the_title(); ?>
                   </h2>
                 </a>

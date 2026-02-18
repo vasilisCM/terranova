@@ -114,67 +114,68 @@
                                     </div>
                                 </div>
 
-                                <?php if (!empty($recommendedProducts)) {
+                                <?php if (!empty($recommendedProducts)): ?>
 
-                                    if (!is_array($recommendedProducts)) {
+                                    <?php if (!is_array($recommendedProducts)) {
                                         $recommendedProducts = array($recommendedProducts);
                                     }
 
                                     $recommendedProducts_ids = array_slice($recommendedProducts, 0, 3);
-                                }
-                                ?>
 
-                                <?php if (!empty($recommendedProducts_ids)) : ?>
-                                    <div class="light-gray-bg">
-                                        <div class="boxed-md centered width-full">
-                                            <div
-                                                class="heading-ms underline skin-nutrition-steps__subheading">
-                                                <?php echo __('Recommended Products', 'terranova'); ?>
-                                            </div>
-                                            <!-- Grid  -->
-                                            <div class="auto-fit-grid">
-                                                <?php
-                                                foreach ($recommendedProducts_ids as $recommendedProducts_id) :
-                                                    $post_obj = get_post($recommendedProducts_id);
-                                                    if (!$post_obj) {
-                                                        continue;
-                                                    }
+                                    ?>
 
-                                                    setup_postdata($post_obj);
+                                    <?php if (!empty($recommendedProducts_ids)) : ?>
+                                        <div class="light-gray-bg">
+                                            <div class="boxed-md centered width-full">
+                                                <div
+                                                    class="heading-ms underline skin-nutrition-steps__subheading">
+                                                    <?php echo __('Recommended Products', 'terranova'); ?>
+                                                </div>
+                                                <!-- Grid  -->
+                                                <div class="skin-nutrition-steps__product-grid">
+                                                    <?php
+                                                    foreach ($recommendedProducts_ids as $recommendedProducts_id) :
+                                                        $post_obj = get_post($recommendedProducts_id);
+                                                        if (!$post_obj) {
+                                                            continue;
+                                                        }
 
-                                                    // Retrieve custom fields
-                                                    $thumbnail_url = get_the_post_thumbnail_url($recommendedProducts_id, 'large');
-                                                ?>
-                                                    <div class="archive-product__product">
-                                                        <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
-                                                            <div class="archive-product__img-container">
-                                                                <img
-                                                                    src="<?php echo esc_url($thumbnail_url); ?>"
-                                                                    alt=""
-                                                                    class="archive-product__featured-image" />
-                                                            </div>
-                                                        </a>
+                                                        setup_postdata($post_obj);
 
-                                                        <div class="skin-nutrition-steps__product-text-container">
+                                                        // Retrieve custom fields
+                                                        $thumbnail_url = get_the_post_thumbnail_url($recommendedProducts_id, 'large');
+                                                    ?>
+                                                        <div class="archive-product__product">
                                                             <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
-                                                                <h4
-                                                                    class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                                                    Terranova
-                                                                </h4>
-
-                                                                <h3 class="archive-product__product-title">
-                                                                    <?php echo get_the_title($recommendedProducts_id); ?>
-                                                                </h3>
+                                                                <div class="archive-product__img-container">
+                                                                    <img
+                                                                        src="<?php echo esc_url($thumbnail_url); ?>"
+                                                                        alt=""
+                                                                        class="archive-product__featured-image" />
+                                                                </div>
                                                             </a>
 
-                                                            <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>" class="link link--arrow archive-product__link"><?php echo __('View more', 'terranova'); ?></a>
+                                                            <div class="skin-nutrition-steps__product-text-container">
+                                                                <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
+                                                                    <h4
+                                                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                                                        Terranova
+                                                                    </h4>
+
+                                                                    <h3 class="archive-product__product-title">
+                                                                        <?php echo get_the_title($recommendedProducts_id); ?>
+                                                                    </h3>
+                                                                </a>
+
+                                                                <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>" class="link link--arrow archive-product__link"><?php echo __('View more', 'terranova'); ?></a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                <?php endforeach; ?>
-                                                <?php wp_reset_postdata(); ?>
+                                                    <?php endforeach; ?>
+                                                    <?php wp_reset_postdata(); ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php endif; ?>
                                 <?php endif; ?>
 
                             <?php endwhile; ?>

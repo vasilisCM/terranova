@@ -136,6 +136,15 @@
     }
   }
 
+  &__product-grid {
+    display: grid;
+    gap: cross-media(40px, $box-md, 100px);
+    padding-block: 16px cross-media(40px, $box-md, 70px);
+    @include view(md-min) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   &__product-text-container {
     display: flex;
     flex-direction: column;
