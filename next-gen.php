@@ -125,12 +125,12 @@
                         $text = get_sub_field('text');
                 ?>
                         <div>
-                            <img src="<?php echo $image; ?>" alt="">
+                            <img src="<?php echo $image; ?>" alt="" class="stats-next-gen__item-img">
 
                             <div class="stats-next-gen__item-text-container">
                                 <div>
                                     <div class="heading-ms bold"><?php echo $number; ?></div>
-                                    <div class="text"><?php echo $text; ?></div>
+                                    <div class="text line-height-s"><?php echo $text; ?></div>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
 
             <div class="basic text-center">
                 <div class="boxed-sm centered">
-                    <h2 class="heading-m accent">
+                    <h2 class="heading-m accent semibold">
                         <?php echo get_field('next_gen__how_it_works_heading'); ?>
                     </h2>
                 </div>
@@ -163,7 +163,7 @@
                                     <div class="heading-ms semibold accent-bg how-it-works-next-gen__number">
                                         <?php echo get_row_index(); ?>
                                     </div>
-                                    <div class="text">
+                                    <div class="text line-height-s">
                                         <?php echo $item; ?>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                     <div class="text"><?php echo $text_2; ?></div>
                 </div>
             </div>
-            <div class="white-bg card-next-gen__image-grid basic two-col-grid inline-padding">
+            <div class="card-next-gen__image-grid basic two-col-grid inline-padding">
                 <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
                 <div class="text">
                     <div class="medium secondary">
@@ -229,8 +229,8 @@
         ?>
 
         <div class="boxed-md centered">
-            <div><img src="<?php echo $image; ?>" class="centered" alt=""></div>
-            <div class="text-center basic">
+            <div><img src="<?php echo $image; ?>" class="centered banner-next-gen__image" alt=""></div>
+            <div class="text-center basic banner-next-gen__text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $subheading; ?></div>
                 <div class="line line--white banner-next-gen__line"></div>

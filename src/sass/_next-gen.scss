@@ -130,7 +130,7 @@
   &__list {
     display: grid;
     justify-content: center;
-    gap: cross-media(20px, $box, 40px);
+    // gap: cross-media(20px, $box, 40px);
     overflow-x: auto;
 
     @include view(md-max) {
@@ -142,16 +142,27 @@
     }
   }
 
+  &__item-img {
+    position: relative;
+    z-index: 1;
+  }
+
   &__item-text-container {
     position: relative;
     display: flex;
     gap: 8px;
+    margin-left: 15px;
+    margin-top: -15px;
 
     &::before {
       content: "";
       background-color: $accent;
       width: 1px;
     }
+
+    & > div {
+      padding-top: 15px;
+    } 
   }
 }
 
@@ -160,7 +171,11 @@
     display: grid;
     gap: cross-media(20px, $box, 40px);
     grid-template-columns: repeat(4, 1fr);
-    margin-top: cross-media(16px, $box, 32px, -1);
+    margin-top: cross-media(21px, $box, 32px, -1);
+
+    @include view(sm-max) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     @include view(xxl) {
       margin-top: cross-media(32px, 3000px, 32px * $xxl-scale, -1);
@@ -174,8 +189,9 @@
   }
 
   &__number {
-    width: cross-media(32px, $box, 64px);
-    aspect-ratio: 1;
+    width: cross-media(42px, $box, 64px);
+    height: cross-media(42px, $box, 64px);
+    aspect-ratio: 1/1;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -209,9 +225,24 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  &__image-grid {
+    background-color: #f3f3f3;
+  }
 }
 
 .banner-next-gen {
+  &__image {
+    min-width: 700px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__text-container {
+    position: relative;
+    margin-top: cross-media(100px, $box, 195px, -1);
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
