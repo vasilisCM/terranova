@@ -8,6 +8,7 @@
     $banner_carousel_link = get_field('banner_carousel_link');
     ?>
 
+    <?php $carousel_slide_count = is_array($banner_carousel_gallery) ? count($banner_carousel_gallery) : 0; ?>
     <div class="slides-container" data-asymmetrical-carousel-container>
         <div class="asymmetrical-carousel__container">
 
@@ -21,7 +22,7 @@
                         <img
                             src="<?php echo $image; ?>"
                             alt=""
-                            class="asymmetrical-carousel__image"
+                            class="asymmetrical-carousel__image<?php echo $carousel_slide_count <= 4 ? ' asymmetrical-carousel__image--no-carousel' : ''; ?>"
                             draggable-image />
                     </div>
                 </div>

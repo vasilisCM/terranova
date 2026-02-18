@@ -351,7 +351,8 @@
     </section>
 
     <!-- Cursor  -->
-    <div class="cursor-track"></div>
+    <?php // <div class="cursor-track"></div>
+    ?>
 </main>
 
 
