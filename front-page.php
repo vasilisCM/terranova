@@ -124,8 +124,10 @@
     $text_2 = $presentation['text_2'];
     $text_3 = $presentation['text_3'];
     $link = $presentation['link'];
-    $image_1 = $presentation['image_1'];
-    $image_2 = $presentation['image_2'];
+    $image_1_raw = $presentation['image_1'] ?? '';
+    $image_2_raw = $presentation['image_2'] ?? '';
+    $image_1 = is_array($image_1_raw) && !empty($image_1_raw['url']) ? $image_1_raw['url'] : (is_string($image_1_raw) && $image_1_raw !== '' ? $image_1_raw : '');
+    $image_2 = is_array($image_2_raw) && !empty($image_2_raw['url']) ? $image_2_raw['url'] : (is_string($image_2_raw) && $image_2_raw !== '' ? $image_2_raw : '');
     $text_4 = $presentation['text_4'];
     ?>
     <div class="home-presentation__container boxed centered">
@@ -139,10 +141,14 @@
       </div>
       <div class="home-presentation__images">
         <div class="relative home-presentation__img-container home-presentation__img-container--1">
-          <img src="<?php echo $image_1; ?>" class="move-up-on-scroll">
+          <?php if ($image_1): ?>
+          <img src="<?php echo esc_url($image_1); ?>" class="move-up-on-scroll" alt="">
+          <?php endif; ?>
         </div>
         <div class="home-presentation__img-container home-presentation__img-container--2">
-          <img src="<?php echo $image_2; ?>">
+          <?php if ($image_2): ?>
+          <img src="<?php echo esc_url($image_2); ?>" alt="">
+          <?php endif; ?>
         </div>
         <div class="absolute home-presentation__img-container home-presentation__img-container--3">
           <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>">

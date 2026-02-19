@@ -77,12 +77,9 @@ const loader = (bodySelector, loaderContainerSelector, loaderTextSelector) => {
       "<"
     );
 
-  // ImagesLoaded
-  imgLoad.on("done", () => {
-    // Force timeline to complete and show 100%
+  // always = all images finished (loaded or broken). Use this so we never wait forever.
+  imgLoad.on("always", () => {
     percentageTimeline.progress(1);
-
-    // Small delay to let user see 100% before fade-out
     gsap.delayedCall(1.5, () => {
       pageRevealTl.play();
       lenis.isStopped = false;
