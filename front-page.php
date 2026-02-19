@@ -132,7 +132,7 @@
       <div>
         <h2 class="home-presentation__heading heading">
           <span><?php echo $text_1; ?></span>
-          <span class="italic"><?php echo $text_2; ?></span>
+          <span class="italic"><?php echo $text_2; ?></span> <br>
           <span class="lowercase"><?php echo $text_3; ?></span>
         </h2>
 

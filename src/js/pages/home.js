@@ -1,6 +1,6 @@
 import clipUp from "../animations/clipUp.js";
 import Carousel from "../logic/carousel.js";
-import { parallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
+import { ParallaxCarouselOnScroll } from "../logic/parallaxCarouselOnScroll.js";
 import { imageOnTexthover } from "../logic/imageOnTextHover.js";
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 import moveUp from "../animations/moveUp.js";
@@ -12,6 +12,7 @@ class Home {
     this.matchMedia = null;
     this.scrollTriggers = [];
     this.carousels = [];
+    this.parallaxCarouselOnScroll = null;
     this.loaderDoneListener = null;
   }
 
@@ -102,7 +103,8 @@ class Home {
     });
 
     // Difference
-    parallaxCarouselOnScroll();
+    this.parallaxCarouselOnScroll = new ParallaxCarouselOnScroll();
+    this.parallaxCarouselOnScroll.init();
 
     // Skin Nutrition
     setAsymmetricalClasses();
@@ -221,6 +223,11 @@ class Home {
       }
     });
     this.carousels = [];
+
+    if (this.parallaxCarouselOnScroll) {
+      this.parallaxCarouselOnScroll.destroy();
+      this.parallaxCarouselOnScroll = null;
+    }
   }
 }
 
