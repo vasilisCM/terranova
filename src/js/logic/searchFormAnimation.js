@@ -1,13 +1,15 @@
+
+
 const searchFormAnimation = () => {
   const header = document.querySelector(".header");
-  // Search
   const searchToggleOpen = document.querySelector(".search__toggle--open");
   const searchToggleClose = document.querySelector(".search__toggle--close");
   const searchBackground = document.querySelector(".search__background");
   const searchModalContainer = document.querySelector(
     ".search__modal-container"
   );
-  const searchModal = document.querySelector(".search__modal");
+
+  const searchInput = document.querySelector(".search-form__input");
 
   const searchToggleOpenTimeline = gsap.timeline({
     paused: true,
@@ -17,12 +19,15 @@ const searchFormAnimation = () => {
       }
     },
     onComplete: () => {
-      document.querySelector(".search-form__input").focus();
+      searchInput?.focus();
     },
   });
 
   const searchToggleCloseTimeline = gsap.timeline({
     paused: true,
+    onComplete: () => {
+      searchToggleOpen?.focus();
+    },
   });
 
   searchToggleOpenTimeline
@@ -97,23 +102,21 @@ const searchFormAnimation = () => {
       opacity: 1,
     });
 
-  searchToggleOpen.addEventListener("click", (e) => {
+  searchToggleOpen.addEventListener("click", () => {
     if (!searchToggleOpenTimeline.isActive()) {
       searchToggleOpenTimeline.restart();
-      searchToggleOpenTimeline.play();
     }
   });
 
-  searchToggleClose.addEventListener("click", (e) => {
-    if (searchToggleOpenTimeline.totalProgress() > 0.65) {
+  searchToggleClose.addEventListener("click", () => {
+    if (
+      !searchToggleCloseTimeline.isActive() &&
+      searchToggleOpenTimeline.totalProgress() > 0.65
+    ) {
+      searchToggleOpenTimeline.pause();
       searchToggleCloseTimeline.restart();
-      searchToggleCloseTimeline.play();
     }
   });
-
-  // searchModal.addEventListener("click", () => {
-  //   console.log(document.querySelector(".search-form__input"));
-  // });
 };
 
 export { searchFormAnimation };
