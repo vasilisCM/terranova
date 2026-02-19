@@ -166,14 +166,13 @@ class Home {
       );
     this.scrollTriggers.push(textTrigger);
 
-    // Move Up  const moveUpElements = document.querySelectorAll(".move-up-on-scroll");
-    const moveUpElements = document.querySelectorAll(".move-up-on-scroll");
-    if (moveUpElements.length > 0) {
-      console.log("Calling moveUp with selector:", [
-        ".move-up-on-scroll",
-      ]);
-    moveUp(".move-up-on-scroll-trigger", [".move-up-on-scroll"], 1);
-    
+    // Parallax image on scroll (moveUp module: same UX as asymmetrical-images)
+    const moveUpTrigger = moveUp(
+      ".home-presentation__images",
+      ".move-up-on-scroll"
+    );
+    if (moveUpTrigger) {
+      this.scrollTriggers.push(moveUpTrigger);
     }
 
 

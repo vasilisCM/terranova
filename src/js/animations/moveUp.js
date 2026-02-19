@@ -1,42 +1,26 @@
-const moveUp = (triggerElement, arr, delay = 1, additionalAnimations = []) => {
-    console.log("moveUp() called");
-    const mm = gsap.matchMedia();
-  
-    mm.add("(min-width: 1025px)", () => {
-      const tl = gsap.timeline();
-      tl.fromTo(
-        arr,
-        {
-          y: 150,
-        },
-        {
-          y: -40,
-          ease: "power2.inOut",
-          stagger: 0.8,
-          duration: 10,
-          delay: delay,
-          scrollTrigger: {
-            trigger: triggerElement,
-            start: "top center",
-            end: "center center",
-            scrub: 3,
-            // markers: true,
-          }
-        }
-      );
-    
-      additionalAnimations.forEach((animation) => {
-        tl.to(animation.target, animation.props, animation.position || "<");
-      });
-  
-      return () => {
-        // Cleanup: kill the timeline when the media query no longer matches
-        tl.kill();
-      };
-    });
-  
-    return mm;
-  };
-  
-  export default moveUp;
-  
+const moveUp = (containerSelector, elementsSelector) => {
+  const container = document.querySelector(containerSelector);
+  const elements = document.querySelectorAll(elementsSelector);
+
+  if (!container || elements.length === 0) {
+    return null;
+  }
+
+  const translateAmount = elements[0].offsetHeight / 5;
+  const scrollTriggerEnd = container.offsetHeight * 2;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: "-100% top",
+      end: `+=${scrollTriggerEnd}`,
+      scrub: true,
+    },
+  });
+
+  tl.to(elements, { y: -translateAmount });
+
+  return { scrollTrigger: tl.scrollTrigger };
+};
+
+export default moveUp;

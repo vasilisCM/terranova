@@ -14,7 +14,7 @@
       <!-- Text  -->
       <div class="hero__text-container text-container">
         <h1 class="heading-xl hero__heading">
-          
+
           <span class="hero__heading-span"><?php echo $text_1; ?></span>
           <br />
           <span class="hero__heading-span italic"><?php echo $text_2; ?></span>
@@ -316,17 +316,17 @@
             $category_permalink = get_term_link($term);
             $featured_image = get_field('featured_category_image', $term);
         ?>
-              <a href="<?php echo $category_permalink; ?>">
-                <h3 class="choice__text heading-ms italic" data-category-link="<?php echo esc_url($category_permalink); ?>">
-                  <?php echo esc_html($category_name); ?>
-                </h3>
-              </a>
-              <div class="choice__image-container">
-                <img
-                  class="choice__image"
-                  src="<?php echo esc_url($featured_image); ?>"
-                  alt="<?php echo esc_attr($category_name); ?>" />
-              </div>
+            <a href="<?php echo $category_permalink; ?>">
+              <h3 class="choice__text heading-ms italic" data-category-link="<?php echo esc_url($category_permalink); ?>">
+                <?php echo esc_html($category_name); ?>
+              </h3>
+            </a>
+            <div class="choice__image-container">
+              <img
+                class="choice__image"
+                src="<?php echo esc_url($featured_image); ?>"
+                alt="<?php echo esc_attr($category_name); ?>" />
+            </div>
         <?php
           endforeach;
         endif;
