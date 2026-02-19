@@ -117,9 +117,24 @@
     flex-shrink: 0;
   }
 
+  // No overflow when --no-carousel (≤4 slides, no JS carousel)
+  &__container:has(.asymmetrical-carousel__image--no-carousel) {
+    overflow: hidden;
+    flex-wrap: nowrap;
+
+    & > * {
+      flex-shrink: 1;
+      min-width: 0;
+    }
+  }
+
   &__column {
     position: relative;
     margin: auto;
+
+    &--no-carousel {
+      flex-shrink: 1;
+    }
 
     &--1 {
       transform: translateY(64px);
@@ -131,6 +146,7 @@
       & .asymmetrical-carousel__image {
         aspect-ratio: 4/3;
         width: cross-media(264px, 991px, 550px);
+        
 
         // 4K
         @include view(xxl) {
@@ -190,7 +206,28 @@
         }
       }
     }
+
+ }
+
+   &__image {
+    object-fit: cover;
+    max-width: 550px;
+
+    // 4K
+    @include view(xxl) {
+      // max-width: calc(1.5 * 550px);
+      max-width: cross-media(550px, 3000px, 1100px);
+    }
+
+     &--no-carousel {
+      max-width: 100%;
+
+      @include view(xxl) {
+        max-width: 100%;
+      }
+    }
   }
+
 
   &__text-container {
     position: absolute;
@@ -249,16 +286,6 @@
     color: $accent;
   }
 
-  &__image {
-    object-fit: cover;
-    max-width: 550px;
-
-    // 4K
-    @include view(xxl) {
-      // max-width: calc(1.5 * 550px);
-      max-width: cross-media(550px, 3000px, 1100px);
-    }
-  }
 
   &__button {
     margin-top: $gap;

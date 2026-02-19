@@ -14,7 +14,7 @@
 
             <?php foreach ($banner_carousel_gallery as $image): ?>
                 <div
-                    class="asymmetrical-carousel__column"
+                    class="asymmetrical-carousel__column <?php echo $carousel_slide_count <= 4 ? ' asymmetrical-carousel__column--no-carousel' : ''; ?>"
                     data-asymmetrical-carousel-slide>
                     <div
                         class="asymmetrical-carousel__image-container fade-in-stagger"
