@@ -30,6 +30,7 @@
                         <h1 class="banner__heading heading">
                             <?php echo $heading; ?>
 
+
                         </h1>
 
                     </div>
@@ -278,22 +279,48 @@
                 </div>
             </div>
 
-            <div class="basic carousel">
-                <div class="carousel__track" data-glide-el="track">
-                    <div class="carousel__container">
+            <div class="basic carousel light-gray-bg">
+                <div class="carousel__heading text-l medium secondary text-center"><?php echo $card_2['carousel_heading']; ?></div>
+
+                <?php if (have_rows('next_gen__card_2')) : ?>
+                    <?php while (have_rows('next_gen__card_2')) : the_row(); ?>
+
+                        <?php if (have_rows('carousel_content')) : ?>
+                            <div class="carousel__track" data-glide-el="track">
+                                <div class="carousel__container boxed-sm centered">
+                                    <?php while (have_rows('carousel_content')) : the_row(); ?>
+
+                                        <div class="carousel__slide two-col-grid">
+                                            <div class="carousel__slide-image">
+                                                <img src="<?php echo get_sub_field('image'); ?>" alt="">
+                                            </div>
+                                            <div class="carousel__slide-text-container secondary">
+                                                <div class="carousel__slide-title text-l italic">
+                                                    <?php echo get_sub_field('title'); ?>
+                                                </div>
+                                                <div class="carousel__slide-text text italic">
+                                                    <?php echo get_sub_field('text'); ?>
+                                                </div>
+                                                <div class="carousel__slide-labels text-ms flex">
+                                                    <div class="carousel__slide-label carousel__slide-label--1">
+                                                        <?php echo get_sub_field('label_1'); ?>
+                                                    </div>
+                                                    <div class="carousel__slide-label carousel__slide-label--2">
+                                                        <?php echo get_sub_field('label_2'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <?php endwhile; ?>
 
 
-                        <?php if (!empty($gallery) && is_array($gallery)): ?>
-                            <?php foreach ($gallery as $image): ?>
-                                <div class="carousel__slide">
-                                    <div>
-                                        <img src="<?php echo $image; ?>" alt="">
-                                    </div>
                                 </div>
-                            <?php endforeach; ?>
+                            </div>
                         <?php endif; ?>
-                    </div>
-                </div>
+
+                    <?php endwhile; ?>
+                <?php endif; ?>
 
                 <div class="carousel__bottom">
                     <div class="carousel__controls">

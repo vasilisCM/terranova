@@ -9,6 +9,7 @@ module.exports = {
     skinNutrition: path.resolve(__dirname, "src/js/pages/skinNutrition.js"), // Skin Nutrition
     about: path.resolve(__dirname, "src/js/pages/about.js"), // About
     contact: path.resolve(__dirname, "src/js/pages/contact.js"), // Contact
+    nextGen: path.resolve(__dirname, "src/js/pages/nextGen.js"), // NextGen
 
     posts: path.resolve(__dirname, "src/js/pages/posts.js"), // Posts
     single: path.resolve(__dirname, "src/js/pages/single.js"), // Single Post
