@@ -18,9 +18,9 @@ const moveUp = (triggerElement, arr, delay = 1, additionalAnimations = []) => {
           scrollTrigger: {
             trigger: triggerElement,
             start: "top center",
-            end: "bottom center",
+            end: "center center",
             scrub: 3,
-          //   markers: true,
+            // markers: true,
           }
         }
       );
