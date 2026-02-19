@@ -280,7 +280,7 @@
         <div class="choice__placeholder-container">
           <div class="choice__placeholder">
             <img
-              src="<?php echo get_template_directory_uri() . '/./assets/img/home-choice-001.png'; ?>"
+              src="/wp-content/uploads/2025/11/story-challenges.jpg"
               alt=""
               class="choice__placeholder-image" />
           </div>
