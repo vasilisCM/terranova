@@ -204,7 +204,7 @@
       }
 
       @include view(xxl) {
-        max-height: cross-media(180px, 3000px, 180px * $xxl-scale);
+        max-height: cross-media(180px, 3000px, 180px * 1.5);
         top: cross-media(160px, 3000px, 160px * $xxl-scale);
         // padding-inline: cross-media(40px, 3000px, 40px * $xxl-scale);
         font-size: cross-media(16px, 3000px, 24px);
@@ -329,7 +329,7 @@
     }
 
     @include view(xxl) {
-      min-height: cross-media(430px, 3000px, 645px);
+      min-height: cross-media(430px, 3000px, 575px);
     }
   }
 }

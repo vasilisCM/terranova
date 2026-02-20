@@ -951,7 +951,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .main-menu li ul {
-    max-height: clamp(180px, 7.8vw, 234px);
+    max-height: clamp(180px, 9vw, 270px);
     top: clamp(160px, 6.9333333333vw, 208px);
     font-size: clamp(16px, 0.8vw, 24px);
   }
@@ -1065,7 +1065,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .main-menu__dropdown-background {
-    min-height: clamp(430px, 21.5vw, 645px);
+    min-height: clamp(430px, 19.1666666667vw, 575px);
   }
 }
 
