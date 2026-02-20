@@ -174,6 +174,7 @@ function global() {
       "singleCleanup",
       "singleProductCleanup",
       "skinNutritionCleanup",
+      "nextGenCleanup",
     ];
 
     cleanupFunctions.forEach((funcName) => {

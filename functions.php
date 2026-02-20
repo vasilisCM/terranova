@@ -195,6 +195,11 @@ function load_js()
     wp_enqueue_script('skinNutrition', get_template_directory_uri() . '/dist/skinNutrition.bundle.js', array(), null, true);
   }
 
+  // Next Gen
+  elseif (is_page_template('next-gen.php')) {
+    wp_enqueue_script('nextGen', get_template_directory_uri() . '/dist/nextGen.bundle.js', array(), null, true);
+  }
+
 
   // Contact
   elseif (is_page_template('contact.php')) {

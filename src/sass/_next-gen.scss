@@ -273,6 +273,28 @@
   }
 }
 
+.carousel-next-gen {
+  & .carousel__heading {
+    padding-bottom: cross-media(20px, $box, 40px);
+
+    @include view(xxl) {
+      padding-bottom: cross-media(40px, 3000px, calc(40px * $xxl-scale));
+    }
+  }
+
+  & .carousel__controls {
+    padding-inline: cross-media(20px, $box, 40px);
+
+    @include view(xxl) {
+      padding-inline: cross-media(40px, 3000px, calc(40px * $xxl-scale));
+    }
+  }
+
+  & .carousel__button {
+   color: $black;
+  }
+}
+
 .why-next-gen {
   &__container {
     background-color: $secondary;

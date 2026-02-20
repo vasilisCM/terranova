@@ -4382,6 +4382,26 @@ main--home {
   background-color: #5b697b;
 }
 
+.carousel-next-gen .carousel__heading {
+  padding-bottom: clamp(20px, 2.2222222222vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .carousel-next-gen .carousel__heading {
+    padding-bottom: clamp(40px, 1.7333333333vw, 52px);
+  }
+}
+.carousel-next-gen .carousel__controls {
+  padding-inline: clamp(20px, 2.2222222222vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .carousel-next-gen .carousel__controls {
+    padding-inline: clamp(40px, 1.7333333333vw, 52px);
+  }
+}
+.carousel-next-gen .carousel__button {
+  color: #000;
+}
+
 .why-next-gen__container {
   background-color: #5b697b;
 }

@@ -279,7 +279,7 @@
                 </div>
             </div>
 
-            <div class="basic carousel light-gray-bg">
+            <div class="basic carousel carousel-next-gen light-gray-bg">
                 <div class="carousel__heading text-l medium secondary text-center"><?php echo $card_2['carousel_heading']; ?></div>
 
                 <?php if (have_rows('next_gen__card_2')) : ?>
@@ -287,7 +287,7 @@
 
                         <?php if (have_rows('carousel_content')) : ?>
                             <div class="carousel__track" data-glide-el="track">
-                                <div class="carousel__container boxed-sm centered">
+                                <div class="carousel__container">
                                     <?php while (have_rows('carousel_content')) : the_row(); ?>
 
                                         <div class="carousel__slide two-col-grid">

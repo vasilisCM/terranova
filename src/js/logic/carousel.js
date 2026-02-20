@@ -27,6 +27,7 @@ class Carousel {
   }
 
   init() {
+    console.log("Carousel initialized");
     this.carouselElement = document.querySelector(this.carouselSelector);
 
     // Navigation Buttons
