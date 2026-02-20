@@ -58,7 +58,7 @@
 
   &__featured-image {
     margin: auto;
-    max-width: cross-media(150px, 991px, 450px);
+    // max-width: cross-media(150px, 991px, 450px);
 
     @include view(md-max) {
       max-width: 100%;

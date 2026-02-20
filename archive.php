@@ -228,7 +228,7 @@
             </aside>
 
             <!-- Grid  -->
-            <div class="archive-product__grid auto-fit-grid">
+            <div class="archive-product__grid">
                 <?php
                 if (have_posts()) :
                     while (have_posts()) : the_post();
