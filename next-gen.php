@@ -255,103 +255,111 @@
         </div>
     </section>
 
-    <section class="basic-section card-next-gen">
-        <?php
-        $card_2 = get_field('next_gen__card_2');
-        $heading = $card_2['heading'];
-        $subheading_1 = $card_1['subheading_1'];
-        $text_1 = $card_2['text_1'];
-        $subheading_2 = $card_2['subheading_2'];
-        $text_2 = $card_2['text_2'];
-        $gallery = $card_2['gallery'];
-        ?>
+    <section class="basic-section">
 
-        <div class="boxed-md centered basic accent-bg">
-            <h2 class="heading-m"><?php echo $heading; ?></h2>
-            <div class="basic card-next-gen__text-container">
-                <div class="italic">
-                    <div class="heading-s"><?php echo $subheading_1; ?></div>
-                    <div class="text"><?php echo $text_1; ?></div>
+        <div class="card-next-gen">
+            <?php
+            $card_2 = get_field('next_gen__card_2');
+            $heading = $card_2['heading'];
+            $subheading_1 = $card_1['subheading_1'];
+            $text_1 = $card_2['text_1'];
+            $subheading_2 = $card_2['subheading_2'];
+            $text_2 = $card_2['text_2'];
+            $gallery = $card_2['gallery'];
+            ?>
+
+            <div class="boxed-md centered basic accent-bg">
+                <h2 class="heading-m"><?php echo $heading; ?></h2>
+                <div class="basic card-next-gen__text-container">
+                    <div class="italic">
+                        <div class="heading-s"><?php echo $subheading_1; ?></div>
+                        <div class="text"><?php echo $text_1; ?></div>
+                    </div>
+                    <div class="italic">
+                        <div class="heading-s"><?php echo $subheading_2; ?></div>
+                        <div class="text"><?php echo $text_2; ?></div>
+                    </div>
                 </div>
-                <div class="italic">
-                    <div class="heading-s"><?php echo $subheading_2; ?></div>
-                    <div class="text"><?php echo $text_2; ?></div>
-                </div>
-            </div>
 
-            <div class="basic carousel carousel-next-gen light-gray-bg">
-                <div class="carousel__heading text-l medium secondary text-center"><?php echo $card_2['carousel_heading']; ?></div>
+                <div class="basic carousel carousel-next-gen light-gray-bg">
+                    <div class="boxed-sm centered">
+                        <div class="carousel__heading text-l medium secondary text-center"><?php echo $card_2['carousel_heading']; ?></div>
 
-                <?php if (have_rows('next_gen__card_2')) : ?>
-                    <?php while (have_rows('next_gen__card_2')) : the_row(); ?>
+                        <?php if (have_rows('next_gen__card_2')) : ?>
+                            <?php while (have_rows('next_gen__card_2')) : the_row(); ?>
 
-                        <?php if (have_rows('carousel_content')) : ?>
-                            <div class="carousel__track" data-glide-el="track">
-                                <div class="carousel__container">
-                                    <?php while (have_rows('carousel_content')) : the_row(); ?>
+                                <?php if (have_rows('carousel_content')) : ?>
+                                    <div class="carousel__track" data-glide-el="track">
+                                        <div class="carousel__container">
+                                            <?php while (have_rows('carousel_content')) : the_row(); ?>
 
-                                        <div class="carousel__slide two-col-grid">
-                                            <div class="carousel__slide-image">
-                                                <img src="<?php echo get_sub_field('image'); ?>" alt="">
-                                            </div>
-                                            <div class="carousel__slide-text-container secondary">
-                                                <div class="carousel__slide-title text-l italic">
-                                                    <?php echo get_sub_field('title'); ?>
-                                                </div>
-                                                <div class="carousel__slide-text text italic">
-                                                    <?php echo get_sub_field('text'); ?>
-                                                </div>
-                                                <div class="carousel__slide-labels text-ms flex">
-                                                    <div class="carousel__slide-label carousel__slide-label--1">
-                                                        <?php echo get_sub_field('label_1'); ?>
+                                                <div class="carousel__slide two-col-grid">
+                                                    <div class="carousel__slide-image">
+                                                        <img src="<?php echo get_sub_field('image'); ?>" alt="">
                                                     </div>
-                                                    <div class="carousel__slide-label carousel__slide-label--2">
-                                                        <?php echo get_sub_field('label_2'); ?>
+                                                    <div class="carousel__slide-text-container secondary">
+                                                        <div class="carousel__slide-title text-l italic">
+                                                            <?php echo get_sub_field('title'); ?>
+                                                        </div>
+                                                        <div class="carousel__slide-text text italic">
+                                                            <?php echo get_sub_field('text'); ?>
+                                                        </div>
+                                                        <div class="carousel__slide-labels text-ms flex">
+                                                            <div class="carousel__slide-label carousel__slide-label--1">
+                                                                <?php echo get_sub_field('label_1'); ?>
+                                                            </div>
+                                                            <div class="carousel__slide-label carousel__slide-label--2">
+                                                                <?php echo get_sub_field('label_2'); ?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+
+                                            <?php endwhile; ?>
+
+
                                         </div>
+                                    </div>
+                                <?php endif; ?>
 
-                                    <?php endwhile; ?>
-
-
-                                </div>
-                            </div>
+                            <?php endwhile; ?>
                         <?php endif; ?>
 
-                    <?php endwhile; ?>
-                <?php endif; ?>
+                        <div class="carousel__bottom">
+                            <div class="carousel__controls">
+                                <div class="carousel__button carousel__button--previous"></div>
+                                <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+                                <div class="carousel__button carousel__button--next"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="carousel__bottom">
-                    <div class="carousel__controls">
-                        <div class="carousel__button carousel__button--previous"></div>
-                        <div class="carousel__dots" data-glide-el="controls[nav]"></div>
-                        <div class="carousel__button carousel__button--next"></div>
+
+            </div>
+
+        </div>
+
+        <div class="card-next-gen">
+            <?php
+            $card_3 = get_field('next_gen__card_3');
+            $heading = $card_3['heading'];
+            $subheading_1 = $card_3['subheading_1'];
+            $text = $card_3['text'];
+            $image = $card_3['image'];
+            ?>
+
+            <div class="boxed-md centered basic accent-bg">
+                <h2 class="heading-m"><?php echo $heading; ?></h2>
+                <div class="text italic basic"><?php echo $subheading_1; ?></div>
+                <div class=light-gray-bg text-center">
+                    <div class="basic boxed-sm centered">
+                        <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
+                        <div class="text italic basic black"><?php echo $text; ?></div>
                     </div>
                 </div>
             </div>
 
-
-        </div>
-
-    </section>
-
-    <section class="basic-section card-next-gen">
-        <?php
-        $card_3 = get_field('next_gen__card_3');
-        $heading = $card_3['heading'];
-        $subheading_1 = $card_3['subheading_1'];
-        $text = $card_3['text'];
-        $image = $card_3['image'];
-        ?>
-
-        <div class="boxed-md centered basic accent-bg">
-            <h2 class="heading-m"><?php echo $heading; ?></h2>
-            <div class="text italic basic"><?php echo $subheading_1; ?></div>
-            <div class="white-bg text-center">
-                <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
-                <div class="text italic basic black"><?php echo $text; ?></div>
-            </div>
         </div>
 
     </section>

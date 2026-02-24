@@ -27,7 +27,7 @@
         $heading = $banner['heading'];
         $text = $banner['text'];
         ?>
-        <div class="boxed centered flex">
+        <div class="boxed-md centered flex">
             <div>
                 <img src="<?php echo $image; ?>" alt="" class="">
             </div>

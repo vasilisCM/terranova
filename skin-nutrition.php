@@ -285,7 +285,7 @@
         <div class="life-drink__container boxed-sm centered">
             <div class="life-drink__product">
                 <!-- Text  -->
-                <div class="text-container life-drink__text-container">
+                <div class="text-container life-drink__text-container centered">
                     <div class="text-ms uppercase letter-spacing-medium">
                         <?php echo $productSpotlight['heading']; ?>
                     </div>
