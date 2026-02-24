@@ -82,11 +82,12 @@
     margin: 0;
     list-style-type: none;
     text-transform: uppercase;
-    font-size: cross-media(16px, $box, 18px);
+    // font-size: cross-media(16px, $box, 18px);
+    font-size: 16px;
 
-    @include view(xxl) {
-      font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
-    }
+    // @include view(xxl) {
+    //   font-size: cross-media(18px, 3000px, calc(18px * $xxl-scale));
+    // }
 
     &:first-child {
       @include view(md-max) {
@@ -102,10 +103,10 @@
       // padding-top: 40px;
     }
 
-    @include view(xxl) {
-      // font-size: calc(1.5 * 18px);
-      font-size: cross-media(18px, 3000px, 27px);
-    }
+    // @include view(xxl) {
+    //   // font-size: calc(1.5 * 18px);
+    //   font-size: cross-media(18px, 3000px, 27px);
+    // }
   }
 
   & .menu-item-has-children {
@@ -247,7 +248,7 @@
         max-height: cross-media(180px, 3000px, 180px * 1.5);
         top: cross-media(160px, 3000px, 160px * $xxl-scale);
         // padding-inline: cross-media(40px, 3000px, 40px * $xxl-scale);
-        font-size: cross-media(16px, 3000px, 24px);
+        // font-size: cross-media(16px, 3000px, 24px);
       }
 
       & li {
