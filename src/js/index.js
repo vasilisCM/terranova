@@ -19,8 +19,8 @@ function global() {
   };
 
   // Desktop-only features (will be managed by matchMedia)
-  let menuDropdownInstance = null;
-  let megaMenuDropdownInstance = null;
+  // let menuDropdownInstance = null;
+  // let megaMenuDropdownInstance = null;
   let mobileMenuInstance = null;
 
   const MEGA_DEBUG = true;
@@ -333,15 +333,15 @@ function global() {
     // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
     initCarousels();
 
-    // Reinitialize MegaMenuDropdown on desktop after page transition
-    if (window.matchMedia("(min-width: 1025px)").matches) {
-      megaLog("barba.hooks.after: desktop — init MegaMenuDropdown");
-      if (!megaMenuDropdownInstance) {
-        megaMenuDropdownInstance = new MegaMenuDropdown();
-        megaLog("barba.hooks.after: created new MegaMenuDropdown instance");
-      }
-      megaMenuDropdownInstance.init();
-    }
+    // // Reinitialize MegaMenuDropdown on desktop after page transition
+    // if (window.matchMedia("(min-width: 1025px)").matches) {
+    //   megaLog("barba.hooks.after: desktop — init MegaMenuDropdown");
+    //   if (!megaMenuDropdownInstance) {
+    //     megaMenuDropdownInstance = new MegaMenuDropdown();
+    //     megaLog("barba.hooks.after: created new MegaMenuDropdown instance");
+    //   }
+    //   megaMenuDropdownInstance.init();
+    // }
 
     // Reinitialize mobile menu on mobile after page transition
     if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -383,15 +383,15 @@ function global() {
             { once: true }
           );
 
-          // Initialize MegaMenuDropdown on desktop on first load
-          if (window.matchMedia("(min-width: 1025px)").matches) {
-            megaLog("barba once: desktop — init MegaMenuDropdown (first load)");
-            if (!megaMenuDropdownInstance) {
-              megaMenuDropdownInstance = new MegaMenuDropdown();
-              megaLog("barba once: created new MegaMenuDropdown instance");
-            }
-            megaMenuDropdownInstance.init();
-          }
+          // // Initialize MegaMenuDropdown on desktop on first load
+          // if (window.matchMedia("(min-width: 1025px)").matches) {
+          //   megaLog("barba once: desktop — init MegaMenuDropdown (first load)");
+          //   if (!megaMenuDropdownInstance) {
+          //     megaMenuDropdownInstance = new MegaMenuDropdown();
+          //     megaLog("barba once: created new MegaMenuDropdown instance");
+          //   }
+          //   megaMenuDropdownInstance.init();
+          // }
         },
 
         leave: function ({ current }) {
@@ -421,11 +421,11 @@ function global() {
       menuDropdownInstance.destroy();
     }
 
-    // Clean up MegaMenuDropdown
-    if (megaMenuDropdownInstance) {
-      megaLog("barba.hooks.beforeLeave: destroying MegaMenuDropdown");
-      megaMenuDropdownInstance.destroy();
-    }
+    // // Clean up MegaMenuDropdown
+    // if (megaMenuDropdownInstance) {
+    //   megaLog("barba.hooks.beforeLeave: destroying MegaMenuDropdown");
+    //   megaMenuDropdownInstance.destroy();
+    // }
 
     // Clean up mobile menu (restore DOM, reset state)
     if (mobileMenuInstance) {
@@ -444,28 +444,28 @@ function global() {
     hideHeaderOnScroll(".header", "header--sticky");
 
     // MegaMenuDropdown - Desktop only
-    megaLog("matchMedia(min-width:1025px): init MegaMenuDropdown");
-    if (!megaMenuDropdownInstance) {
-      megaMenuDropdownInstance = new MegaMenuDropdown();
-      megaLog("matchMedia: created new MegaMenuDropdown instance");
-    }
-    megaMenuDropdownInstance.init();
+    // megaLog("matchMedia(min-width:1025px): init MegaMenuDropdown");
+    // if (!megaMenuDropdownInstance) {
+    //   megaMenuDropdownInstance = new MegaMenuDropdown();
+    //   megaLog("matchMedia: created new MegaMenuDropdown instance");
+    // }
+    // megaMenuDropdownInstance.init();
 
-    // Cleanup when leaving desktop breakpoint
-    return () => {
-      if (menuDropdownInstance) {
-        menuDropdownInstance.destroy();
-      }
+    // // Cleanup when leaving desktop breakpoint
+    // return () => {
+    //   if (menuDropdownInstance) {
+    //     menuDropdownInstance.destroy();
+    //   }
 
-      if (megaMenuDropdownInstance) {
-        megaLog("matchMedia cleanup (leaving desktop): destroying MegaMenuDropdown");
-        megaMenuDropdownInstance.destroy();
-      }
+    //   if (megaMenuDropdownInstance) {
+    //     megaLog("matchMedia cleanup (leaving desktop): destroying MegaMenuDropdown");
+    //     megaMenuDropdownInstance.destroy();
+    //   }
 
-      // Reset desktop-specific styles that might interfere with mobile
-      gsap.set(".main-menu__dropdown-background", { clearProps: "all" });
-      gsap.set(".dropdown-menu-overlay", { clearProps: "all" });
-    };
+    //   // Reset desktop-specific styles that might interfere with mobile
+    //   gsap.set(".main-menu__dropdown-background", { clearProps: "all" });
+    //   gsap.set(".dropdown-menu-overlay", { clearProps: "all" });
+    // };
   });
 
   mm.add("(max-width: 1024px)", () => {
@@ -484,11 +484,11 @@ function global() {
         menuDropdownInstance.destroy();
       }
 
-      // Ensure MegaMenuDropdown is destroyed on mobile
-      if (megaMenuDropdownInstance) {
-        megaLog("matchMedia cleanup (mobile): destroying MegaMenuDropdown");
-        megaMenuDropdownInstance.destroy();
-      }
+      // // Ensure MegaMenuDropdown is destroyed on mobile
+      // if (megaMenuDropdownInstance) {
+      //   megaLog("matchMedia cleanup (mobile): destroying MegaMenuDropdown");
+      //   megaMenuDropdownInstance.destroy();
+      // }
     };
   });
 

@@ -29,11 +29,11 @@ class MegaMenuDropdown {
 
     gsap.set(this.dropdownBackground, { y: "-200%", autoAlpha: 0 });
     gsap.set(this.megaMenuOverlay, { autoAlpha: 0 });
-    gsap.set(this.productImages, {
-      display: "flex",
-      autoAlpha: 0,
-      clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-    });
+    // gsap.set(this.productImages, {
+    //   display: "flex",
+    //   autoAlpha: 0,
+    //   clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+    // });
 
     this.topLevelItems.forEach((menuItem) => {
       const link = menuItem.querySelector(":scope > a");
@@ -62,8 +62,8 @@ class MegaMenuDropdown {
           }
           if (this.openTl) this.openTl.kill();
 
-          gsap.set(this.subMenus, { display: "none" });
-          gsap.set(subMenu, { display: "flex" });
+          // gsap.set(this.subMenus, { display: "none" });
+          // gsap.set(subMenu, { display: "flex" });
 
           const wasOpen = this.isOpen;
           this.openTl = gsap.timeline();
@@ -82,61 +82,63 @@ class MegaMenuDropdown {
                 { autoAlpha: 1, duration: 2, ease: "power2.out" },
                 "<",
               )
-              .fromTo(
-                subMenuLinks,
-                {
-                  autoAlpha: 0,
-                  clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-                },
-                {
-                  autoAlpha: 1,
-                  clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
-                  duration: 0.7,
-                  ease: "power2.out",
-                  stagger: 0.03,
-                },
-                "-=1.8",
-              );
-          } else {
-            this.openTl.fromTo(
-              subMenuLinks,
-              {
-                autoAlpha: 0,
-                clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-              },
-              {
-                autoAlpha: 1,
-                clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
-                duration: 0.7,
-                ease: "power2.out",
-                stagger: 0.03,
-              },
-            );
-          }
+              // .fromTo(
+              //   subMenuLinks,
+              //   {
+              //     autoAlpha: 0,
+              //     clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+              //   },
+              //   {
+              //     autoAlpha: 1,
+              //     clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
+              //     duration: 0.7,
+              //     ease: "power2.out",
+              //     stagger: 0.03,
+              //   },
+              //   "-=1.8",
+              // );
+          } 
+          
+          // else {
+          //   this.openTl.fromTo(
+          //     subMenuLinks,
+          //     {
+          //       autoAlpha: 0,
+          //       clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+          //     },
+          //     {
+          //       autoAlpha: 1,
+          //       clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
+          //       duration: 0.7,
+          //       ease: "power2.out",
+          //       stagger: 0.03,
+          //     },
+          //   );
+          // }
 
-          if (hasProductImages) {
-            this.openTl.to(
-              this.productImages,
-              {
-                autoAlpha: 1,
-                clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
-                duration: 0.7,
-                ease: "power2.out",
-              },
-              wasOpen ? "-=0.5" : "-=1.5",
-            );
-          } else {
-            this.openTl.to(
-              this.productImages,
-              {
-                autoAlpha: 0,
-                clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-                duration: 0.7,
-                ease: "power2.in",
-              },
-              wasOpen ? "-=1.2" : "-=1.5",
-            );
-          }
+          // if (hasProductImages) {
+          //   this.openTl.to(
+          //     this.productImages,
+          //     {
+          //       autoAlpha: 1,
+          //       clipPath: "polygon(0% 0%, 110% 0%, 110% 120%, 0% 120%)",
+          //       duration: 0.7,
+          //       ease: "power2.out",
+          //     },
+          //     wasOpen ? "-=0.5" : "-=1.5",
+          //   );
+          // } else {
+          //   this.openTl.to(
+          //     this.productImages,
+          //     {
+          //       autoAlpha: 0,
+          //       clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+          //       duration: 0.7,
+          //       ease: "power2.in",
+          //     },
+          //     wasOpen ? "-=1.2" : "-=1.5",
+          //   );
+          // }
 
           this.isOpen = true;
         };
@@ -165,22 +167,22 @@ class MegaMenuDropdown {
     });
     this.closeTl
       .set(this.megaMenuOverlay, { pointerEvents: "none" })
-      .to(this.links, {
-        autoAlpha: 0,
-        clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-        duration: 0.5,
-        ease: "power2.in",
-      })
-      .to(
-        this.productImages,
-        {
-          autoAlpha: 0,
-          clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-          duration: 0.5,
-          ease: "power2.in",
-        },
-        "-=0.7",
-      )
+      // .to(this.links, {
+      //   autoAlpha: 0,
+      //   clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+      //   duration: 0.5,
+      //   ease: "power2.in",
+      // })
+      // .to(
+      //   this.productImages,
+      //   {
+      //     autoAlpha: 0,
+      //     clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+      //     duration: 0.5,
+      //     ease: "power2.in",
+      //   },
+      //   "-=0.7",
+      // )
       .to(
         this.dropdownBackground,
         { y: "-200%", autoAlpha: 0, duration: 0.5, ease: "power2.in" },
@@ -191,7 +193,7 @@ class MegaMenuDropdown {
         { autoAlpha: 0, duration: 0.5, ease: "power2.in" },
         "<",
       )
-      .set(this.subMenus, { display: "none" });
+      // .set(this.subMenus, { display: "none" });
   }
 
   cleanup() {
@@ -226,11 +228,11 @@ class MegaMenuDropdown {
 
     gsap.set(".main-menu__dropdown-background", { y: "-200%", autoAlpha: 0 });
     gsap.set(".dropdown-menu-overlay", { autoAlpha: 0 });
-    gsap.set(".sub-menu", { display: "none" });
-    gsap.set(".mega-menu-images", {
-      autoAlpha: 0,
-      clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
-    });
+    // gsap.set(".sub-menu", { display: "none" });
+    // gsap.set(".mega-menu-images", {
+    //   autoAlpha: 0,
+    //   clipPath: "polygon(0% 0%, 110% 0%, 110% 0%, 0% 0%)",
+    // });
   }
 }
 
