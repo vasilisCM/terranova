@@ -1,0 +1,72 @@
+.serum-organic-list {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        gap: cross-media(40px, 768px, 60px) cross-media(20px, 1024px, 30px);
+
+        @include view(sm-max) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__item {
+        display: grid;
+        justify-items: center;
+        grid-template-rows: max-content 1fr;
+        gap: cross-media(20px, 1024px, 38px);
+    }
+}
+
+.serum-organic-ingredients {
+    background-image: linear-gradient(to bottom, #d8d8df, $white);
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        justify-items: center;
+        gap: cross-media(20px, 1024px, 30px);
+    }
+}
+
+.serum-organic-importance {
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        height: calc(100vw / 2);
+        min-height: 640px;
+
+        @include view(md-max) {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+    }
+
+    &__img-container {
+        position: absolute;
+        mix-blend-mode: multiply;
+        width: 100vw;
+        min-width: 1280px;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+
+        @include view(md-max) {
+            position: relative;
+            width: 160%;
+            min-width: auto;
+            top: auto;
+            left: auto;
+            transform: none;
+        }
+    }
+
+    &__text-container {
+        grid-column: 2;
+
+        @include view(md-max) {
+            grid-column: auto;
+        }
+    }
+}

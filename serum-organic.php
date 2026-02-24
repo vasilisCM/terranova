@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section class="serum-organic__banner">
+    <section class="basic serum-organic__banner">
         <?php $banner = get_field('serum_organic__banner');
         $image = $banner['image'];
         $heading = $banner['heading'];
@@ -38,22 +38,22 @@
     </section>
 
     <section class="basic serum-organic-list">
-        <div class="boxed-md centered flex serum-organic-list__container">
+        <div class="boxed-md centered serum-organic-list__container">
             <?php if (have_rows('serum_organic__icon_list')): ?>
                 <?php while (have_rows('serum_organic__icon_list')): the_row();
                     $image = get_sub_field('image');
                     $heading = get_sub_field('heading');
                 ?>
-                    <div class="serum-organic__item">
-                        <div class="serum-organic__img-container"><img src="<?php echo $image; ?>" alt=""></div>
-                        <div class="text italic"><?php echo $heading; ?></div>
+                    <div class="serum-organic-list__item">
+                        <div class="serum-organic-list__img-container"><img src="<?php echo $image; ?>" alt="" class="card-icon__img"></div>
+                        <div class="text italic text-center secondary"><?php echo $heading; ?></div>
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
         </div>
     </section>
 
-    <section class="serum-organic-how-it-works text-center">
+    <section class="basic serum-organic-how-it-works text-center">
         <?php $how_it_works = get_field('serum_organic__how_it_works');
         $heading = $how_it_works['heading'];
         $text = $how_it_works['text'];
@@ -63,14 +63,14 @@
             <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
             <div class="text"><?php echo $text; ?></div>
 
-            <div class="serum-organic-how-it-works__icon-list basic flex">
+            <div class="serum-organic-how-it-works__icon-list serum-organic-list__container basic">
                 <?php
                 if (have_rows('serum_organic__how_it_works')): while (have_rows('serum_organic__how_it_works')) : the_row();
                         if (have_rows('list')): while (have_rows('list')) : the_row();
                 ?>
-                                <div class="serum-organic__item">
-                                    <div class="serum-organic__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt=""></div>
-                                    <div class="text italic"><?php echo get_sub_field('text'); ?></div>
+                                <div class="serum-organic-list__item">
+                                    <div class="serum-organic-list__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt="" class="card-icon__img"></div>
+                                    <div class="text italic secondary text-center"><?php echo get_sub_field('text'); ?></div>
                                 </div>
                 <?php
                             endwhile;
@@ -80,13 +80,13 @@
                 ?>
             </div>
 
-            <div class="serum-organic-how-it-works__img-container">
+            <div class="serum-organic-how-it-works__img-container basic">
                 <img src="<?php echo $image; ?>" alt="">
             </div>
         </div>
     </section>
 
-    <section class="basic serum-organic-ingredients light-blue-bg text-center">
+    <section class="basic-section serum-organic-ingredients text-center">
         <?php $ingredients = get_field('serum_organic__ingredients');
         $heading = $ingredients['heading'];
         $text_1 = $ingredients['text_1'];
@@ -94,18 +94,19 @@
         ?>
         <div class="boxed-md centered">
             <div class="text-container">
-                <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
+                <h2 class="heading-m text-center centered"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text_1; ?></div>
             </div>
 
-            <div class="serum-organic-ingredients__list basic flex">
+            <div class="serum-organic-ingredients__list basic-section">
                 <?php
                 if (have_rows('serum_organic__ingredients')): while (have_rows('serum_organic__ingredients')) : the_row();
                         if (have_rows('list')): while (have_rows('list')) : the_row();
                 ?>
-                                <div class="serum-organic-ingredients__item">
-                                    <div class="serum-organic-ingredients__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt=""></div>
-                                    <div class="text italic"><?php echo get_sub_field('text'); ?></div>
+                                <div class="serum-organic-ingredients__item secondary">
+                                    <div class="serum-organic-ingredients__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt="" class="centered"></div>
+                                    <div class="text-ms bold"><?php echo get_sub_field('heading'); ?></div>
+                                    <div class="text-s italic"><?php echo get_sub_field('text'); ?></div>
                                 </div>
                 <?php
                             endwhile;
@@ -115,7 +116,7 @@
                 ?>
             </div>
 
-            <div class="text"><?php echo $text_2; ?></div>
+            <div class="text boxed-sm centered no-padding"><?php echo $text_2; ?></div>
         </div>
     </section>
 
@@ -125,14 +126,14 @@
     $heading = $importance['heading'];
     $text = $importance['text'];
     ?>
-    <section class="basic serum-organic-importance" style="background-image: url('<?php echo $background; ?>');">
+    <section class="serum-organic-importance relative">
 
-        <div class="boxed-md centered flex">
+        <div class="boxed-md serum-organic-importance__container centered no-padding">
             <div class="serum-organic-importance__img-container">
                 <img src="<?php echo $image; ?>" alt="">
             </div>
-            <div class="text-container">
-                <h2 class="heading-m text-center"><?php echo $heading; ?></h2>
+            <div class="serum-organic-importance__text-container text-container inline-padding">
+                <h2 class="heading-m text-center line-height-s"><?php echo $heading; ?></h2>
                 <div class="text italic"><?php echo $text; ?></div>
             </div>
         </div>
