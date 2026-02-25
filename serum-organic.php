@@ -21,19 +21,19 @@
         </div>
     </section>
 
-    <section class="basic serum-organic__banner">
+    <section class="basic-section serum-organic-banner">
         <?php $banner = get_field('serum_organic__banner');
         $image = $banner['image'];
         $heading = $banner['heading'];
         $text = $banner['text'];
         ?>
-        <div class="boxed-md centered flex">
-            <div>
-                <img src="<?php echo $image; ?>" alt="" class="">
+        <div class="boxed-md centered serum-organic-banner__container no-padding">
+            <div class="serum-organic-banner__img-containe inline-padding">
+                <img src="<?php echo $image; ?>" alt="" class="serum-organic-banner__img centered">
             </div>
-            <div>
-                <div class="heading-m text-center accent-bg white"><?php echo $heading; ?></div>
-                <div class="text italic primary-bg"><?php echo $text; ?></div>
+            <div class="serum-organic-banner__text-container">
+                <div class="heading-m white serum-organic-banner__heading inline-padding"><?php echo $heading; ?></div>
+                <div class="text italic primary-bg serum-organic-banner__text basic inline-padding"><?php echo $text; ?></div>
             </div>
     </section>
 
@@ -81,7 +81,7 @@
             </div>
 
             <div class="serum-organic-how-it-works__img-container basic">
-                <img src="<?php echo $image; ?>" alt="">
+                <img src="<?php echo $image; ?>" alt="" class="centered">
             </div>
         </div>
     </section>
@@ -150,23 +150,23 @@
         $text_5 = $why['text_5'];
         ?>
         <div class="boxed-md centered">
-            <div><img src="<?php echo $image; ?>" alt=""></div>
+            <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
             <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
 
-            <div class="basic text-container">
-                <div class="heading-m"><?php echo $text_2; ?></div>
-                <div class="text"><?php echo $text_3; ?></div>
+            <div class="basic text-container text-center">
+                <div class="heading-m centered"><?php echo $text_2; ?></div>
+                <div class="text centered"><?php echo $text_3; ?></div>
             </div>
 
-            <div class="basic">
+            <div class="basic-section serum-organic-how-to-use">
                 <h3 class="heading-m"><?php echo $text_4; ?></h3>
 
-                <div class="basic flex">
+                <div class="basic flex serum-organic-how-to-use__container">
                     <?php if (have_rows('serum_organic__why')): while (have_rows('serum_organic__why')) : the_row();
                             if (have_rows('list')): while (have_rows('list')) : the_row();
                     ?>
-                                    <div class="serum-organic-why__item">
-                                        <div class="serum-organic-why__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt=""></div>
+                                    <div class="serum-organic-how-to-use__item">
+                                        <div class="serum-organic-how-to-use__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt=""></div>
                                         <div class="accent uppercase bold">Step <?php echo get_row_index(); ?></div>
                                         <div class="text"><?php echo get_sub_field('text'); ?></div>
                                     </div>

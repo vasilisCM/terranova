@@ -4609,6 +4609,45 @@ main--home {
   }
 }
 
+.serum-organic-banner__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  background-image: linear-gradient(to bottom, #c44a37 clamp(80px, 5vw, 90px), #f1f1f1 clamp(80px, 5vw, 90px));
+  padding-bottom: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .serum-organic-banner__container {
+    grid-template-columns: 1fr;
+    background-image: none;
+  }
+}
+.serum-organic-banner__heading {
+  display: grid;
+  height: clamp(80px, 5vw, 90px);
+  align-items: center;
+}
+@media only screen and (max-width: 767px) {
+  .serum-organic-banner__heading {
+    background-color: #c44a37;
+  }
+}
+.serum-organic-banner__text {
+  padding-bottom: clamp(40px, 3.3333333333vw, 60px);
+}
+@media only screen and (max-width: 767px) {
+  .serum-organic-banner__text {
+    background-color: #f1f1f1;
+  }
+}
+.serum-organic-banner__img-container {
+  align-self: center;
+}
+.serum-organic-banner__img {
+  width: 520px;
+  margin-top: calc(clamp(65px, 9.4202898551vw, 130px) * -1);
+}
+
 .serum-organic-list__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4632,7 +4671,7 @@ main--home {
 }
 .serum-organic-ingredients__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 21.484375vw, 220px), 1fr));
   justify-items: center;
   gap: clamp(20px, 2.9296875vw, 30px);
 }
@@ -4677,6 +4716,17 @@ main--home {
   .serum-organic-importance__text-container {
     grid-column: auto;
   }
+}
+
+.serum-organic-how-to-use__container {
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.serum-organic-how-to-use__item {
+  flex-basis: 100%;
+  max-width: clamp(150px, 17.3913043478vw, 240px);
 }
 
 /*# sourceMappingURL=main.css.map */

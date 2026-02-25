@@ -1,3 +1,45 @@
+.serum-organic-banner {
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        background-image: linear-gradient(to bottom, $accent cross-media(80px, $box, 90px), $light-gray cross-media(80px, $box, 90px));
+        padding-bottom: 20px;
+
+        @include view(sm-max) {
+            grid-template-columns: 1fr;
+            background-image: none;
+        }
+    }
+
+    &__heading {
+        display: grid;
+        height: cross-media(80px, $box, 90px);
+        align-items: center;
+
+        @include view(sm-max) {
+            background-color: $accent;
+        }
+    }
+    
+    &__text {
+        padding-bottom: cross-media(40px, $box, 60px);
+
+        @include view(sm-max) {
+            background-color: $light-gray;
+        }
+    }
+
+    &__img-container {
+        align-self: center;
+    }
+
+    &__img {
+        width: 520px;
+        margin-top: cross-media(65px, $box-md, 130px, -1);
+    }
+}
+
 .serum-organic-list {
     &__container {
         display: grid;
@@ -22,7 +64,7 @@
     background-image: linear-gradient(to bottom, #d8d8df, $white);
     &__list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(cross-media(150px, 1024px ,220px), 1fr));
         justify-items: center;
         gap: cross-media(20px, 1024px, 30px);
     }
@@ -68,5 +110,19 @@
         @include view(md-max) {
             grid-column: auto;
         }
+    }
+}
+
+.serum-organic-how-to-use {
+    &__container {
+        align-items: flex-start;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        flex-basis: 100%;
+        max-width: cross-media(150px, $box-md, 240px);
     }
 }
