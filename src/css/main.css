@@ -4709,24 +4709,44 @@ main--home {
     transform: none;
   }
 }
+.serum-organic-importance__img-container img {
+  width: 100%;
+}
 .serum-organic-importance__text-container {
   grid-column: 2;
 }
 @media only screen and (max-width: 1024px) {
   .serum-organic-importance__text-container {
     grid-column: auto;
+    text-align: center;
   }
+  .serum-organic-importance__text-container h2 {
+    width: 100%;
+  }
+}
+
+.serum-organic-why__badge-img {
+  width: clamp(130px, 15.7971014493vw, 218px);
+}
+.serum-organic-why__badge-text {
+  padding-block: 20px 40px;
 }
 
 .serum-organic-how-to-use__container {
   align-items: flex-start;
-  gap: 24px;
+  gap: 40px 24px;
   justify-content: center;
   flex-wrap: wrap;
 }
 .serum-organic-how-to-use__item {
   flex-basis: 100%;
   max-width: clamp(150px, 17.3913043478vw, 240px);
+}
+.serum-organic-how-to-use__img-container {
+  margin-bottom: clamp(25px, 3.90625vw, 40px);
+}
+.serum-organic-how-to-use__text {
+  padding-block: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */

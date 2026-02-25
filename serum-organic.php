@@ -133,7 +133,7 @@
                 <img src="<?php echo $image; ?>" alt="">
             </div>
             <div class="serum-organic-importance__text-container text-container inline-padding">
-                <h2 class="heading-m text-center line-height-s"><?php echo $heading; ?></h2>
+                <h2 class="heading-m line-height-s"><?php echo $heading; ?></h2>
                 <div class="text italic"><?php echo $text; ?></div>
             </div>
         </div>
@@ -149,9 +149,9 @@
         $text_4 = $why['text_4'];
         $text_5 = $why['text_5'];
         ?>
-        <div class="boxed-md centered">
-            <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
-            <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
+        <div class="boxed-md centered serum-organic-why__container">
+            <div class="serum-organic-why__badge"><img src="<?php echo $image; ?>" alt="" class="centered serum-organic-why__badge-img"></div>
+            <div class="serum-organic-why__badge-text heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
 
             <div class="basic text-container text-center">
                 <div class="heading-m centered"><?php echo $text_2; ?></div>
@@ -168,7 +168,7 @@
                                     <div class="serum-organic-how-to-use__item">
                                         <div class="serum-organic-how-to-use__img-container"><img src="<?php echo get_sub_field('image'); ?>" alt=""></div>
                                         <div class="accent uppercase bold">Step <?php echo get_row_index(); ?></div>
-                                        <div class="text"><?php echo get_sub_field('text'); ?></div>
+                                        <div class="serum-organic-how-to-use__text text line-height-s secondary"><?php echo get_sub_field('text'); ?></div>
                                     </div>
                     <?php endwhile;
                             endif;
