@@ -931,6 +931,7 @@ h4 {
 .main-menu li ul::before {
   content: "";
   position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -970,7 +971,6 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .main-menu li ul {
-    max-height: clamp(180px, 9vw, 270px);
     top: clamp(160px, 6.9333333333vw, 208px);
   }
 }
@@ -1090,6 +1090,11 @@ h4 {
   top: 160px;
   width: 50%;
 }
+@media only screen and (max-width: 1800px) {
+  .mega-menu-images {
+    right: 20px;
+  }
+}
 @media only screen and (min-width: 1800px) {
   .mega-menu-images {
     right: calc((100vw - 1800px) / 2);
@@ -1128,6 +1133,16 @@ h4 {
   width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  transition: visibility 0.3s ease, opacity 0.3s ease;
+}
+.dropdown-menu-overlay.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main-menu.mega-menu-closing .menu-item-has-children ul {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .search {

@@ -26,7 +26,7 @@ const hideHeaderOnScroll = function (headerSelector, className) {
         y: `-${header.getBoundingClientRect().height}`,
       });
     
-    } else if (overlay.style.opacity > 0) {
+    } else if (overlay?.classList?.contains("is-visible")) {
       return;
     }
     // Scrolling up

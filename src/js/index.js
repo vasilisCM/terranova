@@ -443,29 +443,41 @@ function global() {
     // Sticky Header
     hideHeaderOnScroll(".header", "header--sticky");
 
-    // MegaMenuDropdown - Desktop only
-    // megaLog("matchMedia(min-width:1025px): init MegaMenuDropdown");
-    // if (!megaMenuDropdownInstance) {
-    //   megaMenuDropdownInstance = new MegaMenuDropdown();
-    //   megaLog("matchMedia: created new MegaMenuDropdown instance");
-    // }
-    // megaMenuDropdownInstance.init();
+    // Mega menu overlay: show on hover of menu-item-has-children, hide on overlay hover
+    const overlay = document.querySelector(".dropdown-menu-overlay");
+    const mainMenus = document.querySelectorAll(".main-menu");
+    const menuItemsWithChildren = document.querySelectorAll(
+      ".main-menu .menu-item-has-children"
+    );
 
-    // // Cleanup when leaving desktop breakpoint
-    // return () => {
-    //   if (menuDropdownInstance) {
-    //     menuDropdownInstance.destroy();
-    //   }
+    if (overlay && menuItemsWithChildren.length) {
+      const onMenuItemEnter = () => {
+        overlay.classList.add("is-visible");
+        mainMenus.forEach((m) => m.classList.remove("mega-menu-closing"));
+      };
+      const onMenuItemLeave = () => overlay.classList.remove("is-visible");
+      const onOverlayEnter = () => {
+        overlay.classList.remove("is-visible");
+        mainMenus.forEach((m) => m.classList.add("mega-menu-closing"));
+      };
 
-    //   if (megaMenuDropdownInstance) {
-    //     megaLog("matchMedia cleanup (leaving desktop): destroying MegaMenuDropdown");
-    //     megaMenuDropdownInstance.destroy();
-    //   }
+      menuItemsWithChildren.forEach((item) => {
+        item.addEventListener("mouseenter", onMenuItemEnter);
+        item.addEventListener("mouseleave", onMenuItemLeave);
+      });
+      overlay.addEventListener("mouseenter", onOverlayEnter);
 
-    //   // Reset desktop-specific styles that might interfere with mobile
-    //   gsap.set(".main-menu__dropdown-background", { clearProps: "all" });
-    //   gsap.set(".dropdown-menu-overlay", { clearProps: "all" });
-    // };
+      // Cleanup when leaving desktop breakpoint
+      return () => {
+        overlay.classList.remove("is-visible");
+        mainMenus.forEach((m) => m.classList.remove("mega-menu-closing"));
+        menuItemsWithChildren.forEach((item) => {
+          item.removeEventListener("mouseenter", onMenuItemEnter);
+          item.removeEventListener("mouseleave", onMenuItemLeave);
+        });
+        overlay.removeEventListener("mouseenter", onOverlayEnter);
+      };
+    }
   });
 
   mm.add("(max-width: 1024px)", () => {
