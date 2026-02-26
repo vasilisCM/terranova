@@ -4791,4 +4791,74 @@ main--home {
   max-width: 100%;
 }
 
+.super-skin-drink-ingredients__list {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px clamp(20px, 2.1739130435vw, 30px);
+}
+.super-skin-drink-ingredients__item {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  width: 300px;
+}
+
+.super-skin-drink-hows__img-container {
+  display: grid;
+}
+.super-skin-drink-hows__img-container img {
+  margin-top: -15%;
+}
+
+.super-skin-drink-banner {
+  background-position: center;
+  background-size: cover;
+  min-height: clamp(300px, 47.1014492754vw, 650px);
+}
+.super-skin-drink-banner__heading {
+  max-width: clamp(430px, 28.8888888889vw, 520px);
+}
+
+.super-skin-drink-cards {
+  margin-top: calc(clamp(60px, 7.2463768116vw, 100px) * -1);
+}
+.super-skin-drink-cards__cards {
+  display: grid;
+  gap: 16px;
+  padding-bottom: clamp(40px, 6.34765625vw, 65px);
+}
+@media only screen and (min-width: 1025px) {
+  .super-skin-drink-cards__cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.super-skin-drink-cards__card {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+.super-skin-drink-cards__card-step {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  border-bottom: 1px solid #fcfcfc;
+  padding-block: 16px;
+  margin-bottom: 16px;
+}
+.super-skin-drink-cards__card-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #820D07;
+}
+.super-skin-drink-cards__card-step-number--1 {
+  background-color: rgba(130, 13, 7, 0.6);
+}
+.super-skin-drink-cards__card-step-number--2 {
+  background-color: rgba(130, 13, 7, 0.8);
+}
+
 /*# sourceMappingURL=main.css.map */

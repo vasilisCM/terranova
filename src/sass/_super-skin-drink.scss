@@ -1,0 +1,81 @@
+.super-skin-drink-ingredients {
+    &__list {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px cross-media(20px, $box-md, 30px);
+    }
+
+    &__item {
+        display: grid;
+        gap: 16px;
+        justify-items: center;
+        width: 300px;
+    }
+}
+
+.super-skin-drink-hows {
+    &__img-container {
+        display: grid;
+
+        & img {
+            margin-top: -15%;
+        }
+    }
+}
+
+.super-skin-drink-banner {
+    background-position: center;
+    background-size: cover;
+    min-height: cross-media(300px, $box-md, 650px);
+
+    &__heading {
+        max-width: cross-media(430px, $box, 520px);
+    }
+}
+
+.super-skin-drink-cards {
+    margin-top: cross-media(60px, $box-md, 100px, -1);
+
+    &__cards {
+        display: grid;
+        gap: 16px;
+        padding-bottom: cross-media(40px, 1024px, 65px);
+
+        @include view(lg-min) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    &__card {
+        display: grid;
+        grid-template-rows: max-content 1fr;
+    }
+
+    &__card-step {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+        border-bottom: 1px solid $white;
+        padding-block: 16px;
+        margin-bottom: 16px;
+    }
+
+    &__card-step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #820D07;
+
+        &--1 {
+            background-color: rgba(#820D07, .6);
+        }
+
+        &--2 {
+            background-color: rgba(#820D07, .8);
+        }
+    }
+}
