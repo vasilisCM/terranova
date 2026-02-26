@@ -3416,6 +3416,14 @@ main--home {
   width: 100%;
   border-bottom: solid 1px #000;
 }
+.single-product__icons {
+  padding-block: 16px;
+}
+@media only screen and (min-width: 1921px) {
+  .single-product__icons {
+    padding-block: clamp(16px, 0.6933333333vw, 20.8px);
+  }
+}
 
 .related-products {
   margin-top: 120px;
@@ -4688,7 +4696,7 @@ main--home {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 21.484375vw, 220px), 1fr));
   justify-items: center;
-  gap: clamp(20px, 2.9296875vw, 30px);
+  gap: clamp(20px, 3.90625vw, 40px);
 }
 
 .serum-organic-importance__container {
@@ -4762,6 +4770,25 @@ main--home {
 }
 .serum-organic-how-to-use__text {
   padding-block: 16px;
+}
+
+.serum-organic-skin-nutrition-banner {
+  background-position: center;
+  background-size: max(100%, clamp(1100px, 174.5454545455vw, 1920px));
+  margin-bottom: 40px;
+}
+.serum-organic-skin-nutrition-banner__text-container {
+  margin-bottom: 20px;
+}
+.serum-organic-skin-nutrition-banner__text {
+  max-width: clamp(195px, 25.9090909091vw, 285px);
+}
+.serum-organic-skin-nutrition-banner__button {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) translateY(50%);
+  width: max-content;
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

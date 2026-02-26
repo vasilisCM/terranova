@@ -188,14 +188,17 @@
     $text_3 = $skin_nutrition_banner['text_3'];
     $button = $skin_nutrition_banner['button'];
     ?>
-    <section class="basic last-section serum-organic-skin-nutrition-banner text-center" style="background-image: url('<?php echo $image; ?>');">
+    <section class="basic-section serum-organic-skin-nutrition-banner text-center relative" style="background-image: url('<?php echo $image; ?>');">
 
-        <div class="boxed-sm centered">
-            <div class="heading-xs uppercase letter-spacing-medium secondary"><?php echo $text_1; ?></div>
-            <div class="heading-m secondary"><?php echo $text_2; ?></div>
-            <div class="text"><?php echo $text_3; ?></div>
+        <div class="boxed-sm centered serum-organic-skin-nutrition-banner__container">
+            <div class="serum-organic-skin-nutrition-banner__text-container">
+                <div class="heading-xs uppercase letter-spacing-medium secondary"><?php echo $text_1; ?></div>
+                <div class="heading-m secondary line-height-s"><?php echo $text_2; ?></div>
+                <div class="text serum-organic-skin-nutrition-banner__text centered"><?php echo $text_3; ?></div>
+            </div>
 
-            <a href="<?php echo $button['link']; ?>">
+
+            <a href="<?php echo $button['link']; ?>" class="serum-organic-skin-nutrition-banner__button absolute">
                 <button class="button text-button">
                     <span class="text-button button__text"><?php echo $button['text_1']; ?> <?php echo $button['text_2']; ?></span>
                 </button>

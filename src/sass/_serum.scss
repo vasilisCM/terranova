@@ -66,7 +66,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(cross-media(150px, 1024px ,220px), 1fr));
         justify-items: center;
-        gap: cross-media(20px, 1024px, 30px);
+        gap: cross-media(20px, 1024px, 40px);
     }
 }
 
@@ -150,5 +150,27 @@
 
     &__text {
         padding-block: 16px;
+    }
+}
+
+.serum-organic-skin-nutrition-banner {
+    background-position: center;
+    background-size: max(100%, cross-media(1100px, $box-sm, 1920px));
+    margin-bottom: 40px;
+
+    &__text-container {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        max-width: cross-media(195px, $box-sm, 285px);
+    }
+
+    &__button {
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%) translateY(50%);
+        width: max-content;
+        max-width: 100%;
     }
 }
