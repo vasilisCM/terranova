@@ -7,6 +7,7 @@
   margin: auto;
   padding-bottom: 50px;
   background-color: $white;
+  // background-color: transparent;
   transition: all ease;
 
   &__container {
@@ -47,6 +48,7 @@
 
   &--sticky {
     background-color: $white;
+    // background-color: transparent;
   }
 }
 
@@ -122,6 +124,17 @@
       & ul {
         visibility: visible;
         opacity: 1;
+        // transition: .3s ease 0s!important;
+
+        &::before {
+          height: 430px;
+          opacity: 1!important;
+          visibility: visible!important;
+          // transition: .5s ease-out .1s !important;
+          @include view(xxl) {
+            height: cross-media(430px, 3000px, 575px);
+          }
+        }
       }
     }
   }
@@ -146,7 +159,6 @@
       align-items: center;
       // flex-direction: column;
       width: 100%;
-
       padding: 8px 40px;
 
       &:before {
@@ -199,7 +211,7 @@
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
-      transition: all 0.3s ease;
+      transition: all 0.5s ease ;
      
 
       &::before {
@@ -209,17 +221,21 @@
           top: 0;
           left: 0;
           width: 100%;
-          height: 100%;
+          height: 0px;
           background-color: $white;
-         height: 430px;      
+          // height: 430px;
+          height: 0;
+          opacity: 1!important;
+          visibility: visible!important;
+          transition: .5s ease-out;   
 
          @include view(md-max) {
-      display: none;
-    }
+            display: none;
+         }
 
-        @include view(xxl) {
-          height: cross-media(430px, 3000px, 575px);
-        }
+        // @include view(xxl) {
+        //   height: cross-media(430px, 3000px, 575px);
+        // }
       }
 
       // &::after {
@@ -408,6 +424,15 @@
   }
 }
 
+.mega-menu-closing {
+  .sub-menu {
+    &::before {
+      opacity: 1!important;
+      visibility: visible!important;
+    }
+  }
+}
+
 // Mega Menu Images
 .mega-menu-images {
   display: none;
@@ -416,15 +441,11 @@
   position: absolute;
   top: 160px;
   width: 50%;
-  
-
   // height: 100%;
 
   @include view(box-max) {
     right: 20px;
   }
-
-
 
   @include view(box-min) {
     right: calc((100vw - #{$box}) / 2);
@@ -468,7 +489,8 @@
   // top: 0;
   width: 100vw;
   height: 100%;
-  background-color: rgba($black, 0.6);
+  background-color: rgba($black, 0.5);
+  backdrop-filter: blur(5px);
   transition: visibility 0.3s ease, opacity 0.3s ease;
 
   &.is-visible {
@@ -478,10 +500,15 @@
 }
 
 // Force-hide submenu when overlay is hovered (overrides :hover)
-.main-menu.mega-menu-closing .menu-item-has-children ul {
-  visibility: hidden;
-  opacity: 0;
-}
+// .main-menu.mega-menu-closing .menu-item-has-children ul {
+//   visibility: hidden;
+//   opacity: 0;
+
+//   &::before {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+// }
 
 // Search
 .search {

@@ -49,6 +49,7 @@
 
 .story-global-presence {
   margin-top: cross-media(60px, $box, 120px);
+  min-height: calc(min(120vw, 2800px) * (17 / 43));
 
   @include view(xxl) {
     margin-top: cross-media(120px, $xxl-breakpoint, calc(120px * $xxl-scale));

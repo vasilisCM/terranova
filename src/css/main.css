@@ -865,6 +865,16 @@ h4 {
   visibility: visible;
   opacity: 1;
 }
+.main-menu .menu-item-has-children:hover ul::before {
+  height: 430px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+@media only screen and (min-width: 1921px) {
+  .main-menu .menu-item-has-children:hover ul::before {
+    height: clamp(430px, 19.1666666667vw, 575px);
+  }
+}
 .main-menu__back-button {
   width: fit-content;
   margin-left: auto;
@@ -926,7 +936,7 @@ h4 {
   z-index: 1;
   text-transform: lowercase;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 .main-menu li ul::before {
   content: "";
@@ -935,18 +945,16 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 0px;
   background-color: #fcfcfc;
-  height: 430px;
+  height: 0;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: 0.5s ease-out;
 }
 @media only screen and (max-width: 1024px) {
   .main-menu li ul::before {
     display: none;
-  }
-}
-@media only screen and (min-width: 1921px) {
-  .main-menu li ul::before {
-    height: clamp(430px, 19.1666666667vw, 575px);
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -1082,6 +1090,11 @@ h4 {
   }
 }
 
+.mega-menu-closing .sub-menu::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .mega-menu-images {
   display: none;
   justify-content: end;
@@ -1132,17 +1145,13 @@ h4 {
   z-index: 3;
   width: 100vw;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   transition: visibility 0.3s ease, opacity 0.3s ease;
 }
 .dropdown-menu-overlay.is-visible {
   visibility: visible;
   opacity: 1;
-}
-
-.main-menu.mega-menu-closing .menu-item-has-children ul {
-  visibility: hidden;
-  opacity: 0;
 }
 
 .search {
@@ -3940,6 +3949,7 @@ main--home {
 
 .story-global-presence {
   margin-top: clamp(60px, 6.6666666667vw, 120px);
+  min-height: calc(min(120vw, 2800px) * 0.3953488372);
 }
 @media only screen and (min-width: 1921px) {
   .story-global-presence {
