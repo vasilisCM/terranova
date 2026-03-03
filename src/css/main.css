@@ -4070,6 +4070,10 @@ main--home {
   }
 }
 
+.contact .hero {
+  height: auto;
+  min-height: auto;
+}
 @media only screen and (max-width: 1024px) {
   .contact__body form {
     display: flex;
@@ -4465,6 +4469,23 @@ main--home {
 }
 .carousel-next-gen .carousel__button {
   color: #000;
+}
+.carousel-next-gen .carousel__slide-label-icon::after, .carousel-next-gen .carousel__slide-label-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.carousel-next-gen .carousel__slide-label-icon::before {
+  width: 32px;
+  height: 3px;
+}
+.carousel-next-gen .carousel__slide-label-icon::after {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
 .why-next-gen__container {

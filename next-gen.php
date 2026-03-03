@@ -306,10 +306,12 @@
                                                         </div>
                                                         <div class="carousel__slide-labels text-ms flex">
                                                             <div class="carousel__slide-label carousel__slide-label--1">
-                                                                <?php echo get_sub_field('label_1'); ?>
+                                                                <div class="carousel__slide-label-icon relative"></div>
+                                                                <div><?php echo get_sub_field('label_1'); ?></div>
                                                             </div>
                                                             <div class="carousel__slide-label carousel__slide-label--2">
-                                                                <?php echo get_sub_field('label_2'); ?>
+                                                                <div class="carousel__slide-label-icon relative"></div>
+                                                                <div><?php echo get_sub_field('label_2'); ?></div>
                                                             </div>
                                                         </div>
                                                     </div>

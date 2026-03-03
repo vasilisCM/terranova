@@ -1,4 +1,10 @@
 .contact {
+
+  & .hero {
+    height: auto;
+    min-height: auto;
+  }
+
   &__body {
     // margin-top: cross-media(40px, 991px, 80px);
     form {
