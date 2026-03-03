@@ -122,20 +122,26 @@
 
     &:hover {
       & ul {
-        visibility: visible;
-        opacity: 1;
-        // transition: .3s ease 0s!important;
+         visibility: visible;
+  opacity: 1;
+  transition: none;
 
         &::before {
           height: 430px;
-          opacity: 1!important;
-          visibility: visible!important;
-          // transition: .5s ease-out .1s !important;
+          
+          transition: height 0.5s ease-out; // no delay on hover-in
+
           @include view(xxl) {
             height: cross-media(430px, 3000px, 575px);
           }
         }
+
+        & a {
+          opacity: 1;
+        }
       }
+
+     
     }
   }
 
@@ -204,6 +210,7 @@
       top: 0;
       visibility: hidden;
       opacity: 0;
+      // clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -211,7 +218,7 @@
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
-      transition: all 0.5s ease ;
+      transition: opacity 0s 1.2s, visibility 0s 1.2s; 
      
 
       &::before {
@@ -221,13 +228,11 @@
           top: 0;
           left: 0;
           width: 100%;
-          height: 0px;
           background-color: $white;
           // height: 430px;
           height: 0;
-          opacity: 1!important;
-          visibility: visible!important;
-          transition: .5s ease-out;   
+          transition: height 0.5s ease-out 0.3s; // 👈 added delay after ease-out
+  
 
          @include view(md-max) {
             display: none;
@@ -302,6 +307,8 @@
         //   padding: 0px 40px;
         // }
 
+     
+
         &:after {
           @include view(md-max) {
             content: "";
@@ -314,6 +321,11 @@
         @include view(xxl) {
           min-width: cross-media(270px, 3000px, 405px);
         }
+      }
+
+      & a {
+        opacity: 0;
+        transition: opacity 0.8s ease;
       }
 
       // & a {
@@ -404,7 +416,7 @@
 
   &__dropdown-background {
     background-color: $white;
-    backdrop-filter: blur(5px);
+    // backdrop-filter: blur(5px);
     position: absolute;
     left: 0;
     top: 0;
@@ -491,11 +503,12 @@
   height: 100%;
   background-color: rgba($black, 0.5);
   backdrop-filter: blur(5px);
-  transition: visibility 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s;
 
   &.is-visible {
     visibility: visible;
     opacity: 1;
+
   }
 }
 
