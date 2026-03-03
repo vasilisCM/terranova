@@ -867,13 +867,8 @@ h4 {
   transition: none;
 }
 .main-menu .menu-item-has-children:hover ul::before {
-  height: 430px;
+  height: var(--before-height, 430px);
   transition: height 0.5s ease-out;
-}
-@media only screen and (min-width: 1921px) {
-  .main-menu .menu-item-has-children:hover ul::before {
-    height: clamp(430px, 19.1666666667vw, 575px);
-  }
 }
 .main-menu .menu-item-has-children:hover ul a {
   opacity: 1;

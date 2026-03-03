@@ -60,6 +60,17 @@ function global() {
 
   stickyHeader(".header", "header--sticky");
 
+  // Dynamic ::before height for nav submenus
+  let beforeOffset;
+  document.querySelectorAll(".menu-item-has-children").forEach((item) => {
+    beforeOffset = item.getBoundingClientRect().bottom * .5;
+    const ul = item.querySelector("ul");
+    if (!ul) return;
+    item.addEventListener("mouseenter", () => {
+      gsap.set(ul, { "--before-height": ul.getBoundingClientRect().bottom + beforeOffset + "px" });
+    });
+  });
+
   // Accordion (re-inited on every transition so it works on pages without a bundle)
   const accordion = new Accordion();
   if (document.querySelector(".accordion")) {

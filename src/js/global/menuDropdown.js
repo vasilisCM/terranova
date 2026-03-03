@@ -128,6 +128,10 @@ class MenuDropdown {
 
       // Hover In Event Handler (stored for cleanup)
       const mouseEnterHandler = (e) => {
+        // Set ::before height to the submenu's bottom edge from viewport top
+        const bottom = currentSubmenu.getBoundingClientRect().bottom;
+        gsap.set(currentSubmenu, { "--before-height": bottom + "px" });
+
         // Track if we're switching between different menus
         const isSwitchingMenus =
           this.isOpen &&

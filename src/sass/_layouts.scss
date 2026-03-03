@@ -127,13 +127,8 @@
   transition: none;
 
         &::before {
-          height: 430px;
-          
+          height: var(--before-height, 430px);
           transition: height 0.5s ease-out; // no delay on hover-in
-
-          @include view(xxl) {
-            height: cross-media(430px, 3000px, 575px);
-          }
         }
 
         & a {
