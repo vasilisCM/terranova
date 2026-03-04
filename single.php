@@ -4,12 +4,12 @@
   data-barba-namespace="single">
   <!-- Info  -->
   <section class="page-info single-post-info">
-    <div class="boxed centered">
+    <div class="boxed-md centered">
       <!-- Grid  -->
       <article class="archive-blog__article">
         <div
           class="page-info__text-container single-post-info__text-container">
-          <h1 class="heading-single-product">
+          <h1 class="heading-single-product heading-m boxed-sm no-padding">
             <?php the_title(); ?>
           </h1>
           <div class="archive-blog__article-info">
@@ -36,7 +36,7 @@
 
   <!-- Content -->
   <section class="single-post-content">
-    <div class="boxed centered single-post-content__container text">
+    <div class="boxed-md centered single-post-content__container text margin-p">
       <?php
       the_content();
       ?>
@@ -59,7 +59,7 @@
             $text = get_sub_field('text');
             $image = get_sub_field('image');
             ?>
-            <div class="single-post-content__text-and-image">
+            <div class="single-post-content__text-and-image two-col-grid">
               <?php if (!empty($text)) : ?>
                 <div class="text-and-image__text">
                   <?php echo wp_kses_post($text); ?>
@@ -68,7 +68,7 @@
 
               <?php if (!empty($image)) : ?>
                 <div class="text-and-image__image">
-                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+                  <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="centered">
                 </div>
               <?php endif; ?>
             </div>

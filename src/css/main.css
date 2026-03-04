@@ -3606,21 +3606,20 @@ main--home {
 
 .single-post-info__text-container {
   gap: clamp(4px, 0.8072653885vw, 8px);
+  max-width: 100%;
 }
 
 .single-post-content__container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-.single-post-content__content {
-  font-size: 16px;
+  gap: clamp(20px, 2.5362318841vw, 35px);
 }
 .single-post-content__button-container {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(16px, 2.4217961655vw, 24px);
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-top: clamp(30px, 6.0544904137vw, 60px);
 }

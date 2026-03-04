@@ -1,6 +1,7 @@
 .single-post-info {
   &__text-container {
     gap: cross-media(4px, 991px, 8px);
+    max-width: 100%;
   }
 }
 
@@ -8,11 +9,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
-
-  &__content {
-    font-size: 16px;
+    gap: cross-media(20px, $box-md, 35px);
   }
 
   &__button-container {
@@ -20,6 +17,7 @@
     flex-wrap: wrap;
     gap: cross-media(16px, 991px, 24px);
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: cross-media(30px, 991px, 60px);
 
