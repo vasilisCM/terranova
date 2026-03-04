@@ -4470,6 +4470,13 @@ main--home {
 .carousel-next-gen .carousel__button {
   color: #000;
 }
+.carousel-next-gen .carousel__slide-labels {
+  gap: clamp(25px, 3.1818181818vw, 35px);
+  align-items: flex-end;
+}
+.carousel-next-gen .carousel__slide-label-icon {
+  width: 32px;
+}
 .carousel-next-gen .carousel__slide-label-icon::after, .carousel-next-gen .carousel__slide-label-icon::before {
   content: "";
   position: absolute;
@@ -4485,7 +4492,18 @@ main--home {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid #f1f1f1;
+}
+.carousel-next-gen .carousel__slide-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.carousel-next-gen .carousel__slide-label--1 .carousel__slide-label-icon::before, .carousel-next-gen .carousel__slide-label--1 .carousel__slide-label-icon::after {
+  background-color: #5b697b;
+}
+.carousel-next-gen .carousel__slide-label--2 .carousel__slide-label-icon::before, .carousel-next-gen .carousel__slide-label--2 .carousel__slide-label-icon::after {
+  background-color: #c44a37;
 }
 
 .why-next-gen__container {
