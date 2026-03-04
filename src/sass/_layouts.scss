@@ -123,16 +123,17 @@
     &:hover {
       & ul {
          visibility: visible;
-  opacity: 1;
-  transition: none;
+          opacity: 1;
+          transition: none;
 
         &::before {
           height: var(--before-height, 430px);
-          transition: height 0.5s ease-out; // no delay on hover-in
+          transition: height 0.4s ease-out; // no delay on hover-in
         }
 
         & a {
           opacity: 1;
+          transition: opacity 0.4s ease .5s;
         }
       }
 
@@ -195,7 +196,10 @@
 
       &:hover { 
         & .mega-menu-images {
-          display: flex;
+          // display: flex;
+          pointer-events: all;
+          opacity: 1;
+          transition: 0.4s ease 0.3s;
         }
     }}
 
@@ -213,7 +217,7 @@
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
-      transition: opacity 0s 1.2s, visibility 0s 1.2s; 
+      transition: opacity .3s ease 1.2s, visibility .3s ease 1.2s; 
      
 
       &::before {
@@ -226,7 +230,7 @@
           background-color: $white;
           // height: 430px;
           height: 0;
-          transition: height 0.5s ease-out 0.3s; // 👈 added delay after ease-out
+          transition: height 0.8s ease-out 0.4s; // 👈 added delay after ease-out
   
 
          @include view(md-max) {
@@ -320,8 +324,10 @@
 
       & a {
         opacity: 0;
-        transition: opacity 0.8s ease;
+        transition: opacity 0.4s ease;
       }
+
+
 
       // & a {
       //   @include view(lg-min) {
@@ -442,13 +448,15 @@
 
 // Mega Menu Images
 .mega-menu-images {
-  display: none;
+  display: flex;
   justify-content: end;
   gap: 10px;
   position: absolute;
   top: 160px;
   width: 50%;
-  // height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
 
   @include view(box-max) {
     right: 20px;
@@ -471,6 +479,7 @@
     &:hover {
       & .mega-menu-images__overlay {
         opacity: 1;
+
       }
     }
   }
@@ -497,7 +506,7 @@
   width: 100vw;
   height: 100%;
   background-color: rgba($black, 0.5);
-  backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
   transition: opacity 0.3s;
 
   &.is-visible {

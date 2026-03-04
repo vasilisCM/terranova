@@ -868,10 +868,11 @@ h4 {
 }
 .main-menu .menu-item-has-children:hover ul::before {
   height: var(--before-height, 430px);
-  transition: height 0.5s ease-out;
+  transition: height 0.4s ease-out;
 }
 .main-menu .menu-item-has-children:hover ul a {
   opacity: 1;
+  transition: opacity 0.4s ease 0.5s;
 }
 .main-menu__back-button {
   width: fit-content;
@@ -921,7 +922,9 @@ h4 {
   font-size: 12px;
 }
 .main-menu li.menu-item-51:hover .mega-menu-images {
-  display: flex;
+  pointer-events: all;
+  opacity: 1;
+  transition: 0.4s ease 0.3s;
 }
 .main-menu li ul {
   top: 0;
@@ -934,7 +937,7 @@ h4 {
   z-index: 1;
   text-transform: lowercase;
   font-size: 16px;
-  transition: opacity 0s 1.2s, visibility 0s 1.2s;
+  transition: opacity 0.3s ease 1.2s, visibility 0.3s ease 1.2s;
 }
 .main-menu li ul::before {
   content: "";
@@ -945,7 +948,7 @@ h4 {
   width: 100%;
   background-color: #fcfcfc;
   height: 0;
-  transition: height 0.5s ease-out 0.3s;
+  transition: height 0.8s ease-out 0.4s;
 }
 @media only screen and (max-width: 1024px) {
   .main-menu li ul::before {
@@ -992,7 +995,7 @@ h4 {
 }
 .main-menu li ul a {
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.4s ease;
 }
 .main-menu a {
   position: relative;
@@ -1094,12 +1097,15 @@ h4 {
 }
 
 .mega-menu-images {
-  display: none;
+  display: flex;
   justify-content: end;
   gap: 10px;
   position: absolute;
   top: 160px;
   width: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
 }
 @media only screen and (max-width: 1800px) {
   .mega-menu-images {
@@ -1144,7 +1150,6 @@ h4 {
   width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
   transition: opacity 0.3s;
 }
 .dropdown-menu-overlay.is-visible {
