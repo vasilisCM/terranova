@@ -380,12 +380,21 @@
       list-style-type: none;
 
       &::before {
-        content: "";
-        background: url(../../assets/img/check.svg) no-repeat center center;
-        background-size: contain;
+        @include icon("\e909");
+        // content: "";
+        // background: url(../../assets/img/check.svg) no-repeat center center;
+        // background-size: contain;
         width: 24px;
         height: 24px;
         margin-left: 8px;
+        border-radius: 50%;
+        background-color: $dark-blue;
+        color: $secondary;
+        display: flex;
+    align-items: center;
+    // justify-content: center;
+    padding-left: 3px;
+    font-size: 11px;
       }
     }
 

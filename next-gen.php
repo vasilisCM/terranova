@@ -357,7 +357,7 @@
                 <div class=light-gray-bg text-center">
                     <div class="basic boxed-sm centered">
                         <div><img src="<?php echo $image; ?>" alt="" class="centered"></div>
-                        <div class="text italic basic black"><?php echo $text; ?></div>
+                        <div class="text italic basic secondary text-center"><?php echo $text; ?></div>
                     </div>
                 </div>
             </div>

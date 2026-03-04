@@ -183,8 +183,8 @@ html.lenis {
 }
 @font-face {
   font-family: "icomoon";
-  src: url("../../assets/fonts/icomoon/icomoon.eot?fzah4i");
-  src: url("../../assets/fonts/icomoon/icomoon.eot?fzah4i#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?fzah4i") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?fzah4i") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?fzah4i#icomoon") format("svg");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?9tyiel");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?9tyiel#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?9tyiel") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?9tyiel") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?9tyiel#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -4537,12 +4537,21 @@ main--home {
   list-style-type: none;
 }
 .why-next-gen__list li::before {
-  content: "";
-  background: url(../../assets/img/check.svg) no-repeat center center;
-  background-size: contain;
+  content: "\e909";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   width: 24px;
   height: 24px;
   margin-left: 8px;
+  border-radius: 50%;
+  background-color: #151f28;
+  color: #5b697b;
+  display: flex;
+  align-items: center;
+  padding-left: 3px;
+  font-size: 11px;
 }
 @media only screen and (min-width: 1025px) {
   .why-next-gen__list {
