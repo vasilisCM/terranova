@@ -49,7 +49,7 @@
                 ?>
                     <div class="advanced-fermentation__icon-item text-center">
                         <div class="advanced-fermentation__icon-item-img-container">
-                            <img src="<?php echo $image; ?>" alt="" class="centered">
+                            <img src="<?php echo $image; ?>" alt="" class="centered card-icon__img">
                         </div>
                         <div class="advanced-fermentation__icon-item-text-container">
                             <div class="text-m"><?php echo $text; ?></div>

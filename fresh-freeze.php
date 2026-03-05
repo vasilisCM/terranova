@@ -28,7 +28,7 @@
                                                     $text = get_sub_field('text');
                     ?>
                         <div class="icon-list__item">
-                            <div class="icon-list__img-container left-align"><img src="<?php echo $image; ?>" alt=""></div>
+                            <div class="icon-list__img-container left-align"><img src="<?php echo $image; ?>" alt="" class="card-icon__img"></div>
 
                             <div class="text"><?php echo $text; ?></div>
                         </div>

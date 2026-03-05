@@ -1163,6 +1163,10 @@
         border-radius: cross-media(30px, 1024px, 40px);
         font-size: 12px;
         text-transform: uppercase;
+
+        @include view(xxl) {
+          font-size: cross-media(12px, $xxl-breakpoint, calc(12px * $xxl-scale));
+        }
       }
     }
   }

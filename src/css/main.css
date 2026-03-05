@@ -1729,6 +1729,11 @@ h4 {
   font-size: 12px;
   text-transform: uppercase;
 }
+@media only screen and (min-width: 1921px) {
+  .accordion__content ul li {
+    font-size: clamp(12px, 0.52vw, 15.6px);
+  }
+}
 
 .gallery {
   display: grid;
@@ -3298,6 +3303,11 @@ main--home {
 .archive-product__link {
   font-size: 15px;
 }
+@media only screen and (min-width: 1921px) {
+  .archive-product__link {
+    font-size: clamp(15px, 0.65vw, 19.5px);
+  }
+}
 .archive-product__pagination-container {
   align-items: center;
   display: grid;
@@ -3677,6 +3687,11 @@ main--home {
 @media only screen and (min-width: 1025px) {
   .holistic__text-container {
     max-width: 1000px;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .holistic__text-container {
+    max-width: clamp(1000px, 43.3333333333vw, 1300px);
   }
 }
 .holistic__heading {
@@ -4736,6 +4751,12 @@ main--home {
   width: 520px;
   margin-top: calc(clamp(65px, 9.4202898551vw, 130px) * -1);
 }
+@media only screen and (min-width: 1921px) {
+  .serum-organic-banner__img {
+    width: clamp(520px, 22.5333333333vw, 676px);
+    margin-top: calc(clamp(130px, 5.6333333333vw, 169px) * -1);
+  }
+}
 
 .serum-organic-list__container {
   display: grid;
@@ -4817,6 +4838,11 @@ main--home {
 .serum-organic-why__badge-img {
   width: clamp(130px, 15.7971014493vw, 218px);
 }
+@media only screen and (min-width: 1921px) {
+  .serum-organic-why__badge-img {
+    width: clamp(218px, 9.4466666667vw, 283.4px);
+  }
+}
 .serum-organic-why__badge-text {
   padding-block: 20px 40px;
 }
@@ -4827,9 +4853,19 @@ main--home {
   justify-content: center;
   flex-wrap: wrap;
 }
+@media only screen and (min-width: 1921px) {
+  .serum-organic-how-to-use__container {
+    gap: clamp(24px, 1.04vw, 31.2px);
+  }
+}
 .serum-organic-how-to-use__item {
   flex-basis: 100%;
   max-width: clamp(150px, 17.3913043478vw, 240px);
+}
+@media only screen and (min-width: 1921px) {
+  .serum-organic-how-to-use__item {
+    max-width: clamp(240px, 10.4vw, 312px);
+  }
 }
 .serum-organic-how-to-use__img-container {
   margin-bottom: clamp(25px, 3.90625vw, 40px);
@@ -4848,6 +4884,11 @@ main--home {
 }
 .serum-organic-skin-nutrition-banner__text {
   max-width: clamp(195px, 25.9090909091vw, 285px);
+}
+@media only screen and (min-width: 1921px) {
+  .serum-organic-skin-nutrition-banner__text {
+    max-width: clamp(285px, 12.35vw, 370.5px);
+  }
 }
 .serum-organic-skin-nutrition-banner__button {
   left: 50%;

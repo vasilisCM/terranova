@@ -169,6 +169,10 @@
 
   &__link {
     font-size: 15px;
+
+    @include view(xxl) {
+      font-size: cross-media(15px, $xxl-breakpoint, 15px * $xxl-scale);
+    }
   }
 
   //////////

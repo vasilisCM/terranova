@@ -37,6 +37,11 @@
     &__img {
         width: 520px;
         margin-top: cross-media(65px, $box-md, 130px, -1);
+
+        @include view(xxl) {
+            width: cross-media(520px, $xxl-breakpoint, 520px * $xxl-scale);
+            margin-top: cross-media(130px, $xxl-breakpoint, calc(130px * $xxl-scale), -1);
+          }
     }
 }
 
@@ -124,7 +129,11 @@
 
 .serum-organic-why {
     &__badge-img {
-        width: cross-media(130px, $box-md, 218px)
+        width: cross-media(130px, $box-md, 218px);
+        
+        @include view(xxl) {
+            width: cross-media(218px, $xxl-breakpoint, 218px * $xxl-scale);
+        }
     }
     &__badge-text {
         padding-block: 20px 40px;
@@ -137,11 +146,19 @@
         gap: 40px 24px;
         justify-content: center;
         flex-wrap: wrap;
+
+        @include view(xxl) {
+            gap: cross-media(24px, $xxl-breakpoint, 24px * $xxl-scale);
+        }
     }
 
     &__item {
         flex-basis: 100%;
         max-width: cross-media(150px, $box-md, 240px);
+
+        @include view(xxl) {
+            max-width: cross-media(240px, $xxl-breakpoint, 240px * $xxl-scale);
+        }
     }
 
     &__img-container {
@@ -164,6 +181,9 @@
 
     &__text {
         max-width: cross-media(195px, $box-sm, 285px);
+        @include view(xxl) {
+            max-width: cross-media(285px, $xxl-breakpoint, 285px * $xxl-scale);
+        }
     }
 
     &__button {
