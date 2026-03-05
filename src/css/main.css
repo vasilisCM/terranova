@@ -917,7 +917,7 @@ h4 {
   font-size: 12px;
 }
 .main-menu li.menu-item-51 .mega-menu-images {
-  pointer-events: all;
+  pointer-events: none;
 }
 .main-menu li.menu-item-51 .mega-menu-images img {
   opacity: 0;
