@@ -796,11 +796,6 @@ h4 {
     order: 1;
   }
 }
-@media only screen and (min-width: 1921px) {
-  .header__logo-container {
-    max-width: clamp(112px, 5.6666666667vw, 170px);
-  }
-}
 .header--sticky {
   background-color: #fcfcfc;
 }

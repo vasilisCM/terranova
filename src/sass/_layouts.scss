@@ -42,7 +42,7 @@
 
     @include view(xxl) {
       // max-width: calc(1.5 * 113px);
-      max-width: cross-media(112px, 3000px, 170px);
+      //max-width: cross-media(112px, 3000px, 170px);
     }
   }
 
