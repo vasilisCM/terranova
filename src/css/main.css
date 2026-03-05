@@ -916,10 +916,19 @@ h4 {
   border-radius: 80px;
   font-size: 12px;
 }
+.main-menu li.menu-item-51 .mega-menu-images {
+  pointer-events: all;
+}
+.main-menu li.menu-item-51 .mega-menu-images img {
+  opacity: 0;
+  transition: 0.2s ease 0.1s;
+}
 .main-menu li.menu-item-51:hover .mega-menu-images {
   pointer-events: all;
+}
+.main-menu li.menu-item-51:hover .mega-menu-images img {
   opacity: 1;
-  transition: 0.4s ease 0.3s;
+  transition: 0.4s ease 0.4s;
 }
 .main-menu li ul {
   top: 0;
@@ -932,6 +941,7 @@ h4 {
   z-index: 1;
   text-transform: lowercase;
   font-size: 16px;
+  transition: opacity 0.001s ease 0.2s, visibility 0.001s ease 0.2s;
 }
 .main-menu li ul::before {
   content: "";
@@ -942,7 +952,7 @@ h4 {
   width: 100%;
   background-color: #fcfcfc;
   height: 0;
-  transition: height 0.8s ease-out 0.4s;
+  transition: height 0.1s ease-out 0.1s;
 }
 @media only screen and (max-width: 1024px) {
   .main-menu li ul::before {
@@ -989,7 +999,7 @@ h4 {
 }
 .main-menu li ul a {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.1s ease;
 }
 .main-menu a {
   position: relative;
@@ -1097,9 +1107,11 @@ h4 {
   position: absolute;
   top: 160px;
   width: 50%;
-  opacity: 0;
   pointer-events: none;
-  transition: 0.4s ease;
+}
+.mega-menu-images img {
+  opacity: 0;
+  transition: 0.1s ease;
 }
 @media only screen and (max-width: 1800px) {
   .mega-menu-images {

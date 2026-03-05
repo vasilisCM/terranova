@@ -191,15 +191,29 @@
       }
     }
    
-    // Priducts Menu Item
+    // Products Menu Item
     &.menu-item-51 {
+      & .mega-menu-images {
+        // display: flex;
+        pointer-events: all;
+    
+
+        & img {
+          opacity: 0;
+          transition: 0.2s ease 0.1s;
+        }
+      }
 
       &:hover { 
         & .mega-menu-images {
           // display: flex;
           pointer-events: all;
-          opacity: 1;
-          transition: 0.4s ease 0.3s;
+
+
+          & img {
+            opacity: 1;
+            transition: 0.4s ease 0.4s;
+          }
         }
     }}
 
@@ -217,7 +231,7 @@
       z-index: 1;
       text-transform: lowercase;
       font-size: 16px;
-      // transition: opacity .3s ease 1.2s, visibility .3s ease 1.2s; 
+      transition: opacity .001s ease 0.2s, visibility .001s ease 0.2s; 
      
 
       &::before {
@@ -230,7 +244,7 @@
           background-color: $white;
           // height: 430px;
           height: 0;
-          transition: height 0.8s ease-out 0.4s; // 👈 added delay after ease-out
+          transition: height 0.1s ease-out 0.1s; // 👈 added delay after ease-out
   
 
          @include view(md-max) {
@@ -324,7 +338,7 @@
 
       & a {
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.1s ease;
       }
 
 
@@ -454,9 +468,13 @@
   position: absolute;
   top: 160px;
   width: 50%;
-  opacity: 0;
   pointer-events: none;
-  transition: 0.4s ease;
+
+  & img {
+    opacity: 0;
+    transition: 0.1s ease;
+
+  }
 
   @include view(box-max) {
     right: 20px;
