@@ -798,7 +798,7 @@ h4 {
 }
 @media only screen and (min-width: 1921px) {
   .header__logo-container {
-    max-width: clamp(113px, 5.6666666667vw, 170px);
+    max-width: clamp(112px, 5.6666666667vw, 170px);
   }
 }
 .header--sticky {
@@ -937,7 +937,6 @@ h4 {
   z-index: 1;
   text-transform: lowercase;
   font-size: 16px;
-  transition: opacity 0.3s ease 1.2s, visibility 0.3s ease 1.2s;
 }
 .main-menu li ul::before {
   content: "";
