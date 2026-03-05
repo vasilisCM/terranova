@@ -8,6 +8,10 @@ class ParallaxCarouselOnScroll {
     this.parallaxCarousel = document.querySelector(".parallax-carousel");
     if (!this.parallaxCarousel) return;
 
+    // Clear any residual GSAP inline styles from a previous visit so that
+    // getBoundingClientRect() returns the element's natural layout position.
+    gsap.set(this.parallaxCarousel, { clearProps: "all" });
+
     const carouselWidth = this.parallaxCarousel.scrollWidth;
     const carouselSlides = document.querySelectorAll(
       ".parallax-carousel__image"

@@ -136,17 +136,16 @@ function global() {
   let currentPageScript = null; // Track the currently loaded page script
 
   function getCurrentScript() {
-    // Return the tracked script if it exists
-    if (currentPageScript && document.body.contains(currentPageScript)) {
+    // Use document.contains (not document.body.contains) so scripts enqueued
+    // in <head> by WordPress are found too.
+    if (currentPageScript && document.contains(currentPageScript)) {
       return currentPageScript;
     }
 
-    // Fallback: get the last dynamically loaded script
-    const scripts = document.querySelectorAll("script[src]");
-    const dynamicScripts = Array.from(scripts).filter(
-      (script) =>
-        script.src.includes("bundle.js") && script.parentNode === document.body
-    );
+    // Fallback: find the last page-specific bundle in the document (head or body)
+    const dynamicScripts = Array.from(
+      document.querySelectorAll("script[src]")
+    ).filter((script) => script.src.includes(".bundle.js"));
 
     return dynamicScripts.length > 0
       ? dynamicScripts[dynamicScripts.length - 1]
@@ -155,15 +154,22 @@ function global() {
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
+      // Remove every existing script with this src before adding a fresh one.
+      // WordPress enqueues the initial page bundle in <head>; if a previous
+      // transition's unloadScript() missed it (because it only searched <body>),
+      // the same module code would execute a second time, creating duplicate
+      // GSAP instances, duplicate loaderDone listeners, and double pin triggers.
+      document.querySelectorAll("script[src]").forEach((s) => {
+        if (s.src === src) s.parentNode.removeChild(s);
+      });
+
       const script = document.createElement("script");
       script.src = src;
-      // script.type = "module";
       script.onload = () => {
         currentPageScript = script; // Track this script
         resolve();
       };
       script.onerror = (error) => {
-        // Clean up the failed script element
         if (script.parentNode) {
           document.body.removeChild(script);
         }
@@ -192,19 +198,22 @@ function global() {
       if (window[funcName]) {
         try {
           window[funcName]();
-          delete window[funcName];
         } catch (error) {
-          // Silent catch
+          console.warn(`[unloadScript] ${funcName} threw:`, error);
         }
+        // Always delete the reference, even if the cleanup threw — otherwise
+        // the stale cleanup survives and the next loadScript execution creates
+        // a duplicate instance alongside the new one.
+        delete window[funcName];
       }
     });
 
-    // Then remove the script element
+    // Remove the script element from wherever it lives (head or body)
     const currentScript = getCurrentScript();
-    if (currentScript) {
-      document.body.removeChild(currentScript);
-      currentPageScript = null; // Clear the reference
+    if (currentScript && currentScript.parentNode) {
+      currentScript.parentNode.removeChild(currentScript);
     }
+    currentPageScript = null;
   }
 
   function fadeInOnce(container) {
@@ -330,6 +339,19 @@ function global() {
       currentPageScript = null; // No script to track
     }
 
+    // Mirror what loader.js does on first load: wait for all images in the
+    // new container before dispatching loaderDone. Page scripts (e.g. home.js)
+    // measure scrollWidth / getBoundingClientRect() inside their init() —
+    // those values are only accurate once images have painted their dimensions.
+    await new Promise((resolve) => {
+      const imgLoad = imagesLoaded(data.next.container);
+      if (imgLoad.isComplete) {
+        resolve();
+      } else {
+        imgLoad.on("always", resolve);
+      }
+    });
+
     document.dispatchEvent(new CustomEvent("loaderDone"));
 
     // Initialize global features after page is fully loaded
@@ -343,6 +365,15 @@ function global() {
 
     // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
     initCarousels();
+
+    // Recalculate all ScrollTrigger positions after a full browser paint.
+    // rAF ensures GSAP measures element positions after the browser has
+    // committed the final layout — not mid-frame. Combined with
+    // invalidateOnRefresh:true on the pin trigger, this forces a full
+    // re-measurement of pin coordinates after every Barba transition.
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
 
     // // Reinitialize MegaMenuDropdown on desktop after page transition
     // if (window.matchMedia("(min-width: 1025px)").matches) {
@@ -389,7 +420,9 @@ function global() {
             () => {
               scrollToTopWithLenis({ immediate: true });
               initCarousels();
-              ScrollTrigger.refresh();
+              requestAnimationFrame(() => {
+                ScrollTrigger.refresh();
+              });
             },
             { once: true }
           );
@@ -426,11 +459,6 @@ function global() {
 
     // Clean up draggable carousels
     destroyCarousels();
-
-    // Clean up MenuDropdown
-    if (menuDropdownInstance) {
-      menuDropdownInstance.destroy();
-    }
 
     // // Clean up MegaMenuDropdown
     // if (megaMenuDropdownInstance) {
@@ -500,11 +528,6 @@ function global() {
       if (mobileMenuInstance) {
         mobileMenuInstance.destroy();
         mobileMenuInstance = null;
-      }
-
-      // Ensure MenuDropdown is destroyed on mobile
-      if (menuDropdownInstance) {
-        menuDropdownInstance.destroy();
       }
 
       // // Ensure MegaMenuDropdown is destroyed on mobile

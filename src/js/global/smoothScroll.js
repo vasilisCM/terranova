@@ -8,11 +8,14 @@ const lenis = new Lenis({
   touchMultiplier: 2,
 });
 
-const raf = (time) => {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-};
+// Drive Lenis from GSAP's ticker so both run in the same frame,
+// and forward every Lenis scroll tick to ScrollTrigger so that
+// scrub/pin triggers update synchronously with smooth scroll.
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
 
-requestAnimationFrame(raf);
+lenis.on("scroll", ScrollTrigger.update);
 
 export default lenis;
