@@ -18,7 +18,7 @@
         $image_3 = $hero['image_3'];
         ?>
         <div class="banner__wrapper hero-next-gen__container boxed centered">
-            <div>
+            <div class="hero-next-gen__container-columns">
                 <div class="banner__container">
                     <div class="banner__text-background"></div>
                     <div class="banner__text-container">
