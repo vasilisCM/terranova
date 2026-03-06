@@ -317,8 +317,17 @@ function global() {
 
   const { themeUrl } = wordpressObject;
 
-  barba.hooks.beforeEnter(() => {
+  barba.hooks.beforeEnter((data) => {
     megaLog("barba.hooks.beforeEnter: new page entering (DOM updated)");
+
+    // Sync body classes from the incoming page so CSS selectors that depend
+    // on them (e.g. .about .header, .contact section) stay accurate.
+    if (data?.next?.html) {
+      const parser = new DOMParser();
+      const nextDoc = parser.parseFromString(data.next.html, "text/html");
+      document.body.className = nextDoc.body.className;
+    }
+
     // Reset the ScrollTriggers
     let triggers = ScrollTrigger.getAll();
     triggers.forEach((trigger) => {
