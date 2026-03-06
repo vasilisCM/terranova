@@ -4347,10 +4347,11 @@ main--home {
 .stats-next-gen__logos {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: clamp(20px, 2.2222222222vw, 40px);
 }
 .stats-next-gen__line-1, .stats-next-gen__line-3 {
-  width: calc((100vw - 1800px) / 2);
+  width: max((100vw - 1100px) / 2, 20px);
 }
 .stats-next-gen__list {
   display: grid;
@@ -4421,6 +4422,7 @@ main--home {
 @media only screen and (min-width: 1921px) {
   .how-it-works-next-gen__number {
     width: clamp(64px, 2.7733333333vw, 83.2px);
+    height: clamp(64px, 2.7733333333vw, 83.2px);
   }
 }
 
@@ -4495,9 +4497,13 @@ main--home {
 .carousel-next-gen .carousel__button {
   color: #000;
 }
+.carousel-next-gen .carousel__slide-image img {
+  width: 100%;
+}
 .carousel-next-gen .carousel__slide-labels {
   gap: clamp(25px, 3.1818181818vw, 35px);
   align-items: flex-end;
+  padding-top: 20px;
 }
 .carousel-next-gen .carousel__slide-label-icon {
   width: 32px;
@@ -4557,6 +4563,11 @@ main--home {
   padding: 0;
   list-style-type: none;
 }
+@media only screen and (min-width: 1921px) {
+  .why-next-gen__list li {
+    gap: clamp(8px, 0.3466666667vw, 10.4px);
+  }
+}
 .why-next-gen__list li::before {
   content: "\e909";
   font-family: "icomoon";
@@ -4574,11 +4585,24 @@ main--home {
   padding-left: 3px;
   font-size: 11px;
 }
+@media only screen and (min-width: 1921px) {
+  .why-next-gen__list li::before {
+    width: clamp(24px, 1.04vw, 31.2px);
+    height: clamp(24px, 1.04vw, 31.2px);
+    font-size: clamp(11px, 0.4766666667vw, 14.3px);
+  }
+}
 @media only screen and (min-width: 1025px) {
   .why-next-gen__list {
     max-width: 800px;
     max-height: 400px;
     column-count: 2;
+  }
+}
+@media only screen and (min-width: 1025px) and (min-width: 1921px) {
+  .why-next-gen__list {
+    max-width: clamp(800px, 34.6666666667vw, 1040px);
+    max-height: clamp(400px, 17.3333333333vw, 520px);
   }
 }
 

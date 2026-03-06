@@ -134,7 +134,7 @@
   <section class="recipes">
     <h2 class="heading boxed centered">Recipes</h2>
     <!-- Archive  -->
-    <div class="recipes__archive-container">
+    <div class="recipes__archive-container inline-padding">
       <div class="recipes__archive">
         <!-- Posts  -->
 

@@ -116,21 +116,18 @@
   &__logos {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: cross-media(20px, $box, 40px);
   }
 
   &__line-1,
   &__line-3 {
-    width: calc((100vw - #{$box}) / 2);
+    width: max(calc((100vw - #{$box-sm}) / 2), 20px);
   }
-  // &__line-2 {
-  //   width: 100%;
-  // }
 
   &__list {
     display: grid;
     justify-content: center;
-    // gap: cross-media(20px, $box, 40px);
     overflow-x: auto;
 
     @include view(md-max) {
@@ -178,7 +175,7 @@
     }
 
     @include view(xxl) {
-      margin-top: cross-media(32px, 3000px, 32px * $xxl-scale, -1);
+      margin-top: cross-media(32px, $xxl-breakpoint, 32px * $xxl-scale, -1);
     }
   }
 
@@ -199,7 +196,8 @@
     padding: 8px;
 
     @include view(xxl) {
-      width: cross-media(64px, 3000px, calc(64px * $xxl-scale));
+      width: cross-media(64px, $xxl-breakpoint, calc(64px * $xxl-scale));
+      height: cross-media(64px, $xxl-breakpoint, calc(64px * $xxl-scale));
     }
   }
 }
@@ -278,7 +276,7 @@
     padding-bottom: cross-media(20px, $box, 40px);
 
     @include view(xxl) {
-      padding-bottom: cross-media(40px, 3000px, calc(40px * $xxl-scale));
+      padding-bottom: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
     }
   }
 
@@ -286,7 +284,7 @@
     padding-inline: cross-media(20px, $box, 40px);
 
     @include view(xxl) {
-      padding-inline: cross-media(40px, 3000px, calc(40px * $xxl-scale));
+      padding-inline: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
     }
   }
 
@@ -295,9 +293,19 @@
   }
 
   & .carousel {
+    &__slide-image {
+      & img {
+        width: 100%;
+      }
+      @include view(xxl) {
+        //width: cross-media(24px, $xxl-breakpoint, calc(24px * $xxl-scale));
+        
+      }
+    }
     &__slide-labels {
       gap: cross-media(25px, $box-sm, 35px);
       align-items: flex-end;
+      padding-top: 20px;
     }
 
     &__slide-label-icon {
@@ -379,11 +387,12 @@
       padding: 0;
       list-style-type: none;
 
+      @include view(xxl) {
+        gap: cross-media(8px, $xxl-breakpoint, calc(8px * $xxl-scale));
+      }
+
       &::before {
         @include icon("\e909");
-        // content: "";
-        // background: url(../../assets/img/check.svg) no-repeat center center;
-        // background-size: contain;
         width: 24px;
         height: 24px;
         margin-left: 8px;
@@ -391,10 +400,15 @@
         background-color: $dark-blue;
         color: $secondary;
         display: flex;
-    align-items: center;
-    // justify-content: center;
-    padding-left: 3px;
-    font-size: 11px;
+        align-items: center;
+        padding-left: 3px;
+        font-size: 11px;
+
+        @include view(xxl) {
+          width: cross-media(24px, $xxl-breakpoint, calc(24px * $xxl-scale));
+          height: cross-media(24px, $xxl-breakpoint, calc(24px * $xxl-scale));
+          font-size: cross-media(11px, $xxl-breakpoint, calc(11px * $xxl-scale));
+        }
       }
     }
 
@@ -402,6 +416,11 @@
       max-width: 800px;
       max-height: 400px;
       column-count: 2;
+
+      @include view(xxl) {
+        max-width: cross-media(800px, $xxl-breakpoint, calc(800px * $xxl-scale));
+        max-height: cross-media(400px, $xxl-breakpoint, calc(400px * $xxl-scale));
+      }
     }
   }
 }
