@@ -64,10 +64,13 @@
             <button class="archive-product__open-filter">
                 Filters
             </button>
-            <aside class="archive-product__filters archive-product__filters--hidden">
-                <button class="archive-product__close-filter">
-                    Close
-                </button>
+            <aside
+                class="archive-product__filters archive-product__filters--hidden"
+                data-lenis-prevent-wheel
+                data-lenis-prevent-touch>
+                <div class="archive-product__close-filter heading">
+                    &times;
+                </div>
                 <div
                     class="archive-product__filter archive-product__filter--open">
                     <h4
@@ -76,7 +79,8 @@
                     </h4>
 
                     <div class="archive-product__filter-options-container">
-                        <div class="archive-product__filter-options">
+                        <div class="archive-product__filter-options" data-lenis-prevent-wheel
+                            data-lenis-prevent-touch>
                             <div class="archive-product__filter-option text">
                                 <label class="custom-checkbox">
                                     <input type="checkbox" class="" />
@@ -166,7 +170,8 @@
                         Category
                     </h4>
                     <div class="archive-product__filter-options-container">
-                        <div class="archive-product__filter-options">
+                        <div class="archive-product__filter-options" data-lenis-prevent-wheel
+                            data-lenis-prevent-touch>
                             <div class="archive-product__filter-option text">
                                 Stress
                             </div>
@@ -200,7 +205,8 @@
                         Ingredients
                     </h4>
                     <div class="archive-product__filter-options-container">
-                        <div class="archive-product__filter-options">
+                        <div class="archive-product__filter-options" data-lenis-prevent-wheel
+                            data-lenis-prevent-touch>
                             <div class="archive-product__filter-option text">
                                 Stress
                             </div>

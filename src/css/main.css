@@ -3172,16 +3172,15 @@ main--home {
     position: fixed;
     z-index: 1;
     overflow-y: auto;
+    max-height: 80vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     top: 15%;
-    max-height: 800px;
     background-color: #fcfcfc;
-    border: solid 2px #000;
-    border-radius: 20px;
+    border: solid 1px #000;
     padding: 20px;
-    width: 90%;
+    width: 95%;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -3197,6 +3196,7 @@ main--home {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: fit-content;
     padding: 8px 16px;
     border-radius: 999px;
     border: 1px solid #000;
@@ -3211,17 +3211,12 @@ main--home {
 }
 @media only screen and (max-width: 1024px) {
   .archive-product__close-filter {
+    grid-column: span 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 10px;
-    border-radius: 999px;
-    border: 1px solid #000;
     background-color: #fcfcfc;
-    font-size: 12px;
-    text-transform: uppercase;
     justify-self: end;
-    margin-bottom: 12px;
   }
 }
 .archive-product__filter {

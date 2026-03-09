@@ -19,16 +19,16 @@
       position: fixed;
       z-index: 1;
       overflow-y: auto;
+      max-height: 80vh;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       top: 15%;
-      max-height: 800px;
       background-color: $white;
-      border: solid 2px $black;
-      border-radius: 20px;
+      border: solid 1px $black;
+      // border-radius: 20px;
       padding: 20px;
-      width: 90%;
+      width: 95%;
 
       // left: -100%;
     }
@@ -47,6 +47,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: fit-content;
       padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid $black;
@@ -61,17 +62,12 @@
     display: none;
 
     @include view(md-max) {
+      grid-column: span 2;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid $black;
       background-color: $white;
-      font-size: 12px;
-      text-transform: uppercase;
       justify-self: end;
-      margin-bottom: 12px;
     }
   }
 
