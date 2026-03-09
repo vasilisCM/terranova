@@ -19,5 +19,9 @@
         & span {
             text-wrap: nowrap;
         }
+
+        & img {
+            max-width: max-content;
+        }
     }
 }
