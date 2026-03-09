@@ -92,6 +92,60 @@ function create_custom_post_types()
 }
 add_action('init', 'create_custom_post_types');
 
+// Admin filter dropdown for Product Categories on Products list
+function product_categories_admin_filter_dropdown($post_type, $which)
+{
+  if ($post_type !== 'product') {
+    return;
+  }
+
+  $taxonomy = 'product_categories';
+  $taxonomy_obj = get_taxonomy($taxonomy);
+
+  if (!$taxonomy_obj) {
+    return;
+  }
+
+  $selected = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
+
+  wp_dropdown_categories(array(
+    'show_option_all' => sprintf(__('All %s'), $taxonomy_obj->labels->name),
+    'taxonomy'        => $taxonomy,
+    'name'            => $taxonomy,
+    'orderby'         => 'name',
+    'selected'        => $selected,
+    'hierarchical'    => true,
+    'show_count'      => false,
+    'hide_empty'      => false,
+  ));
+}
+add_action('restrict_manage_posts', 'product_categories_admin_filter_dropdown', 10, 2);
+
+// Apply selected Product Category filter in admin list
+function product_categories_admin_filter_query($query)
+{
+  global $pagenow;
+
+  if ($pagenow !== 'edit.php' || !is_admin() || !$query->is_main_query()) {
+    return;
+  }
+
+  $taxonomy = 'product_categories';
+  $q_vars   = &$query->query_vars;
+
+  if (
+    isset($q_vars['post_type']) && $q_vars['post_type'] === 'product'
+    && !empty($q_vars[$taxonomy]) && is_numeric($q_vars[$taxonomy])
+  ) {
+    $term = get_term_by('id', (int) $q_vars[$taxonomy], $taxonomy);
+
+    if ($term && !is_wp_error($term)) {
+      $q_vars[$taxonomy] = $term->slug;
+    }
+  }
+}
+add_filter('parse_query', 'product_categories_admin_filter_query');
+
 // Set posts per page for product archives
 function set_products_per_page($query)
 {
