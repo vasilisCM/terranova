@@ -429,6 +429,8 @@ function global() {
             () => {
               scrollToTopWithLenis({ immediate: true });
               initCarousels();
+
+              
               requestAnimationFrame(() => {
                 ScrollTrigger.refresh();
               });
