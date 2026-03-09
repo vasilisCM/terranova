@@ -1258,6 +1258,20 @@ h4 {
   inset: 0;
 }
 
+.search-results__container {
+  width: 100%;
+}
+.search-results__list {
+  display: grid;
+}
+.search-results__item {
+  border-bottom: 1px solid #5b697b;
+  transition: color 0.3s ease;
+}
+.search-results__item:hover {
+  color: #c44a37;
+}
+
 .search-form {
   display: flex;
   flex-wrap: wrap;
