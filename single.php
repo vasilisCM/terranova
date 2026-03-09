@@ -98,17 +98,7 @@
           </button>
         </a>
 
-        <div class="hashtag-container">
-          <?php
-          // Get post tags and display them
-          $tags = get_the_tags();
-          if ($tags) {
-            foreach ($tags as $tag) {
-              echo '<p class="text-ms uppercase letter-spacing-medium">#' . $tag->name . '</p>';
-            }
-          }
-          ?>
-        </div>
+
       </div>
     </div>
   </section>

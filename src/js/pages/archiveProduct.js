@@ -17,6 +17,18 @@ class ArchiveProduct {
       ".archive-product__filters"
     );
 
+    const openFiltersButton = document.querySelector(
+      ".archive-product__open-filter"
+    );
+
+    const closeFiltersButton = document.querySelector(
+      ".archive-product__close-filter"
+    );
+
+    if (!productFiltersContainer) {
+      return;
+    }
+
     const filterClickHandler = (e) => {
       let filter = e.target.closest(".archive-product__filter");
       if (filter) {
@@ -30,6 +42,34 @@ class ArchiveProduct {
       event: "click",
       handler: filterClickHandler,
     });
+
+    const showFilters = () => {
+      productFiltersContainer.classList.remove(
+        "archive-product__filters--hidden"
+      );
+    };
+
+    const hideFilters = () => {
+      productFiltersContainer.classList.add("archive-product__filters--hidden");
+    };
+
+    if (openFiltersButton) {
+      openFiltersButton.addEventListener("click", showFilters);
+      this.eventListeners.push({
+        element: openFiltersButton,
+        event: "click",
+        handler: showFilters,
+      });
+    }
+
+    if (closeFiltersButton) {
+      closeFiltersButton.addEventListener("click", hideFilters);
+      this.eventListeners.push({
+        element: closeFiltersButton,
+        event: "click",
+        handler: hideFilters,
+      });
+    }
 
     // Draggable carousels are inited in index.js (initCarousels).
   }

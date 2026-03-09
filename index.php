@@ -64,15 +64,18 @@
                     </button>
                   </a>
                   <?php
-                  $post_tags = get_the_tags();
-                  if ($post_tags) :
+                  // $post_tags = get_the_tags();
+                  // if ($post_tags) :
                   ?>
-                    <div class="hashtag-container">
-                      <?php foreach ($post_tags as $tag): ?>
+                  <!-- <div class="hashtag-container">
+                      <?php // foreach ($post_tags as $tag): 
+                      ?>
                         <p class="text-ms uppercase letter-spacing-medium">#<?php echo esc_html($tag->name); ?></p>
-                      <?php endforeach; ?>
-                    </div>
-                  <?php endif; ?>
+                      <?php // endforeach; 
+                      ?>
+                    </div> -->
+                  <?php // endif; 
+                  ?>
                 </div>
               </div>
             </article>

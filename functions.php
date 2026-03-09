@@ -97,7 +97,7 @@ function set_products_per_page($query)
 {
   if (!is_admin() && $query->is_main_query()) {
     if (is_post_type_archive('product') || is_tax('product_categories')) {
-      $query->set('posts_per_page', 3);
+      $query->set('posts_per_page', 9);
     }
   }
 }

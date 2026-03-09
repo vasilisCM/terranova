@@ -1,8 +1,8 @@
 <section class="instagram centered">
     <!-- Texts  -->
     <div class="instagram__text-container boxed centered">
-        <h2 class="instagram__heading heading lowercase">My Terranova</h2>
-        <span class="instagram__hashtag heading-ms">#terranovanutrition</span>
+        <h2 class="instagram__heading heading lowercase">My Instagram</h2>
+        <a href="https://www.instagram.com/terranovahealth/" class="instagram__hashtag heading-ms" target="_blank">@terranovahealth</a>
     </div>
     <div
         class="instagram__slides-container"

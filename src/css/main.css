@@ -3184,6 +3184,46 @@ main--home {
     width: 90%;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .archive-product__filters--hidden {
+    display: none;
+  }
+}
+.archive-product__open-filter {
+  display: none;
+}
+@media only screen and (max-width: 1024px) {
+  .archive-product__open-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid #000;
+    background-color: #fcfcfc;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+}
+.archive-product__close-filter {
+  display: none;
+}
+@media only screen and (max-width: 1024px) {
+  .archive-product__close-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #000;
+    background-color: #fcfcfc;
+    font-size: 12px;
+    text-transform: uppercase;
+    justify-self: end;
+    margin-bottom: 12px;
+  }
+}
 .archive-product__filter {
   cursor: pointer;
 }

@@ -61,7 +61,13 @@
     <section class="archive-product">
         <div class="archive-product__container boxed centered">
             <!-- Filters  -->
-            <aside class="archive-product__filters">
+            <button class="archive-product__open-filter">
+                Filters
+            </button>
+            <aside class="archive-product__filters archive-product__filters--hidden">
+                <button class="archive-product__close-filter">
+                    Close
+                </button>
                 <div
                     class="archive-product__filter archive-product__filter--open">
                     <h4
