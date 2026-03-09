@@ -116,7 +116,7 @@ function global() {
         for (const slide of slides) {
           const slideEls = el.querySelectorAll(slide);
           if (slideEls.length === 0) continue;
-          if (slideEls.length <= 4) break;
+          if (window.matchMedia("(min-width: 992px)").matches && slideEls.length <= 4) break;
           const carousel = new DraggableCarousel(el, trackEl, slide);
           carousel.init();
           carouselInstances.push(carousel);

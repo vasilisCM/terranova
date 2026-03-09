@@ -2500,20 +2500,24 @@ h4 {
 .asymmetrical-carousel__container > * {
   flex-shrink: 0;
 }
-.asymmetrical-carousel__container:has(.asymmetrical-carousel__image--no-carousel) {
-  overflow: hidden;
-  flex-wrap: nowrap;
-}
-.asymmetrical-carousel__container:has(.asymmetrical-carousel__image--no-carousel) > * {
-  flex-shrink: 1;
-  min-width: 0;
+@media only screen and (min-width: 1025px) {
+  .asymmetrical-carousel__container:has(.asymmetrical-carousel__image--no-carousel) {
+    overflow: hidden;
+    flex-wrap: nowrap;
+  }
+  .asymmetrical-carousel__container:has(.asymmetrical-carousel__image--no-carousel) > * {
+    flex-shrink: 1;
+    min-width: 0;
+  }
 }
 .asymmetrical-carousel__column {
   position: relative;
   margin: auto;
 }
-.asymmetrical-carousel__column--no-carousel {
-  flex-shrink: 1;
+@media only screen and (min-width: 1025px) {
+  .asymmetrical-carousel__column--no-carousel {
+    flex-shrink: 1;
+  }
 }
 .asymmetrical-carousel__column--1 {
   transform: translateY(64px);
@@ -2584,8 +2588,10 @@ h4 {
     max-width: clamp(550px, 36.6666666667vw, 1100px);
   }
 }
-.asymmetrical-carousel__image--no-carousel {
-  max-width: 100%;
+@media only screen and (min-width: 1025px) {
+  .asymmetrical-carousel__image--no-carousel {
+    max-width: 100%;
+  }
 }
 @media only screen and (min-width: 1921px) {
   .asymmetrical-carousel__image--no-carousel {

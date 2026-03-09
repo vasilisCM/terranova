@@ -119,6 +119,8 @@
 
   // No overflow when --no-carousel (≤4 slides, no JS carousel)
   &__container:has(.asymmetrical-carousel__image--no-carousel) {
+
+    @include view(lg-min) {
     overflow: hidden;
     flex-wrap: nowrap;
 
@@ -127,13 +129,16 @@
       min-width: 0;
     }
   }
+  }
 
   &__column {
     position: relative;
     margin: auto;
 
     &--no-carousel {
+      @include view(lg-min) {
       flex-shrink: 1;
+      }
     }
 
     &--1 {
@@ -220,7 +225,9 @@
     }
 
      &--no-carousel {
-      max-width: 100%;
+      @include view(lg-min) {
+        max-width: 100%;
+      }
 
       @include view(xxl) {
         max-width: 100%;
