@@ -14,7 +14,7 @@
         </div>
     </section>
 
-    <section class="last-section">
+    <section class="supplements-accordion">
         <?php include 'components/accordion.php'; ?>
     </section>
 </main>

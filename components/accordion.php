@@ -7,8 +7,8 @@
             <div class="accordion__item">
                 <h3 class="accordion__button">
                     <div class="boxed-md centered accordion__button-container">
-                        <div class="accordion__title"><span><?php $rowIndex = get_row_index();
-                                                            if ($rowIndex < 10): ?>0<?php endif; ?><?php echo get_row_index(); ?></span> <?php echo $button; ?></div>
+                        <div class="accordion__title line-height-s"><span><?php $rowIndex = get_row_index();
+                                                                            if ($rowIndex < 10): ?>0<?php endif; ?><?php echo get_row_index(); ?></span> <?php echo $button; ?></div>
                         <div class="accordion__icon">+</div>
                     </div>
                 </h3>
