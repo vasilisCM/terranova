@@ -97,13 +97,13 @@ function mobileMenu() {
       left: "-100%",
     });
 
-    gsap.to(
-      ".header",
+    // gsap.to(
+    //   ".header",
 
-      {
-        backgroundColor: "transparent",
-      }
-    );
+    //   {
+    //     backgroundColor: "transparent",
+    //   }
+    // );
 
     gsap.to(".body", {
       overflowY: "visible",
@@ -143,13 +143,13 @@ function mobileMenu() {
           }
         );
 
-        gsap.to(
-          ".header",
+        // gsap.to(
+        //   ".header",
 
-          {
-            backgroundColor: white,
-          }
-        );
+        //   {
+        //     backgroundColor: white,
+        //   }
+        // );
 
         gsap.to(".body", {
           overflowY: "hidden",
@@ -160,13 +160,13 @@ function mobileMenu() {
           left: "-100%",
         });
 
-        gsap.to(
-          ".header",
+        // gsap.to(
+        //   ".header",
 
-          {
-            backgroundColor: "transparent",
-          }
-        );
+        //   {
+        //     backgroundColor: "transparent",
+        //   }
+        // );
 
         gsap.to(".body", {
           overflowY: "visible",
@@ -211,7 +211,7 @@ function mobileMenu() {
     gsap.set(mainMenu, { left: "-100%" });
 
     // Reset header background
-    gsap.set(".header", { backgroundColor: "transparent" });
+    // gsap.set(".header", { backgroundColor: "transparent" });
 
     // Reset body overflow
     gsap.set(".body", { overflowY: "visible" });
