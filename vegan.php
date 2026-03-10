@@ -29,14 +29,14 @@
             <div class="basic two-col-grid vegan-content__grid">
                 <div class="flex vegan-content__item">
                     <div>
-                        <img src="<?php echo $image_1; ?>" alt="">
+                        <img src="<?php echo $image_1; ?>" alt="" class="card-icon__img">
                     </div>
                     <div class="heading-ms italic line-height-s"><?php echo $text_1; ?></div>
 
                 </div>
                 <div class="flex vegan-content__item">
                     <div>
-                        <img src="<?php echo $image_2; ?>" alt="">
+                        <img src="<?php echo $image_2; ?>" alt="" class="card-icon__img">
                     </div>
                     <div class="heading-ms italic line-height-s"><?php echo $text_2; ?></div>
                 </div>

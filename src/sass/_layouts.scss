@@ -154,6 +154,10 @@
   }
 
   & li {
+
+    &.current-menu-item {
+      font-weight: 600;
+    }
     @include view(md-max) {
       display: flex;
       flex-wrap: wrap;
