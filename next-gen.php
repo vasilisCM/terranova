@@ -17,7 +17,7 @@
         $image_2 = $hero['image_2'];
         $image_3 = $hero['image_3'];
         ?>
-        <div class="banner__wrapper hero-next-gen__container boxed centered">
+        <div class="banner__wrapper hero-next-gen__container boxed centered no-padding">
             <div class="hero-next-gen__container-columns">
                 <div class="banner__container">
                     <div class="banner__text-background"></div>
@@ -57,7 +57,7 @@
         $text_2 = $intro['text_2'];
         $text_3 = $intro['text_3'];
         ?>
-        <div class="basic boxed-md centered intro-next-gen__container">
+        <div class="basic boxed-md centered intro-next-gen__container no-padding">
             <div class="basic boxed-sm centered intro-next-gen__text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text_1; ?></div>
@@ -140,7 +140,7 @@
             </div>
 
             <div class="basic text-center">
-                <div class="boxed-sm centered">
+                <div class="boxed-sm centered no-padding">
                     <h2 class="heading-m accent semibold">
                         <?php echo get_field('next_gen__how_it_works_heading'); ?>
                     </h2>
@@ -194,7 +194,7 @@
         ?>
 
         <div class="boxed-md centered basic card-next-gen__container card-next-gen__container--1">
-            <h2 class="heading-m"><?php echo $heading; ?></h2>
+            <h2 class="heading-m line-height-s"><?php echo $heading; ?></h2>
             <div class="basic card-next-gen__text-container">
                 <div class="italic">
                     <div class="heading-s"><?php echo $subheading_1; ?></div>
@@ -269,7 +269,7 @@
             ?>
 
             <div class="boxed-md centered basic accent-bg">
-                <h2 class="heading-m"><?php echo $heading; ?></h2>
+                <h2 class="heading-m line-height-s"><?php echo $heading; ?></h2>
                 <div class="basic card-next-gen__text-container">
                     <div class="italic">
                         <div class="heading-s"><?php echo $subheading_1; ?></div>
@@ -352,7 +352,7 @@
             ?>
 
             <div class="boxed-md centered basic accent-bg">
-                <h2 class="heading-m"><?php echo $heading; ?></h2>
+                <h2 class="heading-m line-height-s"><?php echo $heading; ?></h2>
                 <div class="text italic basic"><?php echo $subheading_1; ?></div>
                 <div class=light-gray-bg text-center">
                     <div class="basic boxed-sm centered">
@@ -376,7 +376,7 @@
         ?>
 
         <div class="basic-section boxed-md centered why-next-gen__container">
-            <h2 class="heading-m"><?php echo $heading; ?></h2>
+            <h2 class="heading-m line-height-s"><?php echo $heading; ?></h2>
 
             <div class="why-next-gen__content">
                 <div>

@@ -1344,7 +1344,7 @@ h4 {
 }
 
 .banner {
-  margin-top: clamp(100px, 11.1111111111vw, 200px);
+  margin-top: clamp(134px, 11.1111111111vw, 200px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4327,9 +4327,11 @@ main--home {
   bottom: 0;
   z-index: 2;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
   .hero-next-gen__container .banner__container {
-    position: relative;
+    width: calc(100% - 40px);
+    left: 20px;
+    transform: translateY(35%);
   }
 }
 .hero-next-gen__container .banner__text-background {
@@ -4337,47 +4339,67 @@ main--home {
   mix-blend-mode: revert;
   width: 50%;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
   .hero-next-gen__container .banner__text-background {
     width: 100%;
+    max-width: clamp(230px, 41.015625vw, 420px);
+    height: clamp(210px, 39.0625vw, 400px);
+    opacity: 0.85;
   }
 }
 .hero-next-gen__container .banner__text-container {
   width: 50%;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
   .hero-next-gen__container .banner__text-container {
     width: 100%;
+    max-width: clamp(230px, 41.015625vw, 420px);
+    height: clamp(210px, 39.0625vw, 400px);
   }
 }
-@media only screen and (max-width: 767px) {
-  .hero-next-gen__container {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+.hero-next-gen__container .banner__header {
+  padding-top: 20px;
+  line-height: 1.1;
 }
 .hero-next-gen__images {
-  display: flex;
-  gap: clamp(20px, 2.2222222222vw, 40px);
   z-index: 1;
+}
+@media only screen and (min-width: 1025px) {
+  .hero-next-gen__images {
+    display: flex;
+    gap: clamp(45px, 5vw, 90px);
+  }
 }
 @media only screen and (max-width: 1024px) {
   .hero-next-gen__images {
-    justify-content: flex-end;
+    position: relative;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .hero-next-gen__images {
+    gap: clamp(90px, 3.9vw, 117px);
   }
 }
 .hero-next-gen__img-container--1 {
   position: relative;
-  padding-bottom: clamp(75px, 8.3333333333vw, 150px);
+  width: 380px;
+  height: 550px;
+}
+@media only screen and (min-width: 1025px) {
+  .hero-next-gen__img-container--1 {
+    margin-bottom: clamp(75px, 8.3333333333vw, 150px);
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .hero-next-gen__img-container--1 {
+    width: clamp(380px, 16.4666666667vw, 494px);
+    height: clamp(550px, 23.8333333333vw, 715px);
+  }
 }
 @media only screen and (max-width: 1024px) {
   .hero-next-gen__img-container--1 {
-    max-width: clamp(280px, 39.0625vw, 400px);
-  }
-}
-@media only screen and (max-width: 767px) {
-  .hero-next-gen__img-container--1 {
-    padding-bottom: 0;
+    height: clamp(280px, 53.7109375vw, 550px);
+    width: 100%;
   }
 }
 .hero-next-gen__img-container--1::before {
@@ -4395,14 +4417,27 @@ main--home {
 }
 .hero-next-gen__img-container--1 img {
   position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 2;
 }
 .hero-next-gen__img-container--2 {
   margin-top: auto;
+  width: 150px;
+}
+@media only screen and (min-width: 1921px) {
+  .hero-next-gen__img-container--2 {
+    width: clamp(150px, 6.5vw, 195px);
+  }
 }
 @media only screen and (max-width: 1024px) {
   .hero-next-gen__img-container--2 {
-    max-width: clamp(120px, 13.671875vw, 140px);
+    position: absolute;
+    top: clamp(20px, 2.2222222222vw, 40px);
+    right: 20px;
+    width: clamp(100px, 14.6484375vw, 150px);
+    z-index: 2;
   }
 }
 
@@ -4462,6 +4497,7 @@ main--home {
   display: grid;
   justify-content: center;
   overflow-x: auto;
+  row-gap: 40px;
 }
 @media only screen and (max-width: 1024px) {
   .stats-next-gen__list {
@@ -4657,6 +4693,13 @@ main--home {
 .why-next-gen__content img {
   width: 100%;
 }
+@media only screen and (max-width: 1024px) {
+  .why-next-gen__content img {
+    width: 60%;
+    max-width: 400px;
+    margin-left: auto;
+  }
+}
 .why-next-gen__list ul {
   margin: 0;
   padding: 0;
@@ -4667,6 +4710,8 @@ main--home {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  align-items: center;
+  margin-bottom: 8px;
 }
 @media only screen and (min-width: 1921px) {
   .why-next-gen__list li {
