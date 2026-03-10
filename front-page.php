@@ -8,6 +8,7 @@
     $text_1 = $hero['text_1'];
     $text_2 = $hero['text_2'];
     $text_3 = $hero['text_3'];
+    $button = $hero['button'];
     // $video = $hero['video'];
     ?>
     <div class="hero__container">
@@ -22,6 +23,11 @@
         <div class="text mask-text hero__description">
           <?php echo $text_3; ?>
         </div>
+        <a href="<?php echo $button['link']; ?>">
+          <button class="button products__button text-button mask-text">
+            <span class="text-button button__text"><?php echo $button['label']; ?></span>
+          </button>
+        </a>
       </div>
       <div class="circular-shape">
         <video
@@ -142,12 +148,12 @@
       <div class="home-presentation__images">
         <div class="relative home-presentation__img-container home-presentation__img-container--1">
           <?php if ($image_1): ?>
-          <img src="<?php echo esc_url($image_1); ?>" class="move-up-on-scroll" alt="">
+            <img src="<?php echo esc_url($image_1); ?>" class="move-up-on-scroll" alt="">
           <?php endif; ?>
         </div>
         <div class="home-presentation__img-container home-presentation__img-container--2">
           <?php if ($image_2): ?>
-          <img src="<?php echo esc_url($image_2); ?>" alt="">
+            <img src="<?php echo esc_url($image_2); ?>" alt="">
           <?php endif; ?>
         </div>
         <div class="absolute home-presentation__img-container home-presentation__img-container--3">
