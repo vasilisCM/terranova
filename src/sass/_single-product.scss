@@ -58,10 +58,15 @@
 
   &__featured-image {
     margin: auto;
-    // max-width: cross-media(150px, 991px, 450px);
+    max-height: 600px;
+    //max-width: cross-media(150px, 991px, 450px);
 
     @include view(md-max) {
       max-width: 100%;
+    }
+
+    @include view(xxl) {
+      max-height: cross-media(600px, $xxl-breakpoint, calc(600px * $xxl-scale));
     }
   }
 
@@ -136,7 +141,11 @@
     padding-block: 16px;
 
     @include view(xxl) {
-      padding-block: cross-media(16px, $xxl-breakpoint, calc(16px * $xxl-scale));
+      padding-block: cross-media(
+        16px,
+        $xxl-breakpoint,
+        calc(16px * $xxl-scale)
+      );
     }
   }
 }

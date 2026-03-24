@@ -157,6 +157,18 @@
   &__product {
     display: flex;
     flex-direction: column;
+
+    &:hover {
+      & .archive-product {
+        &__featured-image {
+          transform: scale(1.1);
+        }
+      }
+
+      & .link--arrow:after {
+        animation: link-arrow 1.2s ease-in-out 0s infinite reverse;
+      }
+    }
   }
 
   &__img-container {
@@ -175,6 +187,8 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    background-color: #dadee2;
+    transition: 0.3s ease-out;
   }
 
   &__text-container {
@@ -192,8 +206,6 @@
     font-size: 32px;
     text-transform: lowercase;
   }
-
-
 
   &__product-category {
     color: $accent;
