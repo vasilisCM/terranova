@@ -3322,7 +3322,7 @@ main--home {
   flex-direction: column;
 }
 .archive-product__product:hover .archive-product__featured-image {
-  transform: scale(1.1);
+  transform: scale(1);
 }
 .archive-product__product:hover .link--arrow:after {
   animation: link-arrow 1.2s ease-in-out 0s infinite reverse;
@@ -3332,6 +3332,7 @@ main--home {
   height: clamp(150px, 45.4086781029vw, 450px);
   overflow: hidden;
   flex-shrink: 0;
+  background-color: #f4f5f6;
 }
 @media only screen and (min-width: 1921px) {
   .archive-product__img-container {
@@ -3343,7 +3344,7 @@ main--home {
   height: 100%;
   object-fit: cover;
   display: block;
-  background-color: #dadee2;
+  transform: scale(0.9);
   transition: 0.3s ease-out;
 }
 .archive-product__text-container {
