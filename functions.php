@@ -61,7 +61,7 @@ function create_custom_post_types()
       ),
       'public'      => true,
       'has_archive' => true,
-      'rewrite'     => array('slug' => 'products'),
+      'rewrite'     => array('slug' => 'product'),
       'supports'    => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
       'menu_icon'   => 'dashicons-products',
     )
@@ -84,7 +84,7 @@ function create_custom_post_types()
     'show_admin_column' => true,
     'query_var'         => true,
     'rewrite'           => array(
-      'slug' => 'product-categories',
+      'slug' => 'products',
       'hierarchical' => true
     ),
     'hierarchical'      => true,
