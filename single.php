@@ -37,10 +37,14 @@
   <!-- Content -->
   <section class="single-post-content">
     <div class="boxed-md centered single-post-content__container text margin-p">
+
       <?php
+      // Always display the main content
       the_content();
       ?>
+
       <?php
+      // If there is flexible content, output it below the main content
       if (have_rows('single_post_content')) :
         while (have_rows('single_post_content')) :
           the_row();
@@ -75,8 +79,6 @@
       <?php
           endif;
         endwhile;
-      else :
-        the_content();
       endif;
       ?>
 

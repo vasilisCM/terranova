@@ -143,7 +143,7 @@
 
         <?php
         $args = array(
-          'posts_per_page' => 3,
+          'posts_per_page' => -1,
           'post_type' => 'post',
           'category_name' => 'recipes',
         );

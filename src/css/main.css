@@ -3561,6 +3561,7 @@ main--home {
   border-collapse: collapse;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 .single-product-ingredients table th {
   background-color: #e8e7e0;
