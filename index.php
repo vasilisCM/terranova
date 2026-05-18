@@ -111,7 +111,17 @@
         ?>
             <div class="asymmetrical-carousel__column" data-asymmetrical-carousel-slide>
               <div class="asymmetrical-carousel__image-container" draggable="true">
-                <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="asymmetrical-carousel__image" draggable-image />
+                <img
+                  src="<?php
+                        echo esc_url(
+                          has_post_thumbnail()
+                            ? get_the_post_thumbnail_url(get_the_ID(), 'full')
+                            : '/wp-content/uploads/2025/11/blog-hero.jpg'
+                        );
+                        ?>"
+                  alt="<?php the_title_attribute(); ?>"
+                  class="asymmetrical-carousel__image"
+                  draggable="false" />
               </div>
               <div class="asymmetrical-carousel__text-container">
                 <div class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
@@ -155,9 +165,13 @@
               <div class="recipes__image-container">
                 <img
                   class="recipes__image"
-                  src="<?php the_post_thumbnail_url(); ?>"
+                  src="<?php
+                        echo has_post_thumbnail()
+                          ? get_the_post_thumbnail_url()
+                          : '/wp-content/uploads/2025/11/blog-hero.jpg';
+                        ?>"
                   alt=""
-                  draggable-image />
+                  draggable="true" />
               </div>
               <div class="recipes__text-container">
                 <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
