@@ -342,3 +342,24 @@
 .light-gray-bg {
   background-color: $light-gray;
 }
+
+// Icons
+.ic-social {
+  &--facebook {
+    &::after {
+      @include icon('\e910');
+    }
+  }
+
+  &--instagram {
+    &::after {
+      @include icon("\e911");
+    }
+  }
+
+  &--linkedin {
+    &::after {
+      @include icon("\e912");
+    }
+  }
+}

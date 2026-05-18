@@ -183,8 +183,8 @@ html.lenis {
 }
 @font-face {
   font-family: "icomoon";
-  src: url("../../assets/fonts/icomoon/icomoon.eot?9tyiel");
-  src: url("../../assets/fonts/icomoon/icomoon.eot?9tyiel#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?9tyiel") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?9tyiel") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?9tyiel#icomoon") format("svg");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?4a093s");
+  src: url("../../assets/fonts/icomoon/icomoon.eot?4a093s#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/icomoon.ttf?4a093s") format("truetype"), url("../../assets/fonts/icomoon/icomoon.woff?4a093s") format("woff"), url("../../assets/fonts/icomoon/icomoon.svg?4a093s#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -761,6 +761,28 @@ h4 {
 
 .light-gray-bg {
   background-color: #f1f1f1;
+}
+
+.ic-social--facebook::after {
+  content: "\e910";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ic-social--instagram::after {
+  content: "\e911";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ic-social--linkedin::after {
+  content: "\e912";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .header {
