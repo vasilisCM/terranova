@@ -64,8 +64,9 @@
     <div class="footer__social">
       <h3 class="heading-m lowercase medium"><?php echo $social['heading']; ?></h3>
       <div class="footer__social-links text-ml uppercase">
-        <a href="<?php echo $social['facebook']; ?>" target="_blank">Facebook</a>
-        <a href="<?php echo $social['instagram']; ?>" target="_blank">Instagram</a>
+        <a href="<?php echo $social['facebook']; ?>" target="_blank" class="ic-social ic-social--facebook"></a>
+        <a href="<?php echo $social['instagram']; ?>" target="_blank" class="ic-social ic-social--instagram"></a>
+        <a href="<?php echo $social['linkedin']; ?>" target="_blank" class="ic-social ic-social--linkedin"></a>
       </div>
     </div>
 
