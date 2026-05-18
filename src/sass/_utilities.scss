@@ -106,20 +106,28 @@
   padding-inline: 0;
 }
 
+.no-top-padding {
+  padding-top: 0;
+}
+
+.np-bottom-padding {
+  padding-bottom: 0;
+}
+
 .inline-padding {
   padding-inline: $padding-inline-mob;
 }
 
 .bottom-padding {
-  padding-bottom: cross-media(40px, 1024px, 80px);
+  padding-bottom: cross-media(40px, $box, 80px);
   @include view(xxl) {
     padding-bottom: cross-media(80px, $xxl-breakpoint, calc(80px * $xxl-scale));
   }
 }
 
 .first-section {
-  padding-block: cross-media(150px, 1024px, 210px)
-    cross-media(75px, 1024px, 100px);
+  padding-block: cross-media(150px, $box, 210px)
+    cross-media(75px, $box, 100px);
   @include view(xxl) {
     padding-block: cross-media(210px, $xxl-breakpoint, calc(210px * $xxl-scale))
       cross-media(100px, 3000px, calc(100px * $xxl-scale));
@@ -134,7 +142,7 @@
 }
 
 .basic-section {
-  padding-block: cross-media(50px, 1024px, 100px);
+  padding-block: cross-media(50px, $box, 100px);
   @include view(xxl) {
     padding-block: cross-media(
       100px,

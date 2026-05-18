@@ -6,7 +6,6 @@
   }
 
   &__body {
-    // margin-top: cross-media(40px, 991px, 80px);
     form {
       @include view(md-max) {
         display: flex;
@@ -51,7 +50,6 @@
 
       input[type="submit"] {
         @include clear-styles;
-        // margin-left: auto;
         width: 100px;
         position: absolute;
         right: 0;
@@ -59,18 +57,8 @@
         cursor: pointer;
       }
 
-      // .contact-info {
-      //   grid-column: 3/5;
-      // }
     }
   }
-
-  // &__name,
-  // &__surname,
-  // &__email,
-  // &__tel {
-  //   grid-column: span 2;
-  // }
 
   &__message {
     grid-column: 1/5;
@@ -91,7 +79,6 @@
 }
 
 .contact-info {
-  // margin-top: cross-media(60px, 991px, 120px);
 
   &__container {
     display: flex;
@@ -107,14 +94,8 @@
     @include view(lg-min) {
       max-width: 65%;
     }
-    // display: grid;
-    // grid-template-columns: 3fr 1fr;
-    // gap: 40px;
   }
 
-  // &__description {
-  //   max-width: 60%;
-  // }
 }
 
 .contact-info-box {
@@ -131,4 +112,11 @@
       color: $secondary;
     }
   }
+}
+
+.contact-img {
+  width: 35%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }

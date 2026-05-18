@@ -534,12 +534,20 @@ h4 {
   padding-inline: 0;
 }
 
+.no-top-padding {
+  padding-top: 0;
+}
+
+.np-bottom-padding {
+  padding-bottom: 0;
+}
+
 .inline-padding {
   padding-inline: 20px;
 }
 
 .bottom-padding {
-  padding-bottom: clamp(40px, 7.8125vw, 80px);
+  padding-bottom: clamp(40px, 4.4444444444vw, 80px);
 }
 @media only screen and (min-width: 1921px) {
   .bottom-padding {
@@ -548,7 +556,7 @@ h4 {
 }
 
 .first-section {
-  padding-block: clamp(150px, 20.5078125vw, 210px) clamp(75px, 9.765625vw, 100px);
+  padding-block: clamp(150px, 11.6666666667vw, 210px) clamp(75px, 5.5555555556vw, 100px);
 }
 @media only screen and (min-width: 1921px) {
   .first-section {
@@ -566,7 +574,7 @@ h4 {
 }
 
 .basic-section {
-  padding-block: clamp(50px, 9.765625vw, 100px);
+  padding-block: clamp(50px, 5.5555555556vw, 100px);
 }
 @media only screen and (min-width: 1921px) {
   .basic-section {
@@ -4270,6 +4278,13 @@ main--home {
 }
 .contact-info-box__link--accent {
   color: #5b697b;
+}
+
+.contact-img {
+  width: 35%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .advanced-fermentation__column {
