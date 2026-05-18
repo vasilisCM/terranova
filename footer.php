@@ -42,14 +42,7 @@
         </div>
       </form>
     </div>
-    <!-- Social  -->
-    <div class="footer__social">
-      <h3 class="heading-m lowercase medium"><?php echo $social['heading']; ?></h3>
-      <div class="footer__social-links text-ml uppercase">
-        <a href="<?php echo $social['facebook']; ?>" target="_blank">Facebook</a>
-        <a href="<?php echo $social['instagram']; ?>" target="_blank">Instagram</a>
-      </div>
-    </div>
+
 
     <!-- Footer Menu -->
     <div class="footer__menu">
@@ -67,30 +60,16 @@
       </nav>
     </div>
 
-    <!-- Contact Info -->
-    <div class="footer__contact-info">
-      <h3 class="text-ml uppercase"><?php echo __('Contact', 'terranova'); ?></h3>
-      <ul class="footer__contact-info-list text">
-        <li class="footer__contact-info-item"><?php echo $company; ?></li>
-        <li class="footer__contact-info-item">
-          <a href="<?php echo $location['link']; ?>" class="footer__contact-info-link"><?php echo $location['label']; ?>
-          </a>
-        </li>
-        <li class="footer__contact-info-item">
-          <?php echo __('Email', 'terranova'); ?>:
-          <a href="mailto:<?php echo $email; ?>" class="footer__contact-info-link">
-            <?php echo $email; ?>
-          </a>
-        </li>
-        <li class="footer__contact-info-item">
-          <?php echo __('Tel', 'terranova'); ?>:
-          <a href="<?php echo $tel['link']; ?>" class="footer__contact-info-link"><?php echo $tel['label']; ?></a>
-        </li>
-      </ul>
-      <a
-        href="/contact"
-        class="footer__contact-info-button text-button link link--arrow"><?php echo __('View all Partners', 'terranova'); ?></a>
+    <!-- Social  -->
+    <div class="footer__social">
+      <h3 class="heading-m lowercase medium"><?php echo $social['heading']; ?></h3>
+      <div class="footer__social-links text-ml uppercase">
+        <a href="<?php echo $social['facebook']; ?>" target="_blank">Facebook</a>
+        <a href="<?php echo $social['instagram']; ?>" target="_blank">Instagram</a>
+      </div>
     </div>
+
+
   </div>
 
   <!-- Copyrights -->

@@ -1925,19 +1925,17 @@ h4 {
 }
 @media only screen and (min-width: 1025px) {
   .footer__container {
-    grid-template-areas: "newsletter menu info" "social menu info";
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
   }
 }
 @media only screen and (min-width: 1025px) {
   .footer__newsletter {
-    grid-area: newsletter;
     justify-self: start;
   }
 }
 @media only screen and (min-width: 1025px) {
   .footer__social {
-    grid-area: social;
     justify-self: start;
   }
 }
@@ -1946,11 +1944,6 @@ h4 {
   flex-wrap: wrap;
   gap: 48px;
   margin-top: 24px;
-}
-@media only screen and (min-width: 1025px) {
-  .footer__menu {
-    grid-area: menu;
-  }
 }
 @media only screen and (min-width: 1025px) {
   .footer__contact-info {
