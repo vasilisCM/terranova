@@ -121,22 +121,36 @@
   &__heading,
   &__subheading {
     text-transform: lowercase;
+    z-index: 1;
 
-    &:before {
-      margin-top: cross-media(6px, 991px, 12px);
-    }
+    // &:before {
+    //   margin-top: cross-media(6px, 991px, 12px);
+    // }
   }
 
   &__subheading {
     margin-top: cross-media(20px, 991px, 40px);
+    z-index: 1;
   }
 
   &__text-container {
     display: grid;
     gap: cross-media(8px, 991px, 16px);
+    z-index: 1;
 
     @include view(lg-min) {
       max-width: 70%;
+    }
+  }
+
+  &__step-number {
+    right: 0;
+    bottom: 0;
+    opacity: 10%;
+    bottom: cross-media(35px, $box, 60px, -1);
+
+    @include view(xxl) {
+      bottom: cross-media(60px, $xxl-breakpoint, calc(60px * $xxl-scale), -1);
     }
   }
 

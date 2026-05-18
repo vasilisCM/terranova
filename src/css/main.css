@@ -763,6 +763,28 @@ h4 {
   background-color: #f1f1f1;
 }
 
+.ic-social--facebook::after {
+  content: "\e910";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ic-social--instagram::after {
+  content: "\e911";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ic-social--linkedin::after {
+  content: "\e912";
+  font-family: "icomoon";
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .header {
   position: fixed;
   z-index: 100;
@@ -3333,7 +3355,7 @@ main--home {
   height: clamp(150px, 45.4086781029vw, 450px);
   overflow: hidden;
   flex-shrink: 0;
-  background-color: #f4f5f6;
+  background-color: #fcfcfc;
 }
 @media only screen and (min-width: 1921px) {
   .archive-product__img-container {
@@ -3845,20 +3867,31 @@ main--home {
 }
 .skin-nutrition-steps__heading, .skin-nutrition-steps__subheading {
   text-transform: lowercase;
-}
-.skin-nutrition-steps__heading:before, .skin-nutrition-steps__subheading:before {
-  margin-top: clamp(6px, 1.2108980827vw, 12px);
+  z-index: 1;
 }
 .skin-nutrition-steps__subheading {
   margin-top: clamp(20px, 4.0363269425vw, 40px);
+  z-index: 1;
 }
 .skin-nutrition-steps__text-container {
   display: grid;
   gap: clamp(8px, 1.614530777vw, 16px);
+  z-index: 1;
 }
 @media only screen and (min-width: 1025px) {
   .skin-nutrition-steps__text-container {
     max-width: 70%;
+  }
+}
+.skin-nutrition-steps__step-number {
+  right: 0;
+  bottom: 0;
+  opacity: 10%;
+  bottom: calc(clamp(35px, 3.3333333333vw, 60px) * -1);
+}
+@media only screen and (min-width: 1921px) {
+  .skin-nutrition-steps__step-number {
+    bottom: calc(clamp(60px, 2.6vw, 78px) * -1);
   }
 }
 .skin-nutrition-steps__product-grid {

@@ -90,26 +90,28 @@
                             $recommendedProducts = get_sub_field('recommended_products');
                         ?>
                             <div class="skin-nutrition-steps__step">
-                                <div class="skin-nutrition-steps__heading-bg accent-bg white">
-                                    <div class="boxed-md centered">
+                                <div class="skin-nutrition-steps__heading-bg light-gray-bg">
+                                    <div class="boxed-md centered relative">
                                         <div
-                                            class="heading-ms medium underline underline--white skin-nutrition-steps__heading">
-                                            <?php echo __('Step', 'terranova'); ?><?php echo get_row_index(); ?> <br />
+                                            class="heading-ms medium skin-nutrition-steps__heading relative">
                                             <?php if ($heading):
                                                 echo $heading;
                                             endif; ?>
                                         </div>
-                                        <div class="skin-nutrition-steps__text-container">
+                                        <div class="skin-nutrition-steps__text-container relative">
                                             <?php if ($text_1): ?>
                                                 <h3 class="heading-s">
                                                     <?php echo $text_1; ?>
                                                 </h3>
                                             <?php endif; ?>
                                             <?php if ($text_2): ?>
-                                                <p class="text skin-nutrition-steps__description">
+                                                <p class="text skin-nutrition-steps__description relative">
                                                     <?php echo $text_2; ?>
                                                 </p>
                                             <?php endif; ?>
+                                        </div>
+                                        <div class="skin-nutrition-steps__step-number absolute heading-xxl bold accent">
+                                            <?php echo __('Step', 'terranova'); ?><?php echo get_row_index(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +127,7 @@
                                     ?>
 
                                     <?php if (!empty($recommendedProducts_ids)) : ?>
-                                        <div class="light-gray-bg">
+                                        <div class="white-bg">
                                             <div class="boxed-md centered width-full">
                                                 <div
                                                     class="heading-ms underline skin-nutrition-steps__subheading">
@@ -187,7 +189,7 @@
                 <!-- Step 3  -->
                 <div class="skin-nutrition-steps__step">
 
-                    <div class="light-gray-bg">
+                    <div class="white-bg">
                         <div class="boxed-md centered">
                             <div
                                 class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
