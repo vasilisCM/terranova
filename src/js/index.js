@@ -6,6 +6,7 @@ import MenuDropdown from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import CustomCursor from "./logic/customCursor.js";
 import GlobalAnimations from "./global/globalAnimations.js";
+import updateActiveMenuItem from "./logic/updateActiveMenuItem.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
 import MegaMenuDropdown from "./global/megaMenuDropdown.js";
@@ -63,11 +64,14 @@ function global() {
   // Dynamic ::before height for nav submenus
   let beforeOffset;
   document.querySelectorAll(".menu-item-has-children").forEach((item) => {
-    beforeOffset = item.getBoundingClientRect().bottom * .5;
+    beforeOffset = item.getBoundingClientRect().bottom * 0.5;
     const ul = item.querySelector("ul");
     if (!ul) return;
     item.addEventListener("mouseenter", () => {
-      gsap.set(ul, { "--before-height": ul.getBoundingClientRect().bottom + beforeOffset + "px" });
+      gsap.set(ul, {
+        "--before-height":
+          ul.getBoundingClientRect().bottom + beforeOffset + "px",
+      });
     });
   });
 
@@ -116,7 +120,11 @@ function global() {
         for (const slide of slides) {
           const slideEls = el.querySelectorAll(slide);
           if (slideEls.length === 0) continue;
-          if (window.matchMedia("(min-width: 992px)").matches && slideEls.length <= 4) break;
+          if (
+            window.matchMedia("(min-width: 992px)").matches &&
+            slideEls.length <= 4
+          )
+            break;
           const carousel = new DraggableCarousel(el, trackEl, slide);
           carousel.init();
           carouselInstances.push(carousel);
@@ -144,7 +152,7 @@ function global() {
 
     // Fallback: find the last page-specific bundle in the document (head or body)
     const dynamicScripts = Array.from(
-      document.querySelectorAll("script[src]")
+      document.querySelectorAll("script[src]"),
     ).filter((script) => script.src.includes(".bundle.js"));
 
     return dynamicScripts.length > 0
@@ -232,7 +240,7 @@ function global() {
           display: "grid",
           duration: 0.1,
         },
-        "<"
+        "<",
       )
       .fromTo(
         ".loader--1",
@@ -245,7 +253,7 @@ function global() {
           duration: 1.6,
           ease: "power4.inOut",
         },
-        "<"
+        "<",
       )
       .fromTo(
         ".loader--2",
@@ -258,7 +266,7 @@ function global() {
           duration: 1.2,
           ease: "power4.inOut",
         },
-        "<0.4"
+        "<0.4",
       );
     return tl;
   }
@@ -283,7 +291,7 @@ function global() {
           duration: 0.3,
           autoAlpha: 0,
           ease: "power1.in",
-        }
+        },
       )
         .fromTo(
           [".loader--1", ".loader--2"],
@@ -295,7 +303,7 @@ function global() {
             duration: 1.2,
             ease: "power4.in",
           },
-          "<0.2"
+          "<0.2",
         )
         .fromTo(
           [".loader--1", ".loader--2"],
@@ -305,7 +313,7 @@ function global() {
           {
             display: "none",
           },
-          "<+1.5"
+          "<+1.5",
         );
 
       return tl;
@@ -339,6 +347,8 @@ function global() {
   });
 
   barba.hooks.after(async (data) => {
+    updateActiveMenuItem(data.next.url.href);
+
     const pageName = data.next.namespace;
 
     // Try to load page-specific JS bundle (some pages don't have one)
@@ -410,11 +420,11 @@ function global() {
 
           // Track the initial page script
           const initialScript = Array.from(
-            document.querySelectorAll("script[src]")
+            document.querySelectorAll("script[src]"),
           ).find(
             (script) =>
               script.src.includes("bundle.js") &&
-              script.src.includes(next.namespace)
+              script.src.includes(next.namespace),
           );
           if (initialScript) {
             currentPageScript = initialScript;
@@ -430,12 +440,11 @@ function global() {
               scrollToTopWithLenis({ immediate: true });
               initCarousels();
 
-              
               requestAnimationFrame(() => {
                 ScrollTrigger.refresh();
               });
             },
-            { once: true }
+            { once: true },
           );
 
           // // Initialize MegaMenuDropdown on desktop on first load
@@ -497,7 +506,7 @@ function global() {
     const overlay = document.querySelector(".dropdown-menu-overlay");
     const mainMenus = document.querySelectorAll(".main-menu");
     const menuItemsWithChildren = document.querySelectorAll(
-      ".main-menu .menu-item-has-children"
+      ".main-menu .menu-item-has-children",
     );
 
     if (overlay && menuItemsWithChildren.length) {

@@ -66,11 +66,11 @@
 
 
                 <div class="single-product__line"></div>
-                <p class="single-product__no-additives">
+                <div class="single-product__no-additives">
                     NO WHEAT - NO GLUTEN - NO SOY - NO YEAST - NO DAIRY - NO
                     GELATINE - NO ANIMAL INGREDIENTS - NO ADDITIVES - NO ADDED SUGAR
                     - NO COLOURS - NO FLAVOURS - NO PRESERVATIVES
-                </p>
+                </div>
 
                 <div>
 
@@ -89,10 +89,10 @@
 
                             <div class="tabs__contents text-ms">
                                 <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients">
-                                    <?php echo $single_product_ingredients ? wp_kses_post($single_product_ingredients) : ''; ?>
+                                    <?php echo $single_product_ingredients ? force_balance_tags(wp_kses_post($single_product_ingredients)) : ''; ?>
                                 </div>
                                 <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use">
-                                    <?php echo $single_product_how_to_use ? wp_kses_post($single_product_how_to_use) : ''; ?>
+                                    <?php echo $single_product_how_to_use ? force_balance_tags(wp_kses_post($single_product_how_to_use)) : ''; ?>
                                 </div>
                             </div>
                         </div>

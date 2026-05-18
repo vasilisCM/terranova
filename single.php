@@ -24,10 +24,16 @@
           </div>
 
           <div class="featured-image-single">
-            <?php
-            if (has_post_thumbnail()) : ?>
-              <img src="<?php the_post_thumbnail_url('full'); ?>" class="featured-image-single__image">
-            <?php endif; ?>
+            <img
+              src="<?php
+                    echo esc_url(
+                      has_post_thumbnail()
+                        ? get_the_post_thumbnail_url(get_the_ID(), 'full')
+                        : '/wp-content/uploads/2025/11/blog-hero.jpg'
+                    );
+                    ?>"
+              class="featured-image-single__image"
+              alt="<?php the_title_attribute(); ?>" />
           </div>
         </div>
       </article>

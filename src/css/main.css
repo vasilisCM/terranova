@@ -763,28 +763,6 @@ h4 {
   background-color: #f1f1f1;
 }
 
-.ic-social--facebook::after {
-  content: "\e910";
-  font-family: "icomoon";
-  font-variant: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.ic-social--instagram::after {
-  content: "\e911";
-  font-family: "icomoon";
-  font-variant: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.ic-social--linkedin::after {
-  content: "\e912";
-  font-family: "icomoon";
-  font-variant: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .header {
   position: fixed;
   z-index: 100;
