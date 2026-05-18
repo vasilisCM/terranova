@@ -22,13 +22,19 @@
     </section>
 
     <section class="fermendics">
-        <div class="boxed-md centered fermendics__container two-col-grid basic-section text">
+        <div class="boxed-md centered fermendics__container two-col-grid basic-section text relative">
             <div class="fermendics__column intro__container">
                 <?php echo get_field('advanced_fermentation__two_columns')['text_1']; ?>
             </div>
             <div class="fermentics__column intro__container">
                 <?php echo get_field('advanced_fermentation__two_columns')['text_2']; ?>
             </div>
+            <?php $fermenticsLogo = get_field('advanced_fermentation__two_columns')['image'];
+            if ($fermenticsLogo) : ?>
+                <div class="fermendics__logo absolute">
+                    <img src="<?php echo $fermenticsLogo; ?>" alt="Fermentics Logo" class="width-full">
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 

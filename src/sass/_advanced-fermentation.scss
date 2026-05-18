@@ -56,4 +56,14 @@
       grid-template-rows: 1fr 1fr;
     }
   }
+
+  &__logo {
+      bottom: 16px;
+      right: 16px;
+      width: cross-media(200px, $box, 300px);
+
+      @include view(xxl) {
+        width: cross-media(300px, $xxl-breakpoint, calc(300px * $xxl-scale));
+      }
+  }
 }

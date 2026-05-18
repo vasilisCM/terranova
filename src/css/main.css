@@ -4344,6 +4344,16 @@ main--home {
     grid-template-rows: 1fr 1fr;
   }
 }
+.fermendics__logo {
+  bottom: 16px;
+  right: 16px;
+  width: clamp(200px, 16.6666666667vw, 300px);
+}
+@media only screen and (min-width: 1921px) {
+  .fermendics__logo {
+    width: clamp(300px, 13vw, 390px);
+  }
+}
 
 .main-next-gen {
   background-color: #151f28;
