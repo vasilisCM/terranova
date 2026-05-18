@@ -119,4 +119,16 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  @include view(md-max) {
+    top: 0;
+    transform: translateY(-65%);
+    min-width: 250px;
+  }
+
+  & img {
+    @include view(xxl) {
+      width: cross-media(393px, $xxl-breakpoint, calc(393px * $xxl-scale));
+    }
+  }
 }

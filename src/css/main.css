@@ -4286,6 +4286,18 @@ main--home {
   top: 50%;
   transform: translateY(-50%);
 }
+@media only screen and (max-width: 1024px) {
+  .contact-img {
+    top: 0;
+    transform: translateY(-65%);
+    min-width: 250px;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .contact-img img {
+    width: clamp(393px, 17.03vw, 510.9px);
+  }
+}
 
 .advanced-fermentation__column {
   display: flex;
