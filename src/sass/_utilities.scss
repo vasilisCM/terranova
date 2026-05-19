@@ -126,8 +126,7 @@
 }
 
 .first-section {
-  padding-block: cross-media(150px, $box, 210px)
-    cross-media(75px, $box, 100px);
+  padding-block: cross-media(150px, $box, 210px) cross-media(75px, $box, 100px);
   @include view(xxl) {
     padding-block: cross-media(210px, $xxl-breakpoint, calc(210px * $xxl-scale))
       cross-media(100px, 3000px, calc(100px * $xxl-scale));
@@ -184,11 +183,11 @@
 
 .margin-p {
   & p {
-  margin-block: 20px;
+    margin-block: 20px;
 
-  @include view(xxl) {
-    margin-block: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
-  }
+    @include view(xxl) {
+      margin-block: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
+    }
   }
 }
 
@@ -232,7 +231,7 @@
 }
 
 .italic {
-  font-style: italic;
+  // font-style: italic;
   font-family: "InterTight Italic";
 }
 
@@ -347,7 +346,7 @@
 .ic-social {
   &--facebook {
     &::after {
-      @include icon('\e910');
+      @include icon("\e910");
     }
   }
 
