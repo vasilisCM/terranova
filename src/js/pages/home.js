@@ -69,7 +69,7 @@ class Home {
               console.log("Home Hero Intro Tl");
             },
           },
-        }
+        },
       );
       this.scrollTriggers.push(trigger);
     });
@@ -89,15 +89,15 @@ class Home {
             end: "95% 0%",
             ease: "circ.out",
           },
-        }
+        },
       );
       this.scrollTriggers.push(trigger);
 
       const presentationButton = document.querySelector(
-        ".home-presentation__button"
+        ".home-presentation__button",
       );
       const presentantionImg3 = document.querySelector(
-        ".home-presentation__img-container--3"
+        ".home-presentation__img-container--3",
       );
       presentantionImg3.insertAdjacentElement("afterend", presentationButton);
     });
@@ -132,7 +132,7 @@ class Home {
             ease: "circ.out",
             toggleActions: "play reverse restart reverse",
           },
-        }
+        },
       )
       .fromTo(
         ".fx-text-huge--1",
@@ -148,7 +148,7 @@ class Home {
             start: "-100% 50%",
             end: "200% bottom",
           },
-        }
+        },
       )
       .fromTo(
         ".fx-text-huge--2",
@@ -164,25 +164,24 @@ class Home {
             start: "-100% 50%",
             end: "200% bottom",
           },
-        }
+        },
       );
     this.scrollTriggers.push(textTrigger);
 
     // Parallax image on scroll (moveUp module: same UX as asymmetrical-images)
     const moveUpTrigger = moveUp(
       ".home-presentation__images",
-      ".move-up-on-scroll"
+      ".move-up-on-scroll",
     );
     if (moveUpTrigger) {
       this.scrollTriggers.push(moveUpTrigger);
     }
 
-
     // Draggable carousels are inited in index.js (initCarousels) so they work on every transition.
 
     // Product Presentaiton Carousel
     const productPresentationCarousel = new Carousel(
-      ".home-presentation__carousel"
+      ".home-presentation__carousel",
     );
     productPresentationCarousel.init();
     this.carousels.push(productPresentationCarousel);
