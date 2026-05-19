@@ -74,50 +74,51 @@
                 ?>
             </div>
 
-            <!-- Pagination  -->
-            <div class="archive-product__pagination-container boxed centered">
-                <?php
-                // Get pagination links using global query
-                $pagination_links = paginate_links(array(
-                    'prev_text' => 'Previous',
-                    'next_text' => 'Next',
-                    'type' => 'array',
-                    'mid_size' => 2,
-                    'end_size' => 1,
-                ));
-                ?>
 
-                <?php if ($pagination_links) : ?>
-                    <div class="archive-product__pagination">
-                        <div class="archive-product__pages">
-                            <?php foreach ($pagination_links as $link) : ?>
-                                <?php
-                                // Parse the link to extract URL, text, and check if current
-                                $is_current = strpos($link, 'current') !== false;
+        </div>
+        <!-- Pagination  -->
+        <div class="archive-product__pagination-container boxed centered">
+            <?php
+            // Get pagination links using global query
+            $pagination_links = paginate_links(array(
+                'prev_text' => 'Previous',
+                'next_text' => 'Next',
+                'type' => 'array',
+                'mid_size' => 2,
+                'end_size' => 1,
+            ));
+            ?>
 
-                                if ($is_current) {
-                                    // Extract text from current page link
-                                    $text = strip_tags($link);
-                                    $class = 'archive-product__page archive-product__page--current';
-                                } else {
-                                    // Extract URL and text from regular link
-                                    preg_match('/href="([^"]*)"/', $link, $url_matches);
-                                    $url = isset($url_matches[1]) ? $url_matches[1] : '#';
-                                    $text = strip_tags($link);
-                                    $class = 'archive-product__page link--line';
-                                }
-                                ?>
+            <?php if ($pagination_links) : ?>
+                <div class="archive-product__pagination">
+                    <div class="archive-product__pages">
+                        <?php foreach ($pagination_links as $link) : ?>
+                            <?php
+                            // Parse the link to extract URL, text, and check if current
+                            $is_current = strpos($link, 'current') !== false;
 
-                                <?php if ($is_current) : ?>
-                                    <span class="<?php echo $class; ?>"><?php echo $text; ?></span>
-                                <?php else : ?>
-                                    <a href="<?php echo $url; ?>" class="<?php echo $class; ?>"><?php echo $text; ?></a>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </div>
+                            if ($is_current) {
+                                // Extract text from current page link
+                                $text = strip_tags($link);
+                                $class = 'archive-product__page archive-product__page--current';
+                            } else {
+                                // Extract URL and text from regular link
+                                preg_match('/href="([^"]*)"/', $link, $url_matches);
+                                $url = isset($url_matches[1]) ? $url_matches[1] : '#';
+                                $text = strip_tags($link);
+                                $class = 'archive-product__page link--line';
+                            }
+                            ?>
+
+                            <?php if ($is_current) : ?>
+                                <span class="<?php echo $class; ?>"><?php echo $text; ?></span>
+                            <?php else : ?>
+                                <a href="<?php echo $url; ?>" class="<?php echo $class; ?>"><?php echo $text; ?></a>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
         </div>
     </section>
 
