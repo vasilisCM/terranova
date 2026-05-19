@@ -3865,6 +3865,36 @@ main--home {
     margin-top: clamp(50px, 10.0908173562vw, 100px);
   }
 }
+.skin-nutrition-steps__step--1 .archive-product__product {
+  position: relative;
+}
+.skin-nutrition-steps__step--1 .archive-product__product::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateX(100%) translateY(-100%);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(30px, 2.2222222222vw, 40px);
+}
+@media only screen and (min-width: 1921px) {
+  .skin-nutrition-steps__step--1 .archive-product__product::after {
+    font-size: clamp(40px, 1.7333333333vw, 52px);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .skin-nutrition-steps__step--1 .archive-product__product::after {
+    right: 50%;
+    top: 100%;
+    transform: translateX(50%) translateY(0%);
+  }
+}
+.skin-nutrition-steps__step--1 .archive-product__product:first-child::after {
+  content: "or";
+}
+.skin-nutrition-steps__step--1 .archive-product__product:nth-child(2)::after {
+  content: "+";
+}
 .skin-nutrition-steps__heading, .skin-nutrition-steps__subheading {
   text-transform: lowercase;
   z-index: 1;
@@ -3896,7 +3926,7 @@ main--home {
 }
 .skin-nutrition-steps__product-grid {
   display: grid;
-  gap: clamp(40px, 7.2463768116vw, 100px);
+  gap: clamp(60px, 7.2463768116vw, 100px);
   padding-block: 16px clamp(40px, 5.0724637681vw, 70px);
 }
 @media only screen and (min-width: 768px) {
@@ -3907,8 +3937,8 @@ main--home {
 .skin-nutrition-steps__product-text-container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 40px;
+  gap: clamp(8px, 1.5625vw, 16px);
+  margin-top: clamp(20px, 3.90625vw, 40px);
 }
 @media only screen and (min-width: 1025px) {
   .skin-nutrition-steps__product-text-container {
@@ -3951,15 +3981,12 @@ main--home {
   }
 }
 .life-drink__button {
-  margin-top: clamp(60px, 12.1089808274vw, 120px);
+  margin-top: clamp(40px, 6.0544904137vw, 60px);
 }
 .life-drink__img {
   width: 100%;
   max-height: 750px;
   object-fit: cover;
-}
-.life-drink__recipe {
-  padding-block: clamp(20px, 4.0363269425vw, 40px);
 }
 .life-drink__dosage-container {
   display: flex;
@@ -3967,7 +3994,7 @@ main--home {
   justify-content: center;
   align-items: center;
   gap: clamp(16px, 3.229061554vw, 32px);
-  margin-top: clamp(30px, 6.0544904137vw, 60px);
+  margin-top: clamp(20px, 3.0272452069vw, 30px);
 }
 .life-drink__dosage {
   display: flex;

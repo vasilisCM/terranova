@@ -116,6 +116,40 @@
         }
       }
     }
+
+    &--1 {
+      & .archive-product__product {
+        position: relative;
+        &::after {
+          position: absolute;
+          right: 0;
+          top:50%;
+          transform: translateX(100%) translateY(-100%);
+          font-weight: 300;
+          font-style: italic;
+          font-size: cross-media(30px, $box, 40px);
+          @include view(xxl) {
+            font-size: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+          }
+
+          @include view(md-max) {
+            right: 50%;
+            top: 100%;
+            transform: translateX(50%) translateY(0%);
+          }
+        }
+        &:first-child {
+          &::after {
+            content: "or";
+          }
+        }
+        &:nth-child(2) {
+          &::after {
+            content: "+";
+          }
+        }
+      }
+    }
   }
 
   &__heading,
@@ -156,7 +190,7 @@
 
   &__product-grid {
     display: grid;
-    gap: cross-media(40px, $box-md, 100px);
+    gap: cross-media(60px, $box-md, 100px);
     padding-block: 16px cross-media(40px, $box-md, 70px);
     @include view(md-min) {
         grid-template-columns: repeat(3, 1fr);
@@ -166,8 +200,8 @@
   &__product-text-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 40px;
+    gap: cross-media(8px, 1024px, 16px);
+    margin-top: cross-media(20px, 1024px, 40px);
 
     @include view(lg-min) {
       max-width: 70%;
@@ -211,24 +245,8 @@
     }
   }
 
-  // &__text {
-  //   @include view(lg-min) {
-  //     max-width: 90%;
-  //   }
-  // }
-
-  // &__product {
-  //   display: grid;
-  //   align-items: center;
-  //   row-gap: 20px; // Only on mobile
-
-  //   @include view(lg-min) {
-  //     grid-template-columns: 1fr 1fr;
-  //   }
-  // }
-
   &__button {
-    margin-top: cross-media(60px, 991px, 120px);
+    margin-top: cross-media(40px, 991px, 60px);
   }
 
   &__img {
@@ -239,7 +257,7 @@
   }
 
   &__recipe {
-    padding-block: cross-media(20px, 991px, 40px);
+    //padding-block: cross-media(20px, 991px, 40px);
   }
 
   &__dosage-container {
@@ -248,7 +266,7 @@
     justify-content: center;
     align-items: center;
     gap: cross-media(16px, 991px, 32px);
-    margin-top: cross-media(30px, 991px, 60px);
+    margin-top: cross-media(20px, 991px, 30px);
   }
 
   &__dosage {
