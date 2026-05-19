@@ -6,7 +6,7 @@ const moveUp = (containerSelector, elementsSelector) => {
     return null;
   }
 
-  const translateAmount = elements[0].offsetHeight / 10;
+  const translateAmount = elements[0].offsetHeight / 8;
   const scrollTriggerEnd = container.offsetHeight * 2;
 
   const tl = gsap.timeline({

@@ -11,3 +11,14 @@
   left: 0;
   pointer-events: none;
 }
+
+.home-presentation__img-container--1 {
+  aspect-ratio: 12 / 16;
+  /* border: solid 4px red;
+  clip-path: revert !important; */
+}
+
+.home-presentation__img-container--1 img {
+  height: 100%;
+  object-fit: cover;
+}
