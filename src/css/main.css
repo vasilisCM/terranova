@@ -2753,6 +2753,16 @@ main--home {
     margin-top: clamp(180px, 32.5945241199vw, 250px);
   }
 }
+@media only screen and (min-width: 1281px) {
+  .hero__container {
+    padding-top: 100px;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .hero__container {
+    padding-top: 0;
+  }
+}
 .hero .circular-shape {
   min-width: clamp(320px, 64.5812310797vw, 640px);
   height: clamp(320px, 64.5812310797vw, 640px);

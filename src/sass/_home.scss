@@ -20,9 +20,15 @@ main {
     margin-top: cross-media(180px, 767px, 250px);
   }
 
-  // &__container {
-  //   border: solid 10px red;
-  // }
+  &__container {
+    @include view(xl-min) {
+      padding-top: 100px;
+    }
+
+    @include view(box-min) {
+      padding-top: 0;
+    }
+  }
 
   .circular-shape {
     min-width: cross-media(320px, 991px, 640px);
@@ -259,7 +265,15 @@ main {
 // NextGen Presentation
 .home-presentation {
   @include view(lg-min) {
-    background: linear-gradient(to bottom, #fcfcfc 0%, #fcfcfc 15%, #151f28 15%, #495667 85%, rgba(76, 104, 124, 0.2) 85%, rgba(76, 104, 124, 0.2) 100%);
+    background: linear-gradient(
+      to bottom,
+      #fcfcfc 0%,
+      #fcfcfc 15%,
+      #151f28 15%,
+      #495667 85%,
+      rgba(76, 104, 124, 0.2) 85%,
+      rgba(76, 104, 124, 0.2) 100%
+    );
   }
 
   @include view(md-max) {
@@ -300,12 +314,9 @@ main {
   }
 
   &__img-container {
-
-  
     &--1 {
       position: relative;
       clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
-     
 
       & img {
         position: relative;
@@ -359,8 +370,6 @@ main {
     }
   }
 }
-
-
 
 .home-presentation-products {
   &__container {
