@@ -378,14 +378,17 @@
         ?>
             <article class="blog-home__post">
               <div class="blog-home__image-container">
-                <?php if ($thumbnail_url): ?>
-                  <img
-                    class="blog-home__image"
-                    src="<?php echo esc_url($thumbnail_url); ?>"
-                    alt="<?php echo esc_attr($post_title); ?>"
-                    draggable-image />
-                <?php endif; ?>
+                <img
+                  class="blog-home__image"
+                  src="<?php echo esc_url(
+                          $thumbnail_url
+                            ? $thumbnail_url
+                            : '/wp-content/uploads/2025/11/blog-hero.jpg'
+                        ); ?>"
+                  alt="<?php echo esc_attr($post_title); ?>"
+                  draggable-image />
               </div>
+
               <div class="blog-home__text-container">
                 <?php if ($category_name): ?>
                   <a href="<?php echo esc_url($category_link); ?>" class="blog-home__category text-ms uppercase letter-spacing-medium"><?php echo esc_html($category_name); ?></a>
