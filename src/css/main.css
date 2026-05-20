@@ -2112,6 +2112,20 @@ h4 {
 .button--accent .button__text::after {
   color: #fcfcfc;
 }
+.button--white {
+  background-color: transparent;
+  border: solid 2px #fcfcfc;
+  color: #fcfcfc;
+}
+.button--white::after, .button--white::before {
+  background: #fcfcfc;
+}
+.button--white .button__text {
+  color: #fcfcfc;
+}
+.button--white:hover .button__text {
+  color: #000;
+}
 
 .link {
   text-transform: lowercase;
@@ -2977,6 +2991,18 @@ main--home {
 @media only screen and (min-width: 1025px) {
   .home-presentation__container {
     grid-template-columns: 1fr 1fr;
+  }
+}
+.home-presentation__text-container {
+  display: grid;
+  gap: clamp(20px, 2.2222222222vw, 40px);
+}
+.home-presentation__text {
+  max-width: 510px;
+}
+@media only screen and (min-width: 1921px) {
+  .home-presentation__text {
+    max-width: clamp(510px, 22.1vw, 663px);
   }
 }
 @media only screen and (min-width: 1025px) {

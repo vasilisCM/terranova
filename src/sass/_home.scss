@@ -291,6 +291,19 @@ main {
     }
   }
 
+  &__text-container {
+    display: grid;
+    gap: cross-media(20px, $box, 40px);
+  }
+
+  &__text {
+    max-width: 510px;
+
+    @include view(xxl) {
+      max-width: cross-media(510px, $xxl-breakpoint, calc(510px * $xxl-scale));
+    }
+  }
+
   &__button {
     @include view(lg-min) {
       transform: translateY(-50%);

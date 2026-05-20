@@ -148,18 +148,27 @@
     }
   }
 
-  // &--white {
-  //   background-color: transparent;
-  //   border: solid 2px $white;
-  //   color: $white;
+  &--white {
+    background-color: transparent;
+    border: solid 2px $white;
+    color: $white;
 
-  //   & .button__text {
-  //     color: $white;
-  //     &::after {
-  //       color: $white;
-  //     }
-  //   }
-  // }
+    &::after,
+    &::before {
+      background: $white;
+    }
+
+    & .button__text {
+      color: $white;
+    }
+
+    &:hover {
+      & .button__text {
+        color: $black;
+      }
+    }
+
+  }
 }
 
 // Button Small

@@ -139,19 +139,18 @@
     $text_4 = $presentation['text_4'];
     ?>
     <div class="home-presentation__container boxed centered">
-      <div>
+      <div class="home-presentation__text-container">
         <h2 class="home-presentation__heading heading">
           <span><?php echo $text_1; ?></span>
           <span class="italic"><?php echo $text_2; ?></span> <br>
           <span class="lowercase"><?php echo $text_3; ?></span>
         </h2>
-        <div class="text"><?php echo $text_4; ?></div>
 
-        <a href="<?php echo $link; ?>" class="button text-button mask-text">
+        <div class="text home-presentation__text"><?php echo $text_4; ?></div>
+
+        <a href="<?php echo $link; ?>" class="button button--white text-button mask-text">
           <span class="text-button button__text">Learn more </span>
         </a>
-
-
       </div>
       <div class="home-presentation__images">
         <div class="relative home-presentation__img-container home-presentation__img-container--1">
