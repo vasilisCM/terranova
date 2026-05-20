@@ -325,10 +325,10 @@
       }
 
       & li:first-child {
-        min-width: 270px;
-        @include view(xxl) {
-          min-width: cross-media(270px, 3000px, 405px);
-        }
+        // min-width: 270px;
+        // @include view(xxl) {
+        //   min-width: cross-media(270px, 3000px, 405px);
+        // }
       }
 
       & a {
@@ -378,6 +378,7 @@
       justify-content: start;
 
       & ul {
+        column-gap: cross-media(20px, $box, 35px);
         @include view(lg-min) {
           left: 0;
           justify-content: start;
