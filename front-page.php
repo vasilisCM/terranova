@@ -129,6 +129,8 @@
     $text_1 = $presentation['text_1'];
     $text_2 = $presentation['text_2'];
     $text_3 = $presentation['text_3'];
+    $text_4 = $presentation['text_4'];
+
     $link = $presentation['link'];
     $image_1_raw = $presentation['image_1'] ?? '';
     $image_2_raw = $presentation['image_2'] ?? '';
@@ -143,6 +145,12 @@
           <span class="italic"><?php echo $text_2; ?></span> <br>
           <span class="lowercase"><?php echo $text_3; ?></span>
         </h2>
+        <div class="text"><?php echo $text_4; ?></div>
+
+        <a href="<?php echo $link; ?>" class="button text-button mask-text">
+          <span class="text-button button__text">Learn more </span>
+        </a>
+
 
       </div>
       <div class="home-presentation__images">
@@ -168,14 +176,10 @@
 
   <!-- Carousel  -->
   <section class="home-presentation-products light-blue-bg">
-    <div class="boxed centered">
-      <a href="<?php echo $link; ?>" class="button button--white home-presentation__button text-button mask-text">
-        <span class="text-button button__text">Learn more </span>
-      </a>
-    </div>
+
     <?php $presentation = get_field('home__presentation');
     $products = $presentation['products'] ?? array();
-    $text_4 = $presentation['text_4'] ?? '';
+    $text_5 = $presentation['text_5'] ?? '';
 
     $home_presentation_products = array();
 
@@ -236,7 +240,7 @@
 
       <div>
         <h3 class="home-presentation__text-4 heading-ms lowercase black text-center">
-          <?php echo $text_4; ?>
+          <?php echo $text_5; ?>
         </h3>
       </div>
 
