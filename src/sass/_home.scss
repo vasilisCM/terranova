@@ -324,6 +324,10 @@ main {
       justify-content: center;
       align-items: center;
     }
+
+    @include view(xxl) {
+      gap: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale) );
+    }
   }
 
   &__img-container {

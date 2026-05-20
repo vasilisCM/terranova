@@ -2452,6 +2452,8 @@ h4 {
 .carousel__slide {
   color: #000;
   cursor: grab;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 .carousel__button {
   cursor: pointer;
@@ -3027,6 +3029,11 @@ main--home {
     align-items: center;
   }
 }
+@media only screen and (min-width: 1921px) {
+  .home-presentation__images {
+    gap: clamp(40px, 1.7333333333vw, 52px);
+  }
+}
 .home-presentation__img-container--1 {
   position: relative;
   clip-path: polygon(0 10%, 100% 10%, 100% 90%, 0 90%);
@@ -3475,11 +3482,11 @@ main--home {
   margin-top: 56px;
 }
 .related-products__text-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 16px;
-  margin-top: 40px;
-  max-width: 70%;
+  margin-top: clamp(20px, 3.90625vw, 40px);
+  max-width: 80%;
+  grid-template-rows: auto auto 1fr;
 }
 .related-products__heading {
   text-align: center;
@@ -3495,6 +3502,7 @@ main--home {
 }
 .related-products__link {
   font-size: 15px;
+  align-self: end;
 }
 
 .single-product-ingredients table {

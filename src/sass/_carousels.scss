@@ -14,6 +14,8 @@
   &__slide {
     color: $black;
     cursor: grab;
+    display: grid;
+    grid-template-rows: auto 1fr;
   }
 
   &__button {
