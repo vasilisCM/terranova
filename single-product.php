@@ -184,10 +184,12 @@
 
     <!-- Instagram  -->
     <?php include 'components/instagram.php'; ?>
+
+    <!-- Gallery Lightbox  -->
+    <?php include 'components/gallery-lightbox.php'; ?>
 </main>
 
-<!-- Gallery Lightbox  -->
-<?php include 'components/gallery-lightbox.php'; ?>
+
 
 
 

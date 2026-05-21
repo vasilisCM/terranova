@@ -10,7 +10,7 @@ class GalleryLightbox {
     lightboxImageContainerSelector = `${lightboxSelector} .lightbox__img-container`,
     closeButtonSelector = ".lightbox__close",
     lightboxHiddenClass = "lightbox--hidden",
-    lightboxCaptionSelector = ".lightbox__caption"
+    lightboxCaptionSelector = ".lightbox__caption",
   ) {
     this.gallerySelector = gallerySelector;
     this.galleryItemSelector = galleryItemSelector;
@@ -43,13 +43,13 @@ class GalleryLightbox {
     }
 
     const carouselTrack = this.lightboxElement.querySelector(
-      this.lightboxCarouselTrackSelector
+      this.lightboxCarouselTrackSelector,
     );
     const lightboxImageContainers = this.lightboxElement.querySelectorAll(
-      this.lightboxImageContainerSelector
+      this.lightboxImageContainerSelector,
     );
     const lightboxCaptions = this.lightboxElement.querySelectorAll(
-      this.lightboxCaptionSelector
+      this.lightboxCaptionSelector,
     );
     const carouselTrackHeight = carouselTrack.getBoundingClientRect().height;
 
@@ -69,7 +69,7 @@ class GalleryLightbox {
 
     // this.galleryElement = document.querySelector(this.gallerySelector);
     const galleryItems = Array.from(
-      this.galleryElement.querySelectorAll(this.galleryItemSelector)
+      this.galleryElement.querySelectorAll(this.galleryItemSelector),
     );
     // this.lightboxElement = document.querySelector(this.lightboxSelector);
 
@@ -112,7 +112,7 @@ class GalleryLightbox {
 
     this.lightboxElement.addEventListener("click", this.handleCloseLightbox);
     this.closeButton = this.lightboxElement.querySelector(
-      this.closeButtonSelector
+      this.closeButtonSelector,
     );
 
     this.handleCloseLightboxButton = () => {
@@ -141,7 +141,7 @@ class GalleryLightbox {
     if (this.closeButton) {
       this.closeButton.removeEventListener(
         "click",
-        this.handleCloseLightboxButton
+        this.handleCloseLightboxButton,
       );
     }
     document.removeEventListener("keydown", this.handleEscKey);
