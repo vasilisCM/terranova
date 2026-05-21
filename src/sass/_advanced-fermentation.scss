@@ -59,8 +59,16 @@
 
   &__logo {
       bottom: 16px;
-      right: 16px;
+      left: 0;
       width: cross-media(200px, $box, 300px);
+      padding-inline: cross-media($padding-inline-mob, $box-md, $padding-inline);
+
+      @include view(md-max) {
+        bottom: revert;
+        top: 16px;
+        left: revert;
+        right: 0;
+      }
 
       @include view(xxl) {
         width: cross-media(300px, $xxl-breakpoint, calc(300px * $xxl-scale));
