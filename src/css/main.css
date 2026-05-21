@@ -574,11 +574,11 @@ h4 {
 }
 
 .basic-section {
-  padding-block: clamp(50px, 5.5555555556vw, 100px);
+  padding-block: clamp(60px, 6.1111111111vw, 110px);
 }
 @media only screen and (min-width: 1921px) {
   .basic-section {
-    padding-block: clamp(100px, 4.3333333333vw, 130px);
+    padding-block: clamp(110px, 4.7666666667vw, 143px);
   }
 }
 
@@ -4332,8 +4332,17 @@ main--home {
 }
 .fermendics__logo {
   bottom: 16px;
-  right: 16px;
+  left: 0;
   width: clamp(200px, 16.6666666667vw, 300px);
+  padding-inline: clamp(20px, 2.8985507246vw, 40px);
+}
+@media only screen and (max-width: 1024px) {
+  .fermendics__logo {
+    bottom: revert;
+    top: 16px;
+    left: revert;
+    right: 0;
+  }
 }
 @media only screen and (min-width: 1921px) {
   .fermendics__logo {

@@ -141,12 +141,12 @@
 }
 
 .basic-section {
-  padding-block: cross-media(50px, $box, 100px);
+  padding-block: cross-media(60px, $box, 110px);
   @include view(xxl) {
     padding-block: cross-media(
-      100px,
+      110px,
       $xxl-breakpoint,
-      calc(100px * $xxl-scale)
+      calc(110px * $xxl-scale)
     );
   }
 }
