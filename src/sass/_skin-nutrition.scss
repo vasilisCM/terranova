@@ -192,7 +192,7 @@
     display: grid;
     gap: cross-media(60px, $box-md, 100px);
     padding-block: 16px cross-media(40px, $box-md, 70px);
-    @include view(md-min) {
+    @include view(lg-min) {
         grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -206,13 +206,19 @@
     @include view(lg-min) {
       max-width: 70%;
     }
+
+    & .archive-product__link {
+      @include view(md-max) {
+        align-self: start;
+      }
+    }
   }
 
   &__img {
     @include view(md-max) {
       width: 100%;
       max-height: cross-media(300px, 767px, 450px);
-      object-fit: cover;
+      object-fit: contain;
       aspect-ratio: 1;
     }
   }

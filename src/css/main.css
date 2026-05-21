@@ -3855,7 +3855,7 @@ main--home {
   gap: clamp(60px, 7.2463768116vw, 100px);
   padding-block: 16px clamp(40px, 5.0724637681vw, 70px);
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1025px) {
   .skin-nutrition-steps__product-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -3872,10 +3872,15 @@ main--home {
   }
 }
 @media only screen and (max-width: 1024px) {
+  .skin-nutrition-steps__product-text-container .archive-product__link {
+    align-self: start;
+  }
+}
+@media only screen and (max-width: 1024px) {
   .skin-nutrition-steps__img {
     width: 100%;
     max-height: clamp(300px, 58.6701434159vw, 450px);
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1;
   }
 }
