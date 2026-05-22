@@ -163,7 +163,7 @@
             <img src="<?php echo esc_url($image_2); ?>" alt="">
           <?php endif; ?>
         </div>
-        <div class="absolute home-presentation__img-container home-presentation__img-container--3">
+        <div class="absolute home-presentation__img-container home-presentation__img-container--3 hidden-mobile">
           <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>">
         </div>
 

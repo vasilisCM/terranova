@@ -99,7 +99,7 @@ class Home {
       const presentantionImg3 = document.querySelector(
         ".home-presentation__img-container--3",
       );
-      presentantionImg3.insertAdjacentElement("afterend", presentationButton);
+      // presentantionImg3.insertAdjacentElement("afterend", presentationButton);
     });
 
     // Difference
