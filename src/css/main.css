@@ -2295,6 +2295,7 @@ h4 {
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
+  min-width: 850px;
   gap: var(--gap);
   animation: scroll 60s linear infinite;
 }
