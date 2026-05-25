@@ -2527,20 +2527,10 @@ h4 {
 
 .asymmetrical-carousel {
   position: relative;
-}
-@media only screen and (min-width: 1025px) {
-  .asymmetrical-carousel {
-    padding-bottom: 80px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .asymmetrical-carousel {
-    padding: 80px 0 0 0;
-  }
+  padding-bottom: clamp(40px, 4.4444444444vw, 80px);
 }
 .asymmetrical-carousel .slides-container {
   position: relative;
-  padding-top: 100px;
 }
 .asymmetrical-carousel__container {
   display: flex;
@@ -2631,7 +2621,7 @@ h4 {
 }
 .asymmetrical-carousel__image {
   object-fit: cover;
-  max-width: 550px;
+  max-width: clamp(264px, 30.5555555556vw, 550px);
 }
 @media only screen and (min-width: 1921px) {
   .asymmetrical-carousel__image {

@@ -25,7 +25,7 @@
     font-weight: 900;
 
     @include view(xxl) {
-      font-size: cross-media(30px, 3000px, calc(30px * $xxl-scale));
+      font-size: cross-media(30px, $xxl-breakpoint, calc(30px * $xxl-scale));
     }
 
     &--previous {
@@ -85,8 +85,8 @@
 
     // 4K
     @include view(xxl) {
-      width: cross-media(400px, 3000px, 600px);
-      height: cross-media(380px, 3000px, 840px);
+      width: cross-media(400px, $xxl-breakpoint, 600px);
+      height: cross-media(380px, $xxl-breakpoint, 840px);
     }
   }
 }
@@ -96,17 +96,11 @@
   position: relative;
   // overflow: hidden;
 
-  @include view(lg-min) {
-    padding-bottom: 80px;
-  }
-
-  @include view(md-max) {
-    padding: 80px 0 0 0;
-  }
+    padding-bottom: cross-media(40px,$box, 80px);
 
   .slides-container {
     position: relative;
-    padding-top: 100px;
+    // padding-top: cross-media(40px, $box, 100px);
   }
 
   &__container {
@@ -158,7 +152,7 @@
         // 4K
         @include view(xxl) {
           // width: calc(1.5 * 550px);
-          width: cross-media(550px, 3000px, 1100px);
+          width: cross-media(550px, $xxl-breakpoint, 1100px);
         }
       }
     }
@@ -177,7 +171,7 @@
         // 4K
         @include view(xxl) {
           // width: calc(1.5 * 400px);
-          width: cross-media(400px, 3000px, 800px);
+          width: cross-media(400px, $xxl-breakpoint, 800px);
         }
       }
     }
@@ -190,7 +184,7 @@
         // 4K
         @include view(xxl) {
           // width: calc(1.5 * 400px);
-          width: cross-media(400px, 3000px, 800px);
+          width: cross-media(400px, $xxl-breakpoint, 800px);
         }
       }
     }
@@ -209,7 +203,7 @@
         // 4K
         @include view(xxl) {
           // width: calc(1.5 * 550px);
-          width: cross-media(550px, 3000px, 1100px);
+          width: cross-media(550px, $xxl-breakpoint, 1100px);
         }
       }
     }
@@ -218,12 +212,12 @@
 
    &__image {
     object-fit: cover;
-    max-width: 550px;
+    max-width: cross-media(264px, $box, 550px);
 
     // 4K
     @include view(xxl) {
       // max-width: calc(1.5 * 550px);
-      max-width: cross-media(550px, 3000px, 1100px);
+      max-width: cross-media(550px, $xxl-breakpoint, 1100px);
     }
 
      &--no-carousel {
