@@ -16,7 +16,7 @@ function updateActiveMenuItem(nextUrl) {
   const cleanNextUrl = nextUrl.replace(/\/$/, "");
 
   // Find matching menu links
-  document.querySelectorAll(".menu-item a").forEach((link) => {
+  document.querySelectorAll(".menu-item > a").forEach((link) => {
     const cleanHref = link.href.replace(/\/$/, "");
 
     if (cleanHref === cleanNextUrl) {
