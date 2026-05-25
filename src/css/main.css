@@ -3995,9 +3995,12 @@ main--home {
 .awards-accordion__content-image {
   mix-blend-mode: multiply;
 }
+.awards-accordion__content-image img {
+  max-width: 160px;
+}
 @media only screen and (min-width: 1921px) {
   .awards-accordion__content-image img {
-    height: clamp(141px, 6.11vw, 183.3px);
+    max-width: clamp(160px, 6.9333333333vw, 208px);
   }
 }
 .awards-accordion__product-link {

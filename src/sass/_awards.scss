@@ -62,8 +62,9 @@
     mix-blend-mode: multiply;
 
     & img {
+      max-width: 160px;
       @include view(xxl) {
-        height: cross-media(141px, $xxl-breakpoint, 141px * $xxl-scale);
+        max-width: cross-media(160px, $xxl-breakpoint, 160px * $xxl-scale);
       }
     }
     
