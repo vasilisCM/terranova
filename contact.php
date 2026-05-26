@@ -79,11 +79,17 @@ $distributors = get_field('distributors', 'option');
                         <?php echo esc_html($distributor['location']['label'] ?? '') ?>
                       </span>
                     </div>
-                    <span class="contact-info-box__item">Tel:
-                      <a href="<?php echo $distributor['tel']['link'] ? 'tel:' . esc_attr($distributor['tel']['link']) : '#' ?>" class="contact-info-box__link">
-                        <?php echo esc_html($distributor['tel']['label'] ?? '') ?>
-                      </a>
-                    </span>
+                    <?php if (!empty($distributor['tel']['label'])): ?>
+                      <span class="contact-info-box__item">
+                        Tel:
+                        <a
+                          href="tel:<?php echo esc_attr($distributor['tel']['link']) ?>"
+                          class="contact-info-box__link">
+                          <?php echo esc_html($distributor['tel']['label']) ?>
+                        </a>
+                      </span>
+                      <br />
+                    <?php endif; ?>
                     <br />
                     <span class="contact-info-box__item">Email:
                       <a href="<?php echo $distributor['email'] ? 'mailto:' . esc_attr($distributor['email']) : '#' ?>" class="contact-info-box__link">
@@ -91,10 +97,12 @@ $distributors = get_field('distributors', 'option');
                       </a>
                       <br />
                       <?php if ($distributor['website']): ?>
-                        <a href="https://<?php echo esc_attr($distributor['website']) ?>" class="contact-info-box__link contact-info-box__link--accent">
-                          <?php echo esc_html($distributor['website']) ?>
-                        </a>
-                      <?php endif; ?>
+                        <a
+                          href="<?php echo esc_url($distributor['website']) ?>"
+                          class="contact-info-box__link contact-info-box__link--accent"
+                          target="_blank"
+                          rel="noopener">
+                        <?php endif; ?>
                     </span>
                   </div>
                 <?php } ?>
