@@ -3851,9 +3851,13 @@ main--home {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.skin-nutrition-steps__product-grid .archive-product__product {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
 .skin-nutrition-steps__product-text-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   gap: clamp(8px, 1.5625vw, 16px);
   margin-top: clamp(20px, 3.90625vw, 40px);
 }
@@ -3862,9 +3866,12 @@ main--home {
     max-width: 70%;
   }
 }
+.skin-nutrition-steps__product-text-container .archive-product__link {
+  justify-self: end;
+}
 @media only screen and (max-width: 1024px) {
   .skin-nutrition-steps__product-text-container .archive-product__link {
-    align-self: start;
+    justify-self: start;
   }
 }
 @media only screen and (max-width: 1024px) {
