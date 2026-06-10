@@ -7,16 +7,37 @@
     data-barba-namespace="nextGen"
     class="main-next-gen white">
 
-
-    <!-- Hero  -->
-    <section class="banner hero-next-gen">
-        <?php
+    <?php
         $hero = get_field('next_gen__hero');
         $heading = $hero['heading'];
         $image_1 = $hero['image_1'];
         $image_2 = $hero['image_2'];
         $image_3 = $hero['image_3'];
-        ?>
+    ?>
+ <!-- Hero  -->
+ <section class="banner" style="background-image: url('<?php echo $image_2; ?>')">
+       <div class="banner__wrapper boxed centered">
+           <div class="banner__container">
+               <div class="banner__text-background"></div>
+               <div class="banner__text-container">
+                   <?php if ($image_1): ?>
+                       <div class="banner__img-container">
+                           <img src="<?php echo $image_1; ?>" class="banner__image" alt="NextGen range">
+                       </div>
+                   <?php endif; ?>
+
+                   <h1 class="banner__heading heading">
+                       <?php echo $heading; ?>
+                   </h1>
+
+               </div>
+           </div>
+       </div>
+   </section>
+
+    <!-- Hero  -->
+    <!-- <section class="banner hero-next-gen" style="background-image: url('<?php //echo $image_2; ?>');">
+        
         <div class="banner__wrapper hero-next-gen__container boxed centered no-padding">
             <div class="hero-next-gen__container-columns">
                 <div class="banner__container">
@@ -24,11 +45,11 @@
                     <div class="banner__text-container">
 
                         <div class="banner__img-container">
-                            <img src="<?php echo $image_1; ?>" alt="" class="banner__image">
+                            <img src="<?php //echo $image_1; ?>" alt="" class="banner__image">
                         </div>
 
                         <h1 class="banner__heading heading">
-                            <?php echo $heading; ?>
+                            <?php // echo $heading; ?>
 
 
                         </h1>
@@ -38,14 +59,14 @@
             </div>
             <div class="hero-next-gen__images">
                 <div class="hero-next-gen__img-container hero-next-gen__img-container--1">
-                    <img src="<?php echo $image_2; ?>" alt="">
+                    <img src="<?php //echo $image_2; ?>" alt="">
                 </div>
                 <div class="hero-next-gen__img-container hero-next-gen__img-container--2">
-                    <img src="<?php echo $image_3; ?>" alt="">
+                    <img src="<?php //echo $image_3; ?>" alt="">
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="basic-section text-center intro-next-gen">
         <?php
