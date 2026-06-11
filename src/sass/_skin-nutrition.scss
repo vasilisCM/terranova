@@ -6,10 +6,10 @@
 }
 
 .holistic {
-  margin-top: cross-media(75px, 991px, 150px);
+  margin-top: cross-media(75px, 1024px, 150px);
   &__text-container {
     display: grid;
-    gap: cross-media(4px, 991px, 8px);
+    gap: cross-media(4px, 1024px, 8px);
     text-align: center;
 
     @include view(lg-min) {
@@ -22,22 +22,22 @@
   }
 
   &__heading {
-    padding-bottom: cross-media(8px, 991px, 16px);
+    padding-bottom: cross-media(8px, 1024px, 16px);
   }
 }
 
 .asymmetrical-carousel {
   &--skin-nutrition {
-    padding: cross-media(50px, 991px, 100px) 0;
+    padding: cross-media(50px, 1024px, 100px) 0;
   }
 }
 
 .skin-nutrition-steps {
-  margin-top: cross-media(20px, 991px, 40px);
+  margin-top: cross-media(20px, 1024px, 40px);
 
   &__container {
     display: grid;
-    gap: cross-media(8px, 991px, 160px);
+    gap: cross-media(8px, 1024px, 160px);
   }
 
   &__heading-bg {
@@ -50,7 +50,7 @@
 
   &__step {
     display: grid;
-    // gap: cross-media(8px, 991px, 16px);
+    // gap: cross-media(8px, 1024px, 16px);
 
     &--extra {
       & .skin-nutrition-steps__heading,
@@ -112,7 +112,7 @@
         & .skin-nutrition-steps__icons {
           grid-template-columns: repeat(4, 1fr);
           grid-area: icons;
-          margin-top: cross-media(50px, 991px, 100px);
+          margin-top: cross-media(50px, 1024px, 100px);
         }
       }
     }
@@ -158,18 +158,18 @@
     z-index: 1;
 
     // &:before {
-    //   margin-top: cross-media(6px, 991px, 12px);
+    //   margin-top: cross-media(6px, 1024px, 12px);
     // }
   }
 
   &__subheading {
-    margin-top: cross-media(20px, 991px, 40px);
+    margin-top: cross-media(20px, 1024px, 40px);
     z-index: 1;
   }
 
   &__text-container {
     display: grid;
-    gap: cross-media(8px, 991px, 16px);
+    gap: cross-media(8px, 1024px, 16px);
     z-index: 1;
 
     @include view(lg-min) {
@@ -231,7 +231,7 @@
   }
 
   &__icons {
-    gap: cross-media(30px, 991px, 60px);
+    gap: cross-media(30px, 1024px, 60px);
 
     @include view(md-max) {
       margin-top: 40px;
@@ -240,18 +240,18 @@
 
   &__button {
     display: block;
-    margin-block: cross-media(60px, 991px, 120px);
+    margin-block: cross-media(60px, 1024px, 120px);
   }
 }
 
 .life-drink {
-  margin-top: cross-media(100px, 991px, 200px);
+  margin-top: cross-media(40px, 1024px, 80px);
 
   &__text-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: cross-media(8px, 991px, 16px);
+    gap: cross-media(8px, 1024px, 16px);
 
     @include view(lg-min) {
       max-width: 90%;
@@ -259,7 +259,7 @@
   }
 
   &__button {
-    margin-top: cross-media(40px, 991px, 60px);
+    margin-top: cross-media(40px, 1024px, 60px);
   }
 
   &__img {
@@ -270,7 +270,7 @@
   }
 
   &__recipe {
-    //padding-block: cross-media(20px, 991px, 40px);
+    //padding-block: cross-media(20px, 1024px, 40px);
   }
 
   &__dosage-container {
@@ -278,14 +278,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: cross-media(16px, 991px, 32px);
-    margin-top: cross-media(20px, 991px, 30px);
+    gap: cross-media(16px, 1024px, 32px);
+    margin-top: cross-media(20px, 1024px, 30px);
   }
 
   &__dosage {
     display: flex;
     align-items: center;
-    gap: cross-media(4px, 991px, 8px);
+    gap: cross-media(4px, 1024px, 8px);
 
     &:before {
       @include icon("\e908");

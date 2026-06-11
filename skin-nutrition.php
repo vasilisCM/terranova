@@ -185,98 +185,97 @@
 
                 <?php endwhile; ?>
             <?php endif; ?>
+        </div>
+        <!-- Step 3  -->
+        <div class="skin-nutrition-steps__step">
 
-            <!-- Step 3  -->
-            <div class="skin-nutrition-steps__step">
+            <div class="white-bg">
+                <div class="boxed-md centered">
+                    <div
+                        class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
 
-                <div class="white-bg">
-                    <div class="boxed-md centered">
                         <div
-                            class="skin-nutrition-steps__step skin-nutrition-steps__step--extra">
-
-                            <div
-                                class="heading-ms underline skin-nutrition-steps__subheading">
-                                <?php echo $step3Recommended['heading']; ?>
-                            </div>
-                            <!-- Product  -->
-                            <div
-                                class="archive-product__product skin-nutrition-steps__product">
-                                <div class="skin-nutrition-steps__product-text-container">
-                                    <a href="">
-                                        <h4
-                                            class="text-ms uppercase letter-spacing-medium archive-product__product-category">
-                                            <?php echo $step3Recommended['text_1']; ?>
-                                        </h4>
-                                    </a>
-                                    <h3 class="archive-product__product-title">
-                                        <?php echo $step3Recommended['text_2']; ?>
-                                    </h3>
-                                    <h4 class="heading-s">
-                                        <?php echo $step3Recommended['text_3']; ?>
+                            class="heading-ms underline skin-nutrition-steps__subheading">
+                            <?php echo $step3Recommended['heading']; ?>
+                        </div>
+                        <!-- Product  -->
+                        <div
+                            class="archive-product__product skin-nutrition-steps__product">
+                            <div class="skin-nutrition-steps__product-text-container">
+                                <a href="">
+                                    <h4
+                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                        <?php echo $step3Recommended['text_1']; ?>
                                     </h4>
-                                    <p class="text-single-product">
-                                        <?php echo $step3Recommended['text_4']; ?>
-                                    </p>
+                                </a>
+                                <h3 class="archive-product__product-title">
+                                    <?php echo $step3Recommended['text_2']; ?>
+                                </h3>
+                                <h4 class="heading-s">
+                                    <?php echo $step3Recommended['text_3']; ?>
+                                </h4>
+                                <p class="text-single-product">
+                                    <?php echo $step3Recommended['text_4']; ?>
+                                </p>
 
-                                    <div class="text-ms uppercase letter-spacing-medium">
-                                        <?php echo $step3Recommended['text_5']; ?>
-                                    </div>
+                                <div class="text-ms uppercase letter-spacing-medium">
+                                    <?php echo $step3Recommended['text_5']; ?>
                                 </div>
                             </div>
-                            <div class="skin-nutrition-steps__img-container">
-                                <img
-                                    src="<?php echo $step3Recommended['image']; ?>"
-                                    alt=""
-                                    class="archive-product__featured-image skin-nutrition-steps__img" />
-                            </div>
-
-                            <?php if (have_rows('skin_nutrition__steps')) : ?>
-                                <?php while (have_rows('skin_nutrition__steps')) : the_row(); ?>
-
-                                    <?php if (have_rows('step_3__recommended')) : ?>
-                                        <?php while (have_rows('step_3__recommended')) : the_row(); ?>
-
-                                            <?php if (have_rows('list')) : ?>
-                                                <div class="skin-nutrition-steps__icons">
-                                                    <?php while (have_rows('list')): the_row();
-                                                        $image = get_sub_field('image');
-                                                        $text = get_sub_field('text');
-                                                    ?>
-                                                        <div class="card-icon">
-                                                            <div class="card-icon__img-container">
-                                                                <img
-                                                                    src="<?php echo $image; ?>"
-                                                                    alt=""
-                                                                    class="card-icon__img" />
-                                                            </div>
-                                                            <div class="text card-icon__text">
-                                                                <?php echo $text; ?>
-                                                            </div>
-                                                        </div>
-                                                    <?php endwhile; ?>
-                                                </div>
-                                            <?php endif; ?>
-
-                                        <?php endwhile; ?>
-                                    <?php endif; ?>
-
-                                <?php endwhile; ?>
-                            <?php endif; ?>
-
-
+                        </div>
+                        <div class="skin-nutrition-steps__img-container">
+                            <img
+                                src="<?php echo $step3Recommended['image']; ?>"
+                                alt=""
+                                class="archive-product__featured-image skin-nutrition-steps__img" />
                         </div>
 
-                        <a href="<?php echo $step3Recommended['button']['link']; ?>" class="skin-nutrition-steps__button">
-                            <button class="button centered text-button mask-text">
-                                <span class="text-button button__text"><?php echo $step3Recommended['button']['label']; ?></span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+                        <?php if (have_rows('skin_nutrition__steps')) : ?>
+                            <?php while (have_rows('skin_nutrition__steps')) : the_row(); ?>
 
+                                <?php if (have_rows('step_3__recommended')) : ?>
+                                    <?php while (have_rows('step_3__recommended')) : the_row(); ?>
+
+                                        <?php if (have_rows('list')) : ?>
+                                            <div class="skin-nutrition-steps__icons">
+                                                <?php while (have_rows('list')): the_row();
+                                                    $image = get_sub_field('image');
+                                                    $text = get_sub_field('text');
+                                                ?>
+                                                    <div class="card-icon">
+                                                        <div class="card-icon__img-container">
+                                                            <img
+                                                                src="<?php echo $image; ?>"
+                                                                alt=""
+                                                                class="card-icon__img" />
+                                                        </div>
+                                                        <div class="text card-icon__text">
+                                                            <?php echo $text; ?>
+                                                        </div>
+                                                    </div>
+                                                <?php endwhile; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+
+
+                    </div>
+
+                    <a href="<?php echo $step3Recommended['button']['link']; ?>" class="skin-nutrition-steps__button">
+                        <button class="button centered text-button mask-text">
+                            <span class="text-button button__text"><?php echo $step3Recommended['button']['label']; ?></span>
+                        </button>
+                    </a>
+                </div>
             </div>
 
         </div>
+
     </section>
 
     <!-- Life Drink  -->
