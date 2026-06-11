@@ -1374,11 +1374,6 @@ h4 {
   background-repeat: no-repeat;
   color: #fcfcfc;
 }
-@media only screen and (min-width: 1921px) {
-  .banner {
-    margin-top: clamp(200px, 8.6666666667vw, 260px);
-  }
-}
 .banner__wrapper {
   position: relative;
   min-height: clamp(250px, 47.8260869565vw, 660px);
@@ -4388,6 +4383,11 @@ main--home {
 @media only screen and (max-width: 1024px) {
   .hero-next-gen__extra-img {
     transform: translateX(-10%) translateY(-20%);
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .hero-next-gen__extra-img {
+    max-width: clamp(150px, 6.5vw, 195px);
   }
 }
 

@@ -19,6 +19,10 @@
     @include view(md-max) {
       transform: translateX(-10%) translateY(-20%);
     }
+
+    @include view(xxl) {
+      max-width: cross-media(150px, $xxl-breakpoint, calc(150px * $xxl-scale));
+    }
   }
 }
 

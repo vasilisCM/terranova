@@ -726,9 +726,9 @@
   background-repeat: no-repeat;
   color: $white;
 
-  @include view(xxl) {
-    margin-top: cross-media(200px, $xxl-breakpoint, calc(200px * $xxl-scale));
-  }
+  // @include view(xxl) {
+  //   margin-top: cross-media(200px, $xxl-breakpoint, calc(200px * $xxl-scale));
+  // }
 
   &__wrapper {
     position: relative;
