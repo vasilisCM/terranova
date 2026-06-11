@@ -122,6 +122,7 @@
                                         $recommendedProducts = array($recommendedProducts);
                                     }
 
+                                    $recommendedProducts_length = count($recommendedProducts);
                                     $recommendedProducts_ids = array_slice($recommendedProducts, 0, 3);
 
                                     ?>
