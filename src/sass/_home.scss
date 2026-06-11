@@ -386,6 +386,23 @@ main {
       }
     }
   }
+
+  &__product-img-container {
+    height: cross-media(250px, 991px, 338px);
+    overflow: hidden;
+
+    @include view(xxl) {
+      height: cross-media(338px, $xxl-breakpoint, 338px * $xxl-scale);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left;
+      mix-blend-mode: multiply;
+    }
+  }
 }
 
 .home-presentation-products {

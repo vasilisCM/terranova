@@ -14,6 +14,13 @@ class NextGen {
       carousel.init();
       this.carousels.push(carousel);
     }
+
+    // Product Presentaiton Carousel
+    const productPresentationCarousel = new Carousel(
+      ".home-presentation__carousel",
+    );
+    productPresentationCarousel.init();
+    this.carousels.push(productPresentationCarousel);
   }
 
   destroy() {

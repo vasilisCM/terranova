@@ -176,7 +176,7 @@
   <!-- Carousel  -->
   <section class="home-presentation-products light-blue-bg">
 
-    <?php $presentation = get_field('home__presentation');
+    <?php $presentation = get_field('nextgen_products', 'option');
     $products = $presentation['products'] ?? array();
     $text_5 = $presentation['text_5'] ?? '';
 
@@ -250,10 +250,12 @@
               <?php foreach ($home_presentation_products as $product): ?>
                 <div class="carousel__slide">
                   <a href="<?php echo esc_url($product['permalink']); ?>">
-                    <img
-                      src="<?php echo esc_url($product['thumbnail'] ?: $placeholder_image); ?>"
-                      alt="<?php echo esc_attr($product['title']); ?>"
-                      class="related-products__featured-image" />
+                    <div class="home-presentation__product-img-container">
+                      <img
+                        src="<?php echo esc_url($product['thumbnail'] ?: $placeholder_image); ?>"
+                        alt="<?php echo esc_attr($product['title']); ?>"
+                        class="related-products__featured-image" />
+                    </div>
                   </a>
                   <div class="related-products__text-container">
                     <?php if (!empty($product['category_name'])): ?>
