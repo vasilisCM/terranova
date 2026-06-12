@@ -134,6 +134,61 @@
                                                     class="heading-ms underline skin-nutrition-steps__subheading">
                                                     <?php echo __('Recommended Products', 'terranova'); ?>
                                                 </div>
+                                                <?php if($recommendedProducts_length > 3): ?>
+
+                                                    <div class="basic carousel skin-nutrition-steps__carousel">
+                                                        <div class="carousel__track" data-glide-el="track">
+                                                            <div class="carousel__container">
+                                                                <?php foreach ($recommendedProducts as $recommendedProduct): 
+                                                                    $post_obj = get_post($recommendedProduct);
+                                                                    if (!$post_obj) {
+                                                                        continue;
+                                                                    }
+            
+                                                                    setup_postdata($post_obj);
+            
+                                                                    // Retrieve custom fields
+                                                                    $thumbnail_url = get_the_post_thumbnail_url($recommendedProduct, 'large'); ?>
+                                                                    <div class="carousel__slide">
+                                                                        <div class="archive-product__product">
+                                                                            <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
+                                                                                <div class="archive-product__img-container">
+                                                                                    <img
+                                                                                        src="<?php echo esc_url($thumbnail_url); ?>"
+                                                                                        alt=""
+                                                                                        class="archive-product__featured-image" />
+                                                                                </div>
+                                                                            </a>
+
+                                                                            <div class="skin-nutrition-steps__product-text-container">
+                                                                                <a href="<?php echo esc_url(get_permalink($recommendedProduct)); ?>">
+                                                                                    <h4
+                                                                                        class="text-ms uppercase letter-spacing-medium archive-product__product-category">
+                                                                                        Terranova
+                                                                                    </h4>
+
+                                                                                    <h3 class="archive-product__product-title">
+                                                                                        <?php echo get_the_title($recommendedProduct); ?>
+                                                                                    </h3>
+                                                                                </a>
+
+                                                                                <a href="<?php echo esc_url(get_permalink($recommendedProduct)); ?>" class="link link--arrow archive-product__link"><?php echo __('View more', 'terranova'); ?></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php endforeach; ?>
+                                                            </div>
+                                                        </div>
+                                                        <div class="carousel__bottom">
+                                                            <div class="carousel__controls">
+                                                                <div class="carousel__button carousel__button--previous"></div>
+                                                                <div class="carousel__dots" data-glide-el="controls[nav]"></div>
+                                                                <div class="carousel__button carousel__button--next"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                <?php else: ?>
                                                 <!-- Grid  -->
                                                 <div class="skin-nutrition-steps__product-grid">
                                                     <?php
@@ -176,6 +231,8 @@
                                                     <?php endforeach; ?>
                                                     <?php wp_reset_postdata(); ?>
                                                 </div>
+
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     <?php endif; ?>

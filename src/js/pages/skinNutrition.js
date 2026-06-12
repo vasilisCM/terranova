@@ -1,4 +1,5 @@
 import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
+import Carousel from "../logic/carousel.js";
 
 class SkinNutrition {
   constructor() {
@@ -15,6 +16,13 @@ class SkinNutrition {
     setAsymmetricalClasses();
 
     // Draggable carousels are inited in index.js (initCarousels).
+
+    // Recommented Products Carousel
+    const recommentedProductsCarousel = new Carousel(
+      ".skin-nutrition-steps__carousel",
+    );
+    recommentedProductsCarousel.init();
+    this.carousels.push(recommentedProductsCarousel);
   }
 
   destroy() {
