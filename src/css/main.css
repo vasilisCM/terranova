@@ -4484,6 +4484,10 @@ main--home {
 .stats-next-gen .carousel__dot {
   background-color: rgba(252, 252, 252, 0.3);
 }
+.stats-next-gen__button {
+  display: block;
+  width: fit-content;
+}
 
 .how-it-works-next-gen__list {
   display: grid;

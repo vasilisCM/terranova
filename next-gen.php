@@ -214,6 +214,17 @@
                         </div>
                     </div>
                 <?php endif; ?>
+
+                <?php
+                $why = get_field('next_gen__why');
+                $button = $why['button'];
+                ?>
+
+                <a href="<?php echo $button['link']; ?>" class="stats-next-gen__button centered">
+                    <button class="button text-button button--accent">
+                        <span class="text-button button__text"><?php echo $button['text']; ?></span>
+                    </button>
+                </a>
             </div>
         </div>
 

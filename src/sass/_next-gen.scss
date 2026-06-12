@@ -133,6 +133,11 @@
   & .carousel__dot {
     background-color: rgba($white, .3);
   }
+
+  &__button {
+    display: block;
+    width: fit-content;
+  }
 }
 
 .how-it-works-next-gen {
