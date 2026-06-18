@@ -34,17 +34,29 @@
                     $item_class .= ' cards-time__item--flipped';
                 }
             ?>
-                <div class="boxed centered">
-                    <div class="<?php echo $item_class; ?>">
-                        <h3><?php echo $heading; ?></h3>
-                        <div><?php echo $text; ?></div>
-                        <?php if ($button_label && $button_link): ?>
-                            <a href="<?php echo $button_link; ?>"><?php echo $button_label; ?></a>
-                        <?php endif; ?>
-                        <?php if ($image): ?>
-                            <img src="<?php echo $image; ?>" alt="">
-                        <?php endif; ?>
+                <div class="cards-time__item-bg">
+                    <div class="boxed-md centered">
+                        <div class="<?php echo $item_class; ?>">
+                            <div class="cards-time__item-text">
+                                <h3 class="heading-m"><?php echo $heading; ?></h3>
+                                <div class="text"><?php echo $text; ?></div>
+                                <?php if ($button_label && $button_link): ?>
+                                    <a href="<?php echo $button_link; ?>">
+                                        <button class="button text-button mask-text">
+                                            <span class="text-button button__text"><?php echo $button_label; ?></span>
+                                        </button>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+
+                            <?php if ($image): ?>
+                                <div class="cards-time__item-image">
+                                    <img src="<?php echo $image; ?>" alt="">
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
+
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
@@ -54,7 +66,7 @@
 
 
     <!-- Moments  -->
-    <section class="moments-time">
+    <section class="moments-time basic-section">
         <?php
         $moments = get_field('moments__my_time');
         $heading = $moments['heading'];

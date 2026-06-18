@@ -1,0 +1,61 @@
+.cards-time {
+    &__item-bg {
+        &:nth-child(odd) {
+            background-image: linear-gradient(to left, #ececec, $white);
+        }
+        &:nth-child(even) {
+            background-image: linear-gradient(to right, #ececec, $white);
+        }
+
+        padding-block: cross-media(40px, 1024px, 60px);
+        @include view(xxl) {
+            padding-block: cross-media(60px, $xxl-breakpoint, calc(60px * $xxl-scale));
+        }
+    }
+
+    &__item {
+        display: grid;
+        align-items: center;
+        gap: cross-media(40px, $box-md, 60px);
+
+        @include view(xxl) {
+            gap: cross-media(60px, $xxl-breakpoint, calc(60px * $xxl-scale));
+        }
+
+        @include view(md-min) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include view(sm-max) {
+            & .cards-time__item-image {
+                grid-row: 1;
+            }
+        }
+    }
+
+    &__item--flipped {
+        & .cards-time__item-image {
+            grid-column: 1;
+            grid-row: 1;
+        }
+    }
+
+    &__item-text {
+        display: grid;
+        max-width: 500px;
+        gap: 20px;
+
+        @include view(xxl) {
+            max-width: cross-media(500px, $xxl-breakpoint, calc(500px * $xxl-scale));
+            gap: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
+        }
+    }
+
+    &__item-image {
+        max-width: 550px;
+
+        @include view(xxl) {
+            max-width: cross-media(550px, $xxl-breakpoint, calc(550px * $xxl-scale));
+        }
+    }
+}
