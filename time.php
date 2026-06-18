@@ -17,12 +17,91 @@
 
     <?php include 'components/asymmetrical-carousel.php'; ?>
 
+    <section class="cards-time">
 
-    <section class="basic">
+        <?php if (have_rows('list__my_time')): ?>
+            <?php while (have_rows('list__my_time')): the_row();
+                $heading = get_sub_field('heading');
+                $text = get_sub_field('text');
+                $button = get_sub_field('button');
+                $image = get_sub_field('image');
+                $button_label = $button['label'] ?? '';
+                $button_link = $button['link'] ?? '';
+                $row_index = get_row_index();
+                // Add modifier class on even rows
+                $item_class = 'cards-time__item';
+                if ($row_index % 2 === 0) {
+                    $item_class .= ' cards-time__item--flipped';
+                }
+            ?>
+                <div class="boxed centered">
+                    <div class="<?php echo $item_class; ?>">
+                        <h3><?php echo $heading; ?></h3>
+                        <div><?php echo $text; ?></div>
+                        <?php if ($button_label && $button_link): ?>
+                            <a href="<?php echo $button_link; ?>"><?php echo $button_label; ?></a>
+                        <?php endif; ?>
+                        <?php if ($image): ?>
+                            <img src="<?php echo $image; ?>" alt="">
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        <?php endif; ?>
 
+
+    </section>
+
+
+    <!-- Moments  -->
+    <section class="moments-time">
+        <?php
+        $moments = get_field('moments__my_time');
+        $heading = $moments['heading'];
+        $text = $moments['text'];
+        $list = $moments['list'];
+        ?>
         <div class="boxed centered">
-
+            <h2 class="heading lowercase"><?php echo $heading; ?></h2>
+            <div><?php echo $text; ?></div>
         </div>
+        <!-- Archive  -->
+        <div class="push-left blog-home__archive-container">
+            <div class="blog-home__archive">
+                <!-- Posts  -->
+                <?php
+                if (!empty($list)) :
+                    foreach ($list as $item) :
+                        $image = $item['image'];
+                        $heading = $item['heading'];
+                        $text = $item['text'];
+                        $color = $item['color'];
+                ?>
+                        <article class="blog-home__post" style="background-color: <?php echo $color; ?>;">
+                            <div class="blog-home__image-container">
+                                <img
+                                    class="blog-home__image"
+                                    src="<?php echo $image ? $image : '/wp-content/uploads/2025/11/blog-hero.jpg'; ?>"
+                                    alt="<?php echo $heading; ?>"
+                                    draggable-image />
+                            </div>
+
+                            <div class="blog-home__text-container">
+                                <h3 class="blog-home__heading heading-s">
+                                    <?php echo $heading; ?>
+                                </h3>
+                                <div class="blog-home__text"><?php echo $text; ?></div>
+                            </div>
+                        </article>
+                <?php
+                    endforeach;
+                endif;
+                ?>
+            </div>
+        </div>
+
+
+
     </section>
 
     <section class="basic last-section">
