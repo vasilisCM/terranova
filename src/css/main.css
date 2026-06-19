@@ -754,6 +754,10 @@ h4 {
   background-color: #c44a37;
 }
 
+.light-blue {
+  color: #4c687c;
+}
+
 .light-blue-bg {
   background-color: rgba(76, 104, 124, 0.2);
 }
@@ -5177,6 +5181,22 @@ main--home {
 }
 .moments-time .blog-home__text {
   align-self: start;
+}
+.moments-time .blog-home__image-container {
+  top: 20px;
+  right: 20px;
+  height: clamp(140px, 10vw, 180px);
+}
+.moments-time .blog-home__image-container--bottom {
+  top: auto;
+  bottom: 20px;
+  height: clamp(100px, 7.2222222222vw, 130px);
+}
+.moments-time .blog-home__image {
+  width: auto;
+  max-height: 100%;
+  aspect-ratio: revert;
+  object-fit: contain;
 }
 
 /*# sourceMappingURL=main.css.map */

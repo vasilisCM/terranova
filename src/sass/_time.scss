@@ -80,5 +80,24 @@
         &__text {
             align-self: start;
         }
+
+        &__image-container {
+            top: 20px;
+            right: 20px;
+            height: cross-media(140px, $box, 180px);
+
+            &--bottom {
+                top: auto;
+                bottom: 20px;
+                height: cross-media(100px, $box, 130px);
+            }
+        }
+
+        &__image {
+            width: auto;
+            max-height: 100%;
+            aspect-ratio: revert;
+            object-fit: contain;
+        }
     }
 }

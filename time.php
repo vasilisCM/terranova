@@ -85,14 +85,15 @@
                 if (!empty($list)) :
                     foreach ($list as $item) :
                         $image = $item['image'];
+                        $bottom_image = $item['bottom_image'];
                         $heading = $item['heading'];
                         $text = $item['text'];
                         $color = $item['color'];
                 ?>
-                        <article class="blog-home__post inline-padding" style="background-color: <?php echo $color; ?>;">
+                        <article class="blog-home__post inline-padding relative" style="background-color: <?php echo $color; ?>;">
 
                             <?php if ($image): ?>
-                                <div class="blog-home__image-container">
+                                <div class="blog-home__image-container absolute <?php if ($bottom_image): ?> blog-home__image-container--bottom<?php endif; ?>">
                                     <img
                                         class="blog-home__image"
                                         src="<?php echo $image ? $image : '/wp-content/uploads/2025/11/blog-hero.jpg'; ?>"
@@ -119,8 +120,17 @@
     </section>
 
     <section class="basic last-section">
+        <div class="boxed centered text-center">
+            <?php $quote__my_time = get_field('quote__my_time'); ?>
+            <div class="heading-ms light-blue">
+                <?php echo $quote__my_time['text_1']; ?>
+            </div>
 
-        <div class="boxed centered">
+            <a href="<?php echo $quote__my_time['button']['link']; ?>">
+                <button class="button text-button mask-text">
+                    <span class="text-button button__text"><?php echo $quote__my_time['button']['label']; ?></span>
+                </button>
+            </a>
 
         </div>
     </section>
