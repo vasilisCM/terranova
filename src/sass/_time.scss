@@ -64,6 +64,10 @@
     & .blog-home {
         &__post {
             padding-block: cross-media(50px, 1024px, 80px) cross-media(80px, 1024px, 125px);
+
+            @include view(xxl) {
+                padding-block: cross-media(80px, $xxl-breakpoint, calc(80px * $xxl-scale)) cross-media(125px, $xxl-breakpoint, calc(125px * $xxl-scale));
+            }
         }
 
         &__text-container {
@@ -71,6 +75,10 @@
             grid-template-rows: 1fr 1.5fr;
             gap: 20px;
             height: 100%;
+
+            @include view(xxl) {
+                gap: cross-media(20px, $xxl-breakpoint, calc(20px * $xxl-scale));
+            }
         }
 
         &__heading {
@@ -86,10 +94,18 @@
             right: 20px;
             height: cross-media(140px, $box, 180px);
 
+            @include view(xxl) {
+                height: cross-media(180px, $xxl-breakpoint, calc(180px * $xxl-scale));
+            }
+
             &--bottom {
                 top: auto;
                 bottom: 20px;
                 height: cross-media(100px, $box, 130px);
+
+                @include view(xxl) {
+                    height: cross-media(130px, $xxl-breakpoint, calc(130px * $xxl-scale));
+                }
             }
         }
 
@@ -98,6 +114,25 @@
             max-height: 100%;
             aspect-ratio: revert;
             object-fit: contain;
+        }
+    }
+}
+
+.time-quote {
+    &__container {
+        display: grid;
+        justify-content: center;
+        gap: cross-media(30px, 1024px, 45px);
+        @include view(xxl) {
+            gap: cross-media(45px, $xxl-breakpoint, calc(45px * $xxl-scale));
+        }
+    }
+    &__button-text {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        @include view(xxl) {
+            gap: cross-media(5px, $xxl-breakpoint, calc(5px * $xxl-scale));
         }
     }
 }
