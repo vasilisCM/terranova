@@ -149,7 +149,7 @@
     <section class="basic last-section time-quote">
         <div class="boxed centered text-center time-quote__container">
             <?php $quote__my_time = get_field('quote__my_time'); ?>
-            <div class="heading-ms light-blue time-quote__quote">
+            <div class="heading-m light-blue time-quote__quote">
                 <?php echo $quote__my_time['text_1']; ?>
             </div>
 
