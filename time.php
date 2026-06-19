@@ -146,16 +146,21 @@
 
     </section>
 
-    <section class="basic last-section">
-        <div class="boxed centered text-center">
+    <section class="basic last-section time-quote">
+        <div class="boxed centered text-center time-quote__container">
             <?php $quote__my_time = get_field('quote__my_time'); ?>
-            <div class="heading-ms light-blue">
+            <div class="heading-ms light-blue time-quote__quote">
                 <?php echo $quote__my_time['text_1']; ?>
             </div>
 
-            <a href="<?php echo $quote__my_time['button']['link']; ?>">
+            <a href="<?php echo $quote__my_time['button']['link']; ?>" class="time-quote__button">
                 <button class="button text-button mask-text">
-                    <span class="text-button button__text"><?php echo $quote__my_time['button']['label']; ?></span>
+                    <span class="text-button button__text">
+                        <div class="time-quote__button-text">
+                            <div><?php echo $quote__my_time['text_2']; ?></div>
+                            <div class="medium italic"><?php echo $quote__my_time['button']['label']; ?></div>
+                        </div>
+                    </span>
                 </button>
             </a>
 
