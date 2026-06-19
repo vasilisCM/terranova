@@ -59,3 +59,26 @@
         }
     }
 }
+
+.moments-time {
+    & .blog-home {
+        &__post {
+            padding-block: cross-media(50px, 1024px, 80px) cross-media(80px, 1024px, 125px);
+        }
+
+        &__text-container {
+            display: grid;
+            grid-template-rows: 1fr 1.5fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        &__heading {
+            align-self: end;
+        }
+
+        &__text {
+            align-self: start;
+        }
+    }
+}

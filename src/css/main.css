@@ -5163,4 +5163,20 @@ main--home {
   }
 }
 
+.moments-time .blog-home__post {
+  padding-block: clamp(50px, 7.8125vw, 80px) clamp(80px, 12.20703125vw, 125px);
+}
+.moments-time .blog-home__text-container {
+  display: grid;
+  grid-template-rows: 1fr 1.5fr;
+  gap: 20px;
+  height: 100%;
+}
+.moments-time .blog-home__heading {
+  align-self: end;
+}
+.moments-time .blog-home__text {
+  align-self: start;
+}
+
 /*# sourceMappingURL=main.css.map */

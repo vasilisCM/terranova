@@ -75,7 +75,7 @@
         ?>
         <div class="boxed centered">
             <h2 class="heading lowercase"><?php echo $heading; ?></h2>
-            <div><?php echo $text; ?></div>
+            <div class="text"><?php echo $text; ?></div>
         </div>
         <!-- Archive  -->
         <div class="push-left blog-home__archive-container">
@@ -89,20 +89,22 @@
                         $text = $item['text'];
                         $color = $item['color'];
                 ?>
-                        <article class="blog-home__post" style="background-color: <?php echo $color; ?>;">
-                            <div class="blog-home__image-container">
-                                <img
-                                    class="blog-home__image"
-                                    src="<?php echo $image ? $image : '/wp-content/uploads/2025/11/blog-hero.jpg'; ?>"
-                                    alt="<?php echo $heading; ?>"
-                                    draggable-image />
-                            </div>
+                        <article class="blog-home__post inline-padding" style="background-color: <?php echo $color; ?>;">
 
+                            <?php if ($image): ?>
+                                <div class="blog-home__image-container">
+                                    <img
+                                        class="blog-home__image"
+                                        src="<?php echo $image ? $image : '/wp-content/uploads/2025/11/blog-hero.jpg'; ?>"
+                                        alt="<?php echo $heading; ?>"
+                                        draggable-image />
+                                </div>
+                            <?php endif; ?>
                             <div class="blog-home__text-container">
-                                <h3 class="blog-home__heading heading-s">
+                                <h3 class="blog-home__heading heading-ms semibold italic line-height-s">
                                     <?php echo $heading; ?>
                                 </h3>
-                                <div class="blog-home__text"><?php echo $text; ?></div>
+                                <div class="blog-home__text text italic"><?php echo $text; ?></div>
                             </div>
                         </article>
                 <?php
