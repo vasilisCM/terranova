@@ -117,15 +117,16 @@
                         $text = $item['text'];
                         $color = $item['color'];
                 ?>
-                        <article class="blog-home__post inline-padding relative" style="background-color: <?php echo $color; ?>;">
+                        <article
+                            draggable-image
+                            class="blog-home__post inline-padding relative" style="background-color: <?php echo $color; ?>;">
 
                             <?php if ($image): ?>
                                 <div class="blog-home__image-container absolute <?php if ($bottom_image): ?> blog-home__image-container--bottom<?php endif; ?>">
                                     <img
                                         class="blog-home__image"
                                         src="<?php echo $image ? $image : '/wp-content/uploads/2025/11/blog-hero.jpg'; ?>"
-                                        alt="<?php echo $heading; ?>"
-                                        draggable-image />
+                                        alt="<?php echo $heading; ?>" />
                                 </div>
                             <?php endif; ?>
                             <div class="blog-home__text-container">
@@ -167,7 +168,8 @@
         </div>
     </section>
 
-
+    <!-- Custom Cursor  -->
+    <?php include 'components/custom-cursor.php'; ?>
 </main>
 
 <?php get_footer(); ?>

@@ -1,0 +1,14 @@
+{
+  "host": "185.230.187.22",
+  "port": 21,
+  "user": "conceptmaniax_terranova",
+  "protocol": "ftp",
+  "secure": true,
+  "acceptUnauthorized": true,
+  "remotePath": "/httpdocs/wp-content/themes/terranova",
+  "uploadOnSave": true,
+  "deleteOnRemote": false,
+  "retries": 3,
+  "timeout": 10000,
+  "ignore": ["node_modules/**", ".git/**", "*.log"]
+}

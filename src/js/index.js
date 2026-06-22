@@ -120,11 +120,51 @@ function global() {
         for (const slide of slides) {
           const slideEls = el.querySelectorAll(slide);
           if (slideEls.length === 0) continue;
-          if (
-            window.matchMedia("(min-width: 992px)").matches &&
-            slideEls.length <= 4
-          )
+          const isDesktop = window.matchMedia("(min-width: 992px)").matches;
+          const fitsWithoutScroll = isDesktop && slideEls.length <= 4;
+
+          console.log("[carousel-debug]", {
+            container,
+            slideSelector: slide,
+            slideCount: slideEls.length,
+            isDesktop,
+            fitsWithoutScroll,
+            el,
+          });
+
+          if (fitsWithoutScroll) {
+            slideEls.forEach((slideEl) => {
+              const hadOwnDraggableImage =
+                slideEl.hasAttribute("draggable-image");
+              const hadOwnDraggable = slideEl.hasAttribute("draggable");
+
+              if (hadOwnDraggableImage)
+                slideEl.removeAttribute("draggable-image");
+              if (hadOwnDraggable) slideEl.removeAttribute("draggable");
+
+              const childImgs = slideEl.querySelectorAll("[draggable-image]");
+              const childWrappers =
+                slideEl.querySelectorAll('[draggable="true"]');
+              childImgs.forEach((img) =>
+                img.removeAttribute("draggable-image"),
+              );
+              childWrappers.forEach((w) => w.removeAttribute("draggable"));
+
+              console.log("[carousel-debug] stripped", {
+                slideEl,
+                hadOwnDraggableImage,
+                hadOwnDraggable,
+                childImgsRemoved: childImgs.length,
+                childWrappersRemoved: childWrappers.length,
+                stillHasDraggableImage: !!slideEl
+                  .closest("article,div")
+                  ?.querySelector("[draggable-image]"),
+              });
+            });
+            initedContainers.add(el);
             break;
+          }
+
           const carousel = new DraggableCarousel(el, trackEl, slide);
           carousel.init();
           carouselInstances.push(carousel);
@@ -133,8 +173,17 @@ function global() {
         }
       });
     });
-  }
 
+    // After all suppression/init is done, check what's actually left in the DOM
+    console.log(
+      "[carousel-debug] FINAL draggable-image elements on page:",
+      document.querySelectorAll("[draggable-image]"),
+    );
+    console.log(
+      "[carousel-debug] FINAL draggable=true elements on page:",
+      document.querySelectorAll('[draggable="true"]'),
+    );
+  }
   function destroyCarousels() {
     carouselInstances.forEach((c) => c.destroy());
     carouselInstances = [];
@@ -373,17 +422,17 @@ function global() {
 
     document.dispatchEvent(new CustomEvent("loaderDone"));
 
-    // Initialize global features after page is fully loaded
-    // This ensures DOM is ready and page-specific JS has loaded
-    initGlobalFeatures();
+    // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
+    initCarousels();
 
     // Reinitialize Accordion when the new page has one (e.g. pages without a dedicated bundle)
     if (document.querySelector(".accordion")) {
       accordion.init();
     }
 
-    // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
-    initCarousels();
+    // Initialize global features after page is fully loaded
+    // This ensures DOM is ready and page-specific JS has loaded
+    initGlobalFeatures();
 
     // Recalculate all ScrollTrigger positions after a full browser paint.
     // rAF ensures GSAP measures element positions after the browser has
@@ -430,15 +479,14 @@ function global() {
             currentPageScript = initialScript;
           }
 
-          // Initialize global features on first load
-          initGlobalFeatures();
-
           // First-load carousels + scroll-to-top when loader is done (same logical moment as transition: scroll top then init)
           document.addEventListener(
             "loaderDone",
             () => {
               scrollToTopWithLenis({ immediate: true });
               initCarousels();
+              // Initialize global features on first load
+              initGlobalFeatures();
 
               requestAnimationFrame(() => {
                 ScrollTrigger.refresh();
