@@ -5172,7 +5172,7 @@ main--home {
 }
 @media only screen and (min-width: 1921px) {
   .moments-time .blog-home__post {
-    padding-block: clamp(80px, 3.4666666667vw, 104px) clamp(125px, 5.4166666667vw, 162.5px);
+    padding-block: clamp(80px, 5.2vw, 156px) clamp(125px, 5.4166666667vw, 162.5px);
   }
 }
 .moments-time .blog-home__text-container {
