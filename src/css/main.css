@@ -374,6 +374,19 @@ h5,
   font-family: "InterTight", system-ui;
   font-weight: 400;
 }
+.body.search {
+  position: revert;
+}
+@media only screen and (min-width: 1025px) {
+  .body.search {
+    justify-self: revert;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .body.search {
+    order: revert;
+  }
+}
 
 main {
   overflow-x: hidden;
@@ -1298,6 +1311,11 @@ h4 {
 .search-results__item {
   border-bottom: 1px solid #5b697b;
   transition: color 0.3s ease;
+}
+@media only screen and (min-width: 1025px) {
+  .search-results__item {
+    max-width: 65%;
+  }
 }
 .search-results__item:hover {
   color: #c44a37;

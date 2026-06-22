@@ -646,6 +646,10 @@
     border-bottom: 1px solid $secondary;
     transition: color 0.3s ease;
 
+    @include view(lg-min) {
+      max-width: 65%;
+    }
+
     &:hover {
       color: $accent;
     }

@@ -3,6 +3,7 @@
 
 
 <main
+    class="main"
     data-barba="container"
     data-barba-namespace="myTime">
     <!-- Hero  -->

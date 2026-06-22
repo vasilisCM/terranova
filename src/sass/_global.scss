@@ -3,6 +3,19 @@
   background-color: $white;
   font-family: "InterTight", system-ui;
   font-weight: 400;
+
+  // Bug from generated body class - quick fix
+  &.search {
+    position: revert;
+
+    @include view(lg-min) {
+      justify-self: revert;
+    }
+
+    @include view(md-max) {
+      order: revert;
+    }
+  }
 }
 
 main {

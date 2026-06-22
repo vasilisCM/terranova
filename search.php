@@ -4,9 +4,13 @@ get_header();
 
 <main data-barba="container"
     data-barba-namespace="search">
-    <section class="search-results first-section hero">
-        <div class="search-results__container boxed-sm centered">
-            <div>
+
+
+    <section class="search-results page-info boxed centered">
+        <div class="page-info__container">
+
+            <div class="search-results__container">
+
                 <?php if (have_posts()) : ?>
                     <h2>
                         <?php echo __('Search results for:', 'terranova'); ?> '<?php echo get_search_query(); ?>'
@@ -30,8 +34,11 @@ get_header();
                     </p>
                 <?php endif; ?>
             </div>
+
         </div>
     </section>
+
+
 </main>
 
 <?php get_footer(); ?>
