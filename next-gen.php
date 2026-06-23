@@ -102,7 +102,7 @@
             <div class="line line--white stats-next-gen__line-1"></div>
             <div><img src="<?php echo get_template_directory_uri() . '/./assets/img/logo-next-gen.svg'; ?>" alt=""></div>
             <div class="line line--white stats-next-gen__line-2"></div>
-            <div><img src="<?php echo get_template_directory_uri() . '/./assets/img/logo-next-gen.svg'; ?>" alt=""></div>
+            <div><img src="/wp-content/uploads/2026/06/ic-biosneds.svg" alt=""></div>
 
             <div class="line line--white stats-next-gen__line-3"></div>
 
