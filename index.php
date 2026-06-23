@@ -4,7 +4,10 @@
 <main class="main" data-barba="container"
   data-barba-namespace="posts">
   <!-- Banner -->
-  <section class="banner banner--blog">
+  <section
+    style="background-image: url('<?php echo get_the_post_thumbnail_url(get_option('page_for_posts'), 'full'); ?>')"
+
+    class="banner banner--blog">
     <div class="banner__wrapper boxed centered">
       <div class="banner__container">
         <div class="banner__text-background"></div>

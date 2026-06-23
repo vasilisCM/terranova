@@ -3551,10 +3551,6 @@ main--home {
   font-weight: 600;
 }
 
-.banner--blog {
-  background-image: url("../../assets/img/blog-background.webp");
-}
-
 .asymmetrical-carousel--blog .asymmetrical-carousel__container {
   padding-bottom: clamp(180px, 25.2270433905vw, 250px);
 }
