@@ -53,10 +53,13 @@
 
 
                 <div class="single-product__buttons-container">
-                    <button
-                        class="button single-product__button single-product__button--info text-button mask-text">
-                        <span
-                            class="uppercase text-s uppercase letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info">Available in 50 and 100 capsule sizes</span>
+                    <?php $single_product_quantities = get_field('single_product_quantities'); ?>
+                    <button class="button single-product__button single-product__button--info text-button mask-text">
+                        <span class="normal text-s letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info"><?php if ($single_product_quantities):
+                            echo $single_product_quantities;
+                        else: 
+                            echo __('AVAILABLE IN 50 AND 100 CAPTULE SIZES', 'terranova');
+                        endif; ?></span>
                     </button>
                     <!-- <button
                         class="button single-product__button text-button mask-text">
@@ -88,10 +91,10 @@
                             </div>
 
                             <div class="tabs__contents text-ms">
-                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients">
+                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-ingredients margin-p">
                                     <?php echo $single_product_ingredients ? force_balance_tags(wp_kses_post($single_product_ingredients)) : ''; ?>
                                 </div>
-                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use">
+                                <div class="tabs__content tabs__content--hidden single-product__wysiwyg single-product-how-to-use margin-p">
                                     <?php echo $single_product_how_to_use ? force_balance_tags(wp_kses_post($single_product_how_to_use)) : ''; ?>
                                 </div>
                             </div>

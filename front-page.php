@@ -178,7 +178,8 @@
 
     <?php $presentation = get_field('nextgen_products', 'option');
     $products = $presentation['products'] ?? array();
-    $text_5 = $presentation['text_5'] ?? '';
+    $home_presentation = get_field('home__presentation');
+    $text_5 = $home_presentation['text_5'] ?? '';
 
     $home_presentation_products = array();
 
@@ -238,7 +239,7 @@
     <div class="home-presentation-products__container boxed-sm centered">
 
       <div>
-        <h3 class="home-presentation__text-4 heading-ms lowercase black text-center">
+        <h3 class="home-presentation__text-4 heading-ms black text-center">
           <?php echo $text_5; ?>
         </h3>
       </div>
