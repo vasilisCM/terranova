@@ -6,6 +6,9 @@ class SingleProduct {
   constructor() {
     this.carousels = [];
     this.loaderDoneListener = null;
+    this.matchMedia = null;
+    this.galleryElement = null;
+    this.featuredImageContainerMobile = null;
   }
 
   init() {
@@ -13,10 +16,10 @@ class SingleProduct {
 
     // Sticky featured Image
     const singleProductContainer = document.querySelector(
-      ".single-product__container"
+      ".single-product__container",
     );
     const featuredImageContainer = document.querySelector(
-      ".single-product__featured-image-container"
+      ".single-product__featured-image-container",
     );
 
     const pinnedFeaturedImageOffset = 3;
@@ -32,6 +35,19 @@ class SingleProduct {
       pinSpacing: true,
       anticipatePin: 1,
       // markers: true,
+    });
+
+    this.featuredImageContainerMobile = document.querySelector(
+      ".single-product__featured-image-container--mobile",
+    );
+    this.galleryElement = document.querySelector(".gallery");
+    this.matchMedia = gsap.matchMedia();
+
+    this.matchMedia.add("(max-width: 1024px)", () => {
+      this.featuredImageContainerMobile.insertAdjacentElement(
+        "beforeend",
+        this.galleryElement,
+      );
     });
 
     // Image Gallery
@@ -61,6 +77,11 @@ class SingleProduct {
       this.loaderDoneListener = null;
     }
 
+    if (this.matchMedia) {
+      this.matchMedia.revert();
+      this.matchMedia = null;
+    }
+
     // Clean up carousels (if they have destroy methods)
     this.carousels.forEach((carousel) => {
       if (carousel && typeof carousel.destroy === "function") {
@@ -68,6 +89,8 @@ class SingleProduct {
       }
     });
     this.carousels = [];
+
+    this.featuredImageContainerMobile = null;
   }
 }
 

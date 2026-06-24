@@ -6,7 +6,7 @@
     <section class="main-single-product boxed centered">
         <div class="single-product__container">
             <!-- Featured Image  -->
-            <div class="single-product__featured-image-container hidden-mobile">
+            <div class="single-product__featured-image-container  hidden-mobile">
                 <?php if (has_post_thumbnail()) : ?>
                     <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
                 <?php endif; ?>
@@ -41,10 +41,13 @@
                 </h1>
 
                 <div
-                    class="single-product__featured-image-container hidden-desktop">
+                    class="single-product__featured-image-container single-product__featured-image-container--mobile hidden-desktop">
                     <?php if (has_post_thumbnail()) : ?>
                         <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
                     <?php endif; ?>
+
+
+
                 </div>
 
                 <div class="single-product__description text-m">
@@ -56,10 +59,10 @@
                     <?php $single_product_quantities = get_field('single_product_quantities'); ?>
                     <button class="button single-product__button single-product__button--info text-button mask-text">
                         <span class="normal text-s letter-spacing-medium button__text single-product__button-inner single-product__button-inner--info"><?php if ($single_product_quantities):
-                            echo $single_product_quantities;
-                        else: 
-                            echo __('AVAILABLE IN 50 AND 100 CAPTULE SIZES', 'terranova');
-                        endif; ?></span>
+                                                                                                                                                            echo $single_product_quantities;
+                                                                                                                                                        else:
+                                                                                                                                                            echo __('AVAILABLE IN 50 AND 100 CAPTULE SIZES', 'terranova');
+                                                                                                                                                        endif; ?></span>
                     </button>
                     <!-- <button
                         class="button single-product__button text-button mask-text">
