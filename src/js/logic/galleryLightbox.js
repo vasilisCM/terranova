@@ -11,6 +11,7 @@ class GalleryLightbox {
     closeButtonSelector = ".lightbox__close",
     lightboxHiddenClass = "lightbox--hidden",
     lightboxCaptionSelector = ".lightbox__caption",
+    carouselBottomSelector = ".carousel__bottom",
   ) {
     this.gallerySelector = gallerySelector;
     this.galleryItemSelector = galleryItemSelector;
@@ -21,6 +22,7 @@ class GalleryLightbox {
     this.closeButtonSelector = closeButtonSelector;
     this.lightboxHiddenClass = lightboxHiddenClass;
     this.lightboxCaptionSelector = lightboxCaptionSelector;
+    this.carouselBottomSelector = carouselBottomSelector;
 
     this.galleryElement = null;
     this.lightboxElement = null;
@@ -37,6 +39,9 @@ class GalleryLightbox {
     console.log("Gallery Lightbox");
     this.galleryElement = document.querySelector(this.gallerySelector);
     this.lightboxElement = document.querySelector(this.lightboxSelector);
+    this.carouselBottomSelector = document.querySelector(
+      this.carouselBottomSelector,
+    );
 
     if (!this.galleryElement || !this.lightboxElement) {
       return;
@@ -73,6 +78,17 @@ class GalleryLightbox {
     );
     // this.lightboxElement = document.querySelector(this.lightboxSelector);
 
+    const lightboxSlides = carouselTrack.querySelectorAll(
+      this.lightboxItemSelector,
+    );
+
+    console.log("LightboxsItems:", lightboxSlides);
+
+    if (lightboxSlides.length <= 1) {
+      this.carouselBottomSelector.style.display = "none";
+      carouselTrack.style.pointerEvents = "none";
+      carouselTrack.style.cursor = "none";
+    }
     // Carousel
     this.carousel = new Carousel(this.lightboxSelector, undefined, 1, 1);
     this.carousel.init();

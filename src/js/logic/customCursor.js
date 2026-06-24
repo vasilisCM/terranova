@@ -28,21 +28,9 @@ class CustomCursor {
   setupDraggableImages() {
     this.draggableImages = document.querySelectorAll("[draggable-image]");
 
-    console.log(
-      "[cursor-debug] setupDraggableImages found:",
-      this.draggableImages.length,
-      this.draggableImages,
-    );
-
     if (!this.draggableImages.length || !this.cursor) return;
 
     this.draggableImages.forEach((img) => {
-      console.log(
-        "[cursor-debug] attaching listeners to:",
-        img,
-        img.closest("section")?.className,
-      );
-
       const handlers = {
         mouseover: () => {
           this.cursor.classList.add("cursor-track--active");
