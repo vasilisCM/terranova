@@ -611,6 +611,7 @@ main {
   }
 
   @include view(md-max) {
+    margin-top: cross-media(80px, 1024px, 160px);
     padding-bottom: cross-media(40px, 767px, 80px);
   }
 }

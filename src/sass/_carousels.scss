@@ -253,9 +253,12 @@
     user-select: none;
 
     @include view(md-max) {
-      width: 80%;
+      width: fit-content;
+      max-width: 100%;
+      left:50%;
+      padding-inline: 16px;
       top: 0;
-      transform: translateX(20%);
+      transform: translateX(-50%);
     }
 
     @include view(lg-min) {

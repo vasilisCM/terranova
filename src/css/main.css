@@ -190,7 +190,7 @@ html.lenis {
   font-display: block;
 }
 .heading-xxl {
-  font-size: clamp(70px, 11.1111111111vw, 200px);
+  font-size: clamp(58px, 11.1111111111vw, 200px);
   font-weight: 300;
   line-height: 1;
 }
@@ -1188,6 +1188,7 @@ h4 {
   place-content: center;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
+  text-transform: none;
   transition: opacity 0.3s ease;
 }
 
@@ -1976,7 +1977,12 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 48px;
-  margin-top: 24px;
+  margin-top: clamp(20px, 2.34375vw, 24px);
+}
+@media only screen and (max-width: 1024px) {
+  .footer__social-links {
+    margin-bottom: clamp(40px, 5.859375vw, 60px);
+  }
 }
 @media only screen and (min-width: 1025px) {
   .footer__contact-info {
@@ -2677,9 +2683,12 @@ h4 {
 }
 @media only screen and (max-width: 1024px) {
   .asymmetrical-carousel__text {
-    width: 80%;
+    width: fit-content;
+    max-width: 100%;
+    left: 50%;
+    padding-inline: 16px;
     top: 0;
-    transform: translateX(20%);
+    transform: translateX(-50%);
   }
 }
 @media only screen and (min-width: 1025px) {
@@ -3254,6 +3263,7 @@ main--home {
 }
 @media only screen and (max-width: 1024px) {
   .asymmetrical-carousel--home {
+    margin-top: clamp(80px, 15.625vw, 160px);
     padding-bottom: clamp(40px, 10.4302477184vw, 80px);
   }
 }

@@ -24,7 +24,7 @@
 
                     <?php endif; ?>
 
-                    <h1 class="banner__heading heading lowercase">
+                    <h1 class="banner__heading heading">
                         <?php the_title(); ?>
                         <?php if ($text): ?>
                             <div class="heading banner__text italic"><?php echo $text; ?></div>

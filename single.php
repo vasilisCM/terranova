@@ -42,7 +42,7 @@
 
   <!-- Content -->
   <section class="single-post-content">
-    <div class="boxed-md centered single-post-content__container text margin-p">
+    <div class="boxed-md centered single-post-content__container text">
 
       <?php
       // Always display the main content

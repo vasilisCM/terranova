@@ -499,6 +499,7 @@
     place-content: center;
     background-color: rgba($black, 0.6);
     opacity: 0;
+    text-transform: none;
     transition: opacity 0.3s ease;
   }
 }
@@ -1410,7 +1411,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: $gap;
-    margin-top: 24px;
+    margin-top: cross-media(20px, 1024px, 24px);
+
+    @include view(md-max) {
+      margin-bottom: cross-media(40px, 1024px, 60px);
+    }
   }
 
   // &__menu {
