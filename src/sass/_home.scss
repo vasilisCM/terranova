@@ -387,8 +387,16 @@ main {
     }
   }
 
+  &__carousel {
+    & .related-products__text-container {
+      @include view(sm-max) {
+        margin-inline: auto;
+      }
+    }
+  }
+
   &__product-img-container {
-    height: cross-media(250px, 991px, 338px);
+    height: cross-media(290px, 1024px, 338px);
     overflow: hidden;
 
     @include view(xxl) {
@@ -401,6 +409,10 @@ main {
       object-fit: contain;
       object-position: left;
       mix-blend-mode: multiply;
+
+      @include view(sm-max) {
+        object-position: center;
+      }
     }
   }
 }
