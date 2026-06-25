@@ -69,6 +69,7 @@
         $image_background = $global_presence['bg_image'];
         $heading = $global_presence['heading'];
         $text = $global_presence['text'];
+        $button = $global_presence['button'];
         ?>
         <div class="story-global-presence__background absolute">
             <img src="<?php echo $image_background; ?>" alt="">
@@ -78,6 +79,11 @@
             <div class="text-container">
                 <h2 class="heading light"><?php echo $heading; ?></h2>
                 <div class="text"><?php echo $text; ?></div>
+                <a href="<?php echo $button['link']; ?>" class="basic">
+                    <button class="button text-button mask-text">
+                        <span class="text-button button__text"><?php echo $button['label']; ?></span>
+                    </button>
+                </a>
             </div>
         </div>
     </section>
