@@ -1,4 +1,5 @@
 {
     "sftp.debug": true,
-    "sftp.printDebugLog": true
+    "sftp.printDebugLog": true,
+    "virgoAutoFtp.enable": false
 }

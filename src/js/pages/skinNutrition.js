@@ -1,4 +1,4 @@
-import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
+//import { setAsymmetricalClasses } from "../logic/setAsymmetricalClasses.js";
 import Carousel from "../logic/carousel.js";
 
 class SkinNutrition {
@@ -13,16 +13,16 @@ class SkinNutrition {
     // Hero Entrance is now handled by globalAnimations.js
     // No need to call clipUp here anymore
 
-    setAsymmetricalClasses();
+    //setAsymmetricalClasses();
 
     // Draggable carousels are inited in index.js (initCarousels).
 
-    // Recommented Products Carousel
-    const recommentedProductsCarousel = new Carousel(
-      ".skin-nutrition-steps__carousel",
+    /// Product Presentaiton Carousel
+    const productPresentationCarousel = new Carousel(
+      ".home-presentation__carousel",
     );
-    recommentedProductsCarousel.init();
-    this.carousels.push(recommentedProductsCarousel);
+    productPresentationCarousel.init();
+    this.carousels.push(productPresentationCarousel);
   }
 
   destroy() {
