@@ -36,8 +36,11 @@
   margin-top: cross-media(20px, 1024px, 40px);
 
   &__container {
-    display: grid;
     gap: cross-media(8px, 1024px, 160px);
+
+    @include view(lg-min) {
+      display: grid;
+    }
   }
 
   &__heading-bg {
@@ -49,7 +52,9 @@
   }
 
   &__step {
-    display: grid;
+    @include view(lg-min) {
+      display: grid;
+    }
     // gap: cross-media(8px, 1024px, 16px);
 
     &--extra {
@@ -123,13 +128,17 @@
         &::after {
           position: absolute;
           right: 0;
-          top:50%;
+          top: 50%;
           transform: translateX(100%) translateY(-100%);
           font-weight: 300;
           font-style: italic;
           font-size: cross-media(30px, $box, 40px);
           @include view(xxl) {
-            font-size: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
+            font-size: cross-media(
+              40px,
+              $xxl-breakpoint,
+              calc(40px * $xxl-scale)
+            );
           }
 
           @include view(md-max) {
@@ -193,7 +202,7 @@
     gap: cross-media(60px, $box-md, 100px);
     padding-block: 16px cross-media(40px, $box-md, 70px);
     @include view(lg-min) {
-        grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .archive-product__product {
