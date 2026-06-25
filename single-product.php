@@ -110,7 +110,10 @@
                     </p>
                     <div class="single-product__line"></div>
                     <div class="single-product__icons">
-                        <img src="<?php echo get_template_directory_uri() . '/./assets/img/icons-list-product.svg'; ?>" alt="" />
+                        <picture>
+                            <source srcset="<?php echo get_template_directory_uri() . '/./assets/img/icons-list-product-mob.svg'; ?>" media="(max-width: 768px)">
+                            <img src="<?php echo get_template_directory_uri() . '/./assets/img/icons-list-product.svg'; ?>" alt="" />
+                        </picture>
                     </div>
                 </div>
             </div>
