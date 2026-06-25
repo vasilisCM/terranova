@@ -96,7 +96,11 @@
   position: relative;
   // overflow: hidden;
 
-    padding-bottom: cross-media(40px,$box, 80px);
+    padding-bottom: cross-media(40px, $box, 80px);
+
+    &--blog {
+      padding-top: cross-media(40px, $box, 80px);
+    }
 
   .slides-container {
     position: relative;

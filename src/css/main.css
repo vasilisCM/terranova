@@ -2553,6 +2553,9 @@ h4 {
   position: relative;
   padding-bottom: clamp(40px, 4.4444444444vw, 80px);
 }
+.asymmetrical-carousel--blog {
+  padding-top: clamp(40px, 4.4444444444vw, 80px);
+}
 .asymmetrical-carousel .slides-container {
   position: relative;
 }
