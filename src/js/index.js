@@ -76,7 +76,7 @@ function global() {
   });
 
   // Accordion (re-inited on every transition so it works on pages without a bundle)
-  const accordion = new Accordion();
+  const accordion = new Accordion({ scrollToItem: lenis });
   if (document.querySelector(".accordion")) {
     accordion.init();
   }

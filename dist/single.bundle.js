@@ -15,7 +15,7 @@
   \********************************/
 /***/ (() => {
 
-eval("class Single {\r\n  constructor() {\r\n    this.loaderDoneListener = null;\r\n  }\r\n\r\n  init() {\r\n    console.log(\"Single\");\r\n  }\r\n\r\n  destroy() {\r\n    // Remove event listeners\r\n    if (this.loaderDoneListener) {\r\n      document.removeEventListener(\"loaderDone\", this.loaderDoneListener);\r\n      this.loaderDoneListener = null;\r\n    }\r\n  }\r\n}\r\n\r\n// Create instance and set up event listener\r\nconst single = new Single();\r\nsingle.loaderDoneListener = () => single.init();\r\ndocument.addEventListener(\"loaderDone\", single.loaderDoneListener);\r\n\r\n// Make cleanup available globally\r\nwindow.singleCleanup = () => single.destroy();\r\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/single.js?");
+eval("class Single {\n  constructor() {\n    this.loaderDoneListener = null;\n  }\n\n  init() {\n    console.log(\"Single\");\n  }\n\n  destroy() {\n    // Remove event listeners\n    if (this.loaderDoneListener) {\n      document.removeEventListener(\"loaderDone\", this.loaderDoneListener);\n      this.loaderDoneListener = null;\n    }\n  }\n}\n\n// Create instance and set up event listener\nconst single = new Single();\nsingle.loaderDoneListener = () => single.init();\ndocument.addEventListener(\"loaderDone\", single.loaderDoneListener);\n\n// Make cleanup available globally\nwindow.singleCleanup = () => single.destroy();\n\n\n//# sourceURL=webpack://terranova/./src/js/pages/single.js?");
 
 /***/ })
 
