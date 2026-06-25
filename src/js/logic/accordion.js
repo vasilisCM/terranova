@@ -1,5 +1,5 @@
 class Accordion {
-  constructor(
+  constructor({
     accordionSelector = ".accordion",
     itemSelector = ".accordion__item",
     buttonSelector = ".accordion__button",
@@ -9,8 +9,10 @@ class Accordion {
     iconSelector = ".accordion__icon",
     iconActiveText = "+",
     iconHiddenText = "-",
-    isFirstItemOpen = true
-  ) {
+    isFirstItemOpen = true,
+    scrollToItem = false,
+    scrollOffset = -60,
+  } = {}) {
     this.accordionSelector = accordionSelector;
     this.itemSelector = itemSelector;
     this.buttonSelector = buttonSelector;
@@ -21,6 +23,8 @@ class Accordion {
     this.iconActiveText = iconActiveText;
     this.iconHiddenText = iconHiddenText;
     this.isFirstItemOpen = isFirstItemOpen;
+    this.scrollToItem = scrollToItem;
+    this.scrollOffset = scrollOffset;
 
     this.accordionElement = null;
     this.handleAccordionClick = null;
@@ -28,7 +32,7 @@ class Accordion {
 
   init() {
     console.log("Accordion.init() called");
-    
+
     this.accordionElement = document.querySelector(this.accordionSelector);
 
     if (this.isFirstItemOpen) {
@@ -55,7 +59,7 @@ class Accordion {
 
         // Close all other accordions
         const allButtons = this.accordionElement.querySelectorAll(
-          this.buttonSelector
+          this.buttonSelector,
         );
         allButtons.forEach((button) => {
           if (
@@ -64,7 +68,7 @@ class Accordion {
           ) {
             const otherContainer = button.closest(this.itemSelector);
             const otherContent = otherContainer.querySelector(
-              this.contentSelector
+              this.contentSelector,
             );
 
             // Remove Active Class and Change Text
@@ -111,6 +115,15 @@ class Accordion {
             // Add Container Active Class
             clickedItem.classList.add(this.itemActiveClass);
           }
+
+          // Scroll the opened item into view (layout needs a moment to settle)
+          if (this.scrollToItem) {
+            setTimeout(() => {
+              this.scrollToItem.scrollTo(clickedItem, {
+                offset: this.scrollOffset,
+              });
+            }, 200);
+          }
         }
       }
     };
@@ -124,7 +137,7 @@ class Accordion {
     // Remove the event listener
     this.accordionElement.removeEventListener(
       "click",
-      this.handleAccordionClick
+      this.handleAccordionClick,
     );
 
     // Clear references
@@ -140,7 +153,7 @@ class Accordion {
     // Remove buttons active class
     const buttons = document.querySelectorAll(this.buttonSelector);
     buttons.forEach((button) =>
-      button.classList.remove(this.buttonActiveClass)
+      button.classList.remove(this.buttonActiveClass),
     );
 
     // Reset Content height
