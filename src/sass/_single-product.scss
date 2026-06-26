@@ -26,12 +26,12 @@
   }
 
   &__text-container {
-    max-width: cross-media(470px, $box, 670px);
+    // max-width: cross-media(470px, $box, 670px);
     padding: cross-media(12px, $box, 24px);
 
     @include view(lg-min) {
-      max-width: cross-media(670px, 3000px, 670px * $xxl-scale);
-      padding: cross-media(24px, 3000px, 24px * $xxl-scale);
+      max-width: cross-media(670px, $xxl-breakpoint, 670px * 2);
+      padding: cross-media(24px, $xxl-breakpoint, 24px * $xxl-scale);
     }
   }
 

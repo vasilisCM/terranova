@@ -3433,12 +3433,11 @@ main--home {
   }
 }
 .single-product__text-container {
-  max-width: clamp(470px, 37.2222222222vw, 670px);
   padding: clamp(12px, 1.3333333333vw, 24px);
 }
 @media only screen and (min-width: 1025px) {
   .single-product__text-container {
-    max-width: clamp(670px, 29.0333333333vw, 871px);
+    max-width: clamp(670px, 44.6666666667vw, 1340px);
     padding: clamp(24px, 1.04vw, 31.2px);
   }
 }
