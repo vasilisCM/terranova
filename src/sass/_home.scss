@@ -194,7 +194,9 @@ main {
   }
 
   &__description {
-    margin-top: 24px;
+    @include view(lg-min) {
+      margin-top: 24px;
+    }
 
     @include view(xxl) {
       // margin-top: calc(1.5 * 16px);
@@ -326,7 +328,7 @@ main {
     }
 
     @include view(xxl) {
-      gap: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale) );
+      gap: cross-media(40px, $xxl-breakpoint, calc(40px * $xxl-scale));
     }
   }
 
