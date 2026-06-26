@@ -75,7 +75,7 @@
 
     </section>
 
-    <section class="basic last-section fresh-freeze-difference">
+    <section class="basic fresh-freeze-difference">
         <?php $difference = get_field('fresh_freeze__difference');
         $heading = $difference['heading'];
         $text_1 = $difference['text_1'];

@@ -24,7 +24,7 @@
 
     <?php include 'components/asymmetrical-carousel.php'; ?>
 
-    <section class="basic last-section text-center">
+    <section class="basic text-center">
         <?php $texts = get_field('additive_free__texts');
         $text_1 = $texts['text_1'];
         $text_2 = $texts['text_2'];
