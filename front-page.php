@@ -35,7 +35,9 @@
           src="<?php echo get_template_directory_uri() . '/./assets/video/home.mp4'; ?>"
           autoplay
           loop
-          muted></video>
+          muted
+          playsinline
+          webkit-playsinline></video>
 
         <!-- <iframe
                 class="circular-shape__video"
