@@ -43,12 +43,14 @@ class SingleProduct {
     this.galleryElement = document.querySelector(".gallery");
     this.matchMedia = gsap.matchMedia();
 
-    this.matchMedia.add("(max-width: 1024px)", () => {
-      this.featuredImageContainerMobile.insertAdjacentElement(
-        "beforeend",
-        this.galleryElement,
-      );
-    });
+    if (this.galleryElement) {
+      this.matchMedia.add("(max-width: 1024px)", () => {
+        this.featuredImageContainerMobile.insertAdjacentElement(
+          "beforeend",
+          this.galleryElement,
+        );
+      });
+    }
 
     // Image Gallery
     const gallery = new GalleryLightbox();
