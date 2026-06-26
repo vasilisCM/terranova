@@ -462,9 +462,20 @@
   width: 50%;
   pointer-events: none;
 
+  @include view(md-max) {
+    justify-content: flex-start;
+    top: 420px;
+    width: 90%;
+    left: 5%;
+  }
+
   & img {
     opacity: 0;
     transition: 0.1s ease;
+
+    @include view(md-max) {
+      opacity: 1;
+    }
   }
 
   @include view(box-max) {
@@ -501,8 +512,51 @@
     opacity: 0;
     text-transform: none;
     transition: opacity 0.3s ease;
+
+    @include view(md-max) {
+      background-color: rgba($black, 0.4);
+      opacity: 1;
+    }
   }
 }
+
+// Mega Menu Images Mobile
+// .mega-menu-images-mob {
+//   display: flex;
+//   gap: 10px;
+//   position: absolute;
+//   top: 420px;
+//   width: 90%;
+//   left: 5%;
+//   pointer-events: none;
+
+//   & img {
+//     opacity: 1;
+//   }
+
+//   &__item {
+//     position: relative;
+//     cursor: pointer;
+
+//     &:hover {
+//       & .mega-menu-images__overlay {
+//         opacity: 1;
+//       }
+//     }
+//   }
+
+//   &__overlay {
+//     position: absolute;
+//     inset: 0;
+//     margin: auto;
+//     display: grid;
+//     place-content: center;
+//     background-color: rgba($black, 0.6);
+//     opacity: 0;
+//     text-transform: none;
+//     transition: opacity 0.3s ease;
+//   }
+// }
 
 .dropdown-menu-overlay {
   visibility: hidden;

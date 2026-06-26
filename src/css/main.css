@@ -1153,9 +1153,22 @@ h4 {
   width: 50%;
   pointer-events: none;
 }
+@media only screen and (max-width: 1024px) {
+  .mega-menu-images {
+    justify-content: flex-start;
+    top: 420px;
+    width: 90%;
+    left: 5%;
+  }
+}
 .mega-menu-images img {
   opacity: 0;
   transition: 0.1s ease;
+}
+@media only screen and (max-width: 1024px) {
+  .mega-menu-images img {
+    opacity: 1;
+  }
 }
 @media only screen and (max-width: 1800px) {
   .mega-menu-images {
@@ -1190,6 +1203,12 @@ h4 {
   opacity: 0;
   text-transform: none;
   transition: opacity 0.3s ease;
+}
+@media only screen and (max-width: 1024px) {
+  .mega-menu-images__overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+  }
 }
 
 .dropdown-menu-overlay {
