@@ -306,7 +306,7 @@
         position: absolute;
         overflow-y: auto;
         width: 100%;
-        max-height: 100dvh;
+        height: 100dvh;
         padding-top: 40px;
         padding-bottom: 200px; // Hack for absolute Dropdown. Could be Better.
         background-color: $white;
