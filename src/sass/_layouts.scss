@@ -197,9 +197,17 @@
         // display: flex;
         pointer-events: none;
 
+        @include view(md-max) {
+          pointer-events: all;
+        }
+
         & img {
           opacity: 0;
           transition: 0.2s ease 0.1s;
+
+          @include view(md-max) {
+            opacity: 1;
+          }
         }
       }
 
@@ -598,6 +606,7 @@
 
   @include view(md-max) {
     order: 2;
+    padding-inline: 0;
   }
 
   &__background,

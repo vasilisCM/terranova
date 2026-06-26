@@ -968,9 +968,19 @@ h4 {
 .main-menu li.menu-item-51 .mega-menu-images {
   pointer-events: none;
 }
+@media only screen and (max-width: 1024px) {
+  .main-menu li.menu-item-51 .mega-menu-images {
+    pointer-events: all;
+  }
+}
 .main-menu li.menu-item-51 .mega-menu-images img {
   opacity: 0;
   transition: 0.2s ease 0.1s;
+}
+@media only screen and (max-width: 1024px) {
+  .main-menu li.menu-item-51 .mega-menu-images img {
+    opacity: 1;
+  }
 }
 .main-menu li.menu-item-51:hover .mega-menu-images {
   pointer-events: all;
@@ -1238,6 +1248,7 @@ h4 {
 @media only screen and (max-width: 1024px) {
   .search {
     order: 2;
+    padding-inline: 0;
   }
 }
 .search__background, .search__toggle {
