@@ -88,6 +88,9 @@ class Home {
             start: "top 65%",
             end: "95% 0%",
             ease: "circ.out",
+            onEnter: () => {
+              video.play();
+            },
           },
         },
       );
