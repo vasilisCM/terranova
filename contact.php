@@ -101,8 +101,8 @@ $distributors = get_field('distributors', 'option');
                           href="<?php echo esc_url($distributor['website']) ?>"
                           class="contact-info-box__link contact-info-box__link--accent"
                           target="_blank"
-                          rel="noopener">
-                        <?php endif; ?>
+                          rel="noopener"><?php echo esc_url($distributor['website']) ?></a>
+                      <?php endif; ?>
                     </span>
                   </div>
                 <?php } ?>
