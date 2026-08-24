@@ -13,12 +13,43 @@ import MegaMenuDropdown from "./global/megaMenuDropdown.js";
 import { DraggableCarousel } from "./logic/draggableCarousel.js";
 
 function global() {
+  console.log("glob");
   // Semi-global features that need to reinitialize after page transitions
   const globalFeatures = {
     customCursor: new CustomCursor(),
     globalAnimations: new GlobalAnimations(),
   };
 
+  // instagram
+  async function loadInstagramPhotos(container = document) {
+    const token = "1012280261439852|rAmqrmSYYBcAS6gBcKIb__R55AU";
+    const fields = "id,media_type,media_url,thumbnail_url";
+    const url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${token}`;
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error("Instagram API error:", data.error || data);
+        return;
+      }
+
+      const photos = data.data.filter(
+        (item) =>
+          item.media_type === "IMAGE" || item.media_type === "CAROUSEL_ALBUM",
+      );
+
+      const imgs = container.querySelectorAll(".instagram__image");
+      imgs.forEach((img, i) => {
+        if (photos[i]) img.src = photos[i].media_url;
+      });
+    } catch (err) {
+      console.error("Instagram fetch failed:", err);
+    }
+  }
+
+  loadInstagramPhotos();
   // Desktop-only features (will be managed by matchMedia)
   // let menuDropdownInstance = null;
   // let megaMenuDropdownInstance = null;
