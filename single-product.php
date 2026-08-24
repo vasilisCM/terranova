@@ -73,9 +73,13 @@
 
                 <div class="single-product__line"></div>
                 <div class="single-product__no-additives">
-                    NO WHEAT - NO GLUTEN - NO SOY - NO YEAST - NO DAIRY - NO
-                    GELATINE - NO ANIMAL INGREDIENTS - NO ADDITIVES - NO ADDED SUGAR
-                    - NO COLOURS - NO FLAVOURS - NO PRESERVATIVES
+                    <?php if (get_field('product_banner_text')): ?>
+                        <?php echo get_field('product_banner_text'); ?>
+                    <?php else: ?>
+                        NO WHEAT - NO GLUTEN - NO SOY - NO YEAST - NO DAIRY - NO
+                        GELATINE - NO ANIMAL INGREDIENTS - NO ADDITIVES - NO ADDED SUGAR
+                        - NO COLOURS - NO FLAVOURS - NO PRESERVATIVES
+                    <?php endif; ?>
                 </div>
 
                 <div>
