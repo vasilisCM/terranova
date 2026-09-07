@@ -16,7 +16,7 @@ class DraggableCarousel {
     slideSelector,
     nextButton = undefined,
     previousButton = undefined,
-    indicator = undefined
+    indicator = undefined,
   ) {
     this.carouselContainer = carouselContainer;
     this.carouselTrack = carouselTrack;
@@ -70,7 +70,6 @@ class DraggableCarousel {
         start: "20% 100%",
         toggleActions: "play reverse restart reverse",
         // markers: true,
-        
       },
     });
 
@@ -83,7 +82,7 @@ class DraggableCarousel {
         ease: "power3.out",
         duration: 3,
         stagger: { amount: 0.2, from: "random" },
-      }
+      },
     );
 
     carouselContainer.style.overflow = "hidden";
@@ -111,7 +110,7 @@ class DraggableCarousel {
       {
         x: -totalSlideWidth + this.offset,
         ease: "none",
-      }
+      },
     );
 
     this.boundClick = (e) => {
@@ -131,13 +130,13 @@ class DraggableCarousel {
       if (carouselTrack.dataset.mouseDownAt === "0") return;
       const mouseDelta =
         parseFloat(carouselTrack.dataset.mouseDownAt) - e.clientX;
-      const maxDelta = window.innerWidth * 2;
+      const maxDelta = this.totalSlideWidth - this.offset;
       const percentage = (mouseDelta / maxDelta) * -100;
       const nextPercentageUnconstrained =
         parseFloat(carouselTrack.dataset.prevPercentage || "0") + percentage;
       const nextPercentage = Math.max(
         Math.min(nextPercentageUnconstrained, 0),
-        -100
+        -100,
       );
       carouselTrack.dataset.percentage = nextPercentage;
       gsap.to(this.carouselTimeline, {
@@ -148,7 +147,8 @@ class DraggableCarousel {
     this.boundLeave = () => {
       this.isMouseDown = false;
       carouselTrack.dataset.mouseDownAt = "0";
-      carouselTrack.dataset.prevPercentage = carouselTrack.dataset.percentage || "0";
+      carouselTrack.dataset.prevPercentage =
+        carouselTrack.dataset.percentage || "0";
       this.carouselTimeline.pause();
       gsap.to(this.carouselSlides, { scale: 1 });
     };
@@ -179,7 +179,8 @@ class DraggableCarousel {
 
     this.boundNavigateNext = () => this.navigateWithArrow("next");
     this.boundNavigatePrev = () => this.navigateWithArrow("previous");
-    if (nextButton) nextButton.addEventListener("click", this.boundNavigateNext);
+    if (nextButton)
+      nextButton.addEventListener("click", this.boundNavigateNext);
     if (previousButton)
       previousButton.addEventListener("click", this.boundNavigatePrev);
 
