@@ -3,6 +3,7 @@
 <!-- Main  -->
 <main class="main" data-barba="container"
   data-barba-namespace="posts">
+
   <!-- Banner -->
   <section
     style="background-image: url('<?php echo get_the_post_thumbnail_url(get_option('page_for_posts'), 'full'); ?>')"
@@ -124,6 +125,7 @@
                         ?>"
                   alt="<?php the_title_attribute(); ?>"
                   class="asymmetrical-carousel__image"
+                  draggable-image
                   draggable="false" />
               </div>
               <div class="asymmetrical-carousel__text-container">
@@ -131,9 +133,9 @@
                   <p class="asymmetrical-carousel__date"><?php the_time('F j, Y'); ?></p>
                   <p class="asymmetrical-carousel__category"><?php the_category(' '); ?></p>
                 </div>
-                <h3 class="asymmetrical-carousel__heading heading-s">
+                <a href="<?php the_permalink(); ?>" class="asymmetrical-carousel__heading heading-s">
                   <?php the_title(); ?>
-                </h3>
+                </a>
                 <a href="<?php the_permalink(); ?>" class="link link--arrow asymmetrical-carousel__link">Read more</a>
               </div>
             </div>
@@ -174,6 +176,7 @@
                           : '/wp-content/uploads/2025/11/blog-hero.jpg';
                         ?>"
                   alt=""
+                  draggable-image
                   draggable="true" />
               </div>
               <div class="recipes__text-container">
@@ -198,12 +201,10 @@
     </div>
   </section>
 
-
   <!-- Custom Cursor  -->
   <?php include 'components/custom-cursor.php'; ?>
 
 </main>
-
 
 
 <?php get_footer(); ?>
