@@ -397,9 +397,9 @@
                 <?php if ($category_name): ?>
                   <a href="<?php echo esc_url($category_link); ?>" class="blog-home__category text-ms uppercase letter-spacing-medium"><?php echo esc_html($category_name); ?></a>
                 <?php endif; ?>
-                <h3 class="blog-home__heading heading-s">
+                <a href="<?php echo esc_url($post_permalink); ?>" class="blog-home__heading heading-s">
                   <?php echo esc_html($post_title); ?>
-                </h3>
+                </a>
                 <a href="<?php echo esc_url($post_permalink); ?>" class="link link--arrow blog-home__link">Read more</a>
               </div>
             </article>

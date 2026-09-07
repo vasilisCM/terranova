@@ -183,9 +183,9 @@
                 <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
                   <p class="recipes__date"><?php the_time('F j, Y'); ?></p>
                 </div>
-                <h3 class="recipes__heading heading-s">
+                <a href="<?php the_permalink(); ?>" class="recipes__heading heading-s">
                   <?php the_title(); ?>
-                </h3>
+                </a>
                 <a href="<?php the_permalink(); ?>" class="link link--arrow recipes__link">Read more</a>
               </div>
             </article>

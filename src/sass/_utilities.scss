@@ -348,6 +348,12 @@
 
 // Icons
 .ic-social {
+  transition: color 0.3s;
+
+  &:hover {
+    color: $accent;
+  }
+
   &--facebook {
     &::after {
       @include icon("\e910");

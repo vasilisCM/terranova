@@ -779,6 +779,12 @@ h4 {
   background-color: #f1f1f1;
 }
 
+.ic-social {
+  transition: color 0.3s;
+}
+.ic-social:hover {
+  color: #c44a37;
+}
 .ic-social--facebook::after {
   content: "\e910";
   font-family: "icomoon";
@@ -2043,6 +2049,25 @@ h4 {
   .footer-menu__list li {
     font-size: clamp(20px, 0.8666666667vw, 26px);
   }
+}
+.footer-menu__list a {
+  position: relative;
+  transition: color 0.2s;
+}
+.footer-menu__list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+}
+.footer-menu__list a:hover::after, .footer-menu__list a:focus-visible::after {
+  clip-path: inset(0 0 0 0);
 }
 
 .loader {
