@@ -24,11 +24,17 @@ class Carousel {
 
     this.carouselElement = null;
     this.glideInstance = null;
+    this.previousButton = null;
+    this.nextButton = null;
+    this.handlePrevClick = null;
+    this.handleNextClick = null;
   }
 
   init() {
     console.log("Carousel initialized");
     this.carouselElement = document.querySelector(this.carouselSelector);
+
+    if (!this.carouselElement) return this;
 
     // Navigation Buttons
     const previousButton = this.carouselElement.querySelector(
@@ -76,16 +82,17 @@ class Carousel {
 
     this.glideInstance = new Glide(this.carouselSelector, glideOptions).mount();
 
+    this.previousButton = previousButton;
+    this.nextButton = nextButton;
+
     if (previousButton) {
-      previousButton.addEventListener("click", () => {
-        this.glideInstance.go("<");
-      });
+      this.handlePrevClick = () => this.glideInstance.go("<");
+      previousButton.addEventListener("click", this.handlePrevClick);
     }
 
     if (nextButton) {
-      nextButton.addEventListener("click", () => {
-        this.glideInstance.go(">");
-      });
+      this.handleNextClick = () => this.glideInstance.go(">");
+      nextButton.addEventListener("click", this.handleNextClick);
     }
 
     // We use that to call the go method, for showing a specific index
@@ -94,9 +101,23 @@ class Carousel {
 
   destroy() {
     console.log("Carousel destroyed");
+
+    if (this.previousButton && this.handlePrevClick) {
+      this.previousButton.removeEventListener("click", this.handlePrevClick);
+    }
+    if (this.nextButton && this.handleNextClick) {
+      this.nextButton.removeEventListener("click", this.handleNextClick);
+    }
+    this.previousButton = null;
+    this.nextButton = null;
+    this.handlePrevClick = null;
+    this.handleNextClick = null;
+
     this.carouselElement = null;
-    this.glideInstance.destroy();
-    this.glideInstance = null;
+    if (this.glideInstance) {
+      this.glideInstance.destroy();
+      this.glideInstance = null;
+    }
   }
 }
 

@@ -4,7 +4,7 @@
 
 <main
     data-barba="container"
-    data-barba-namespace="additiveFree">
+    data-barba-namespace="skinNutrition">
     <!-- Hero  -->
     <?php include 'components/hero-with-bg.php'; ?>
 

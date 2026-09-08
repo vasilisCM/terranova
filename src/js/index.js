@@ -2,14 +2,12 @@ import loader from "./global/loader.js";
 import stickyHeader from "./global/stickyHeader.js";
 import mobileMenu from "./global/mobileMenu.js";
 import { hideHeaderOnScroll } from "./logic/hideHeaderOnScroll.js";
-import MenuDropdown from "./global/menuDropdown.js";
 import { searchFormAnimation } from "./logic/searchFormAnimation.js";
 import CustomCursor from "./logic/customCursor.js";
 import GlobalAnimations from "./global/globalAnimations.js";
 import updateActiveMenuItem from "./logic/updateActiveMenuItem.js";
 import lenis from "./global/smoothScroll.js";
 import Accordion from "./logic/accordion.js";
-import MegaMenuDropdown from "./global/megaMenuDropdown.js";
 import { DraggableCarousel } from "./logic/draggableCarousel.js";
 
 function global() {
@@ -50,9 +48,6 @@ function global() {
   }
 
   loadInstagramPhotos();
-  // Desktop-only features (will be managed by matchMedia)
-  // let menuDropdownInstance = null;
-  // let megaMenuDropdownInstance = null;
   let mobileMenuInstance = null;
 
   const MEGA_DEBUG = true;
@@ -268,33 +263,25 @@ function global() {
     });
   }
 
-  function unloadScript() {
-    // Call all possible cleanup functions FIRST (before removing the script)
-    const cleanupFunctions = [
-      "homeCleanup",
-      "contactCleanup",
-      "aboutCleanup",
-      "archiveProductCleanup",
-      "postsCleanup",
-      "singleCleanup",
-      "singleProductCleanup",
-      "skinNutritionCleanup",
-      "nextGenCleanup",
-    ];
+  function unloadScript(namespace) {
+    // Cleanup function name follows the same `${namespace}Cleanup` convention
+    // every page bundle uses (see e.g. window.homeCleanup in home.js) — the
+    // same namespace string that loadScript() uses to build the bundle URL.
+    // Deriving it here means a new page bundle never needs a matching entry
+    // added to a separate hardcoded list.
+    const funcName = namespace ? `${namespace}Cleanup` : null;
 
-    cleanupFunctions.forEach((funcName) => {
-      if (window[funcName]) {
-        try {
-          window[funcName]();
-        } catch (error) {
-          console.warn(`[unloadScript] ${funcName} threw:`, error);
-        }
-        // Always delete the reference, even if the cleanup threw — otherwise
-        // the stale cleanup survives and the next loadScript execution creates
-        // a duplicate instance alongside the new one.
-        delete window[funcName];
+    if (funcName && window[funcName]) {
+      try {
+        window[funcName]();
+      } catch (error) {
+        console.warn(`[unloadScript] ${funcName} threw:`, error);
       }
-    });
+      // Always delete the reference, even if the cleanup threw — otherwise
+      // the stale cleanup survives and the next loadScript execution creates
+      // a duplicate instance alongside the new one.
+      delete window[funcName];
+    }
 
     // Remove the script element from wherever it lives (head or body)
     const currentScript = getCurrentScript();
@@ -352,51 +339,60 @@ function global() {
   }
 
   function fadeIn(container) {
-    let imageCount = 0;
-
     // Images loaded
     const imgLoad = imagesLoaded(container);
-    imageCount = imgLoad.images.length;
 
-    // do whatever you want when all images are loaded
-    return imgLoad.on("done", () => {
-      const tl = gsap.timeline();
+    // Wrap in a real Promise so Barba's `enter` transition actually waits
+    // for the reveal animation instead of resolving immediately.
+    return new Promise((resolve) => {
+      const playReveal = () => {
+        const tl = gsap.timeline({ onComplete: resolve });
 
-      tl.set(
-        [".loader--1", ".loader--2"],
-        {
-          autoAlpha: 1,
-        },
-        {
-          duration: 0.3,
-          autoAlpha: 0,
-          ease: "power1.in",
-        },
-      )
-        .fromTo(
+        tl.set(
           [".loader--1", ".loader--2"],
           {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            autoAlpha: 1,
           },
           {
-            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-            duration: 1.2,
-            ease: "power4.in",
+            duration: 0.3,
+            autoAlpha: 0,
+            ease: "power1.in",
           },
-          "<0.2",
         )
-        .fromTo(
-          [".loader--1", ".loader--2"],
-          {
-            display: "grid",
-          },
-          {
-            display: "none",
-          },
-          "<+1.5",
-        );
+          .fromTo(
+            [".loader--1", ".loader--2"],
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            },
+            {
+              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+              duration: 1.2,
+              ease: "power4.in",
+            },
+            "<0.2",
+          )
+          .fromTo(
+            [".loader--1", ".loader--2"],
+            {
+              display: "grid",
+            },
+            {
+              display: "none",
+            },
+            "<+1.5",
+          );
+      };
 
-      return tl;
+      // "always" fires once every image has settled — loaded OR failed —
+      // unlike "done", which only fires if every single image succeeds.
+      // A single broken <img src> on the page would otherwise hang this
+      // promise (and the whole Barba transition) forever. Same reasoning
+      // as the images-loaded wait in barba.hooks.after above.
+      if (imgLoad.isComplete) {
+        playReveal();
+      } else {
+        imgLoad.on("always", playReveal);
+      }
     });
   }
 
@@ -474,16 +470,6 @@ function global() {
       ScrollTrigger.refresh();
     });
 
-    // // Reinitialize MegaMenuDropdown on desktop after page transition
-    // if (window.matchMedia("(min-width: 1025px)").matches) {
-    //   megaLog("barba.hooks.after: desktop — init MegaMenuDropdown");
-    //   if (!megaMenuDropdownInstance) {
-    //     megaMenuDropdownInstance = new MegaMenuDropdown();
-    //     megaLog("barba.hooks.after: created new MegaMenuDropdown instance");
-    //   }
-    //   megaMenuDropdownInstance.init();
-    // }
-
     // Reinitialize mobile menu on mobile after page transition
     if (window.matchMedia("(max-width: 1024px)").matches) {
       mobileMenuInstance = mobileMenu();
@@ -525,16 +511,6 @@ function global() {
             },
             { once: true },
           );
-
-          // // Initialize MegaMenuDropdown on desktop on first load
-          // if (window.matchMedia("(min-width: 1025px)").matches) {
-          //   megaLog("barba once: desktop — init MegaMenuDropdown (first load)");
-          //   if (!megaMenuDropdownInstance) {
-          //     megaMenuDropdownInstance = new MegaMenuDropdown();
-          //     megaLog("barba once: created new MegaMenuDropdown instance");
-          //   }
-          //   megaMenuDropdownInstance.init();
-          // }
         },
 
         leave: function ({ current }) {
@@ -548,7 +524,7 @@ function global() {
     ],
   });
 
-  barba.hooks.beforeLeave(() => {
+  barba.hooks.beforeLeave((data) => {
     megaLog("barba.hooks.beforeLeave: leaving page");
     // Clean up global features before leaving
     destroyGlobalFeatures();
@@ -559,12 +535,6 @@ function global() {
     // Clean up draggable carousels
     destroyCarousels();
 
-    // // Clean up MegaMenuDropdown
-    // if (megaMenuDropdownInstance) {
-    //   megaLog("barba.hooks.beforeLeave: destroying MegaMenuDropdown");
-    //   megaMenuDropdownInstance.destroy();
-    // }
-
     // Clean up mobile menu (restore DOM, reset state)
     if (mobileMenuInstance) {
       mobileMenuInstance.destroy();
@@ -572,7 +542,7 @@ function global() {
     }
 
     // Clean up page-specific scripts
-    unloadScript();
+    unloadScript(data?.current?.namespace);
   });
 
   let mm = gsap.matchMedia();
@@ -628,12 +598,6 @@ function global() {
         mobileMenuInstance.destroy();
         mobileMenuInstance = null;
       }
-
-      // // Ensure MegaMenuDropdown is destroyed on mobile
-      // if (megaMenuDropdownInstance) {
-      //   megaLog("matchMedia cleanup (mobile): destroying MegaMenuDropdown");
-      //   megaMenuDropdownInstance.destroy();
-      // }
     };
   });
 
