@@ -2,6 +2,12 @@
 
 // API Modules
 include_once(get_template_directory() . '/api/load-more-posts.php');
+include_once(get_template_directory() . '/api/instagram.php');
+
+// INSTAGRAM API
+require get_theme_file_path('inc/instagram/ig-config.php');
+require get_theme_file_path('inc/instagram/ig-oauth.php');
+require get_theme_file_path('inc/instagram/ig-feed.php');
 
 // Menus
 function theme_menus()

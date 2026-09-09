@@ -20,9 +20,10 @@ function global() {
 
   // instagram
   async function loadInstagramPhotos(container = document) {
-    const token = "1012280261439852|rAmqrmSYYBcAS6gBcKIb__R55AU";
-    const fields = "id,media_type,media_url,thumbnail_url";
-    const url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${token}`;
+    // Server-side proxy (api/instagram.php) — the Instagram access token
+    // lives only on the server and is never shipped to the browser.
+    const { ajaxUrl } = wordpressObject;
+    const url = `${ajaxUrl}?action=terranova_ig_media`;
 
     try {
       const res = await fetch(url);
