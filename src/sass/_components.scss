@@ -167,7 +167,6 @@
         color: $black;
       }
     }
-
   }
 }
 
@@ -410,9 +409,23 @@
   background-color: rgba($white, 0.4);
   transform: translate(-50%, -50%);
 
+  // Always on (not scoped to --active): Safari destroys and recreates the
+  // compositing layer backdrop-filter creates every time it's toggled via
+  // class add/remove. After enough add/remove cycles it fails to repaint
+  // content stacked on the recreated layer (confirmed: happens even with a
+  // real child element, not just pseudo-element content). Keeping the
+  // layer alive at all times and only toggling opacity avoids ever
+  // recreating it.
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
   pointer-events: none;
-  transition: opacity 0.4s, width ease 0.8s, height ease 0.8s,
-    background-color ease 0.3s, border-radius ease 0.8s;
+  transition:
+    opacity 0.4s,
+    width ease 0.8s,
+    height ease 0.8s,
+    background-color ease 0.3s,
+    border-radius ease 0.8s;
   will-change: scale;
 
   &--active {
@@ -420,15 +433,13 @@
     opacity: 1;
     width: 80px;
     height: 80px;
-    backdrop-filter: blur(15px);
 
     @include view(xxl) {
       width: cross-media(80px, 3000px, 120px);
       height: cross-media(80px, 3000px, 120px);
     }
 
-    &:after {
-      content: "drag";
+    .cursor-track__label {
       font-size: cross-media(14px, 3000px, 16px);
 
       @include view(xxl) {

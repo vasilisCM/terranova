@@ -1,1 +1,3 @@
-<div class="cursor-track"></div>
+<div class="cursor-track">
+  <span class="cursor-track__label">drag</span>
+</div>

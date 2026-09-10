@@ -2412,6 +2412,8 @@ h4 {
   opacity: 0;
   background-color: rgba(252, 252, 252, 0.4);
   transform: translate(-50%, -50%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   pointer-events: none;
   transition: opacity 0.4s, width ease 0.8s, height ease 0.8s, background-color ease 0.3s, border-radius ease 0.8s;
   will-change: scale;
@@ -2420,7 +2422,6 @@ h4 {
   opacity: 1;
   width: 80px;
   height: 80px;
-  backdrop-filter: blur(15px);
 }
 @media only screen and (min-width: 1921px) {
   .cursor-track--active {
@@ -2428,12 +2429,11 @@ h4 {
     height: clamp(80px, 4vw, 120px);
   }
 }
-.cursor-track--active:after {
-  content: "drag";
+.cursor-track--active .cursor-track__label {
   font-size: clamp(14px, 0.5333333333vw, 16px);
 }
 @media only screen and (min-width: 1921px) {
-  .cursor-track--active:after {
+  .cursor-track--active .cursor-track__label {
     font-size: clamp(16px, 0.8vw, 24px);
   }
 }
