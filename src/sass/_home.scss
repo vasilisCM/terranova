@@ -395,6 +395,19 @@ main {
         margin-inline: auto;
       }
     }
+
+    & .carousel__slide {
+      &:hover {
+        .related-products__featured-image {
+          transform: scale(1);
+        }
+      }
+    }
+
+    & .related-products__featured-image {
+      transform: scale(0.9);
+      transition: all ease 0.3s;
+    }
   }
 
   &__product-img-container {

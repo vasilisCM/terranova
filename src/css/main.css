@@ -3147,6 +3147,13 @@ main--home {
     margin-inline: auto;
   }
 }
+.home-presentation__carousel .carousel__slide:hover .related-products__featured-image {
+  transform: scale(1);
+}
+.home-presentation__carousel .related-products__featured-image {
+  transform: scale(0.9);
+  transition: all ease 0.3s;
+}
 .home-presentation__product-img-container {
   height: clamp(290px, 33.0078125vw, 338px);
   overflow: hidden;
