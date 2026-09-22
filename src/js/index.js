@@ -450,6 +450,14 @@ function global() {
 
     document.dispatchEvent(new CustomEvent("loaderDone"));
 
+    // Reload Instagram photos when the new page has the section (it's
+    // included inside <main> on several templates, so it gets replaced
+    // with fresh, un-populated placeholder markup on every transition —
+    // this call is what fills the real photos back in each time)
+    if (data.next.container.querySelector(".instagram__image")) {
+      loadInstagramPhotos(data.next.container);
+    }
+
     // Reinitialize draggable carousels when the new page has any (e.g. pages without a dedicated bundle)
     initCarousels();
 
