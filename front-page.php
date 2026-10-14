@@ -9,7 +9,8 @@
     $text_2 = $hero['text_2'];
     $text_3 = $hero['text_3'];
     $button = $hero['button'];
-    // $video = $hero['video'];
+    $video = $hero['video'];
+    $video_fallback = $hero['video_fallback'];
     ?>
     <div class="hero__container">
       <!-- Text  -->
@@ -30,14 +31,25 @@
         </a>
       </div>
       <div class="circular-shape">
-        <video
-          class="circular-shape__video"
-          src="<?php echo get_template_directory_uri() . '/./assets/video/home.mp4'; ?>"
-          autoplay
-          loop
-          muted
-          playsinline
-          webkit-playsinline></video>
+
+        <?php if ($video || $video_fallback) : ?>
+          <video
+            class="circular-shape__video"
+            autoplay
+            loop
+            muted
+            playsinline
+            webkit-playsinline>
+
+            <?php if ($video) : ?>
+              <source src="<?php echo esc_url($video); ?>" type='video/webm; codecs="vp9"'>
+            <?php endif; ?>
+
+            <?php if ($video_fallback) : ?>
+              <source src="<?php echo esc_url($video_fallback); ?>" type="video/mp4">
+            <?php endif; ?>
+          </video>
+        <?php endif; ?>
 
         <!-- <iframe
                 class="circular-shape__video"
