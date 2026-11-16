@@ -421,6 +421,16 @@ function global() {
 
     // Scroll to top when navigating to a page with Lenis
     scrollToTopWithLenis({ immediate: true });
+
+    // ScrollTrigger caches the scroll position and only invalidates that cache
+    // on a native "scroll" event, which fires on the next frame. If the new
+    // page's bundle creates a pinned ScrollTrigger before that (images already
+    // cached → loaderDone fires in the same tick), the trigger's refresh
+    // "restores" the stale scroll position of the previous page — e.g. 5510px
+    // from the home carousel — and the browser clamps it to the bottom of the
+    // new page (footer). A refresh here (no triggers alive, so it's cheap)
+    // re-reads the real scroll position (0) into the cache.
+    ScrollTrigger.refresh();
   });
 
   barba.hooks.after(async (data) => {
