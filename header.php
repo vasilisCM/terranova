@@ -10,7 +10,7 @@
 
 <body <?php body_class('body'); ?> data-barba="wrapper">
 
-  <!-- Header  -->
+  <!-- Header -->
   <header class="header header--scroll">
     <div class="header__container boxed centered">
 

@@ -1,7 +1,7 @@
 {
-  "host": "185.230.187.22",
+  "host": "185.230.187.20",
   "port": 21,
-  "user": "conceptmaniax_terranova",
+  "user": "terranova_live",
   "protocol": "ftp",
   "secure": true,
   "acceptUnauthorized": true,
