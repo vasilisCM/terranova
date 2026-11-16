@@ -428,11 +428,19 @@ function global() {
 
     const pageName = data.next.namespace;
 
-    // Try to load page-specific JS bundle (some pages don't have one)
-    try {
-      await loadScript(`${themeUrl}/dist/${pageName}.bundle.js`);
-    } catch (error) {
-      currentPageScript = null; // No script to track
+    // Load the page-specific JS bundle only if one exists for this namespace
+    // (wordpressObject.bundles is built in functions.php from /dist). Requesting
+    // a missing bundle returns a WordPress 404 page that takes 1-3s and delays
+    // loaderDone — which is what made the hero animation late on those pages.
+    const { bundles = [] } = wordpressObject;
+    if (bundles.includes(pageName)) {
+      try {
+        await loadScript(`${themeUrl}/dist/${pageName}.bundle.js`);
+      } catch (error) {
+        currentPageScript = null; // No script to track
+      }
+    } else {
+      currentPageScript = null; // This page has no bundle
     }
 
     // Mirror what loader.js does on first load: wait for all images in the

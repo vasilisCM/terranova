@@ -212,11 +212,20 @@ function load_js()
 
 
 
+  // Page-specific bundles that actually exist in /dist (e.g. "home", "skinNutrition").
+  // Barba only requests these on page transitions — requesting a missing bundle
+  // returns a full WordPress 404 page (1-3s) and delays the hero animation.
+  $page_bundles = array_map(
+    fn($file) => basename($file, '.bundle.js'),
+    glob(get_template_directory() . '/dist/*.bundle.js') ?: array()
+  );
+
   // Localize the script with the WordPress AJAX object
   wp_localize_script('main', 'wordpressObject', array(
     'siteUrl' => home_url(),
     'themeUrl' => get_template_directory_uri(),
-    'ajaxUrl' => admin_url('admin-ajax.php')
+    'ajaxUrl' => admin_url('admin-ajax.php'),
+    'bundles' => array_values(array_diff($page_bundles, array('global')))
   ));
 
   // Home Page
