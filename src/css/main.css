@@ -2894,6 +2894,8 @@ main--home {
     right: 0;
     bottom: -240px;
     margin: auto;
+    width: 640px;
+    transform: translateX(500px);
   }
 }
 .hero__text-container {

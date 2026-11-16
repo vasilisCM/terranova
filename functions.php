@@ -267,3 +267,8 @@ function load_js()
   }
 }
 add_action('wp_enqueue_scripts', 'load_js');
+
+// Products Structured Data
+add_filter('rank_math/schema/add_global_entities', function ($add) {
+  return is_singular(['product', 'page']) ? true : $add;
+});
