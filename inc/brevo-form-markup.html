@@ -1,0 +1,29 @@
+<!--
+  Reference copy of the markup pasted into:
+  wp-admin → Brevo → Forms → "Default Form" (shortcode [sibwp_form id=1], list: Terranova website)
+  The plugin wraps this in its own <form>. Do not include <form> tags here.
+  This file is NOT loaded by the theme.
+-->
+<div class="newsletter__inputs">
+  <input
+    type="email"
+    placeholder="Your email"
+    name="email"
+    autocomplete="email"
+    required="required"
+    class="input newsletter__email sib-email-area" />
+  <label class="newsletter__terms text-s custom-checkbox">
+    <input
+      type="checkbox"
+      name="terms"
+      required="required"
+      class="newsletter__terms-checkbox" />
+    <span class="custom-checkbox__checkmark"></span>
+    Agree with terms and conditions
+  </label>
+  <button
+    type="submit"
+    class="lowercase newsletter__button text-button link link--arrow">
+    Submit
+  </button>
+</div>

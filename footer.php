@@ -17,30 +17,8 @@
       <p class="text newsletter__description">
         <?php echo $newsletter['text']; ?>
       </p>
-      <!-- Not the typical structure. Make sure it works  -->
-      <form action="/action_page.php" class="newsletter__form">
-        <div class="newsletter__inputs">
-          <input
-            type="text"
-            placeholder="Your email"
-            name="mail"
-            required
-            class="input newsletter__email" />
-          <label class="newsletter__terms text-s custom-checkbox">
-            <input
-              type="checkbox"
-              name="subscribe"
-              class="newsletter__terms-checkbox" />
-            <span class="custom-checkbox__checkmark"></span>
-            <?php echo __('Agree with terms and conditions', 'terranova'); ?>
-          </label>
-          <button
-            type="submit"
-            class="lowercase newsletter__button text-button link link--arrow">
-            <?php echo __('Submit', 'terranova'); ?>
-          </button>
-        </div>
-      </form>
+      <!-- Brevo form: markup is edited in wp-admin → Brevo → Forms → "Default Form" (copy in inc/brevo-form-markup.html) -->
+      <?php echo do_shortcode('[sibwp_form id=1]'); ?>
     </div>
 
 

@@ -1982,6 +1982,28 @@ h4 {
 .newsletter__button {
   background: transparent;
   border: none;
+  cursor: pointer;
+}
+.newsletter .sib_signup_form {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+.newsletter .sib_loader {
+  display: none !important;
+}
+.newsletter .sib-alert-message {
+  margin: 24px 0 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: inherit;
+  color: #000;
+}
+.newsletter .sib-alert-message-error {
+  color: #c44a37;
 }
 
 .footer {

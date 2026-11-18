@@ -1436,6 +1436,34 @@
   &__button {
     background: transparent;
     border: none;
+    cursor: pointer;
+  }
+
+  // Brevo plugin wrapper ([sibwp_form]) – reset its defaults
+  .sib_signup_form {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .sib_loader {
+    display: none !important;
+  }
+
+  // Brevo plugin messages (success / error)
+  .sib-alert-message {
+    margin: 24px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: inherit;
+    color: $black;
+
+    &-error {
+      color: $accent;
+    }
   }
 }
 
