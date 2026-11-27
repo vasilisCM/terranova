@@ -35,6 +35,7 @@
           'posts_per_page' => 1,
           'post_type' => 'post',
           'category__not_in' => array(get_cat_ID('recipes')),
+          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία (snippet terranova-original-published-dates)
         );
         $featured_query = new WP_Query($featured_args);
         if ($featured_query->have_posts()) :
@@ -44,7 +45,7 @@
             <article class="archive-blog__article">
               <div class="archive-blog__text-container">
                 <div class="archive-blog__article-info">
-                  <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('F j, Y'); ?></span>
+                  <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo function_exists('tn_njc_post_date') ? esc_html(tn_njc_post_date('F j, Y')) : get_the_date('F j, Y'); ?></span>
                   <?php if ($categories): ?>
                     <a
                       href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"
@@ -108,6 +109,7 @@
           'posts_per_page' => -1,
           'post_type' => 'post',
           'category__not_in' => array(get_cat_ID('recipes')),
+          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία
         );
         $query = new WP_Query($args);
         if ($query->have_posts()) :
@@ -125,12 +127,13 @@
                         ?>"
                   alt="<?php the_title_attribute(); ?>"
                   class="asymmetrical-carousel__image"
+                  <?php echo ((int) $query->current_post >= 3) ? 'loading="lazy" decoding="async"' : ''; ?>
                   draggable-image
                   draggable="false" />
               </div>
               <div class="asymmetrical-carousel__text-container">
                 <div class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
-                  <p class="asymmetrical-carousel__date"><?php the_time('F j, Y'); ?></p>
+                  <p class="asymmetrical-carousel__date"><?php if (function_exists('tn_njc_post_date')) { echo esc_html(tn_njc_post_date('F j, Y', null, 'time')); } else { the_time('F j, Y'); } ?></p>
                   <p class="asymmetrical-carousel__category"><?php the_category(' '); ?></p>
                 </div>
                 <a href="<?php the_permalink(); ?>" class="asymmetrical-carousel__heading heading-s">
@@ -161,6 +164,7 @@
           'posts_per_page' => -1,
           'post_type' => 'post',
           'category_name' => 'recipes',
+          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία
         );
         $query = new WP_Query($args);
         if ($query->have_posts()) :
@@ -176,12 +180,14 @@
                           : '/wp-content/uploads/2025/11/blog-hero.jpg';
                         ?>"
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   draggable-image
                   draggable="true" />
               </div>
               <div class="recipes__text-container">
                 <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
-                  <p class="recipes__date"><?php the_time('F j, Y'); ?></p>
+                  <p class="recipes__date"><?php if (function_exists('tn_njc_post_date')) { echo esc_html(tn_njc_post_date('F j, Y', null, 'time')); } else { the_time('F j, Y'); } ?></p>
                 </div>
                 <a href="<?php the_permalink(); ?>" class="recipes__heading heading-s">
                   <?php the_title(); ?>

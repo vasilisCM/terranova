@@ -151,11 +151,11 @@
                                                                     $thumbnail_url = get_the_post_thumbnail_url($recommendedProduct, 'large'); ?>
                                                                     <div class="carousel__slide">
                                                                         <!-- <div class="archive-product__product"> -->
-                                                                        <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
+                                                                        <a href="<?php echo esc_url(get_permalink($recommendedProduct)); ?>">
                                                                             <div class="home-presentation__product-img-container">
                                                                                 <img
                                                                                     src="<?php echo esc_url($thumbnail_url); ?>"
-                                                                                    alt=""
+                                                                                    alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title($recommendedProduct))); ?>"
                                                                                     class="related-products__featured-image" />
                                                                             </div>
                                                                         </a>
@@ -208,7 +208,7 @@
                                                                     <div class="archive-product__img-container">
                                                                         <img
                                                                             src="<?php echo esc_url($thumbnail_url); ?>"
-                                                                            alt=""
+                                                                            alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title($recommendedProducts_id))); ?>"
                                                                             class="archive-product__featured-image" />
                                                                     </div>
                                                                 </a>

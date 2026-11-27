@@ -20,6 +20,8 @@
                         src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -30,6 +32,8 @@
                         src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -40,6 +44,8 @@
                         src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -50,6 +56,8 @@
                         src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -60,6 +68,8 @@
                         src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -70,6 +80,8 @@
                         src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -80,6 +92,8 @@
                         src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>
@@ -90,6 +104,8 @@
                         src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                         alt=""
                         class="instagram__image"
+                        loading="lazy"
+                        decoding="async"
                         draggable-image />
                 </div>
             </div>

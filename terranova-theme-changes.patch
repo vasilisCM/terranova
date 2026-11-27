@@ -1,0 +1,534 @@
+--- a/wp-content/themes/terranova/components/gallery-lightbox.php
++++ b/wp-content/themes/terranova/components/gallery-lightbox.php
+@@ -14,7 +14,7 @@
+                     <?php foreach ($gallery as $image): ?>
+                         <div class="carousel__slide">
+                             <div class="lightbox__img-container">
+-                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
++                                <img src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr(!empty($image['alt']) ? $image['alt'] : get_the_title()); ?>">
+                             </div>
+                             <div class="lightbox__caption">
+                                 <?php echo $image['caption']; ?>
+--- a/wp-content/themes/terranova/components/instagram.php
++++ b/wp-content/themes/terranova/components/instagram.php
+@@ -20,6 +20,8 @@
+                         src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -30,6 +32,8 @@
+                         src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -40,6 +44,8 @@
+                         src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -50,6 +56,8 @@
+                         src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -60,6 +68,8 @@
+                         src="https://plus.unsplash.com/premium_photo-1661713448585-de2a39badb42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -70,6 +80,8 @@
+                         src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -80,6 +92,8 @@
+                         src="https://images.unsplash.com/photo-1458544073930-041e1897663f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=681&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+@@ -90,6 +104,8 @@
+                         src="https://plus.unsplash.com/premium_photo-1664474956287-5627a7303d70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+                         alt=""
+                         class="instagram__image"
++                        loading="lazy"
++                        decoding="async"
+                         draggable-image />
+                 </div>
+             </div>
+--- a/wp-content/themes/terranova/components/mega-menu-images.php
++++ b/wp-content/themes/terranova/components/mega-menu-images.php
+@@ -1,26 +1,28 @@
+ <?php
+     $mega_menu_banner_1 = get_field('mega_menu_banner_1', 'option');
+     $mega_menu_banner_2 = get_field('mega_menu_banner_2', 'option');
++    $mega_menu_banner_1_alt = !empty($mega_menu_banner_1['text']) ? trim(preg_replace('/\s+/', ' ', wp_strip_all_tags(preg_replace('/<[^>]+>/', ' ', $mega_menu_banner_1['text'])))) : '';
++    $mega_menu_banner_2_alt = !empty($mega_menu_banner_2['text']) ? trim(preg_replace('/\s+/', ' ', wp_strip_all_tags(preg_replace('/<[^>]+>/', ' ', $mega_menu_banner_2['text'])))) : '';
+ ?>
+ 
+ <div class="mega-menu-images boxed text white lowercase"> 
+     <a href="<?php echo $mega_menu_banner_1['link']; ?>" class="white mega-menu-images__item">
+-        <img src="<?php echo $mega_menu_banner_1['image']; ?>">
++        <img src="<?php echo $mega_menu_banner_1['image']; ?>" alt="<?php echo esc_attr($mega_menu_banner_1_alt); ?>">
+         <div class="mega-menu-images__overlay"><?php echo $mega_menu_banner_1['text']; ?></div>
+     </a>
+     <a href="<?php echo $mega_menu_banner_2['link']; ?>" class="white mega-menu-images__item">
+-        <img src="<?php echo $mega_menu_banner_2['image']; ?>" alt="">
++        <img src="<?php echo $mega_menu_banner_2['image']; ?>" alt="<?php echo esc_attr($mega_menu_banner_2_alt); ?>">
+         <div class="mega-menu-images__overlay"><?php echo $mega_menu_banner_2['text']; ?></div>
+     </a>
+ </div>
+ 
+ <!-- <div class="mega-menu-images-mob boxed text white lowercase hidden-desktop">
+     <a href="<?php echo $mega_menu_banner_1['link']; ?>" class="white mega-menu-images-mob__item">
+-        <img src="<?php echo $mega_menu_banner_1['image']; ?>">
++        <img src="<?php echo $mega_menu_banner_1['image']; ?>" alt="<?php echo esc_attr($mega_menu_banner_1_alt); ?>">
+         <div class="mega-menu-images-mob__overlay"><?php echo $mega_menu_banner_1['text']; ?></div>
+     </a>
+     <a href="<?php echo $mega_menu_banner_2['link']; ?>" class="white mega-menu-images-mob__item">
+-        <img src="<?php echo $mega_menu_banner_2['image']; ?>" alt="">
++        <img src="<?php echo $mega_menu_banner_2['image']; ?>" alt="<?php echo esc_attr($mega_menu_banner_2_alt); ?>">
+         <div class="mega-menu-images-mob__overlay"><?php echo $mega_menu_banner_2['text']; ?></div>
+     </a>
+ </div> -->
+\ No newline at end of file
+--- a/wp-content/themes/terranova/components/post-card.php
++++ b/wp-content/themes/terranova/components/post-card.php
+@@ -1,7 +1,7 @@
+ <a href="<?php the_permalink(); ?>" class="archive-grid__post">
+     <article class="archive-news__article">
+         <div class="archive-news__text-container">
+-            <span class="text-ms uppercase letter-spacing-medium archive-news__date"><?php echo get_the_date('d M Y'); ?></span>
++            <span class="text-ms uppercase letter-spacing-medium archive-news__date"><?php echo function_exists('tn_njc_post_date') ? esc_html(tn_njc_post_date('d M Y')) : get_the_date('d M Y'); ?></span>
+ 
+             <h2 class="archive-grid__title archive-news__heading heading-m">
+                 <?php the_title(); ?>
+@@ -16,7 +16,7 @@
+             <?php
+             if (has_post_thumbnail()) : ?>
+                 <div>
+-                    <img src="<?php the_post_thumbnail_url('medium_large'); ?>" class="archive-grid__featured-img archive-news__image">
++                    <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title())); ?>" class="archive-grid__featured-img archive-news__image"<?php echo (isset($GLOBALS['wp_query']->current_post) && (int) $GLOBALS['wp_query']->current_post >= 2) ? ' loading="lazy" decoding="async"' : ''; ?>>
+                 </div>
+             <?php endif; ?>
+ 
+--- a/wp-content/themes/terranova/components/product-card.php
++++ b/wp-content/themes/terranova/components/product-card.php
+@@ -3,16 +3,16 @@
+         <?php
+         if (has_post_thumbnail()) : ?>
+             <div class="archive-product__img-container">
+-                <img src="<?php the_post_thumbnail_url('medium_large'); ?>" class="archive-product__featured-image">
++                <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title())); ?>" class="archive-product__featured-image"<?php echo (isset($GLOBALS['wp_query']->current_post) && (int) $GLOBALS['wp_query']->current_post >= 4) ? ' loading="lazy" decoding="async"' : ''; ?>>
+             </div>
+         <?php endif; ?>
+ 
+ 
+         <div class="archive-product__text-container">
+ 
+-            <h3 class="archive-product__product-title">
++            <h2 class="archive-product__product-title">
+                 <?php the_title(); ?>
+-            </h3>
++            </h2>
+ 
+             <div
+ 
+--- a/wp-content/themes/terranova/contact.php
++++ b/wp-content/themes/terranova/contact.php
+@@ -36,8 +36,8 @@
+             <div>
+               <div class="contact__body">
+                 <form data-multi-email-form action="">
+-                  <label class="input light lowercase" for=""><?php _e('Select your Country', 'terranova'); ?></label>
+-                  <select data-country class="input light capitalize">
++                  <label class="input light lowercase" for="tn-contact-country"><?php _e('Select your Country', 'terranova'); ?></label>
++                  <select data-country id="tn-contact-country" class="input light capitalize">
+                     <?php if ($distributors): ?>
+                       <?php foreach ($distributors as $distributor): ?>
+                         <?php
+@@ -92,9 +92,11 @@
+                     <?php endif; ?>
+                     <br />
+                     <span class="contact-info-box__item">Email:
+-                      <a href="<?php echo $distributor['email'] ? 'mailto:' . esc_attr($distributor['email']) : '#' ?>" class="contact-info-box__link">
+-                        <?php echo esc_html($distributor['email'] ?? '') ?>
++                      <?php if (!empty($distributor['email'])): ?>
++                      <a href="<?php echo 'mailto:' . esc_attr($distributor['email']) ?>" class="contact-info-box__link">
++                        <?php echo esc_html($distributor['email']) ?>
+                       </a>
++                      <?php endif; ?>
+                       <br />
+                       <?php if ($distributor['website']): ?>
+                         <a
+--- a/wp-content/themes/terranova/footer.php
++++ b/wp-content/themes/terranova/footer.php
+@@ -42,9 +42,9 @@
+     <div class="footer__social">
+       <h3 class="heading-m lowercase medium"><?php echo $social['heading']; ?></h3>
+       <div class="footer__social-links text-ml uppercase">
+-        <a href="<?php echo $social['facebook']; ?>" target="_blank" class="ic-social ic-social--facebook"></a>
+-        <a href="<?php echo $social['instagram']; ?>" target="_blank" class="ic-social ic-social--instagram"></a>
+-        <a href="<?php echo $social['linkedin']; ?>" target="_blank" class="ic-social ic-social--linkedin"></a>
++        <a href="<?php echo $social['facebook']; ?>" target="_blank" class="ic-social ic-social--facebook" rel="noopener" aria-label="Terranova on Facebook"></a>
++        <a href="<?php echo $social['instagram']; ?>" target="_blank" class="ic-social ic-social--instagram" rel="noopener" aria-label="Terranova on Instagram"></a>
++        <a href="<?php echo $social['linkedin']; ?>" target="_blank" class="ic-social ic-social--linkedin" rel="noopener" aria-label="Terranova on LinkedIn"></a>
+       </div>
+     </div>
+ 
+--- a/wp-content/themes/terranova/fresh-freeze.php
++++ b/wp-content/themes/terranova/fresh-freeze.php
+@@ -100,6 +100,7 @@
+         </div>
+     </section>
+ 
++    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
+ 
+ </main>
+ 
+--- a/wp-content/themes/terranova/front-page.php
++++ b/wp-content/themes/terranova/front-page.php
+@@ -11,6 +11,10 @@
+     $button = $hero['button'];
+     $video = $hero['video'];
+     $video_fallback = $hero['video_fallback'];
++    // nijocrawl 25/11/2026: same hero video re-encoded (VP9, 1280x720, 49.92s, no audio) as home-v2.webm; original home.webm kept.
++    if ($video && false !== strpos($video, '/2026/10/home.webm') && file_exists(WP_CONTENT_DIR . '/uploads/2026/10/home-v2.webm')) {
++      $video = str_replace('/2026/10/home.webm', '/2026/10/home-v2.webm', $video);
++    }
+     ?>
+     <div class="hero__container">
+       <!-- Text  -->
+@@ -33,22 +37,25 @@
+       <div class="circular-shape">
+ 
+         <?php if ($video || $video_fallback) : ?>
++          <?php
++          // nijocrawl 25/11/2026: the hero video loads right after the page (window load), or when the theme starts
++          // playback after a barba transition; until then the poster (= first frame of home-v2.webm) is shown.
++          $video_poster = (false !== strpos((string) $video, '/2026/10/home-v2.webm') && file_exists(WP_CONTENT_DIR . '/uploads/2026/10/home-v2-poster.webp'))
++            ? content_url('/uploads/2026/10/home-v2-poster.webp') : '';
++          ?>
+           <video
+             class="circular-shape__video"
+             autoplay
+             loop
+             muted
+             playsinline
+-            webkit-playsinline>
+-
+-            <?php if ($video) : ?>
+-              <source src="<?php echo esc_url($video); ?>" type='video/webm; codecs="vp9"'>
+-            <?php endif; ?>
+-
+-            <?php if ($video_fallback) : ?>
+-              <source src="<?php echo esc_url($video_fallback); ?>" type="video/mp4">
+-            <?php endif; ?>
+-          </video>
++            webkit-playsinline
++            preload="none"
++            <?php if ($video_poster) : ?>poster="<?php echo esc_url($video_poster); ?>"<?php endif; ?>
++            <?php if ($video) : ?>data-src-webm="<?php echo esc_url($video); ?>"<?php endif; ?>
++            <?php if ($video_fallback) : ?>data-src-mp4="<?php echo esc_url($video_fallback); ?>"<?php endif; ?>
++            onplay="if(!this.dataset.njcSrc){var v=this,f=function(){if(v.dataset.njcSrc)return;v.dataset.njcSrc='1';v.preload='auto';[['srcWebm','video/webm; codecs=&quot;vp9&quot;'],['srcMp4','video/mp4']].forEach(function(p){var u=v.dataset[p[0]];if(u){var s=document.createElement('source');s.src=u;s.type=p[1];v.appendChild(s);}});};if(document.readyState==='complete'){f();}else{window.addEventListener('load',f);}}"></video>
++          <script>(function(v){if(!v||typeof v.onplay!=='function')return;var go=function(){setTimeout(function(){v.onplay();},0);};if(document.readyState==='complete'){go();}else{window.addEventListener('load',go);}})(document.currentScript&&document.currentScript.previousElementSibling);</script>
+         <?php endif; ?>
+ 
+         <!-- <iframe
+@@ -178,7 +185,7 @@
+           <?php endif; ?>
+         </div>
+         <div class="absolute home-presentation__img-container home-presentation__img-container--3 hidden-mobile">
+-          <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>">
++          <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>" alt="" aria-hidden="true">
+         </div>
+ 
+       </div>
+--- a/wp-content/themes/terranova/header.php
++++ b/wp-content/themes/terranova/header.php
+@@ -1,5 +1,5 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html <?php language_attributes(); ?>>
+ 
+ <head>
+   <meta charset="UTF-8" />
+@@ -40,7 +40,7 @@
+         <a href="<?php echo esc_url(home_url('/')); ?>">
+           <img
+             src="<?php echo get_template_directory_uri() . '/./assets/img/logo.svg'; ?>"
+-            alt=""
++            alt="Terranova Health"
+             class="logo header__logo" />
+         </a>
+       </div>
+--- a/wp-content/themes/terranova/index.php
++++ b/wp-content/themes/terranova/index.php
+@@ -35,6 +35,7 @@
+           'posts_per_page' => 1,
+           'post_type' => 'post',
+           'category__not_in' => array(get_cat_ID('recipes')),
++          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία (snippet terranova-original-published-dates)
+         );
+         $featured_query = new WP_Query($featured_args);
+         if ($featured_query->have_posts()) :
+@@ -44,7 +45,7 @@
+             <article class="archive-blog__article">
+               <div class="archive-blog__text-container">
+                 <div class="archive-blog__article-info">
+-                  <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('F j, Y'); ?></span>
++                  <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo function_exists('tn_njc_post_date') ? esc_html(tn_njc_post_date('F j, Y')) : get_the_date('F j, Y'); ?></span>
+                   <?php if ($categories): ?>
+                     <a
+                       href="<?php echo esc_url(get_category_link($categories[0]->term_id)); ?>"
+@@ -108,6 +109,7 @@
+           'posts_per_page' => -1,
+           'post_type' => 'post',
+           'category__not_in' => array(get_cat_ID('recipes')),
++          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία
+         );
+         $query = new WP_Query($args);
+         if ($query->have_posts()) :
+@@ -125,12 +127,13 @@
+                         ?>"
+                   alt="<?php the_title_attribute(); ?>"
+                   class="asymmetrical-carousel__image"
++                  <?php echo ((int) $query->current_post >= 3) ? 'loading="lazy" decoding="async"' : ''; ?>
+                   draggable-image
+                   draggable="false" />
+               </div>
+               <div class="asymmetrical-carousel__text-container">
+                 <div class="asymmetrical-carousel__article-info text-ms uppercase letter-spacing-medium">
+-                  <p class="asymmetrical-carousel__date"><?php the_time('F j, Y'); ?></p>
++                  <p class="asymmetrical-carousel__date"><?php if (function_exists('tn_njc_post_date')) { echo esc_html(tn_njc_post_date('F j, Y', null, 'time')); } else { the_time('F j, Y'); } ?></p>
+                   <p class="asymmetrical-carousel__category"><?php the_category(' '); ?></p>
+                 </div>
+                 <a href="<?php the_permalink(); ?>" class="asymmetrical-carousel__heading heading-s">
+@@ -161,6 +164,7 @@
+           'posts_per_page' => -1,
+           'post_type' => 'post',
+           'category_name' => 'recipes',
++          'tn_njc_orig_sort' => 1, // nijocrawl 25/11/2026: σειρά με την αρχική ημερομηνία
+         );
+         $query = new WP_Query($args);
+         if ($query->have_posts()) :
+@@ -176,12 +180,14 @@
+                           : '/wp-content/uploads/2025/11/blog-hero.jpg';
+                         ?>"
+                   alt=""
++                  loading="lazy"
++                  decoding="async"
+                   draggable-image
+                   draggable="true" />
+               </div>
+               <div class="recipes__text-container">
+                 <div class="recipes__article-info text-ms uppercase letter-spacing-medium">
+-                  <p class="recipes__date"><?php the_time('F j, Y'); ?></p>
++                  <p class="recipes__date"><?php if (function_exists('tn_njc_post_date')) { echo esc_html(tn_njc_post_date('F j, Y', null, 'time')); } else { the_time('F j, Y'); } ?></p>
+                 </div>
+                 <a href="<?php the_permalink(); ?>" class="recipes__heading heading-s">
+                   <?php the_title(); ?>
+--- a/wp-content/themes/terranova/next-gen.php
++++ b/wp-content/themes/terranova/next-gen.php
+@@ -506,7 +506,7 @@
+                         </button>
+                     </a>
+                 </div>
+-                <div><img src="<?php echo $image; ?>"></div>
++                <div><img src="<?php echo $image; ?>" alt="<?php echo esc_attr( ( ($tn_alt_id = attachment_url_to_postid( $image )) && get_post_meta( $tn_alt_id, '_wp_attachment_image_alt', true ) ) ? get_post_meta( $tn_alt_id, '_wp_attachment_image_alt', true ) : 'Terranova NextGen range' ); ?>"></div>
+             </div>
+ 
+ 
+--- a/wp-content/themes/terranova/serum-organic.php
++++ b/wp-content/themes/terranova/serum-organic.php
+@@ -17,7 +17,7 @@
+         <div class="boxed-sm centered intro__container">
+             <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
+             <div class="heading-m"><?php echo $text_2; ?></div>
+-            <div class="text"><?php echo $text_3; ?></div>
++            <div class="text"><p><?php echo $text_3; ?></p></div>
+         </div>
+     </section>
+ 
+@@ -207,7 +207,7 @@
+         </div>
+     </section>
+ 
+-
++    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
+ 
+ </main>
+ 
+--- a/wp-content/themes/terranova/single-product.php
++++ b/wp-content/themes/terranova/single-product.php
+@@ -8,7 +8,7 @@
+             <!-- Featured Image  -->
+             <div class="single-product__featured-image-container  hidden-mobile">
+                 <?php if (has_post_thumbnail()) : ?>
+-                    <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
++                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true) ?: get_the_title()); ?>" class="single-product__featured-image">
+                 <?php endif; ?>
+ 
+ 
+@@ -43,7 +43,7 @@
+                 <div
+                     class="single-product__featured-image-container single-product__featured-image-container--mobile hidden-desktop">
+                     <?php if (has_post_thumbnail()) : ?>
+-                        <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
++                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true) ?: get_the_title()); ?>" class="single-product__featured-image">
+                     <?php endif; ?>
+ 
+ 
+@@ -52,6 +52,7 @@
+ 
+                 <div class="single-product__description text-m">
+                     <?php the_excerpt(); ?>
++                    <?php if (function_exists('tn_njc_sibling_links')) { echo tn_njc_sibling_links(get_the_ID()); } ?>
+                 </div>
+ 
+ 
+--- a/wp-content/themes/terranova/single.php
++++ b/wp-content/themes/terranova/single.php
+@@ -13,7 +13,12 @@
+             <?php the_title(); ?>
+           </h1>
+           <div class="archive-blog__article-info">
+-            <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('d M Y'); ?></span>
++            <?php
++            // nijocrawl 25/11/2026: αρχική ημερομηνία δημοσίευσης από το παλιό site (meta njc_original_published, Y-m-d), αλλιώς η ημερομηνία του άρθρου
++            $tn_orig_pub = (string) get_post_meta(get_the_ID(), 'njc_original_published', true);
++            $tn_orig_dt  = preg_match('/^\d{4}-\d{2}-\d{2}$/', $tn_orig_pub) ? date_create_immutable($tn_orig_pub . ' 12:00:00', new DateTimeZone('UTC')) : false;
++            ?>
++            <span class="text-ms uppercase letter-spacing-medium archive-blog__date">Published <time datetime="<?php echo esc_attr($tn_orig_dt ? $tn_orig_pub : get_the_date('c')); ?>"><?php echo esc_html($tn_orig_dt ? wp_date('j F Y', $tn_orig_dt->getTimestamp(), new DateTimeZone('UTC')) : get_the_date('j F Y')); ?></time></span>
+             <?php
+             // Get the first category
+             $categories = get_the_category();
+@@ -24,14 +29,22 @@
+           </div>
+ 
+           <div class="featured-image-single">
++            <?php
++            // nijocrawl 25/11/2026: υπάρχον μέγεθος WordPress με srcset (snippet terranova-responsive-images)
++            $tn_fi_attr = '';
++            if (function_exists('tn_njc_resp_img')) {
++              $tn_fi_id = has_post_thumbnail() ? get_post_thumbnail_id() : attachment_url_to_postid(home_url('/wp-content/uploads/2025/11/blog-hero.jpg'));
++              $tn_fi_attr = tn_njc_resp_img($tn_fi_id, '100vw', 100, 1024);
++            }
++            ?>
+             <img
+-              src="<?php
++              <?php if ($tn_fi_attr) : echo $tn_fi_attr; else : ?>src="<?php
+                     echo esc_url(
+                       has_post_thumbnail()
+                         ? get_the_post_thumbnail_url(get_the_ID(), 'full')
+                         : '/wp-content/uploads/2025/11/blog-hero.jpg'
+                     );
+-                    ?>"
++                    ?>"<?php endif; ?>
+               class="featured-image-single__image"
+               alt="<?php the_title_attribute(); ?>" />
+           </div>
+@@ -88,6 +101,8 @@
+       endif;
+       ?>
+ 
++      <?php if (function_exists('tn_njc_related_posts')) { echo tn_njc_related_posts(get_the_ID()); } ?>
++
+       <div class="single-post-content__button-container">
+         <?php
+         // Get the actual page for posts (the one that uses index.php template)
+--- a/wp-content/themes/terranova/skin-nutrition.php
++++ b/wp-content/themes/terranova/skin-nutrition.php
+@@ -151,11 +151,11 @@
+                                                                     $thumbnail_url = get_the_post_thumbnail_url($recommendedProduct, 'large'); ?>
+                                                                     <div class="carousel__slide">
+                                                                         <!-- <div class="archive-product__product"> -->
+-                                                                        <a href="<?php echo esc_url(get_permalink($recommendedProducts_id)); ?>">
++                                                                        <a href="<?php echo esc_url(get_permalink($recommendedProduct)); ?>">
+                                                                             <div class="home-presentation__product-img-container">
+                                                                                 <img
+                                                                                     src="<?php echo esc_url($thumbnail_url); ?>"
+-                                                                                    alt=""
++                                                                                    alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title($recommendedProduct))); ?>"
+                                                                                     class="related-products__featured-image" />
+                                                                             </div>
+                                                                         </a>
+@@ -208,7 +208,7 @@
+                                                                     <div class="archive-product__img-container">
+                                                                         <img
+                                                                             src="<?php echo esc_url($thumbnail_url); ?>"
+-                                                                            alt=""
++                                                                            alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title($recommendedProducts_id))); ?>"
+                                                                             class="archive-product__featured-image" />
+                                                                     </div>
+                                                                 </a>
+--- a/wp-content/themes/terranova/story.php
++++ b/wp-content/themes/terranova/story.php
+@@ -63,6 +63,8 @@
+         </div>
+     </section>
+ 
++    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
++
+     <section class="basic last-section story-global-presence relative">
+         <?php $global_presence = get_field('story__global_presence');
+         $image = $global_presence['image'];
+--- a/wp-content/themes/terranova/synergy.php
++++ b/wp-content/themes/terranova/synergy.php
+@@ -54,7 +54,7 @@
+         </div>
+     </section>
+ 
+-
++    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
+ 
+ </main>
+ 
+--- a/wp-content/themes/terranova/vegan.php
++++ b/wp-content/themes/terranova/vegan.php
+@@ -44,6 +44,7 @@
+ 
+     </section>
+ 
++    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
+ 
+ </main>
+ 
+--- a/wp-content/themes/terranova/src/js/global/loader.js
++++ b/wp-content/themes/terranova/src/js/global/loader.js
+@@ -80,7 +80,7 @@
+   // always = all images finished (loaded or broken). Use this so we never wait forever.
+   imgLoad.on("always", () => {
+     percentageTimeline.progress(1);
+-    gsap.delayedCall(1.5, () => {
++    gsap.delayedCall(0, () => {
+       pageRevealTl.play();
+       lenis.isStopped = false;
+       document.dispatchEvent(new CustomEvent("loaderDone"));

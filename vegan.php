@@ -44,6 +44,7 @@
 
     </section>
 
+    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
 
 </main>
 

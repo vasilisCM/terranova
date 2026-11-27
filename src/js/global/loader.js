@@ -80,7 +80,7 @@ const loader = (bodySelector, loaderContainerSelector, loaderTextSelector) => {
   // always = all images finished (loaded or broken). Use this so we never wait forever.
   imgLoad.on("always", () => {
     percentageTimeline.progress(1);
-    gsap.delayedCall(1.5, () => {
+    gsap.delayedCall(0, () => {
       pageRevealTl.play();
       lenis.isStopped = false;
       document.dispatchEvent(new CustomEvent("loaderDone"));

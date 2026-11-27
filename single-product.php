@@ -8,7 +8,7 @@
             <!-- Featured Image  -->
             <div class="single-product__featured-image-container  hidden-mobile">
                 <?php if (has_post_thumbnail()) : ?>
-                    <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
+                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true) ?: get_the_title()); ?>" class="single-product__featured-image">
                 <?php endif; ?>
 
 
@@ -43,7 +43,7 @@
                 <div
                     class="single-product__featured-image-container single-product__featured-image-container--mobile hidden-desktop">
                     <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php the_post_thumbnail_url('full'); ?>" class="single-product__featured-image">
+                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true) ?: get_the_title()); ?>" class="single-product__featured-image">
                     <?php endif; ?>
 
 
@@ -52,6 +52,7 @@
 
                 <div class="single-product__description text-m">
                     <?php the_excerpt(); ?>
+                    <?php if (function_exists('tn_njc_sibling_links')) { echo tn_njc_sibling_links(get_the_ID()); } ?>
                 </div>
 
 

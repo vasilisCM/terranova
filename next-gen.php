@@ -506,7 +506,7 @@
                         </button>
                     </a>
                 </div>
-                <div><img src="<?php echo $image; ?>"></div>
+                <div><img src="<?php echo $image; ?>" alt="<?php echo esc_attr( ( ($tn_alt_id = attachment_url_to_postid( $image )) && get_post_meta( $tn_alt_id, '_wp_attachment_image_alt', true ) ) ? get_post_meta( $tn_alt_id, '_wp_attachment_image_alt', true ) : 'Terranova NextGen range' ); ?>"></div>
             </div>
 
 

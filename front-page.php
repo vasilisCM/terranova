@@ -11,6 +11,10 @@
     $button = $hero['button'];
     $video = $hero['video'];
     $video_fallback = $hero['video_fallback'];
+    // nijocrawl 25/11/2026: same hero video re-encoded (VP9, 1280x720, 49.92s, no audio) as home-v2.webm; original home.webm kept.
+    if ($video && false !== strpos($video, '/2026/10/home.webm') && file_exists(WP_CONTENT_DIR . '/uploads/2026/10/home-v2.webm')) {
+      $video = str_replace('/2026/10/home.webm', '/2026/10/home-v2.webm', $video);
+    }
     ?>
     <div class="hero__container">
       <!-- Text  -->
@@ -33,22 +37,25 @@
       <div class="circular-shape">
 
         <?php if ($video || $video_fallback) : ?>
+          <?php
+          // nijocrawl 25/11/2026: the hero video loads right after the page (window load), or when the theme starts
+          // playback after a barba transition; until then the poster (= first frame of home-v2.webm) is shown.
+          $video_poster = (false !== strpos((string) $video, '/2026/10/home-v2.webm') && file_exists(WP_CONTENT_DIR . '/uploads/2026/10/home-v2-poster.webp'))
+            ? content_url('/uploads/2026/10/home-v2-poster.webp') : '';
+          ?>
           <video
             class="circular-shape__video"
             autoplay
             loop
             muted
             playsinline
-            webkit-playsinline>
-
-            <?php if ($video) : ?>
-              <source src="<?php echo esc_url($video); ?>" type='video/webm; codecs="vp9"'>
-            <?php endif; ?>
-
-            <?php if ($video_fallback) : ?>
-              <source src="<?php echo esc_url($video_fallback); ?>" type="video/mp4">
-            <?php endif; ?>
-          </video>
+            webkit-playsinline
+            preload="none"
+            <?php if ($video_poster) : ?>poster="<?php echo esc_url($video_poster); ?>"<?php endif; ?>
+            <?php if ($video) : ?>data-src-webm="<?php echo esc_url($video); ?>"<?php endif; ?>
+            <?php if ($video_fallback) : ?>data-src-mp4="<?php echo esc_url($video_fallback); ?>"<?php endif; ?>
+            onplay="if(!this.dataset.njcSrc){var v=this,f=function(){if(v.dataset.njcSrc)return;v.dataset.njcSrc='1';v.preload='auto';[['srcWebm','video/webm; codecs=&quot;vp9&quot;'],['srcMp4','video/mp4']].forEach(function(p){var u=v.dataset[p[0]];if(u){var s=document.createElement('source');s.src=u;s.type=p[1];v.appendChild(s);}});};if(document.readyState==='complete'){f();}else{window.addEventListener('load',f);}}"></video>
+          <script>(function(v){if(!v||typeof v.onplay!=='function')return;var go=function(){setTimeout(function(){v.onplay();},0);};if(document.readyState==='complete'){go();}else{window.addEventListener('load',go);}})(document.currentScript&&document.currentScript.previousElementSibling);</script>
         <?php endif; ?>
 
         <!-- <iframe
@@ -178,7 +185,7 @@
           <?php endif; ?>
         </div>
         <div class="absolute home-presentation__img-container home-presentation__img-container--3 hidden-mobile">
-          <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>">
+          <img src="<?php echo get_template_directory_uri() . '/./assets/img/arrow-dots.svg'; ?>" alt="" aria-hidden="true">
         </div>
 
       </div>

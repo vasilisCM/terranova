@@ -13,7 +13,12 @@
             <?php the_title(); ?>
           </h1>
           <div class="archive-blog__article-info">
-            <span class="text-ms uppercase letter-spacing-medium archive-blog__date"><?php echo get_the_date('d M Y'); ?></span>
+            <?php
+            // nijocrawl 25/11/2026: αρχική ημερομηνία δημοσίευσης από το παλιό site (meta njc_original_published, Y-m-d), αλλιώς η ημερομηνία του άρθρου
+            $tn_orig_pub = (string) get_post_meta(get_the_ID(), 'njc_original_published', true);
+            $tn_orig_dt  = preg_match('/^\d{4}-\d{2}-\d{2}$/', $tn_orig_pub) ? date_create_immutable($tn_orig_pub . ' 12:00:00', new DateTimeZone('UTC')) : false;
+            ?>
+            <span class="text-ms uppercase letter-spacing-medium archive-blog__date">Published <time datetime="<?php echo esc_attr($tn_orig_dt ? $tn_orig_pub : get_the_date('c')); ?>"><?php echo esc_html($tn_orig_dt ? wp_date('j F Y', $tn_orig_dt->getTimestamp(), new DateTimeZone('UTC')) : get_the_date('j F Y')); ?></time></span>
             <?php
             // Get the first category
             $categories = get_the_category();
@@ -24,14 +29,22 @@
           </div>
 
           <div class="featured-image-single">
+            <?php
+            // nijocrawl 25/11/2026: υπάρχον μέγεθος WordPress με srcset (snippet terranova-responsive-images)
+            $tn_fi_attr = '';
+            if (function_exists('tn_njc_resp_img')) {
+              $tn_fi_id = has_post_thumbnail() ? get_post_thumbnail_id() : attachment_url_to_postid(home_url('/wp-content/uploads/2025/11/blog-hero.jpg'));
+              $tn_fi_attr = tn_njc_resp_img($tn_fi_id, '100vw', 100, 1024);
+            }
+            ?>
             <img
-              src="<?php
+              <?php if ($tn_fi_attr) : echo $tn_fi_attr; else : ?>src="<?php
                     echo esc_url(
                       has_post_thumbnail()
                         ? get_the_post_thumbnail_url(get_the_ID(), 'full')
                         : '/wp-content/uploads/2025/11/blog-hero.jpg'
                     );
-                    ?>"
+                    ?>"<?php endif; ?>
               class="featured-image-single__image"
               alt="<?php the_title_attribute(); ?>" />
           </div>
@@ -87,6 +100,8 @@
         endwhile;
       endif;
       ?>
+
+      <?php if (function_exists('tn_njc_related_posts')) { echo tn_njc_related_posts(get_the_ID()); } ?>
 
       <div class="single-post-content__button-container">
         <?php

@@ -3,16 +3,16 @@
         <?php
         if (has_post_thumbnail()) : ?>
             <div class="archive-product__img-container">
-                <img src="<?php the_post_thumbnail_url('medium_large'); ?>" class="archive-product__featured-image">
+                <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php echo esc_attr(wp_strip_all_tags(get_the_title())); ?>" class="archive-product__featured-image"<?php echo (isset($GLOBALS['wp_query']->current_post) && (int) $GLOBALS['wp_query']->current_post >= 4) ? ' loading="lazy" decoding="async"' : ''; ?>>
             </div>
         <?php endif; ?>
 
 
         <div class="archive-product__text-container">
 
-            <h3 class="archive-product__product-title">
+            <h2 class="archive-product__product-title">
                 <?php the_title(); ?>
-            </h3>
+            </h2>
 
             <div
 

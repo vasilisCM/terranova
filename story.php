@@ -63,6 +63,8 @@
         </div>
     </section>
 
+    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
+
     <section class="basic last-section story-global-presence relative">
         <?php $global_presence = get_field('story__global_presence');
         $image = $global_presence['image'];

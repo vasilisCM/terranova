@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 <head>
   <meta charset="UTF-8" />
@@ -40,7 +40,7 @@
         <a href="<?php echo esc_url(home_url('/')); ?>">
           <img
             src="<?php echo get_template_directory_uri() . '/./assets/img/logo.svg'; ?>"
-            alt=""
+            alt="Terranova Health"
             class="logo header__logo" />
         </a>
       </div>

@@ -14,7 +14,7 @@ if ($gallery): ?>
                     <?php foreach ($gallery as $image): ?>
                         <div class="carousel__slide">
                             <div class="lightbox__img-container">
-                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr(!empty($image['alt']) ? $image['alt'] : get_the_title()); ?>">
                             </div>
                             <div class="lightbox__caption">
                                 <?php echo $image['caption']; ?>

@@ -17,7 +17,7 @@
         <div class="boxed-sm centered intro__container">
             <div class="heading-xs uppercase letter-spacing-medium"><?php echo $text_1; ?></div>
             <div class="heading-m"><?php echo $text_2; ?></div>
-            <div class="text"><?php echo $text_3; ?></div>
+            <div class="text"><p><?php echo $text_3; ?></p></div>
         </div>
     </section>
 
@@ -207,7 +207,7 @@
         </div>
     </section>
 
-
+    <?php if (function_exists('terranova_njc_page_faq')) terranova_njc_page_faq(); ?>
 
 </main>
 

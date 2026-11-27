@@ -36,8 +36,8 @@ $distributors = get_field('distributors', 'option');
             <div>
               <div class="contact__body">
                 <form data-multi-email-form action="">
-                  <label class="input light lowercase" for=""><?php _e('Select your Country', 'terranova'); ?></label>
-                  <select data-country class="input light capitalize">
+                  <label class="input light lowercase" for="tn-contact-country"><?php _e('Select your Country', 'terranova'); ?></label>
+                  <select data-country id="tn-contact-country" class="input light capitalize">
                     <?php if ($distributors): ?>
                       <?php foreach ($distributors as $distributor): ?>
                         <?php
@@ -92,9 +92,11 @@ $distributors = get_field('distributors', 'option');
                     <?php endif; ?>
                     <br />
                     <span class="contact-info-box__item">Email:
-                      <a href="<?php echo $distributor['email'] ? 'mailto:' . esc_attr($distributor['email']) : '#' ?>" class="contact-info-box__link">
-                        <?php echo esc_html($distributor['email'] ?? '') ?>
+                      <?php if (!empty($distributor['email'])): ?>
+                      <a href="<?php echo 'mailto:' . esc_attr($distributor['email']) ?>" class="contact-info-box__link">
+                        <?php echo esc_html($distributor['email']) ?>
                       </a>
+                      <?php endif; ?>
                       <br />
                       <?php if ($distributor['website']): ?>
                         <a
